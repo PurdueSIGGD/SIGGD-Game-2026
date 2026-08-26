@@ -1,0 +1,21 @@
+name: Up to Date
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-up-to-date:
+    name: Up to Date with main
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if branch is up to date
+        run: |
+          if [ "${{ github.event.pull_request.base.sha }}" != "${{ github.event.pull_request.merge_commit_sha }}" ]; then
+            echo "PR branch is not up to date with main."
+            exit 1
+          fi
+
+          echo "PR branch is up to date with main."
