@@ -20,9 +20,11 @@ jobs:
         include:
           - platform: Windows
             targetPlatform: StandaloneWindows64
+            buildPath: build/Windows
 
           - platform: macOS
             targetPlatform: StandaloneOSX
+            buildPath: build/macOS
 
     steps:
       - name: Checkout
@@ -38,3 +40,10 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          buildPath: ${{ matrix.buildPath }}
+
+      - name: Upload Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}-Build
+          path: ${{ matrix.buildPath }}
