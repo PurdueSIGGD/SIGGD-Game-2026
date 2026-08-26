@@ -1,0 +1,22 @@
+# This workflow exists to make "Require branches to be up to date before
+# merging" possible without making the Unity builds a required check.
+
+name: PR Ready
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-ready:
+    name: PR Ready
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Confirm the pull request is mergeable
+        run: |
+          echo "This check anchors the branch protection rules for main."
+          echo "If it is green but merging is still blocked, the reason is one of:"
+          echo "  - the branch is behind main (update it from main, then push)"
+          echo "  - the pull request has not been approved yet"

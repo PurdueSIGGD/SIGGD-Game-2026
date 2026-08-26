@@ -1,0 +1,63 @@
+name: PR Build
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+# Only keep the newest build for a given pull request.
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build ${{ matrix.platform }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        include:
+          - platform: Windows
+            targetPlatform: StandaloneWindows64
+            buildPath: build/Windows
+
+          - platform: macOS
+            targetPlatform: StandaloneOSX
+            buildPath: build/macOS
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ matrix.platform }}-${{ hashFiles('Packages/manifest.json', 'Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: |
+            Library-${{ matrix.platform }}-
+
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildsPath: ${{ matrix.buildPath }}
+
+      - name: Upload Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}-Build
+          path: ${{ matrix.buildPath }}
+          retention-days: 1

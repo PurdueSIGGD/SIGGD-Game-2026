@@ -1,0 +1,79 @@
+name: Bug Report
+description: Something in the game is broken or behaving unexpectedly.
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing, check the open issues to see if someone already reported this.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What went wrong?
+      description: One or two sentences describing the problem.
+      placeholder: The player did something unexpected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exactly what you did, in order, so someone else can see it too.
+      placeholder: |
+        1. Open Scenes/Tutorial.unity
+        2. Enter play mode
+        3. Do something
+        4. Do something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: The player should not do that.
+    validations:
+      required: true
+
+  - type: input
+    id: branch
+    attributes:
+      label: Branch or commit
+      description: Which branch were you on? If you know the commit hash, include it.
+      placeholder: "main, or feature/player-movement @ a1b2c3d"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Where did you see this?
+      options:
+        - Unity Editor (play mode)
+        - Windows build
+        - macOS build
+        - Both editor and build
+    validations:
+      required: true
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: >-
+        Paste any red errors from the Unity console if there are any, including the stack trace.
+        This is automatically formatted as code, so no backticks needed.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or anything else
+      description: A clip or screenshot helps a lot for anything visual.
+    validations:
+      required: false

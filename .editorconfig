@@ -1,0 +1,107 @@
+# SIGGD Game 2026: C# code style
+#
+# This file mirrors the SIGGD C# Style Guide:
+# https://purduesiggd.github.io/SIGGD-Docs/tutorials/programming/csharp-style-guide/
+#
+# Your code editor reads this automatically. Unity itself ignores it, so nothing
+# in here can break a build; it only changes how your editor formats code and
+# which hints it shows. Naming mistakes show up as warnings, everything else as
+# suggestions.
+#
+# Not checked here (the style guide allows more than one option, so these are
+# up to you and your reviewer): private field naming, comments, and the
+# practices in Part 2 of the guide.
+
+root = true
+
+[*.cs]
+
+# Indentation: four spaces, no tabs.
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+
+# Braces on their own lines (Allman style).
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+
+# Use var only when the type is obvious from the right-hand side.
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = false:suggestion
+
+# Unity compiles C# 9, so don't suggest syntax it can't use.
+csharp_style_namespace_declarations = block_scoped:suggestion
+dotnet_style_prefer_collection_expression = never
+csharp_style_prefer_primary_constructors = false
+
+# Namespaces group systems as needed; they don't have to mirror folders.
+dotnet_style_namespace_match_folder = false
+
+# ----------------------------------------------------------------------------
+# Naming
+# ----------------------------------------------------------------------------
+
+dotnet_diagnostic.IDE1006.severity = warning
+
+# Note: pascal_case only checks that each word starts with a capital letter,
+# so SCREAMING_CASE constants (MAX_LIVES) slip through. That one's for review.
+
+# Symbol groups
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_symbols.interfaces.applicable_accessibilities = *
+
+dotnet_naming_symbols.types.applicable_kinds = class, struct, enum, delegate
+dotnet_naming_symbols.types.applicable_accessibilities = *
+
+dotnet_naming_symbols.members.applicable_kinds = method, property, event, local_function
+dotnet_naming_symbols.members.applicable_accessibilities = *
+
+dotnet_naming_symbols.non_private_fields.applicable_kinds = field
+dotnet_naming_symbols.non_private_fields.applicable_accessibilities = public, internal, protected, protected_internal, private_protected
+
+dotnet_naming_symbols.constants.applicable_kinds = field, local
+dotnet_naming_symbols.constants.applicable_accessibilities = *
+dotnet_naming_symbols.constants.required_modifiers = const
+
+dotnet_naming_symbols.parameters_and_locals.applicable_kinds = parameter, local
+dotnet_naming_symbols.parameters_and_locals.applicable_accessibilities = *
+
+# Naming styles
+
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.camel_case.capitalization = camel_case
+
+dotnet_naming_style.i_prefix.capitalization = pascal_case
+dotnet_naming_style.i_prefix.required_prefix = I
+
+# Rules
+
+dotnet_naming_rule.interfaces_start_with_i.symbols = interfaces
+dotnet_naming_rule.interfaces_start_with_i.style = i_prefix
+dotnet_naming_rule.interfaces_start_with_i.severity = warning
+
+dotnet_naming_rule.types_are_pascal_case.symbols = types
+dotnet_naming_rule.types_are_pascal_case.style = pascal_case
+dotnet_naming_rule.types_are_pascal_case.severity = warning
+
+dotnet_naming_rule.members_are_pascal_case.symbols = members
+dotnet_naming_rule.members_are_pascal_case.style = pascal_case
+dotnet_naming_rule.members_are_pascal_case.severity = warning
+
+dotnet_naming_rule.non_private_fields_are_pascal_case.symbols = non_private_fields
+dotnet_naming_rule.non_private_fields_are_pascal_case.style = pascal_case
+dotnet_naming_rule.non_private_fields_are_pascal_case.severity = warning
+
+dotnet_naming_rule.constants_are_pascal_case.symbols = constants
+dotnet_naming_rule.constants_are_pascal_case.style = pascal_case
+dotnet_naming_rule.constants_are_pascal_case.severity = warning
+
+dotnet_naming_rule.parameters_and_locals_are_camel_case.symbols = parameters_and_locals
+dotnet_naming_rule.parameters_and_locals_are_camel_case.style = camel_case
+dotnet_naming_rule.parameters_and_locals_are_camel_case.severity = warning
