@@ -32,6 +32,14 @@ jobs:
         with:
           lfs: true
 
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ matrix.platform }}-${{ hashFiles('Packages/manifest.json', 'Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: |
+            Library-${{ matrix.platform }}-
+
       - name: Build Unity Project
         uses: game-ci/unity-builder@v4
         env:
@@ -47,3 +55,4 @@ jobs:
         with:
           name: ${{ matrix.platform }}-Build
           path: ${{ matrix.buildPath }}
+          retention-days: 1
