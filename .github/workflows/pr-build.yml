@@ -7,6 +7,11 @@ on:
 
   workflow_dispatch:
 
+# Only keep the newest build for a given pull request.
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build ${{ matrix.platform }}

@@ -1,0 +1,10 @@
+# Blank issues stay enabled on purpose. The templates are there to help, not to
+# stop someone filing a quick note.
+blank_issues_enabled: true
+
+contact_links:
+  - name: Club documentation and tutorials
+    url: https://PurdueSIGGD.github.io/SIGGD-Docs/
+    about: Git guides, project docs, and club resources.
+  # TODO: add a Discord invite link here if you want questions routed there
+  # instead of into issues.

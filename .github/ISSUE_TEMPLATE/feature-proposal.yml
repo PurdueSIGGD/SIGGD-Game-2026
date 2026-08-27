@@ -1,0 +1,83 @@
+name: Feature or Mechanic Proposal
+description: Propose a new feature, mechanic, or system for the game.
+labels:
+  - feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for anything that adds to the game: a mechanic, a system, a UI
+        screen, a tool, etc.
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What are you proposing?
+      description: Describe the feature or mechanic as concretely as you can.
+      placeholder: >-
+        Type here
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does the game need it?
+      description: >-
+        What does this improve?
+      placeholder: >-
+        Type here
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area does this mostly touch?
+      options:
+        - Gameplay / programming
+        - Art / visual
+        - Audio
+        - UI / UX
+        - Level design
+        - Tooling / pipeline
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Rough scope
+      options:
+        - Small (a session or two)
+        - Medium (a week or so)
+        - Large (multiple weeks, consider breaking up into smaller tasks)
+        - No idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Does this depend on anything?
+      description: >-
+        Other features, assets, or decisions that block this from being implemented. If it doesn't depend on anything, leave blank.
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: >-
+        Other games, references, or inspirations for this feature. If there are none, leave blank.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: volunteer
+    attributes:
+      label: Do you want to build this?
+      options:
+        - label: I'd like to work on this myself
