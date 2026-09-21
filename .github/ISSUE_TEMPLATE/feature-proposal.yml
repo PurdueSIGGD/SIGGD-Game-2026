@@ -28,7 +28,7 @@ body:
       placeholder: >-
         Type here
     validations:
-      required: true
+      required: false
 
   - type: dropdown
     id: area
@@ -74,10 +74,3 @@ body:
         Other games, references, or inspirations for this feature. If there are none, leave blank.
     validations:
       required: false
-
-  - type: checkboxes
-    id: volunteer
-    attributes:
-      label: Do you want to build this?
-      options:
-        - label: I'd like to work on this myself
