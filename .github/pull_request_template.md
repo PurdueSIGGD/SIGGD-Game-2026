@@ -1,3 +1,5 @@
+Discord Username (so I can contact you): 
+
 ## What does this PR add or change?
 
 <!-- Be specific about what changed and why. One or two sentences is usually enough. -->
@@ -13,14 +15,14 @@ If there isn't an issue, delete this section.
 
 Closes #
 
-## Checklist
+## Checklist (check in this order!)
 
+- [ ] My branch is up to date with `main`
 - [ ] I opened the project in Unity and my change works as expected
 - [ ] No new errors in the Unity console
 - [ ] Every new asset has its matching `.meta` file committed
 - [ ] No unnecessary files are committed
-- [ ] My changes are complete, modular, and abide by standard C# style guides.
-- [ ] My branch is up to date with `main`
+- [ ] My changes are complete, modular, and abide by our standard C# style guide.
 
 ## Type of change
 
