@@ -1,0 +1,62 @@
+name: Story Task
+description: Details for a story task
+labels:
+  - storying
+body:
+  - type: markdown
+    attributes:
+      value: |
+         Generally don't make one of these unless you're the story lead. I will know because I am story lead
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Task Description
+      description: Describe the task that needs to be completed
+      placeholder: >-
+        Type Here
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area of the story does this mostly affect?
+      options:
+        - MCs
+        - Bosses
+        - Lore/Worldbuilding
+    validations:
+      required: true
+
+  - type: dropdown
+    id: time-cost
+    attributes:
+      label: Time cost
+      options:
+        - Small (done by next meeting)
+        - Medium (done in about a week)
+        - Large (multiple weeks, talk to me about this)
+        - No idea (also talk to me)
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Does this depend on something from another team (generally art)?
+      placeholder: >-
+        Type Here. Specify what team it depends on and what is needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Additional notes. This is not necessary
+      placeholder: >-
+        Type Here
+    validations:
+      required: false
