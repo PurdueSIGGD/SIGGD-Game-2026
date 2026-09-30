@@ -47,7 +47,7 @@ body:
       label: Dependencies
       description: Does this depend on something from another team (generally art)?
       placeholder: >-
-      Type Here. Specify what team it depends on and what is needed
+        Type Here. Specify what team it depends on and what is needed
     validations:
       required: true
 
@@ -57,6 +57,6 @@ body:
       label: Notes
       description: Additional notes. This is not necessary
       placeholder: >-
-      Type Here
+        Type Here
     validations:
       required: false
