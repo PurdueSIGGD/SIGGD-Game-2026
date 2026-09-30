@@ -1,76 +1,62 @@
 name: Story Task
-description: Details for a story task. Generally don't make one of these unless you're the story lead
+description: Details for a story task
 labels:
   - storying
 body:
   - type: markdown
     attributes:
       value: |
-        Use this for anything that adds to the game: a mechanic, a system, a UI
-        screen, a tool, etc.
+         Generally don't make one of these unless you're the story lead. I will know because I am story lead
 
   - type: textarea
-    id: proposal
+    id: task-description
     attributes:
-      label: What are you proposing?
-      description: Describe the feature or mechanic as concretely as you can.
+      label: Task Description
+      description: Describe the task that needs to be completed
       placeholder: >-
-        Type here
+        Type Here
     validations:
       required: true
-
-  - type: textarea
-    id: why
-    attributes:
-      label: Why does the game need it?
-      description: >-
-        What does this improve?
-      placeholder: >-
-        Type here
-    validations:
-      required: false
 
   - type: dropdown
     id: area
     attributes:
-      label: Which area does this mostly touch?
+      label: Which area of the story does this mostly affect?
       options:
-        - Gameplay / programming
-        - Art / visual
-        - Audio
-        - UI / UX
-        - Level design
-        - Tooling / pipeline
-        - Not sure
+        - MCs
+        - Bosses
+        - Lore/Worldbuilding
     validations:
       required: true
 
   - type: dropdown
-    id: scope
+    id: time-cost
     attributes:
-      label: Rough scope
+      label: Time cost
       options:
-        - Small (a session or two)
-        - Medium (a week or so)
-        - Large (multiple weeks, consider breaking up into smaller tasks)
-        - No idea
+        - Small (done by next meeting)
+        - Medium (done in about a week)
+        - Large (multiple weeks, talk to me about this)
+        - No idea (also talk to me)
     validations:
       required: true
 
   - type: textarea
     id: dependencies
     attributes:
-      label: Does this depend on anything?
-      description: >-
-        Other features, assets, or decisions that block this from being implemented. If it doesn't depend on anything, leave blank.
+      label: Dependencies
+      description: Does this depend on something from another team (generally art)?
+      placeholder: >-
+      Type Here. Specify what team it depends on and what is needed
     validations:
-      required: false
+      required: true
 
   - type: textarea
-    id: references
+    id: notes
     attributes:
-      label: References
-      description: >-
-        Other games, references, or inspirations for this feature. If there are none, leave blank.
+      label: Notes
+      description: Additional notes. This is not necessary
+      placeholder: >-
+      Type Here
     validations:
       required: false
