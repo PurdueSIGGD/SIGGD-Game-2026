@@ -1,5 +1,5 @@
-name: Feature or Mechanic Proposal
-description: Propose a new feature, mechanic, or system for the game.
+name: Story Task
+description: Details for a story task. Generally don't make one of these unless you're the story lead
 labels:
   - storying
 body:
