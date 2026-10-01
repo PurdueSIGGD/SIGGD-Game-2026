@@ -3,26 +3,21 @@ using UnityEngine.Events;
 
 public class GenericBoss : MonoBehaviour
 {
-    [SerializeField] private double health;
-    public UnityEvent<double> CauseBossDamage = new UnityEvent<double>();
+    public float Health => health;
+    [SerializeField] private float health;
+    public UnityEvent<GameObject, float> OnBossTakeDamage;
 
-    void DamageBoss(double damage)
+    public void DamageBoss(GameObject source, float damage)
     {
         health -= damage;
+        OnBossTakeDamage?.Invoke(source, damage);
     }
 
-    public double GetBossHealth()
-    {
-        return health;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CauseBossDamage.AddListener(DamageBoss);
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
