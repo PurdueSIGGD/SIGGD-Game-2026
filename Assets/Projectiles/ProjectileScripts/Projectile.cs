@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     {
         if (lifetime > 0)
         {
-            lifetime -= Time.deltaTime;
+            lifetime -= 1f * Time.deltaTime;
         }
     }
 }
