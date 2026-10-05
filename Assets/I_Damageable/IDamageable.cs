@@ -8,7 +8,7 @@ public interface IDamageable {
 }
 
 public struct DamageContext {
-    public float damageAmount;
-    public GameObject attacker;
-    public GameObject victim;
+    public float DamageAmount;
+    public GameObject Attacker;
+    public GameObject Victim;
 }
