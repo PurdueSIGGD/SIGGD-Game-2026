@@ -10,7 +10,7 @@ public class GenericBoss : MonoBehaviour, IDamagable
     [SerializeField] private float maxHealth;
     public UnityEvent<GameObject, float> OnBossTakeDamage;
     public UnityEvent<GameObject> OnBossDeath;
-    public float[] PhaseBoundaries;
+    public float[] PhaseBoundaries = {1};
     public int CurrentPhase = 0;
 
     public void TakeDamage(DamageContext context)
