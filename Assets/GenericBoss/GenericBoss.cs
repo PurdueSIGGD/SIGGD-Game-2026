@@ -1,27 +1,42 @@
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GenericBoss : MonoBehaviour
+public class GenericBoss : MonoBehaviour, IDamagable
 {
-    public float Health => health;
-    [SerializeField] private float health;
+    public float CurrentHealth => currentHealth;
+    [SerializeField] private float currentHealth;
+    public float MaxHealth => maxHealth;
+    [SerializeField] private float maxHealth;
     public UnityEvent<GameObject, float> OnBossTakeDamage;
     public UnityEvent<GameObject> OnBossDeath;
+    public int[] PhaseBoundaries = [1, 0.5, 0.25];
+    public int CurrentPhase = 0;
 
-    public void DamageBoss(GameObject source, float damage)
+    public void TakeDamage(DamageContext context)
     {
-        health -= damage;
-        OnBossTakeDamage?.Invoke(source, damage);
-
-        if (health <= 0)
+        if (context.Victim == GameObject.gameObject)
         {
-            OnBossDeath?.Invoke(source);
+            health -= context.DamageAmount;
+            OnBossTakeDamage?.Invoke(context);
+
+            for (; CurrentPhase < PhaseBoundaries.Length-1 && health < phaseBoundaries[currentPhase+1] * MaxHealth; CurrentPhase++){}
+
+            if (health <= 0)
+            {
+                OnBossDeath?.Invoke(context);
+            }
         }
+        
     }
 
     void Start()
     {
-        
+        if (phaseBoundaries.Length > 0 && phaseBoundaries[0] != 1)
+        {
+            Debug.Log("Missing Full Health Phase");
+        }
+        MaxHealth = health;
     }
 
     void Update()
