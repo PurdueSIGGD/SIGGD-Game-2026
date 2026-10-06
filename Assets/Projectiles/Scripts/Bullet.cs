@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] bool isExplosive;
-    [SerializeField] int damage;
-    [SerializeField] float lifetime;
-    [SerializeField] float velocity;
+    private bool isExplosive;
+    private int damage;
+    private float lifetime;
+    private float velocity;
 
     private void Update()
     {
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         return isExplosive;
     }
 
-    public int GetIsDamage()
+    public int GetDamage()
     {
         return damage;
     }
@@ -33,5 +33,24 @@ public class Bullet : MonoBehaviour
     public float GetVelocity()
     {
         return velocity;
+    }
+
+    public void SetIsExplosive(bool inIsExplosive)
+    {
+        isExplosive = inIsExplosive;
+    }
+
+    public void SetDamage(int inDamage)
+    {
+        damage = inDamage;
+    }
+    public void SetLifetime(float inLifetime)
+    {
+        lifetime = inLifetime;
+    }
+
+    public void SetVelocity(float inVelocity)
+    {
+        velocity = inVelocity;
     }
 }

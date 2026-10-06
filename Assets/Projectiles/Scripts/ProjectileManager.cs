@@ -7,31 +7,30 @@ public class ProjectileManager : Singleton<ProjectileManager>
 
     private ObjectPool<GameObject> projectilePool;
 
+    [SerializeField] private GameObject Bullet;
+
     protected override void Awake()
     {
         base.Awake();
 
         // setting up actions for the projectilPool
         projectilePool = new ObjectPool<GameObject>(
-            createFunc: SpawnProjectile
-
+            createFunc: MakeProjectile
         );
     }
 
-    private void Start()
-    {
-        
-    }
-
-    private GameObject SpawnProjectile()
+    // will be called when a new projectile needs to be made
+    private GameObject MakeProjectile()
     {
         return null;
     }
 
 
     // what other scripts call to shoot projectile
-    public void ShootProjectile(ProjectileScriptableObject projectileScriptableObject)
+    public void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Vector2 direction)
     {
-        Bullet bullet = projectileScriptableObject.Bullet.GetComponent<Bullet>();
+        // make/get projectile from the pool then assign the values from projectile scriptable object onto it then shoot in direciton
+        GameObject bullet = projectilePool.Get();
+
     }
 }
