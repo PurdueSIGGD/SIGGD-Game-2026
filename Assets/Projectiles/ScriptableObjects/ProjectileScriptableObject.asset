@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0e0d47d9b272c4a98dffab33a472ae, type: 3}
   m_Name: ProjectileScriptableObject
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 2398650426918279422, guid: bef75303dd2a3d542ba07bd9fc0624a3, type: 3}
