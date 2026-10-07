@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float moveSpeed = 8f;
+
+    private Vector2 currentInputVector;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,13 +16,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+    }
+
+    private void OnDisable()
+    {
+        // Always unsubscribe from events when destroyed or disabled to prevent memory leaks
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.OnPlayerMove.RemoveListener(MovePlayerCharacter);
+        }
     }
 
     void MovePlayerCharacter(Vector2 moveVector)
     {
-        // create a gameobject in scene, call it player, attach this script
-        // add a rigidbody2d to the player, find an api that applies force to that rigidbody
-        // serialize a rigidbody2d field, drag it in from the editor. 
+        currentInputVector = moveVector;
     }
-}
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(currentInputVector * moveSpeed, ForceMode2D.Force);
+    }
+}   
