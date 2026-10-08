@@ -19,7 +19,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
             actionOnRelease: OnRelease,
             actionOnGet: OnGet,
             actionOnDestroy: OnDestroyItem,
-            defaultCapacity: 20, // allocates the memory for the first 20 objects so that can be created quicker when they are called to be created
+            defaultCapacity: 20, // allocates memory for the first 20 objects
             collectionCheck: true
         );
     }
@@ -49,8 +49,12 @@ public class ProjectileManager : Singleton<ProjectileManager>
         Destroy(pooledObject);
     }
 
-    // this spawns the projectile at the firepoint, rotates it to face the MOUSE and then shoots it with the velocity in the direction from the firepoint to the mouse
-    public void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint) // direciton might have to be the mouse position as thats the direction it needs to shoot in but thatll mess up velocity stuff so we might need a normalized direction thing i dunno man
+    /// <summary>
+    /// Shoots projectile towards the mouse, only needed to be called when a player is shooting a projectile
+    /// </summary>
+    /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
+    /// <param name="firePoint"> The point where the bullet is shooting from </param>
+    public void ShootProjectileTowardsMouse(ProjectileScriptableObject projectileScriptableObject, Transform firePoint)
     {
         // getting bullet objects
         GameObject bullet = ProjectilePool.Get();
@@ -68,15 +72,39 @@ public class ProjectileManager : Singleton<ProjectileManager>
         bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
     }
 
-    // this overload is here because bosses wont want to shoot towards the mouse and instead will have a firepoint but also a target which could be the player or could be
-    // this direction can be calculated by whoever is shooting the boss and direciton can be the difference between the player and the firepoint or can just be a point in the space that the boss is shooting towards
-    public void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
+    /// <summary>
+    /// Shoots the projectile towards the passed in direction vector for boss attacks / enemy attacks
+    /// </summary>
+    /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
+    /// <param name="firePoint"> The point where the bullet is shooting from </param>
+    /// <param name="direction"> The direction that the projectile should be shot in </param>
+    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction) // this could not work i dunno testing will come later
     {
         // getting bullet objects
         GameObject bullet = ProjectilePool.Get();
         Bullet bulletScript = bullet.GetComponent<Bullet>();
 
-        // the target rotation that the bullet shoult get set to
+        // the target rotation that the bullet should get set to
+        float targetAngleZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
+    }
+
+    /// <summary>
+    /// Shoots the projectile towards a target point
+    /// </summary>
+    /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
+    /// <param name="firePoint"> The point where the bullet is shooting from </param>
+    /// <param name="targetPoint"> the target that the projectile is being shot to </param>
+    public void ShootProjectileTowardsPoint(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint)
+    {
+        GameObject bullet = ProjectilePool.Get();
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+        // make direction vector from the starting point and end point
+        Vector2 direction = (targetPoint.position - firePoint.position).normalized;
+
+        // the target rotation that the bullet should get set to
         float targetAngleZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
