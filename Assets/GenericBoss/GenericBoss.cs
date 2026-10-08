@@ -10,7 +10,7 @@ public class GenericBoss : MonoBehaviour, IDamagable
     public UnityEvent<GameObject, float> OnBossTakeDamage;
     public UnityEvent<GameObject> OnBossDeath;
     /// <summary>
-    /// Stores health value upper boundries for each phase in decending order.
+    /// Stores health level upper boundries (in decending order) for each phase.
     /// </summary>
     public int[] PhaseHealthBoundaries;
     /// <summary>
