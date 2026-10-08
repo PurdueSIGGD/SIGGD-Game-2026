@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.IO;
 using System;
+using System.Reflection;
+using System.Linq;
 
 // Missing (Including but not limited to)
 // 1. Ensure the size and format of the file is exactly equal to the size of all properties.
@@ -19,8 +21,20 @@ public class Filing : ScriptableObject
 
     public class State // Example properties for now
     {
-        public Vector2 position;
-        public float health;
+        public Vector2 Position;
+        public float Health;
+    }
+
+    /// <summary>
+    /// Deterministic ordering
+    /// </summary>
+    /// <returns>Array of all fields in class State</returns>
+    private static FieldInfo[] GetFields()
+    {
+        Type type = typeof(State);
+        return type.GetFields()
+            .OrderBy(f => f.MetadataToken)
+            .ToArray();
     }
 
     public static State Load()
@@ -36,8 +50,8 @@ public class Filing : ScriptableObject
 
         State state = new State();
 
-        state.position = BytesToVector2(reader.ReadBytes(sizeof(float) * 2));
-        state.health = reader.ReadSingle();
+        state.Position = BytesToVector2(reader.ReadBytes(sizeof(float) * 2));
+        state.Health = reader.ReadSingle();
 
         return state;
     }
@@ -47,16 +61,34 @@ public class Filing : ScriptableObject
         using var stream = File.Open(FileName, FileMode.Create);
         using var writer = new BinaryWriter(stream);
 
-        writer.Write(Vector2ToBytes(state.position));
-        writer.Write(state.health);
+        FieldInfo[] fields = GetFields();
+
+        foreach (FieldInfo field in fields)
+        {
+            if (field.FieldType == typeof(Vector2))
+            {
+                writer.Write(Vector2ToBytes((Vector2) field.GetValue(state)));
+            }
+            else if (field.FieldType.IsPrimitive)
+            {
+                writer.Write(field.GetValue(state));
+            }
+            else
+            {
+                throw new InvalidDataException("Serialization of non-primitive data type not implemented for " + field.FieldType);
+            }
+        }
+        
+        writer.Write(Vector2ToBytes(state.Position));
+        writer.Write(state.Health);
     }
 
     public static State Default()
     {
         State state = new State();
 
-        state.position = Vector2.zero;
-        state.health = 100f;
+        state.Position = Vector2.zero;
+        state.Health = 100f;
 
         return state;
     }
