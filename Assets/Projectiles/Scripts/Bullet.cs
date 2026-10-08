@@ -13,6 +13,23 @@ public class Bullet : MonoBehaviour
         {
             lifetime -= 1f * Time.deltaTime;
         }
+        else
+        {
+            ProjectileManager.Instance.ProjectilePool.Release(gameObject);
+        }
+    }
+
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Quaternion bulletRotation, Vector2 shootDirection)
+    {
+        isExplosive = projectileScriptableObject.IsExplosive;
+        damage = projectileScriptableObject.Damage;
+        lifetime = projectileScriptableObject.Lifetime;
+
+        // aim bullet at mouse
+        gameObject.transform.rotation = bulletRotation;
+
+        // adding force to bullet attack
+        Rigidbody2D bulletRB = gameObject.GetComponent<Rigidbody2D>(); 
     }
 
     public bool GetIsExplosive()

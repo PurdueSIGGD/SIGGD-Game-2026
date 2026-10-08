@@ -5,7 +5,7 @@ using Extensions.Singleton;
 public class ProjectileManager : Singleton<ProjectileManager>
 {
 
-    private ObjectPool<GameObject> projectilePool;
+    public ObjectPool<GameObject> ProjectilePool;
 
     [SerializeField] private GameObject Bullet;
 
@@ -13,9 +13,11 @@ public class ProjectileManager : Singleton<ProjectileManager>
     {
         base.Awake();
 
-        // setting up actions for the projectilPool
-        projectilePool = new ObjectPool<GameObject>(
-            createFunc: MakeProjectile
+        // setting up actions for the projectilePool
+        ProjectilePool = new ObjectPool<GameObject>(
+            createFunc: MakeProjectile,
+            actionOnRelease: OnRelease,
+            collectionCheck: true
         );
     }
 
@@ -25,12 +27,29 @@ public class ProjectileManager : Singleton<ProjectileManager>
         return null;
     }
 
+    private void OnRelease(GameObject objectToRelease)
+    {
+        objectToRelease.SetActive(false);
+    }
+
 
     // what other scripts call to shoot projectile
-    public void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Vector2 direction)
+    public void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint) // direciton might have to be the mouse position as thats the direction it needs to shoot in but thatll mess up velocity stuff so we might need a normalized direction thing i dunno man
     {
-        // make/get projectile from the pool then assign the values from projectile scriptable object onto it then shoot in direciton
-        GameObject bullet = projectilePool.Get();
+        // getting bullet objects
+        GameObject bullet = ProjectilePool.Get();
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        
+        // rotate spawned bullet to face mouse
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
 
+        Vector2 direction = (mousePos - firePoint.position).normalized;
+
+        float angleRad = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angleDeg = (180 / Mathf.PI) * angleRad - 90;
+        Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
+
+        bulletScript.PopulateBulletValues(projectileScriptableObject, rotation, direction);
     }
 }
