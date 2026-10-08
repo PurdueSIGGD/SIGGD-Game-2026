@@ -46,10 +46,9 @@ public class ProjectileManager : Singleton<ProjectileManager>
 
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
-        float angleRad = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        float angleDeg = (180 / Mathf.PI) * angleRad - 90;
-        Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
+        // the target rotation that the bullet shoult get set to
+        float targetAngleZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        bulletScript.PopulateBulletValues(projectileScriptableObject, rotation, direction);
+        bulletScript.PopulateBulletValues(projectileScriptableObject, targetAngleZ, direction);
     }
 }

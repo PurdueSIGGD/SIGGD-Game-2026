@@ -5,7 +5,6 @@ public class Bullet : MonoBehaviour
     private bool isExplosive;
     private int damage;
     private float lifetime;
-    private float velocity;
 
     private void Update()
     {
@@ -19,17 +18,24 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Quaternion bulletRotation, Vector2 shootDirection)
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, float bulletRotationTargetAngle, Vector2 shootDirection)
     {
         isExplosive = projectileScriptableObject.IsExplosive;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
 
-        // aim bullet at mouse
-        gameObject.transform.rotation = bulletRotation;
+        // getting needed components
+        Rigidbody2D bulletRB = gameObject.GetComponent<Rigidbody2D>();
+        SpriteRenderer bulletSR = gameObject.GetComponent<SpriteRenderer>();
 
-        // adding force to bullet attack
-        Rigidbody2D bulletRB = gameObject.GetComponent<Rigidbody2D>(); 
+        // set bullet sprite
+        bulletSR.sprite = projectileScriptableObject.Sprite;
+
+        // rotate bullet to face player
+        bulletRB.rotation = bulletRotationTargetAngle + projectileScriptableObject.BulletAngleOffset;
+
+        // give bullet its speed and direction
+        bulletRB.AddForce(shootDirection * projectileScriptableObject.Velocity, ForceMode2D.Impulse);
     }
 
     public bool GetIsExplosive()
