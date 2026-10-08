@@ -6,6 +6,7 @@ public interface IDamageable
 {
     float CurrentHealth { get; }
     float MaxHealth { get; }
+    bool IsAlive => CurrentHealth > 0;
     public void TakeDamage(DamageContext context);
 }
 
