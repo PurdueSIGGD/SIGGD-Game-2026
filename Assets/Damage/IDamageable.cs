@@ -1,13 +1,19 @@
 using UnityEngine;
-
-public interface IDamageable {
-
+/// <summary>
+/// Interface for damageable entities. Any entity that can take damage should implement this interface.
+/// </summary>
+public interface IDamageable
+{
     float CurrentHealth { get; }
     float MaxHealth { get; }
     public void TakeDamage(DamageContext context);
 }
 
-public struct DamageContext {
+/// <summary>
+/// Struct for containing damage information.
+/// </summary>
+public struct DamageContext
+{
     public float DamageAmount;
     public GameObject Attacker;
     public GameObject Victim;
