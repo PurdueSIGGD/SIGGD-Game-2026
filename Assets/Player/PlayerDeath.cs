@@ -29,6 +29,7 @@ public class PlayerDeath : MonoBehaviour
     /// </summary>
     public void Die()
     {
+        // Disable player controls?
         // If single-player, call GameOver()
         // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
         if (ghostSpeed == 0)
@@ -46,6 +47,7 @@ public class PlayerDeath : MonoBehaviour
     /// </summary>
     private void GameOver()
     {
+        // Game over UI?
         // Restart the current boss
         Reset();
     }
