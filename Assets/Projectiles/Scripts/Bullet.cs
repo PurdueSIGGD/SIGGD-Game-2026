@@ -41,10 +41,10 @@ public class Bullet : MonoBehaviour
         // set bullet sprite
         bulletSR.sprite = projectileScriptableObject.Sprite;
 
-        // rotate bullet to face player
-        bulletRB.rotation = bulletRotationTargetAngle + projectileScriptableObject.BulletAngleOffset;
+        // rotate bullet
+        bulletRB.rotation = bulletRotationTargetAngle;
 
-        // give bullet its speed and direction
+        // give bullet its speed and in the direction
         bulletRB.AddForce(shootDirection * projectileScriptableObject.Velocity, ForceMode2D.Impulse);
     }
 

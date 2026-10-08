@@ -4,7 +4,6 @@ using Extensions.Singleton;
 
 public class ProjectileManager : Singleton<ProjectileManager>
 {
-
     public ObjectPool<GameObject> ProjectilePool;
 
     [SerializeField] private GameObject bulletPrefab;
@@ -104,8 +103,8 @@ public class ProjectileManager : Singleton<ProjectileManager>
         // make direction vector from the starting point and end point
         Vector2 direction = (targetPoint.position - firePoint.position).normalized;
 
-        // the target rotation that the bullet should get set to
-        float targetAngleZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        // the target rotation that the bullet should get set to plus the offset
+        float targetAngleZ = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + projectileScriptableObject.BulletAngleOffset;
 
         bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
     }
