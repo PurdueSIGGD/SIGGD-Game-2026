@@ -3,7 +3,10 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public float CurrentHealth { get; private set; }
+    [field: SerializeField, Tooltip("Maximum health of the player.")]
     public float MaxHealth { get; private set; }
+
+    [SerializeField] private PlayerDeath playerDeath;
 
     void Awake()
     {
