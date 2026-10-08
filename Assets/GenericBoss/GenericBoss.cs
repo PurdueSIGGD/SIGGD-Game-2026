@@ -41,11 +41,7 @@ public class GenericBoss : MonoBehaviour, IDamagable
 
     void Start()
     {
-        if (phaseBoundaries.Length == 0)
-        {
-            Debug.Log("Missing Full Health Phase");
-            throw;
-        }
+        Debug.Assert(phaseBoundaries.Length == 0, "Missing Full Health Phase");
         MaxHealth => PhaseHealthBoundaries[0];
     }
 
