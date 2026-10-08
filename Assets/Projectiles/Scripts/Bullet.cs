@@ -14,15 +14,25 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+            if (isExplosive)
+            {
+                // call some sort of blow up function eventually when that gets made
+            }
+
             ProjectileManager.Instance.ProjectilePool.Release(gameObject);
         }
     }
 
-    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, float bulletRotationTargetAngle, Vector2 shootDirection)
+    /// <summary>
+    /// Set the sprite, position, rotation and velocity of the bullet as well as the basic bullet values gotten from the ProjectilScriptableObject
+    /// </summary>
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, float bulletRotationTargetAngle, Vector2 shootDirection)
     {
         isExplosive = projectileScriptableObject.IsExplosive;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
+
+        gameObject.transform.position = firePoint.position;
 
         // getting needed components
         Rigidbody2D bulletRB = gameObject.GetComponent<Rigidbody2D>();
@@ -53,11 +63,6 @@ public class Bullet : MonoBehaviour
         return lifetime;
     }
 
-    public float GetVelocity()
-    {
-        return velocity;
-    }
-
     public void SetIsExplosive(bool inIsExplosive)
     {
         isExplosive = inIsExplosive;
@@ -70,10 +75,5 @@ public class Bullet : MonoBehaviour
     public void SetLifetime(float inLifetime)
     {
         lifetime = inLifetime;
-    }
-
-    public void SetVelocity(float inVelocity)
-    {
-        velocity = inVelocity;
     }
 }
