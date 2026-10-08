@@ -6,23 +6,22 @@ public class GenericBoss : MonoBehaviour, IDamagable
 {
     public float CurrentHealth => currentHealth;
     [SerializeField] private float currentHealth;
-    public float MaxHealth => maxHealth;
-    [SerializeField] private float maxHealth;
+    public float MaxHealth;
     public UnityEvent<GameObject, float> OnBossTakeDamage;
     public UnityEvent<GameObject> OnBossDeath;
-    public float[] PhaseBoundaries = {1};
+    public int[] PhaseHealthBoundaries;
     public int CurrentPhase = 0;
 
     public void TakeDamage(DamageContext context)
     {
         if (context.Victim == GameObject.gameObject)
         {
-            health -= context.DamageAmount;
+            currentHealth -= context.DamageAmount;
             OnBossTakeDamage?.Invoke(context);
 
-            for (; CurrentPhase < PhaseBoundaries.Length-1 && health < phaseBoundaries[currentPhase+1] * MaxHealth; CurrentPhase++){}
+            for (; CurrentPhase < PhaseBoundaries.Length-1 && currentHealth < phaseBoundaries[currentPhase+1]; CurrentPhase++) {}
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 OnBossDeath?.Invoke(context);
             }
@@ -32,11 +31,12 @@ public class GenericBoss : MonoBehaviour, IDamagable
 
     void Start()
     {
-        if (phaseBoundaries.Length > 0 && phaseBoundaries[0] != 1)
+        if (phaseBoundaries.Length == 0)
         {
             Debug.Log("Missing Full Health Phase");
+            throw;
         }
-        MaxHealth = health;
+        MaxHealth => PhaseHealthBoundaries[0];
     }
 
     void Update()
