@@ -9,9 +9,19 @@ public class GenericBoss : MonoBehaviour, IDamagable
     public float MaxHealth;
     public UnityEvent<GameObject, float> OnBossTakeDamage;
     public UnityEvent<GameObject> OnBossDeath;
+    /// <summary>
+    /// Stores health value upper boundries for each phase in decending order.
+    /// </summary>
     public int[] PhaseHealthBoundaries;
+    /// <summary>
+    /// Stores the current phase (index into PhaseHealthBoundries).
+    /// </summary>
     public int CurrentPhase = 0;
 
+    /// <summary>
+    /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
+    /// </summary>
+    /// <param name="context">Information about the damage done (i.e. damage amount, attacker, victim)</param>
     public void TakeDamage(DamageContext context)
     {
         if (context.Victim == GameObject.gameObject)
