@@ -55,20 +55,13 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="firePoint"> The point where the bullet is shooting from </param>
     public void ShootProjectileTowardsMouse(ProjectileScriptableObject projectileScriptableObject, Transform firePoint)
     {
-        // getting bullet objects
-        GameObject bullet = ProjectilePool.Get();
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        
         // rotate spawned bullet to face mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
-        // the target rotation that the bullet shoult get set to
-        float targetAngleZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
+        ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
 
     /// <summary>
@@ -79,14 +72,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="direction"> The direction that the projectile should be shot in </param>
     public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction) // this could not work i dunno testing will come later
     {
-        // getting bullet objects
-        GameObject bullet = ProjectilePool.Get();
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-
-        // the target rotation that the bullet should get set to
-        float targetAngleZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
+        ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
 
     /// <summary>
@@ -97,15 +83,16 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="targetPoint"> the target that the projectile is being shot to </param>
     public void ShootProjectileTowardsPoint(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint)
     {
-        GameObject bullet = ProjectilePool.Get();
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-
         // make direction vector from the starting point and end point
         Vector2 direction = (targetPoint.position - firePoint.position).normalized;
 
-        // the target rotation that the bullet should get set to plus the offset
-        float targetAngleZ = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + projectileScriptableObject.BulletAngleOffset;
+        ShootProjectile(projectileScriptableObject, firePoint, direction);
+    }
 
-        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, targetAngleZ, direction);
+    private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
+    {
+        GameObject bullet = ProjectilePool.Get();
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized);
     }
 }
