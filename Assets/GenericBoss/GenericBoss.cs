@@ -18,6 +18,9 @@ public class GenericBoss : MonoBehaviour, IDamagable
     /// </summary>
     public int CurrentPhase = 0;
 
+    public AttackPercent[] AttackPercentList = {new AttackPercent(0,0)};
+    public Random rng = new Random()
+
     /// <summary>
     /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
     /// </summary>
@@ -39,6 +42,24 @@ public class GenericBoss : MonoBehaviour, IDamagable
         
     }
 
+    public int bossCalculator()
+    {
+        int TotalPercentage = 0;
+        foreach(AttackPercent c in AttackPercentList){
+            TotalPercentage += c.Chance;
+        }
+        int AttackNumber = rng.Next(1, TotalPercentage);
+        int index = 0;
+        while (true)
+        {
+            if (AttackPercentList[index].Chance >= AttackNumber)
+            {
+                return AttackPercentList[index].Attacks;
+            }
+            AttackNumber -= AttackPercentList[index].Chance;
+            index++;
+        }      
+    }
     void Start()
     {
         Debug.Assert(phaseBoundaries.Length == 0, "Missing Full Health Phase");
@@ -48,5 +69,24 @@ public class GenericBoss : MonoBehaviour, IDamagable
     void Update()
     {
         
+    }
+}
+
+public class bossCalculator
+{
+    int TotalPercentage = 0;
+    foreach(AttackPercent c in AttackPercentList){
+        TotalPercentage += c.Chance;
+    }
+}
+
+struct AttackPercent
+{
+    public int Chance {get;}
+    public int Attacks {get;} //TODO: make this an attack class
+
+    public AttackPercent(int chance, int attacks){
+        Chance = chance;
+        Attacks = attacks;
     }
 }
