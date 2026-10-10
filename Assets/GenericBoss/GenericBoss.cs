@@ -72,14 +72,6 @@ public class GenericBoss : MonoBehaviour, IDamagable
     }
 }
 
-public class bossCalculator
-{
-    int TotalPercentage = 0;
-    foreach(AttackPercent c in AttackPercentList){
-        TotalPercentage += c.Chance;
-    }
-}
-
 struct AttackPercent
 {
     public int Chance {get;}
