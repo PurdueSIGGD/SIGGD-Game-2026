@@ -11,16 +11,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         InputManager.Instance.OnPlayerMove.AddListener(MovePlayerCharacter);
+        
+        // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody2D>();
-        }
+        
     }
 
     private void OnDisable()
@@ -40,5 +39,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(currentInputVector * moveSpeed, ForceMode2D.Force);
+    }
+
+    //The instant brake system
+    void Brake()
+    {
+        
     }
 }   
