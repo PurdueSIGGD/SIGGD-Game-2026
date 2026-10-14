@@ -52,6 +52,9 @@ public class PlayerDeath : MonoBehaviour
         Reset();
     }
 
+    /// <summary>
+    /// Sets the ghost status to true.
+    /// </summary>
     private void TurnIntoGhost()
     {
         isGhost = true;
