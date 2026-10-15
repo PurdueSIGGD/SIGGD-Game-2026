@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Random = System.Random;
 
 
 public class GenericBoss : MonoBehaviour
@@ -20,7 +19,7 @@ public class GenericBoss : MonoBehaviour
     public int CurrentPhase = 0;
 
     private AttackPercents[] attackPercentList;
-    private Random rng = new System.Random();
+    private System.Random rng = new System.Random();
 
     /// <summary>
     /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
