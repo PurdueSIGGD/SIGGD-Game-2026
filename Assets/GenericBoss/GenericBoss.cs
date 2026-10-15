@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Random = System.Random;
-using IDamageable;
 public class GenericBoss : MonoBehaviour
 {
     public float CurrentHealth => currentHealth;
@@ -40,19 +39,19 @@ public class GenericBoss : MonoBehaviour
 
     public int BossCalculator()
     {
-        int TotalPercentage = 0;
+        uint TotalPercentage = 0;
         foreach(AttackPercent c in AttackPercentList){
             TotalPercentage += c.Chance[CurrentPhase];
         }
-        int AttackNumber = rng.Next(1, TotalPercentage + 1);
+        int AttackNumber = rng.Next(1, (int)TotalPercentage + 1);
         int index = 0;
         while (true)
         {
             if (AttackPercentList[index].Chance[CurrentPhase] >= AttackNumber)
             {
-                return AttackPercentList[index].Attacks;
+                return AttackPercentList[index].Attack;
             }
-            AttackNumber -= AttackPercentList[index].Chance[CurrentPhase];
+            AttackNumber -= (int)AttackPercentList[index].Chance[CurrentPhase];
             index++;
         }
     }
@@ -70,11 +69,11 @@ public class GenericBoss : MonoBehaviour
 
 public struct AttackPercent
 {
-    public int[] Chance {get;}
-    public int Attacks {get;} //TODO: make this an attack class
+    public uint[] Chance {get;}
+    public int Attack {get;} //TODO: make this an attack class (maybe "BossAttack")
 
-    public AttackPercent(int[] chance, int attacks){
+    public AttackPercent(uint[] chance, int attack){
         Chance = chance;
-        Attacks = attacks;
+        Attack = attack;
     }
 }

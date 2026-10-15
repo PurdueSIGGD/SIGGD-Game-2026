@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IDamageable {
+namespace I_Damageable {
 public interface IDamageable {
 
     float CurrentHealth { get; }
