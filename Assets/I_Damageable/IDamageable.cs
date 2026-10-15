@@ -1,5 +1,6 @@
 using UnityEngine;
 
+namespace IDamageable {
 public interface IDamageable {
 
     float CurrentHealth { get; }
@@ -11,4 +12,5 @@ public struct DamageContext {
     public float DamageAmount;
     public GameObject Attacker;
     public GameObject Victim;
+}
 }

@@ -1,14 +1,14 @@
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Events;
-
-public class GenericBoss : MonoBehaviour, IDamagable
+using Random = System.Random;
+using IDamageable;
+public class GenericBoss : MonoBehaviour
 {
     public float CurrentHealth => currentHealth;
     [SerializeField] private float currentHealth;
     public float MaxHealth;
-    public UnityEvent<GameObject, float> OnBossTakeDamage;
-    public UnityEvent<GameObject> OnBossDeath;
+    public UnityEvent<DamageContext> OnBossTakeDamage;
+    public UnityEvent<DamageContext> OnBossDeath;
     /// <summary>
     /// Stores health level upper boundries (in decending order) for each phase.
     /// </summary>
@@ -18,8 +18,8 @@ public class GenericBoss : MonoBehaviour, IDamagable
     /// </summary>
     public int CurrentPhase = 0;
 
-    public AttackPercent[] AttackPercentList = {new AttackPercent(0,0)};
-    public Random rng = new Random()
+    private AttackPercent[] AttackPercentList;
+    private Random rng = new System.Random();
 
     /// <summary>
     /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
@@ -27,43 +27,39 @@ public class GenericBoss : MonoBehaviour, IDamagable
     /// <param name="context">Information about the damage done (i.e. damage amount, attacker, victim)</param>
     public void TakeDamage(DamageContext context)
     {
-        if (context.Victim == GameObject.gameObject)
+        currentHealth -= context.DamageAmount;
+        OnBossTakeDamage?.Invoke(context);
+
+        for (; CurrentPhase < PhaseHealthBoundaries.Length-1 && currentHealth < PhaseHealthBoundaries[CurrentPhase+1]; CurrentPhase++) {}
+
+        if (currentHealth <= 0)
         {
-            currentHealth -= context.DamageAmount;
-            OnBossTakeDamage?.Invoke(context);
-
-            for (; CurrentPhase < PhaseBoundaries.Length-1 && currentHealth < phaseBoundaries[currentPhase+1]; CurrentPhase++) {}
-
-            if (currentHealth <= 0)
-            {
-                OnBossDeath?.Invoke(context);
-            }
+            OnBossDeath?.Invoke(context);
         }
-        
     }
 
-    public int bossCalculator()
+    public int BossCalculator()
     {
         int TotalPercentage = 0;
         foreach(AttackPercent c in AttackPercentList){
-            TotalPercentage += c.Chance;
+            TotalPercentage += c.Chance[CurrentPhase];
         }
         int AttackNumber = rng.Next(1, TotalPercentage);
         int index = 0;
         while (true)
         {
-            if (AttackPercentList[index].Chance >= AttackNumber)
+            if (AttackPercentList[index].Chance[CurrentPhase] >= AttackNumber)
             {
                 return AttackPercentList[index].Attacks;
             }
-            AttackNumber -= AttackPercentList[index].Chance;
+            AttackNumber -= AttackPercentList[index].Chance[CurrentPhase];
             index++;
         }      
     }
     void Start()
     {
-        Debug.Assert(phaseBoundaries.Length == 0, "Missing Full Health Phase");
-        MaxHealth => PhaseHealthBoundaries[0];
+        Debug.Assert(PhaseHealthBoundaries.Length == 0, "Missing Full Health Phase");
+        MaxHealth = PhaseHealthBoundaries[0];
     }
 
     void Update()
@@ -72,12 +68,12 @@ public class GenericBoss : MonoBehaviour, IDamagable
     }
 }
 
-struct AttackPercent
+public struct AttackPercent
 {
-    public int Chance {get;}
+    public int[] Chance {get;}
     public int Attacks {get;} //TODO: make this an attack class
 
-    public AttackPercent(int chance, int attacks){
+    public AttackPercent(int[] chance, int attacks){
         Chance = chance;
         Attacks = attacks;
     }
