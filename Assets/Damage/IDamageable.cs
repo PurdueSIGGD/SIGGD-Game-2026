@@ -8,7 +8,6 @@ public interface IDamageable
     float MaxHealth { get; }
     bool IsAlive => CurrentHealth > 0;
     public void TakeDamage(DamageContext context);
-    public void Reset();
 }
 
 /// <summary>
