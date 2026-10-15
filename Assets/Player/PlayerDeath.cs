@@ -8,7 +8,6 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private float deathSpeedIncrease;
 
     private float ghostSpeed;
-
     private bool isGhost = false;
 
     private Rigidbody2D rb;
