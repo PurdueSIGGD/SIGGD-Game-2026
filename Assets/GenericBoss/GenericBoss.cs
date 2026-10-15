@@ -44,7 +44,7 @@ public class GenericBoss : MonoBehaviour
         foreach(AttackPercent c in AttackPercentList){
             TotalPercentage += c.Chance[CurrentPhase];
         }
-        int AttackNumber = rng.Next(1, TotalPercentage);
+        int AttackNumber = rng.Next(1, TotalPercentage + 1);
         int index = 0;
         while (true)
         {
@@ -54,7 +54,7 @@ public class GenericBoss : MonoBehaviour
             }
             AttackNumber -= AttackPercentList[index].Chance[CurrentPhase];
             index++;
-        }      
+        }
     }
     void Start()
     {
