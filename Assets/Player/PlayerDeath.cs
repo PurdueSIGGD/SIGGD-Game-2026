@@ -2,17 +2,23 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    private float ghostSpeed;
     [Tooltip("Base ghost speed before any deaths")]
     [SerializeField] private float baseGhostSpeed;
     [Tooltip("Increase in ghost speed per death")]
     [SerializeField] private float deathSpeedIncrease;
 
+    private float ghostSpeed;
+
     private bool isGhost = false;
+
+    private Rigidbody2D rb;
+    private Collider2D playerCollider;
 
     void Awake()
     {
         ghostSpeed = 0;
+        //rb = GetComponent<Rigidbody2D>();
+        //playerCollider = GetComponent<Collider2D>();
     }
 
     void Update()

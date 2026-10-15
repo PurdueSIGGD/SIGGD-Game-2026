@@ -20,20 +20,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) // For testing purposes, press R to revive the player
-        {
-            Revive();
-        }
-        if (Input.GetKeyDown(KeyCode.D)) // For testing purposes, press R to revive the player
-        {
-            DamageContext context = new DamageContext
-            {
-                DamageAmount = 10f, // Example damage amount
-                Attacker = null, // Example attacker (can be set to a GameObject)
-                Victim = gameObject // The player is the victim
-            };
-            TakeDamage(context);
-        }
     }
 
     /// <summary>
