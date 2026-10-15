@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Random = System.Random;
+
+
 public class GenericBoss : MonoBehaviour
 {
     public float CurrentHealth => currentHealth;
@@ -17,7 +19,7 @@ public class GenericBoss : MonoBehaviour
     /// </summary>
     public int CurrentPhase = 0;
 
-    private AttackPercent[] AttackPercentList;
+    private AttackPercents[] attackPercentList;
     private Random rng = new System.Random();
 
     /// <summary>
@@ -37,21 +39,21 @@ public class GenericBoss : MonoBehaviour
         }
     }
 
-    public int BossCalculator()
+    private int CalculateRandomBossAttack()
     {
-        uint TotalPercentage = 0;
-        foreach(AttackPercent c in AttackPercentList){
-            TotalPercentage += c.Chance[CurrentPhase];
+        uint totalPercentage = 0;
+        foreach(AttackPercents c in attackPercentList){
+            totalPercentage += c.ChanceWeights[CurrentPhase];
         }
-        int AttackNumber = rng.Next(1, (int)TotalPercentage + 1);
+        int attackNumber = rng.Next(1, (int)totalPercentage + 1);
         int index = 0;
         while (true)
         {
-            if (AttackPercentList[index].Chance[CurrentPhase] >= AttackNumber)
+            if (attackPercentList[index].ChanceWeights[CurrentPhase] >= attackNumber)
             {
-                return AttackPercentList[index].Attack;
+                return attackPercentList[index].Attack;
             }
-            AttackNumber -= (int)AttackPercentList[index].Chance[CurrentPhase];
+            attackNumber -= (int)attackPercentList[index].ChanceWeights[CurrentPhase];
             index++;
         }
     }
@@ -67,13 +69,20 @@ public class GenericBoss : MonoBehaviour
     }
 }
 
-public struct AttackPercent
+
+/// <summary>
+/// Stores an attack and its chance weight for each boss phase.
+/// </summary>
+public struct AttackPercents
 {
-    public uint[] Chance {get;}
+    /// <summary>
+    /// An array of the weights for this attack for each boss phase.
+    /// </summary>
+    public uint[] ChanceWeights {get;}
     public int Attack {get;} //TODO: make this an attack class (maybe "BossAttack")
 
-    public AttackPercent(uint[] chance, int attack){
-        Chance = chance;
+    public AttackPercents(uint[] chanceWeights, int attack){
+        ChanceWeights = chanceWeights;
         Attack = attack;
     }
 }
