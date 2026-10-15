@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
 
     private Vector2 currentInputVector;
+    private bool brake;
+    public float currSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +46,18 @@ public class PlayerController : MonoBehaviour
     //The instant brake system
     void Brake()
     {
+        currSpeed = moveSpeed; //store the movement speed before the stop
         
+        while (brake)
+        {
+            // remove all speed and stop
+            rb.linearVelocity = Vector2.zero;
+            moveSpeed -= 0.01f;
+
+            //allow player to redirect their direction
+
+        }
+
+        //launch player in the direction they're holding
     }
 }   
