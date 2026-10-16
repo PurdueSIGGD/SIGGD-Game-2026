@@ -8,6 +8,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [field: SerializeField, Tooltip("Maximum health of the player.")]
     public float MaxHealth { get; private set; }
 
+    [Tooltip("Health to restore when reviving the player.")]
+    [SerializeField] private float reviveHealth;
+
     [SerializeField] private PlayerDeath playerDeath;
 
     void Awake()
@@ -29,7 +32,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (CurrentHealth == 0) {
             playerDeath.Die();
         }
-<<<<<<< HEAD
     }
 
     /// <summary>
@@ -49,8 +51,5 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void Reset()
     {
         CurrentHealth = MaxHealth;
-=======
-        
->>>>>>> parent of 74f280c (Add Reset and Revive for player health)
     }
 }
