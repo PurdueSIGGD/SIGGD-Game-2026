@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60cda6ae8b0aca1448bf08e46a1ff06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  stats: {fileID: 11400000, guid: 6119088f7668fa141870c6fb0b1e5960, type: 2}
   rb: {fileID: 152294181}
-  moveSpeed: 8
 --- !u!212 &152294183
 SpriteRenderer:
   serializedVersion: 2
