@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerScriptableObject stats;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float moveSpeed = 8f;
-
     private Vector2 currentInputVector;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,6 +38,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(currentInputVector * moveSpeed, ForceMode2D.Force);
+        rb.AddForce(currentInputVector * stats.MoveSpeed, ForceMode2D.Force);
     }
 }   
