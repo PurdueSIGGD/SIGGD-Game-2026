@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf3732a029d54644bd6d5a56dc87d00, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  weaponName: 
-  numBullets: 0
+  projectile: {fileID: 11400000, guid: 77ce2ca0330cd254f85e2d7f1493bb24, type: 2}
+  weaponName: Pistol
+  numBullets: 1
   spread: 0
-  reloadTime: 0
+  reloadTime: 6
   offset: 0
   recoil: 0
-  ammoCapacity: 0
+  ammoCapacity: 12
+  fireSpeed: 1
