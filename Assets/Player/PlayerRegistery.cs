@@ -1,30 +1,41 @@
-public static class PlayerRegistery
-{
-    /// <summary>
-    /// The list of active players in game.
-    /// </summary>
-    public static Player[] Players = new Player[MaxPlayers];
-    public static readonly int MaxPlayers = 2;
+using UnityEditor;
 
-    /// <summary>
-    /// Registers the player as an acitve player for easy look up.
-    /// </summary>
-    /// <returns> the index of the player, returns -1 if exceeds max player count </returns>
-    public static int RegisterPlayer(Player player)
+namespace Player
+{
+    [InitializeOnLoad]
+    public static class PlayerRegistery
     {
-        if (Players.Length == 0)
+        /// <summary>
+        /// The list of active players in game.
+        /// </summary>
+        public static Player[] Players;
+        public static readonly int MaxPlayers = 2;
+
+        static PlayerRegistery()
         {
             Players = new Player[MaxPlayers];
         }
 
-        for(int i = 0; i < Players.Length; i++)
+        /// <summary>
+        /// Registers the player as an acitve player for easy look up.
+        /// </summary>
+        /// <returns> the index of the player, returns -1 if exceeds max player count </returns>
+        public static int RegisterPlayer(Player player)
         {
-            if (Players[i] == null)
+            if (Players.Length == 0)
             {
-                Players[i] = player;
-                return i;
+                Players = new Player[MaxPlayers];
             }
+
+            for (int i = 0; i < Players.Length; i++)
+            {
+                if (Players[i] == null)
+                {
+                    Players[i] = player;
+                    return i;
+                }
+            }
+            return -1;
         }
-        return -1;
     }
 }
