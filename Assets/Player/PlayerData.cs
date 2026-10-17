@@ -3,7 +3,7 @@ using UnityEngine;
 //An attempt at creating scriptable objects for player movement/physcs
 
 [CreateAssetMenu(fileName ="PlayerStats", menuName = "Player/Stats")]
-public class PlayerScriptableObject : ScriptableObject
+public class PlayerData : ScriptableObject
 {
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float mass = 2f;

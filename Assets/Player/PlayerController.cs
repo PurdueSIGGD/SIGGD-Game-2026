@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerScriptableObject stats;
+    [SerializeField] private PlayerData stats;
     [SerializeField] private Rigidbody2D rb;
     private Vector2 currentInputVector;
 
