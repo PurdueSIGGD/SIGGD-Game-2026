@@ -30,7 +30,7 @@ public class PrimaryGun : MonoBehaviour
         }
         else
         {
-            Debug.Log("dude put a gun in here");
+            Debug.LogWarning("dude put a gun in here");
         }
     }
 
