@@ -10,11 +10,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     [Tooltip("Health to restore when reviving the player.")]
     [SerializeField] private float reviveHealth;
-
-    [SerializeField] private PlayerDeath playerDeath;
+    private PlayerDeath playerDeath;
 
     void Awake()
     {
+        playerDeath = GetComponent<PlayerDeath>();
         CurrentHealth = MaxHealth;
     }
 

@@ -7,6 +7,8 @@ public class PlayerDeath : MonoBehaviour
     [Tooltip("Increase in ghost speed per death")]
     [SerializeField] private float deathSpeedIncrease;
 
+    private PlayerHealth playerHealth;
+
     private float ghostSpeed;
     private bool isGhost = false;
 
@@ -15,16 +17,36 @@ public class PlayerDeath : MonoBehaviour
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
+        playerHealth = GetComponent<PlayerHealth>();
+
         ghostSpeed = 0;
-        //rb = GetComponent<Rigidbody2D>();
-        //playerCollider = GetComponent<Collider2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isGhost)
         {
+            rb.MovePosition(rb.position + new Vector2(0, -1) * ghostSpeed * Time.deltaTime);
             // Handle ghost movement if the player is a ghost
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isGhost)
+        {
+            if (collision.otherCollider.CompareTag("Player")) // temporary tag
+            {
+                isGhost = false;
+                playerHealth.Revive();
+            }
+            else if (collision.otherCollider.CompareTag("Finish")) // temporary tag
+            {
+                isGhost = false;
+                // player was not revived, no longer in the round
+            }
         }
     }
 
@@ -48,6 +70,15 @@ public class PlayerDeath : MonoBehaviour
     }
 
     /// <summary>
+    /// Resets the ghost speed and ghost status.
+    /// </summary>
+    public void Reset()
+    {
+        ghostSpeed = 0;
+        isGhost = false;
+    }
+
+    /// <summary>
     /// Handles the single-player game over scenario.
     /// </summary>
     private void GameOver()
@@ -65,12 +96,5 @@ public class PlayerDeath : MonoBehaviour
         isGhost = true;
     }
 
-    /// <summary>
-    /// Resets the ghost speed and ghost status.
-    /// </summary>
-    public void Reset()
-    {
-        ghostSpeed = 0;
-        isGhost = false;
-    }
+    
 }
