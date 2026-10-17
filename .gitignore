@@ -132,3 +132,4 @@ fmod_editor.log
 # OS-generated files that don't matter
 **/.DS_Store
 **/.dSYM
+.vsconfig
