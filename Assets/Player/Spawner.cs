@@ -5,7 +5,7 @@ public class Spawner : MonoBehaviour
     // FOR TESTING PURPOSES ONLY
     [SerializeField] private GameObject asteroid;
 
-    [SerializeField] private float spawnRate = 2f;
+    [SerializeField] private float spawnRate = 0.5f;
     private float t = 0;
 
 

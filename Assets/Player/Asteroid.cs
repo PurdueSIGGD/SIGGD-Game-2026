@@ -28,15 +28,17 @@ public class Asteroid : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.otherCollider.CompareTag("Player"))
+        Debug.Log("asteroid collision " + collision.collider.gameObject);
+        if (collision.collider.CompareTag("Player"))
         {
-            collision.otherCollider.GetComponent<IDamageable>().TakeDamage(new DamageContext
+            collision.collider.GetComponent<IDamageable>().TakeDamage(new DamageContext
             {
                 DamageAmount = 1f,
                 Attacker = gameObject,
                 Victim = collision.otherCollider.gameObject
             });
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
     }
 }

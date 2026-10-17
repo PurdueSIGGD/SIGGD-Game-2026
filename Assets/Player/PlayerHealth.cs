@@ -27,7 +27,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeDamage(DamageContext context)
     {
         CurrentHealth = Mathf.Max(CurrentHealth - context.DamageAmount, 0);
+        Debug.Log("Player took damage: " + context.DamageAmount + ", remaining health: " + CurrentHealth);
         if (CurrentHealth == 0) {
+            Debug.Log("Player died");
             playerDeath.Die();
         }
     }

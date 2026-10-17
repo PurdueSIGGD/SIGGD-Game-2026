@@ -33,15 +33,16 @@ public class PlayerDeath : MonoBehaviour
     {
         if (isGhost)
         {
-            if (collision.otherCollider.CompareTag("Player")) // temporary tag
+            if (collision.collider.CompareTag("Player")) // temporary tag
             {
                 isGhost = false;
                 playerHealth.Revive();
             }
-            else if (collision.otherCollider.CompareTag("Finish")) // temporary tag
+            else if (collision.collider.CompareTag("Finish")) // temporary tag
             {
                 isGhost = false;
                 // player was not revived, no longer in the round
+                gameObject.SetActive(false); // for now just disable gameobject
             }
         }
     }
@@ -55,6 +56,7 @@ public class PlayerDeath : MonoBehaviour
         // Disable player controls?
         // If single-player, call GameOver()
         // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
+        isGhost = true;
         if (ghostSpeed == 0)
         {
             ghostSpeed = stats.BaseGhostSpeed;

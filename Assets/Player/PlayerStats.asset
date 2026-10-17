@@ -16,3 +16,7 @@ MonoBehaviour:
   mass: 2
   acceleration: 20
   terminalVelocity: 10
+  maxHealth: 3
+  reviveHealth: 1
+  baseGhostSpeed: 2
+  deathSpeedIncrease: 1
