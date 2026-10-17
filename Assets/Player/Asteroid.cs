@@ -6,6 +6,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float speed = 2f;
 
     private Rigidbody2D rb;
+    private Vector2 startPos;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -13,7 +14,16 @@ public class Asteroid : MonoBehaviour
 
     void Start()
     {
+        startPos = rb.position;
         rb.linearVelocity = Random.insideUnitCircle.normalized * speed;
+    }
+
+    void FixedUpdate()
+    {
+        if ((startPos - rb.position).magnitude > 20f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -26,6 +36,7 @@ public class Asteroid : MonoBehaviour
                 Attacker = gameObject,
                 Victim = collision.otherCollider.gameObject
             });
+            Destroy(gameObject);
         }
     }
 }
