@@ -4,12 +4,10 @@ using UnityEngine;
 /// </summary>
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] private PlayerScriptableObject stats;
     public float CurrentHealth { get; private set; }
-    [field: SerializeField, Tooltip("Maximum health of the player.")]
-    public float MaxHealth { get; private set; }
+    public float MaxHealth => stats.MaxHealth;
 
-    [Tooltip("Health to restore when reviving the player.")]
-    [SerializeField] private float reviveHealth;
     private PlayerDeath playerDeath;
 
     void Awake()
@@ -41,7 +39,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         if (CurrentHealth == 0)
         {
-            CurrentHealth = reviveHealth;
+            CurrentHealth = stats.ReviveHealth;
         }
     }
 

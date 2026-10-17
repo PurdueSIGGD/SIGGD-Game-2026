@@ -5,15 +5,30 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="PlayerStats", menuName = "Player/Stats")]
 public class PlayerScriptableObject : ScriptableObject
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float mass = 2f;
     [SerializeField] private float acceleration = 20f;
     [SerializeField] private float terminalVelocity = 10f;
+    
     public float MoveSpeed => moveSpeed;
     public float Mass => mass;
     public float Acceleration => acceleration;
     public float TerminalVelocity => terminalVelocity;
-    
 
-    
+    [Header("Health")]
+
+    [SerializeField] private float maxHealth = 3f;
+    [Tooltip("Health to restore when reviving the player.")]
+    [SerializeField] private float reviveHealth;
+
+    [Tooltip("Base ghost speed before any deaths.")]
+    [SerializeField] private float baseGhostSpeed;
+    [Tooltip("Increase in ghost speed per death.")]
+    [SerializeField] private float deathSpeedIncrease;
+    public float MaxHealth => maxHealth;
+    public float ReviveHealth => reviveHealth;
+    public float BaseGhostSpeed => baseGhostSpeed;
+    public float DeathSpeedIncrease => deathSpeedIncrease;
+
 }

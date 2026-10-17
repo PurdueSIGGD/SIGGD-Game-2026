@@ -2,11 +2,7 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    [Tooltip("Base ghost speed before any deaths")]
-    [SerializeField] private float baseGhostSpeed;
-    [Tooltip("Increase in ghost speed per death")]
-    [SerializeField] private float deathSpeedIncrease;
-
+    [SerializeField] private PlayerScriptableObject stats;
     private PlayerHealth playerHealth;
 
     private float ghostSpeed;
@@ -61,11 +57,11 @@ public class PlayerDeath : MonoBehaviour
         // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
         if (ghostSpeed == 0)
         {
-            ghostSpeed = baseGhostSpeed;
+            ghostSpeed = stats.BaseGhostSpeed;
         }
         else
         {
-            ghostSpeed += deathSpeedIncrease;
+            ghostSpeed += stats.DeathSpeedIncrease;
         }
     }
 
