@@ -1,8 +1,12 @@
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.UI;
+
 
 public class NetworkStartUIi : MonoBehaviour
 {
+    //[SerializeField] private Button hostButton;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnGUI()
     {
@@ -16,4 +20,16 @@ public class NetworkStartUIi : MonoBehaviour
             if (GUI.Button(new Rect(x, y + 2 * (h + 10), w, h), "Server")) NetworkManager.Singleton.StartServer();
         }
     }
+
+    // void Start()
+    // {
+    //     hostButton.onClick.AddListener(Host);
+    // }
+
+    // public void Host()
+    // {
+    //     NetworkManager.Singleton.StartHost();
+    // }
+
+    
 }
