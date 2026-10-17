@@ -64,6 +64,7 @@ ExportedObj/
 *.opendb
 *.VC.db
 .vscode
+.vsconfig
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -132,4 +133,4 @@ fmod_editor.log
 # OS-generated files that don't matter
 **/.DS_Store
 **/.dSYM
-.vsconfig
+
