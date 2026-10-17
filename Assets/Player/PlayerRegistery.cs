@@ -1,0 +1,30 @@
+public static class PlayerRegistery
+{
+    /// <summary>
+    /// The list of active players in game.
+    /// </summary>
+    public static Player[] Players = new Player[MaxPlayers];
+    public static readonly int MaxPlayers = 2;
+
+    /// <summary>
+    /// Registers the player as an acitve player for easy look up.
+    /// </summary>
+    /// <returns> the index of the player, returns -1 if exceeds max player count </returns>
+    public static int RegisterPlayer(Player player)
+    {
+        if (Players.Length == 0)
+        {
+            Players = new Player[MaxPlayers];
+        }
+
+        for(int i = 0; i < Players.Length; i++)
+        {
+            if (Players[i] == null)
+            {
+                Players[i] = player;
+                return i;
+            }
+        }
+        return -1;
+    }
+}
