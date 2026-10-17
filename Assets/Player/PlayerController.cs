@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -5,8 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerScriptableObject stats;
     [SerializeField] private Rigidbody2D rb;
     private Vector2 currentInputVector;
-    private bool brake;
-    public float currSpeed;
+    private float currSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,13 +45,13 @@ public class PlayerController : MonoBehaviour
     //The instant brake system
     void Brake()
     {
-        currSpeed = moveSpeed; //store the movement speed before the stop
+        currSpeed = stats.MoveSpeed; //store the movement speed before the stop
         
-        while (brake)
+        while (stats.Brake)
         {
             // remove all speed and stop
             rb.linearVelocity = Vector2.zero;
-            moveSpeed -= 0.01f;
+            currSpeed -= 0.01f;
 
             //allow player to redirect their direction
 
