@@ -17,6 +17,10 @@ public class GenericBoss : MonoBehaviour
     /// Stores the current phase (index into PhaseHealthBoundries).
     /// </summary>
     public int CurrentPhase = 0;
+    [SerializeField] private float speedDamageThreshold = 5.0f;
+    [SerializeField] private float damageMultiplier = 10.0f;
+
+
 
     private AttackPercents[] attackPercentList;
     private System.Random rng = new System.Random();
@@ -27,6 +31,8 @@ public class GenericBoss : MonoBehaviour
     /// <param name="context">Information about the damage done (i.e. damage amount, attacker, victim)</param>
     public void TakeDamage(DamageContext context)
     {
+        // TODO: check who dealt damage and if they're elegible to deal damage
+        
         currentHealth -= context.DamageAmount;
         OnBossTakeDamage?.Invoke(context);
 
@@ -56,10 +62,24 @@ public class GenericBoss : MonoBehaviour
             index++;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        float impactSpeed = collision.relativeVelocity.magnitude;
+
+        if (impactSpeed > speedDamageThreshold) {
+            float damageAmount = impactSpeed * damageMultiplier;
+            TakeDamage(new DamageContext {
+                DamageAmount = damageAmount,
+                Attacker = collision.gameObject,
+                Victim = gameObject
+            });
+        }
+    }
     void Start()
     {
-        Debug.Assert(PhaseHealthBoundaries.Length == 0, "Missing Full Health Phase");
+        Debug.Assert(PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
         MaxHealth = PhaseHealthBoundaries[0];
+        currentHealth = MaxHealth;
     }
 
     void Update()
