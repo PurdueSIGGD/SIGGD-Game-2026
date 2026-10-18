@@ -7,6 +7,11 @@ using UnityEngine;
  *  More notes
  *  Miscellaneous and passives havent been added yet so don't worry about them yet
  *  using another script for the old input System
+ *  
+ *  Questions
+ *  shoot weapon from weapon script. Ask if the weapon scriptable object will hold the game object prefab or should I also add the game object
+ *  will weapons get changed with equipment
+ *  will we add anything to equipment??
  */
 
 public class EquipmentManager : MonoBehaviour
@@ -15,9 +20,11 @@ public class EquipmentManager : MonoBehaviour
     public static EquipmentManager Instance { get; private set; }
 
     //weapons code
-    [SerializeField] Weapon primaryWeapon; //add these in the inspector for right now
+    [SerializeField] private Weapon primaryWeapon; //add these in the inspector for right now
+    [SerializeField] private Equipment miscellaneous;
+    [SerializeField] private Equipment passive;
 
-    void Start()
+    void Awake()
     {
         //more singleton code
         if (Instance != null && Instance != this)
@@ -29,12 +36,24 @@ public class EquipmentManager : MonoBehaviour
             Instance = this;
         }
 
-        //add weapons, Miscellaneous, and passives here so that there automatically applied when the game starts
+    }
+
+    private void Start()
+    {
         if (primaryWeapon == null)
         {
-            Debug.Log("Primary weapon slot is empty!!");
+            Debug.Log("Primary slot is empty!!");
         }
 
+        if (miscellaneous == null)
+        {
+            Debug.Log("Miscellaneous slot is empty!!");
+        }
+
+        if (passive == null)
+        {
+            Debug.Log("Passuve weapon slot is empty!!");
+        }
     }
 
     void Update()
@@ -58,16 +77,26 @@ public class EquipmentManager : MonoBehaviour
         return false;
     }
 
+    //change to UseEquipment when weapon gets fixed!!!
     public void shootPrimaryWeapon()
     {
-        //shoot weapon from weapon script. Ask if the weapon scriptable object will hold the game object prefab or should I also add the game object
         Debug.Log("shoot Primary");
     }
 
+    //change to UseEquipment when weapon gets fixed!!!
     public void shootMiscellaneous()
     {
-        //shoot Miscellaneous from weapon script. Ask if the weapon scriptable object will hold the game object prefab or should I also add the game object
-        Debug.Log("shoot Secondary");
+        if (miscellaneous is IUsableEquipment usable)
+        {
+            usable.Use();
+        }
+    }
+    public void UseEquipment(Equipment equipment)
+    {
+        if (equipment is IUsableEquipment usable)
+        {
+            usable.Use();
+        }
     }
 
     public void setPrimaryWeapon(Weapon w)
@@ -78,5 +107,25 @@ public class EquipmentManager : MonoBehaviour
     public Weapon getPrimaryWeapon()
     {
         return primaryWeapon;
+    }
+
+    public void SetMiscellaneous(Equipment equipment)
+    {
+        miscellaneous = equipment;
+    }
+
+    public Equipment GetMiscellaneous()
+    {
+        return miscellaneous;
+    }
+
+    public void SetPassive(Equipment equipment)
+    {
+        passive = equipment;
+    }
+
+    public Equipment GetPassive()
+    {
+        return passive;
     }
 }
