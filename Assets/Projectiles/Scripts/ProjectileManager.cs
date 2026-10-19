@@ -5,8 +5,10 @@ using Extensions.Singleton;
 public class ProjectileManager : Singleton<ProjectileManager>
 {
     public ObjectPool<GameObject> ProjectilePool;
+    public ObjectPool<GameObject> MiscProjectilePool; // projectile pool for misc objects since they use a different prefab with different scripts
 
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject miscBulletPrefab;
 
     protected override void Awake()
     {
@@ -21,6 +23,15 @@ public class ProjectileManager : Singleton<ProjectileManager>
             defaultCapacity: 20, // allocates memory for the first 20 objects
             collectionCheck: true
         );
+
+        MiscProjectilePool = new ObjectPool<GameObject>(
+            createFunc: MakeMiscProjectile,
+            actionOnRelease: OnRelease,
+            actionOnGet: OnGet,
+            actionOnDestroy: OnDestroyItem,
+            defaultCapacity: 2, // there probably wont be more than 2 but we'll see
+            collectionCheck: true
+        );
     }
 
     // will be called when a new projectile needs to be made
@@ -28,6 +39,13 @@ public class ProjectileManager : Singleton<ProjectileManager>
     {
         // we dont have a way to access transform or rotation so we just 0 them for now and theyll get set when the bullet values are populated
         GameObject newBullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+        newBullet.SetActive(false);
+        return newBullet;
+    }
+
+    private GameObject MakeMiscProjectile()
+    {
+        GameObject newBullet = Instantiate(miscBulletPrefab, Vector3.zero, Quaternion.identity);
         newBullet.SetActive(false);
         return newBullet;
     }
@@ -48,6 +66,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
         Destroy(pooledObject);
     }
 
+    #region Player / Bosses shooting bullets
     /// <summary>
     /// Shoots projectile towards the mouse, only needed to be called when a player is shooting a projectile
     /// </summary>
@@ -95,4 +114,25 @@ public class ProjectileManager : Singleton<ProjectileManager>
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized);
     }
+    #endregion
+
+    #region Player Shooting Misc Projectiles
+    public void ShootMiscTowardsMouse(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint)
+    {
+        // rotate spawned bullet to face mouse
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+
+        Vector2 direction = (mousePos - firePoint.position).normalized;
+
+        ShootMiscProjectile(miscScriptableObject, firePoint, direction);
+    }
+
+    private void ShootMiscProjectile(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint, Vector2 direction)
+    {
+        GameObject miscObject = MiscProjectilePool.Get();
+        MiscBullet miscScript = miscObject.GetComponent<MiscBullet>();
+        miscScript.PopulateMiscValues(miscScriptableObject, firePoint, direction.normalized);
+    }
+    #endregion
 }
