@@ -1,25 +1,27 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
-[DefaultExecutionOrder(-1)]
-public class Player : MonoBehaviour
+namespace Player
 {
-    [ShowInInspector, ReadOnly] public int PlayerIndex { get; private set; }
-
-    // Player Components
-    public PlayerController Controller { get; private set; }
-
-
-    void Awake()
+    [RequireComponent(typeof(PlayerController))]
+    public class Player : MonoBehaviour
     {
-        PlayerIndex = PlayerRegistery.RegisterPlayer(this);
-        if (PlayerIndex == -1)
-        {
-            Debug.LogError("Max player count exceeded, cannot register player");
-            Destroy(gameObject);
-        }
+        [ShowInInspector, ReadOnly] public int PlayerIndex { get; private set; }
 
-        Controller = GetComponent<PlayerController>();
+        // Player Components
+        public PlayerController Controller { get; private set; }
+
+
+        void Awake()
+        {
+            PlayerIndex = PlayerRegistery.RegisterPlayer(this);
+            if (PlayerIndex == -1)
+            {
+                Debug.LogError("Max player count exceeded, cannot register player");
+                Destroy(gameObject);
+            }
+
+            Controller = GetComponent<PlayerController>();
+        }
     }
 }
