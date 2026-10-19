@@ -1,43 +1,46 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private PlayerScriptableObject stats;
-    [SerializeField] private Rigidbody2D rb;
-    private Vector2 currentInputVector;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        InputManager.Instance.OnPlayerMove.AddListener(MovePlayerCharacter);
-    }
+        [SerializeField] private PlayerData stats;
+        [SerializeField] private Rigidbody2D rb;
+        private Vector2 currentInputVector;
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
-        if (rb == null)
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+            InputManager.Instance.OnPlayerMove.AddListener(MovePlayerCharacter);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
+            if (rb == null)
+            {
+                rb = GetComponent<Rigidbody2D>();
+            }
+        }
+
+        private void OnDisable()
+        {
+            // Always unsubscribe from events when destroyed or disabled to prevent memory leaks
+            if (InputManager.Instance != null)
+            {
+                InputManager.Instance.OnPlayerMove.RemoveListener(MovePlayerCharacter);
+            }
+        }
+
+        void MovePlayerCharacter(Vector2 moveVector)
+        {
+            currentInputVector = moveVector;
+        }
+
+        private void FixedUpdate()
+        {
+            rb.AddForce(currentInputVector * stats.MoveSpeed, ForceMode2D.Force);
         }
     }
-
-    private void OnDisable()
-    {
-        // Always unsubscribe from events when destroyed or disabled to prevent memory leaks
-        if (InputManager.Instance != null)
-        {
-            InputManager.Instance.OnPlayerMove.RemoveListener(MovePlayerCharacter);
-        }
-    }
-
-    void MovePlayerCharacter(Vector2 moveVector)
-    {
-        currentInputVector = moveVector;
-    }
-
-    private void FixedUpdate()
-    {
-        rb.AddForce(currentInputVector * stats.MoveSpeed, ForceMode2D.Force);
-    }
-}   
+}
