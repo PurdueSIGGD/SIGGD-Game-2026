@@ -5,6 +5,7 @@ namespace Player
     [CreateAssetMenu(fileName = "PlayerStats", menuName = "Player/Stats")]
     public class PlayerData : ScriptableObject
     {
+        [Header("Movement")]
         [SerializeField] private float moveSpeed = 8f;
         [SerializeField] private float mass = 2f;
         [SerializeField] private float acceleration = 20f;
@@ -13,5 +14,20 @@ namespace Player
         public float Mass => mass;
         public float Acceleration => acceleration;
         public float TerminalVelocity => terminalVelocity;
+
+        [Header("Health")]
+        [SerializeField] private float maxHealth = 3f;
+        [Tooltip("Health to restore when reviving the player.")]
+        [SerializeField] private float reviveHealth = 1f;
+        public float MaxHealth => maxHealth;
+        public float ReviveHealth => reviveHealth;
+
+        [Header("Ghost Stats")]
+        [Tooltip("Base ghost speed before any deaths.")]
+        [SerializeField] private float baseGhostSpeed;
+        [Tooltip("Increase in ghost speed per death.")]
+        [SerializeField] private float deathSpeedIncrease;
+        public float BaseGhostSpeed => baseGhostSpeed;
+        public float DeathSpeedIncrease => deathSpeedIncrease;
     }
 }
