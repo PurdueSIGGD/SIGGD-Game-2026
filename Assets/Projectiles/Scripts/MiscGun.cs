@@ -16,12 +16,15 @@ public class MiscGun : MonoBehaviour
     private void Update()
     {
         // i have no idea how the input system works so im just gonna
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && onCooldown == false)
         {
             ProjectileManager.Instance.ShootMiscTowardsMouse(MiscObject.MiscProjectile, FirePoint);
-            StartCoroutine()
+            //StartCoroutine()
         }
     }
 
-
+    //private IEnumerator MiscOnCooldown()
+    //{
+     //   onCooldown
+    //}
 }
