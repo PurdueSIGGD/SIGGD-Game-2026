@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Equipment : ScriptableObject
+public interface IEquipment
 {
-
+    public void Use();
 }

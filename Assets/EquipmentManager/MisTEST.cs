@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MisTEST", menuName = "Scriptable Objects/MisTEST")]
-public class MisTEST : Equipment, IUsableEquipment
+public class MisTEST : IEquipment
 {
     public void Use()
     {
