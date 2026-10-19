@@ -21,13 +21,16 @@ public class PlayerScriptableObject : ScriptableObject
     [SerializeField] private float maxHealth = 3f;
     [Tooltip("Health to restore when reviving the player.")]
     [SerializeField] private float reviveHealth = 1f;
+    public float MaxHealth => maxHealth;
+    public float ReviveHealth => reviveHealth;
+
+    [Header("Ghost Stats")]
 
     [Tooltip("Base ghost speed before any deaths.")]
     [SerializeField] private float baseGhostSpeed;
     [Tooltip("Increase in ghost speed per death.")]
     [SerializeField] private float deathSpeedIncrease;
-    public float MaxHealth => maxHealth;
-    public float ReviveHealth => reviveHealth;
+    
     public float BaseGhostSpeed => baseGhostSpeed;
     public float DeathSpeedIncrease => deathSpeedIncrease;
 
