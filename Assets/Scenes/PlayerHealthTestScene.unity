@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   asteroid: {fileID: 5558189862170076512, guid: 601a786ce99028b4e99d9aac9cd932a4, type: 3}
-  spawnRate: 2
+  spawnRate: 0.5
 --- !u!4 &1328371807
 Transform:
   m_ObjectHideFlags: 0
@@ -793,8 +793,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1456280812}
   - component: {fileID: 1456280811}
-  - component: {fileID: 1456280810}
-  - component: {fileID: 1456280809}
   - component: {fileID: 1456280808}
   - component: {fileID: 1456280807}
   m_Layer: 0
@@ -867,32 +865,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &1456280809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456280806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85110f18670c944898d916db7c98ac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
-  stats: {fileID: 0}
---- !u!114 &1456280810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456280806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaaeda272a6123d41a1fd3785b340615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  stats: {fileID: 0}
 --- !u!212 &1456280811
 SpriteRenderer:
   serializedVersion: 2

@@ -19,8 +19,11 @@ namespace Player
         [SerializeField] private float maxHealth = 3f;
         [Tooltip("Health to restore when reviving the player.")]
         [SerializeField] private float reviveHealth = 1f;
+        [Tooltip("Duration of invincibility frames after taking damage, in seconds.")]
+        [SerializeField] private float iframeDuration;
         public float MaxHealth => maxHealth;
         public float ReviveHealth => reviveHealth;
+        public float IframeDuration => iframeDuration;
 
         [Header("Ghost Stats")]
         [Tooltip("Base ghost speed before any deaths.")]

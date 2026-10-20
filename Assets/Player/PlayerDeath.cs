@@ -61,8 +61,6 @@ namespace Player
         {
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0;
-
-            // Disable player controls?
             // If single-player, call GameOver()
             // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
             isGhost = true;

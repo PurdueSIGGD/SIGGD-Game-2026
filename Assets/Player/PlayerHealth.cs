@@ -12,6 +12,7 @@ namespace Player
         public bool IsAlive => CurrentHealth > 0;
 
         private PlayerDeath playerDeath;
+        private float invincibilityTimer = 0f;
 
         void Awake()
         {
@@ -21,6 +22,10 @@ namespace Player
 
         void Update()
         {
+            if (invincibilityTimer > 0f)
+            {
+                invincibilityTimer = Mathf.Max(invincibilityTimer - Time.deltaTime, 0f);
+            }
         }
 
         /// <summary>
@@ -29,6 +34,11 @@ namespace Player
         /// <param name="context">The damage context containing damage information.</param>
         public void TakeDamage(DamageContext context)
         {
+            if (invincibilityTimer > 0f)
+            {
+                Debug.Log("iframe active, no damage taken");
+                return;
+            }
             CurrentHealth = Mathf.Max(CurrentHealth - context.DamageAmount, 0);
             Debug.Log("Player took damage: " + context.DamageAmount + ", remaining health: " + CurrentHealth);
             if (CurrentHealth == 0)
@@ -36,6 +46,7 @@ namespace Player
                 Debug.Log("Player died");
                 playerDeath.Die();
             }
+            invincibilityTimer = stats.IframeDuration;
         }
 
         /// <summary>
