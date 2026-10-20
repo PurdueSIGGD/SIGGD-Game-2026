@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Weapon")]
-public class Weapon : ScriptableObject
+public class Weapon : ScriptableObject, IEquipment
 {
     // bullet scriptable object goes here
 
@@ -12,5 +12,10 @@ public class Weapon : ScriptableObject
     public float offset;
     public float recoil;
     public int ammoCapacity;
+
+    public void Use()
+    {
+
+    }
 
 }

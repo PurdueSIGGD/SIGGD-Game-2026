@@ -20,7 +20,7 @@ public class EquipmentManager : MonoBehaviour
     public static EquipmentManager Instance { get; private set; }
 
     //weapons code
-    [SerializeField] private Weapon primaryWeapon; //add these in the inspector for right now
+    [SerializeField] private IEquipment primaryWeapon; //add these in the inspector for right now
     [SerializeField] private IEquipment miscellaneous;
     [SerializeField] private IEquipment passive;
 
@@ -94,7 +94,7 @@ public class EquipmentManager : MonoBehaviour
         this.primaryWeapon = w;
     }
 
-    public Weapon getPrimaryWeapon()
+    public IEquipment getPrimaryWeapon()
     {
         return primaryWeapon;
     }
