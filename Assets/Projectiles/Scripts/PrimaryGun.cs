@@ -1,4 +1,4 @@
-using System;
+using Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +20,8 @@ public class PrimaryGun : MonoBehaviour
     {
         if (firePoint == null) firePoint = transform;
         if (playerBody == null) playerBody = GetComponent<Rigidbody2D>();
+
+        InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
     }
 
     private void Start()
@@ -37,20 +39,14 @@ public class PrimaryGun : MonoBehaviour
     private void Update()
     {
         if (weapon == null || Mouse.current == null) return;
-
-        bool wantsToFire = Mouse.current.leftButton.isPressed;
-        if (wantsToFire && currentAmmo > 0 && Time.time >= nextFireTime)
-        {
-            Fire();
-        }
     }
 
-    private void Fire()
+    private void Fire(Vector2 targetPos)
     {
+        if (currentAmmo <= 0 || Time.time < nextFireTime) return;
+
         nextFireTime = Time.time + 1f / Mathf.Max(weapon.fireSpeed, 0.01f);
-        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mouseWorld.z = 0f;
-        Vector2 aimDir = ((Vector2)(mouseWorld - firePoint.position)).normalized;
+        Vector2 aimDir = ((Vector2)((Vector3)targetPos - firePoint.position)).normalized;
         if (aimDir == Vector2.zero) aimDir = Vector2.right;
 
         int count = Mathf.Max(1, weapon.numBullets);
