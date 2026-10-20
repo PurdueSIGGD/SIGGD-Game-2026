@@ -16,6 +16,7 @@ namespace Player
         private Rigidbody2D rb;
         private Collider2D playerCollider;
 
+
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -58,6 +59,9 @@ namespace Player
         /// </summary>
         public void Die()
         {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0;
+
             // Disable player controls?
             // If single-player, call GameOver()
             // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.

@@ -9,6 +9,7 @@ namespace Player
         [SerializeField] private PlayerData stats;
         public float CurrentHealth { get; private set; }
         public float MaxHealth => stats.MaxHealth;
+        public bool IsAlive => CurrentHealth > 0;
 
         private PlayerDeath playerDeath;
 

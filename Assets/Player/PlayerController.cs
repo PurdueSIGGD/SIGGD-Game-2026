@@ -7,6 +7,12 @@ namespace Player
         [SerializeField] private PlayerData stats;
         [SerializeField] private Rigidbody2D rb;
         private Vector2 currentInputVector;
+        private PlayerHealth playerHealth;
+
+        void Awake()
+        {
+            playerHealth = GetComponent<PlayerHealth>();
+        }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -40,6 +46,10 @@ namespace Player
 
         private void FixedUpdate()
         {
+            if (!playerHealth.IsAlive)
+            {
+                return;
+            }
             rb.AddForce(currentInputVector * stats.MoveSpeed, ForceMode2D.Force);
         }
     }
