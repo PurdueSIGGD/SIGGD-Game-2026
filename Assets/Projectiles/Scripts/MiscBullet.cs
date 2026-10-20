@@ -31,26 +31,26 @@ public class MiscBullet : MonoBehaviour
     {
         miscRB.angularVelocity = 0f;
 
-        lifetime = miscScriptableObject.miscProjectileBehavior.Lifetime;
+        lifetime = miscScriptableObject.Lifetime;
 
         gameObject.transform.position = firePoint.position;
 
         // set sprite and collider
-        miscSR.sprite = miscScriptableObject.miscProjectileBehavior.Sprite;
+        miscSR.sprite = miscScriptableObject.Sprite;
 
-        SetMiscCollider(miscScriptableObject.miscProjectileBehavior);
+        SetMiscCollider(miscScriptableObject);
 
         // set throw direction
-        Vector2 finalDirection = Quaternion.Euler(0, 0, miscScriptableObject.miscProjectileBehavior.BulletAngleOffset) * direction;
+        Vector2 finalDirection = Quaternion.Euler(0, 0, miscScriptableObject.BulletAngleOffset) * direction;
         miscRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
 
         // give speed
-        miscRB.linearVelocity = finalDirection * miscScriptableObject.miscProjectileBehavior.Velocity;
+        miscRB.linearVelocity = finalDirection * miscScriptableObject.Velocity;
     }
 
-    private void SetMiscCollider(ProjectileScriptableObject projectileScriptableObject)
+    private void SetMiscCollider(MiscellaneousScriptableObject miscScriptableObject)
     {
-        List<Vector2[]> paths = projectileScriptableObject.PhysicsPaths;
+        List<Vector2[]> paths = miscScriptableObject.PhysicsPaths;
 
         if (paths != null && paths.Count > 0)
         {

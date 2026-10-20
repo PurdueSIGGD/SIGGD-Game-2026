@@ -51,7 +51,7 @@ public class MiscGun : MonoBehaviour
     private IEnumerator MiscIsThrown()
     {
         miscThrown = true;
-        yield return new WaitForSeconds(MiscObject.MiscProjectile.miscProjectileBehavior.Lifetime);
+        yield return new WaitForSeconds(MiscObject.MiscProjectile.Lifetime);
         miscThrown = false;
     }
 }

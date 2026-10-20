@@ -4,6 +4,6 @@ using UnityEngine;
 public class MiscObject : ScriptableObject
 {
     public MiscellaneousScriptableObject MiscProjectile;
-    public string MiscName;
+    public string Name;
     public float Cooldown;
 }
