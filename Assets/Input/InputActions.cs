@@ -181,36 +181,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
-                },
-                {
-                    ""name"": ""Equip3"",
-                    ""type"": ""Button"",
-                    ""id"": ""70d339f3-3981-4618-86ef-16973fe0d98f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false,
-                    ""priority"": 0
-                },
-                {
-                    ""name"": ""Equip1"",
-                    ""type"": ""Button"",
-                    ""id"": ""b3271214-c0fa-43da-92c0-44118b634ec8"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false,
-                    ""priority"": 0
-                },
-                {
-                    ""name"": ""Equip2"",
-                    ""type"": ""Button"",
-                    ""id"": ""2b8cafe7-d90b-4881-9f1b-7e4b27d77549"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false,
-                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -596,39 +566,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""73d742c5-9457-483a-bf04-ac8250dfb8e0"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Equip3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d3d9bc63-4571-4c95-b035-c1b9673f1367"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Equip1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d7144c95-3de1-4d98-8465-2d61adb94004"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Equip2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1235,9 +1172,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
-        m_Player_Equip3 = m_Player.FindAction("Equip3", throwIfNotFound: true);
-        m_Player_Equip1 = m_Player.FindAction("Equip1", throwIfNotFound: true);
-        m_Player_Equip2 = m_Player.FindAction("Equip2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1340,9 +1274,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Previous;
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
-    private readonly InputAction m_Player_Equip3;
-    private readonly InputAction m_Player_Equip1;
-    private readonly InputAction m_Player_Equip2;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1390,18 +1321,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Equip3".
-        /// </summary>
-        public InputAction @Equip3 => m_Wrapper.m_Player_Equip3;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Equip1".
-        /// </summary>
-        public InputAction @Equip1 => m_Wrapper.m_Player_Equip1;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Equip2".
-        /// </summary>
-        public InputAction @Equip2 => m_Wrapper.m_Player_Equip2;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1455,15 +1374,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @Equip3.started += instance.OnEquip3;
-            @Equip3.performed += instance.OnEquip3;
-            @Equip3.canceled += instance.OnEquip3;
-            @Equip1.started += instance.OnEquip1;
-            @Equip1.performed += instance.OnEquip1;
-            @Equip1.canceled += instance.OnEquip1;
-            @Equip2.started += instance.OnEquip2;
-            @Equip2.performed += instance.OnEquip2;
-            @Equip2.canceled += instance.OnEquip2;
         }
 
         /// <summary>
@@ -1502,15 +1412,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @Equip3.started -= instance.OnEquip3;
-            @Equip3.performed -= instance.OnEquip3;
-            @Equip3.canceled -= instance.OnEquip3;
-            @Equip1.started -= instance.OnEquip1;
-            @Equip1.performed -= instance.OnEquip1;
-            @Equip1.canceled -= instance.OnEquip1;
-            @Equip2.started -= instance.OnEquip2;
-            @Equip2.performed -= instance.OnEquip2;
-            @Equip2.canceled -= instance.OnEquip2;
         }
 
         /// <summary>
@@ -1874,27 +1775,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Equip3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnEquip3(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Equip1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnEquip1(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Equip2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnEquip2(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
