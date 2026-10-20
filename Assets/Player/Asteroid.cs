@@ -31,7 +31,7 @@ public class Asteroid : MonoBehaviour
         Debug.Log("asteroid collision " + collision.collider.gameObject);
         if (collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponent<IDamageable>().TakeDamage(new DamageContext
+            collision.collider.GetComponent<IDamageable>()?.TakeDamage(new DamageContext
             {
                 DamageAmount = 1f,
                 Attacker = gameObject,

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3600724885500606743}
   - component: {fileID: 6395204138503855043}
   - component: {fileID: 3380938587474817520}
+  - component: {fileID: 3962457404890934388}
+  - component: {fileID: 5862265467421199183}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -147,3 +149,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3962457404890934388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808339969569689809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaaeda272a6123d41a1fd3785b340615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerHealth
+  stats: {fileID: 11400000, guid: 6119088f7668fa141870c6fb0b1e5960, type: 2}
+--- !u!114 &5862265467421199183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808339969569689809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85110f18670c944898d916db7c98ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerDeath
+  stats: {fileID: 11400000, guid: 6119088f7668fa141870c6fb0b1e5960, type: 2}
