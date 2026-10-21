@@ -41,14 +41,11 @@ namespace Player
             {
                 if (collision.collider.CompareTag("Player")) // temporary tag
                 {
-                    isGhost = false;
-                    playerHealth.Revive();
+                    Revive();
                 }
                 else if (collision.collider.CompareTag("Finish")) // temporary tag
                 {
-                    isGhost = false;
-                    // player was not revived, no longer in the round
-                    gameObject.SetActive(false); // for now just disable gameobject
+                    RemovePlayer();
                 }
             }
         }
@@ -62,15 +59,36 @@ namespace Player
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0;
             // If single-player, call GameOver()
-            // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
-            isGhost = true;
-            if (ghostSpeed == 0)
+            if (PlayerRegistery.Players.Length == 1)
             {
-                ghostSpeed = stats.BaseGhostSpeed;
+                GameOver();
+                return;
+            }
+            // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
+            bool allPlayersDead = true;
+            for (int i = 0; i < PlayerRegistery.Players.Length; i++)
+            {
+                if (PlayerRegistery.Players[i] != null && PlayerRegistery.Players[i].Health.IsAlive)
+                {
+                    allPlayersDead = false;
+                    break;
+                }
+            }
+            if (allPlayersDead)
+            {
+                GameOver();
             }
             else
             {
-                ghostSpeed += stats.DeathSpeedIncrease;
+                isGhost = true;
+                if (ghostSpeed == 0)
+                {
+                    ghostSpeed = stats.BaseGhostSpeed;
+                }
+                else
+                {
+                    ghostSpeed += stats.DeathSpeedIncrease;
+                }
             }
         }
 
@@ -84,12 +102,13 @@ namespace Player
         }
 
         /// <summary>
-        /// Handles the single-player game over scenario.
+        /// Handles the game over scenario.
         /// </summary>
         private void GameOver()
         {
             // Game over UI?
             // Restart the current boss
+            // Reset all players (maybe the PlayerRegistery handles this?)
             Reset();
         }
 
@@ -99,8 +118,22 @@ namespace Player
         private void TurnIntoGhost()
         {
             isGhost = true;
+            // Change player appearance?
         }
 
+        private void Revive()
+        {
+            isGhost = false;
+            playerHealth.Revive();
+            // Change player appearance back to normal?
+        }
+
+        private void RemovePlayer()
+        {
+            isGhost = false;
+            // player was not revived, no longer in the round
+            gameObject.SetActive(false); // for now just disable gameobject
+        }
 
     }
 }

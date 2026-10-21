@@ -10,6 +10,7 @@ namespace Player
 
         // Player Components
         public PlayerController Controller { get; private set; }
+        public PlayerHealth Health { get; private set; }
 
 
         void Awake()
@@ -22,6 +23,7 @@ namespace Player
             }
 
             Controller = GetComponent<PlayerController>();
+            Health = GetComponent<PlayerHealth>();
         }
     }
 }
