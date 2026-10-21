@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Weapon")]
-public class Weapon : ScriptableObject
+public class Weapon : ScriptableObject, IEquipment
 {
     public ProjectileScriptableObject projectile;
     public string weaponName;
@@ -12,6 +12,12 @@ public class Weapon : ScriptableObject
     public float recoil;
     public int ammoCapacity;
     public float fireSpeed;
+
+    public void Use()
+    {
+
+    }
+
 }
 /* this class creates a scriptable object for gun weapons! simply create a new scriptable object
  * in the editor and then fill in values to create your gun. PrimaryGun will use this scriptable object
