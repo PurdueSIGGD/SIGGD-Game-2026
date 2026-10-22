@@ -14,7 +14,7 @@ public class SteamManager : MonoBehaviour
         try
         {
             Steamworks.SteamClient.Init(appId, true);
-            Debug.Log("Steam is up and running!"); // can't debug.log?
+            Debug.Log("Steam is up and running!"); 
         }
         catch (System.Exception e)
         {

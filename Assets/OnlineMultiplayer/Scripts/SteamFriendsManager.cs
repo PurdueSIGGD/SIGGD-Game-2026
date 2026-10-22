@@ -42,6 +42,7 @@ public class SteamFriendsManager : MonoBehaviour
         return texture;
     }
 
+
     public async void InitFriends()
     {
 
@@ -58,6 +59,7 @@ public class SteamFriendsManager : MonoBehaviour
             var img = await SteamFriends.GetLargeAvatarAsync(friend.Id);
             f.GetComponentInChildren<RawImage>().texture = GetTextureFromImage(img.Value);
             f.GetComponentInChildren<Text>().text = friend.Name;
+            f.GetComponent<FriendObject>().steamid = friend.Id;
             var rectTransform = f.GetComponent<RectTransform>();
             rectTransform.anchoredPosition = new Vector2 (125, yvalue);
             yvalue -= 50;
