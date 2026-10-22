@@ -12,6 +12,7 @@ namespace Player
 
         private float ghostSpeed;
         private bool isGhost = false;
+        private Vector2 ghostMoveDirection;
 
         private Rigidbody2D rb;
         private Collider2D playerCollider;
@@ -24,13 +25,14 @@ namespace Player
             playerHealth = GetComponent<PlayerHealth>();
 
             ghostSpeed = 0;
+            SetGhostMoveDirection(Vector2.down); // Default direction, can be changed later
         }
 
         void FixedUpdate()
         {
             if (isGhost)
             {
-                rb.MovePosition(rb.position + new Vector2(0, -1) * ghostSpeed * Time.deltaTime);
+                rb.MovePosition(rb.position + ghostMoveDirection * ghostSpeed * Time.deltaTime);
                 // Handle ghost movement if the player is a ghost
             }
         }
@@ -50,6 +52,15 @@ namespace Player
             }
         }
 
+        /// <summary>
+        /// Sets the direction that the ghost should move in, in case
+        /// of different planets being placed on different sides of the screen.
+        /// </summary>
+        /// <param name="direction">Direction for the ghost to move in.</param>
+        public void SetGhostMoveDirection(Vector2 direction)
+        {
+            ghostMoveDirection = direction.normalized;
+        }
 
         /// <summary>
         /// Handles the player's death for single-player and multiplayer scenarios.
