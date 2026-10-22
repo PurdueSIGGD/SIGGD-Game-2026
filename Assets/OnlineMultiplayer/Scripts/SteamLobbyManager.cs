@@ -31,7 +31,7 @@ public class SteamLobbyManager : MonoBehaviour
             for (int y = 0; y < image.Height; y ++) 
             {
                 var pixel = image.GetPixel(x, y);
-                texture.SetPixel(x, (int)image.Height - y, new UnityEngine.Color(pixel.r/255.0f, pixel.g / 255.0f, pixel.b / 255.0f, pixel.a / 255.0f));
+                texture.SetPixel(x, (int)image.Height - y, new UnityEngine.Color(pixel.r/255.0f, pixel.g / 255.0f, pixel.b / 255.0f, pixel.a / 255.0f)); //is this supposed to be unityengine.color or something else? color doesnt work
             }
         }
         texture.Apply();
@@ -163,7 +163,7 @@ public class SteamLobbyManager : MonoBehaviour
 
     }
 
-    public async Task<bool> CreateLobby()
+    public static async Task<bool> CreateLobby()
     {
         try
         {
