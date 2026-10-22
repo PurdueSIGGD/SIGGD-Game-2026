@@ -4,7 +4,7 @@ using System.Collections;
 public class MiscGun : MonoBehaviour
 {
     // put this script with the PrimaryGun script like on the same object
-    public MiscObject MiscObject;
+    public MiscWeapon MiscObject;
     public Transform FirePoint;
     [SerializeField] private bool onCooldown;
     [SerializeField] private bool miscThrown;

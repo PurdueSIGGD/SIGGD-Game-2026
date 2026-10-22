@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1543569396}
   - component: {fileID: 1543569395}
   - component: {fileID: 1543569398}
+  - component: {fileID: 1543569399}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -448,6 +449,22 @@ MonoBehaviour:
   playerBody: {fileID: 1543569395}
   currentAmmo: 0
   isReloading: 0
+--- !u!114 &1543569399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543569394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6019014cc13e7ce4297c31dad9cfdb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MiscGun
+  MiscObject: {fileID: 11400000, guid: ffa0c424416b8b24b9c0c77d5a8b2ee7, type: 2}
+  FirePoint: {fileID: 1543569397}
+  onCooldown: 0
+  miscThrown: 0
 --- !u!1 &1891948571
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileManager
   bulletPrefab: {fileID: 8743139753082222912, guid: f3b282903809c3a4cbee6090470ff8a6, type: 3}
+  miscBulletPrefab: {fileID: 0}
 --- !u!4 &1891948573
 Transform:
   m_ObjectHideFlags: 0
