@@ -18,6 +18,6 @@ MonoBehaviour:
   terminalVelocity: 10
   maxHealth: 3
   reviveHealth: 1
-  iframeDuration: 2
+  iframeDuration: 1
   baseGhostSpeed: 2
   deathSpeedIncrease: 1

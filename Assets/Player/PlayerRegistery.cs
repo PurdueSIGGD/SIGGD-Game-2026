@@ -10,10 +10,13 @@ namespace Player
         /// </summary>
         public static Player[] Players;
         public static readonly int MaxPlayers = 2;
+        public static int PlayerCount;
+        public static bool IsMultiplayer => PlayerCount > 1;
 
         static PlayerRegistery()
         {
             Players = new Player[MaxPlayers];
+            PlayerCount = 0;
         }
 
         /// <summary>
@@ -25,6 +28,7 @@ namespace Player
             if (Players.Length == 0)
             {
                 Players = new Player[MaxPlayers];
+                PlayerCount = 0;
             }
 
             for (int i = 0; i < Players.Length; i++)
@@ -32,6 +36,7 @@ namespace Player
                 if (Players[i] == null)
                 {
                     Players[i] = player;
+                    PlayerCount++;
                     return i;
                 }
             }

@@ -58,15 +58,16 @@ namespace Player
         {
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0;
-            // If single-player, call GameOver()
-            if (PlayerRegistery.Players.Length == 1)
+            // Single-player behavior
+            if (!PlayerRegistery.IsMultiplayer)
             {
+                Debug.Log("Singleplayer Game Over");
                 GameOver();
                 return;
             }
-            // If multiplayer, check if all players are dead. If so, restart current boss. If not, turn into ghost.
+            // Multiplayer behavior
             bool allPlayersDead = true;
-            for (int i = 0; i < PlayerRegistery.Players.Length; i++)
+            for (int i = 0; i < PlayerRegistery.PlayerCount; i++)
             {
                 if (PlayerRegistery.Players[i] != null && PlayerRegistery.Players[i].Health.IsAlive)
                 {
@@ -76,6 +77,7 @@ namespace Player
             }
             if (allPlayersDead)
             {
+                Debug.Log("Multiplayer Game Over");
                 GameOver();
             }
             else
