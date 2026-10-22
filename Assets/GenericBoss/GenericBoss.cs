@@ -4,25 +4,15 @@ using UnityEngine.Events;
 
 public class GenericBoss : MonoBehaviour
 {
-    public float CurrentHealth => currentHealth;
-    [SerializeField] private float currentHealth;
-    public float MaxHealth;
+    [SerializeField] private BossData bossData;
     public UnityEvent<DamageContext> OnBossTakeDamage;
     public UnityEvent<DamageContext> OnBossDeath;
-    /// <summary>
-    /// Stores health level upper boundries (in decending order) for each phase.
-    /// </summary>
-    public int[] PhaseHealthBoundaries;
+    public float CurrentHealth;
+    private float maxHealth;
     /// <summary>
     /// Stores the current phase (index into PhaseHealthBoundries).
     /// </summary>
     public int CurrentPhase = 0;
-    [SerializeField] private float speedDamageThreshold = 5.0f;
-    [SerializeField] private float damageMultiplier = 10.0f;
-
-
-
-    private AttackPercents[] attackPercentList;
     private System.Random rng = new System.Random();
 
     /// <summary>
@@ -33,12 +23,12 @@ public class GenericBoss : MonoBehaviour
     {
         // TODO: check who dealt damage and if they're elegible to deal damage
         
-        currentHealth -= context.DamageAmount;
+        CurrentHealth -= context.DamageAmount;
         OnBossTakeDamage?.Invoke(context);
 
-        for (; CurrentPhase < PhaseHealthBoundaries.Length-1 && currentHealth < PhaseHealthBoundaries[CurrentPhase+1]; CurrentPhase++) {}
+        for (; CurrentPhase < bossData.PhaseHealthBoundaries.Length-1 && CurrentHealth < bossData.PhaseHealthBoundaries[CurrentPhase+1]; CurrentPhase++) {}
 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             OnBossDeath?.Invoke(context);
         }
@@ -47,18 +37,18 @@ public class GenericBoss : MonoBehaviour
     private int CalculateRandomBossAttack()
     {
         uint totalPercentage = 0;
-        foreach(AttackPercents c in attackPercentList){
+        foreach(AttackPercents c in bossData.AttackPercentList){
             totalPercentage += c.ChanceWeights[CurrentPhase];
         }
         int attackNumber = rng.Next(1, (int)totalPercentage + 1);
         int index = 0;
         while (true)
         {
-            if (attackPercentList[index].ChanceWeights[CurrentPhase] >= attackNumber)
+            if (bossData.AttackPercentList[index].ChanceWeights[CurrentPhase] >= attackNumber)
             {
-                return attackPercentList[index].Attack;
+                return bossData.AttackPercentList[index].Attack;
             }
-            attackNumber -= (int)attackPercentList[index].ChanceWeights[CurrentPhase];
+            attackNumber -= (int)bossData.AttackPercentList[index].ChanceWeights[CurrentPhase];
             index++;
         }
     }
@@ -66,8 +56,8 @@ public class GenericBoss : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         float impactSpeed = collision.relativeVelocity.magnitude;
 
-        if (impactSpeed > speedDamageThreshold) {
-            float damageAmount = impactSpeed * damageMultiplier;
+        if (impactSpeed > bossData.SpeedDamageThreshold) {
+            float damageAmount = impactSpeed * bossData.DamageMultiplier;
             TakeDamage(new DamageContext {
                 DamageAmount = damageAmount,
                 Attacker = collision.gameObject,
@@ -77,9 +67,9 @@ public class GenericBoss : MonoBehaviour
     }
     void Start()
     {
-        Debug.Assert(PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
-        MaxHealth = PhaseHealthBoundaries[0];
-        currentHealth = MaxHealth;
+        Debug.Assert(bossData.PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
+        maxHealth = bossData.PhaseHealthBoundaries[0];
+        CurrentHealth = maxHealth;
     }
 
     void Update()
