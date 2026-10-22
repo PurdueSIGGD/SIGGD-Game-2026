@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Miscellaneous", menuName = "Scriptable Objects/Miscellaneous")]
+[CreateAssetMenu(fileName = "MiscellaneousScriptableObject", menuName = "Scriptable Objects/MiscellaneousScriptableObject")]
 public class MiscellaneousScriptableObject : ScriptableObject
 {
     public float Lifetime;

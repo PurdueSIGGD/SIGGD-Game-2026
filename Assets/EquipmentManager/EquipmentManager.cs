@@ -89,7 +89,7 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public void setPrimaryWeapon(Weapon w)
+    public void setPrimaryWeapon(PrimaryWeapon w)
     {
         this.primaryWeapon = w;
     }

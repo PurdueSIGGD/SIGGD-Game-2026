@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PrimaryGun : MonoBehaviour
 {
-    public Weapon weapon;
+    public PrimaryWeapon weapon;
     public Transform firePoint;
     public Rigidbody2D playerBody;
     public int currentAmmo;
@@ -119,7 +119,7 @@ public class PrimaryGun : MonoBehaviour
     }
 
     // Call this script every time the player's weapon is changed! (please!!! ty) - ryan <3
-    public void EquipWeapon(Weapon newWeapon)
+    public void EquipWeapon(PrimaryWeapon newWeapon)
     {
         if (newWeapon == null) return;
 
