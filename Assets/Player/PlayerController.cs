@@ -10,9 +10,14 @@ namespace Player
         [SerializeField] private Rigidbody2D rb;
         private Vector2 currentInputVector;
         private float currSpeed;
+        private float maxSpeed;
 
         private InputActions controls;
         private InputAction braking;
+
+        private float storedSpeed = 0f;
+        private bool stopHeld = false;
+        private bool launchPending = false;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -29,7 +34,20 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-            
+            if (braking.WasPressedThisFrame())
+            {
+                Brake();
+                stopHeld = braking.IsPressed();
+
+                //allow player to redirect their direction
+                MovePlayerCharacter(currentInputVector);
+            }
+
+            bool dirPressed = currentInputVector != Vector2.zero;
+            if (!stopHeld && dirPressed && storedSpeed > 0f && currentInputVector.sqrMagnitude > 0.01f)
+            {
+                launchPending = true;
+            }
         }
 
         private void OnDisable()
@@ -51,29 +69,30 @@ namespace Player
             //movement
             rb.AddForce(currentInputVector * stats.MoveSpeed, ForceMode2D.Force);
 
-            if (braking.WasPressedThisFrame())
+            if (stopHeld)
             {
-                Brake();
-
-                //allow player to redirect their direction
-                MovePlayerCharacter(currentInputVector);
+                rb.linearVelocity = Vector2.zero;
+                return;
             }
-
-            if (braking.WasReleasedThisFrame())
+            
+            if (launchPending)
             {
-                //launch player in the direction they're holding
-                rb.AddForce(currentInputVector * currSpeed, ForceMode2D.Impulse);
+                rb.linearVelocity = currentInputVector * storedSpeed;
+                storedSpeed = 0f;
+                launchPending = false;
             }
+            if (currentInputVector.sqrMagnitude > 0.01f)
+            {
+                rb.AddForce(currentInputVector * stats.MoveSpeed, ForceMode2D.Force);
+            }
+            rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
         }
 
         //The instant brake system
         void Brake()
         {
-            currSpeed = stats.MoveSpeed; //store the movement speed before the stop
-            
-            // remove all speed and stop
-            rb.linearVelocity = Vector2.zero;
-            currSpeed -= 0.01f;
+            float speed = rb.linearVelocity.magnitude;
+            if (speed > 0.1f) storedSpeed = speed;
         }
     }   
 }
