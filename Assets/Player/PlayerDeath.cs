@@ -33,7 +33,7 @@ namespace Player
             if (isGhost)
             {
                 rb.MovePosition(rb.position + ghostMoveDirection * ghostSpeed * Time.deltaTime);
-                // Handle ghost movement if the player is a ghost
+                // Handle ghost movement if the player is a ghost...
             }
         }
 
@@ -93,7 +93,6 @@ namespace Player
             }
             else
             {
-                isGhost = true;
                 if (ghostSpeed == 0)
                 {
                     ghostSpeed = stats.BaseGhostSpeed;
@@ -102,6 +101,7 @@ namespace Player
                 {
                     ghostSpeed += stats.DeathSpeedIncrease;
                 }
+                TurnIntoGhost();
             }
         }
 
