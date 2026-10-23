@@ -39,7 +39,7 @@ public class PlayerEquipmentSystem : MonoBehaviour
     }
 
     //returns a boolean stating that weapon has or hasnt been switched
-    public Boolean setEquipment(int  equipmentIndex)
+    public bool setEquipment(int  equipmentIndex)
     {
         if(equipmentIndex < totalEquipments && equipmentIndex >= 0)
         {
