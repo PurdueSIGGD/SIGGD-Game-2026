@@ -49,12 +49,15 @@ public class Bullet : MonoBehaviour
         gameObject.transform.position = firePoint.position;
 
         // set bullet sprite
-        bulletSR.sprite = projectileScriptableObject.Sprite;
+        bulletSR.sprite = projectileScriptableObject.ProjectileSprite;
+        bulletSR.color = projectileScriptableObject.ProjectileColor;
+
+        gameObject.transform.localScale = projectileScriptableObject.ProjectileScale;
 
         SetBulletCollider(projectileScriptableObject);
 
         // rotate bullet
-        Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.BulletAngleOffset) * shootDirection;
+        Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.ProjectileAngleOffset) * shootDirection;
         bulletRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
 
         // give bullet its speed and in the direction

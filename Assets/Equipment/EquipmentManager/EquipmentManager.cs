@@ -75,6 +75,29 @@ public class EquipmentManager : MonoBehaviour
     }
 
     public void setPrimaryWeapon(Weapon w)
+    //change to UseEquipment when weapon gets fixed!!!
+    public void shootPrimaryWeapon()
+    {
+        Debug.Log("shoot Primary");
+    }
+
+    //change to UseEquipment when weapon gets fixed!!!
+    public void shootMiscellaneous()
+    {
+        if (miscellaneous is IEquipment usable)
+        {
+            usable.Use();
+        }
+    }
+    public void UseEquipment(IEquipment equipment)
+    {
+        if (equipment is IEquipment usable)
+        {
+            usable.Use();
+        }
+    }
+
+    public void setPrimaryWeapon(PrimaryWeapon w)
     {
         this.primaryWeapon = w;
     }
