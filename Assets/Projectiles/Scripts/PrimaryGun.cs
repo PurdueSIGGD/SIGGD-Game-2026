@@ -45,6 +45,10 @@ public class PrimaryGun : MonoBehaviour
     {
         if (currentAmmo <= 0 || Time.time < nextFireTime) return;
 
+        Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
+        float distanceToCamera = firePoint.position.z - Camera.main.transform.position.z;
+        targetPos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
+
         nextFireTime = Time.time + 1f / Mathf.Max(weapon.fireSpeed, 0.01f);
         Vector2 aimDir = ((Vector2)((Vector3)targetPos - firePoint.position)).normalized;
         if (aimDir == Vector2.zero) aimDir = Vector2.right;

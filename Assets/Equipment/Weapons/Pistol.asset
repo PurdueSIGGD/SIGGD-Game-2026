@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryWeapon
   projectile: {fileID: 11400000, guid: 5a93ab72c346e414a8d4871b76fcfe63, type: 2}
   weaponName: Pistol
-  numBullets: 12
+  numBullets: 1
   spread: 0
   reloadTime: 10
   offset: 0

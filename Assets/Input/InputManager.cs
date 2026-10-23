@@ -13,7 +13,7 @@ public class InputManager : Singleton<InputManager>
 
     public bool IsLeftClickHeld => inputActions != null && inputActions.Player.LeftClick.IsPressed();
     public bool IsRightClickHeld => inputActions != null && inputActions.Player.RightClick.IsPressed();
-    public Vector2 PointerScreenPosition => Pointer.current != null ? Pointer.current.position.ReadValue() : Vector2.zero;
+    public Vector2 PointerScreenPosition => inputActions != null ? inputActions.Player.Look.ReadValue<Vector2>() : Vector2.zero;
 
     protected override void Awake()
     {
