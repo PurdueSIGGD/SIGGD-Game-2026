@@ -19,12 +19,12 @@ public class ProjectileScriptableObject : ScriptableObject
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
 
-    //public SplineKnotIndex debug_SKI;
-    public List<Spline> SplineNodes;
-
+    //Spline stuff
     public GameObject SplineGameObject;  // This gets the spline that was drawn in the engine.
 
-    public SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
+    private SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
+
+    public List<Spline> SplineNodes;
     private static readonly List<Vector2> pathBuffer = new List<Vector2>();
 
     private void OnValidate()
@@ -50,7 +50,8 @@ public class ProjectileScriptableObject : ScriptableObject
 
 
         SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
-        
+        SplineNodes.Clear();
+
         // adds the spline game object componets to the spline nodes list
         for (int i = 0; i < SplineContainer.Splines.Count; i++)
         {
