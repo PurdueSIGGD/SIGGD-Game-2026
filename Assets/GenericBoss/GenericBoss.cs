@@ -14,6 +14,7 @@ public class GenericBoss : MonoBehaviour
     /// </summary>
     public int CurrentPhase = 0;
     private System.Random rng = new System.Random();
+    private BossAttack lastAttack = null;
 
     /// <summary>
     /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
@@ -34,7 +35,7 @@ public class GenericBoss : MonoBehaviour
         }
     }
 
-    private int CalculateRandomBossAttack()
+    private BossAttack CalculateRandomBossAttack()
     {
         uint totalPercentage = 0;
         foreach(AttackPercents c in bossData.AttackPercentList){
@@ -46,7 +47,16 @@ public class GenericBoss : MonoBehaviour
         {
             if (bossData.AttackPercentList[index].ChanceWeights[CurrentPhase] >= attackNumber)
             {
-                return bossData.AttackPercentList[index].Attack;
+                if (lastAttack != null && lastAttack is bossData.AttackPercentList[index].Attack)
+                {
+                    lastAttack = null;
+                    return CalculateRandomBossAttack();
+                }
+                else
+                {
+                    lastAttack = bossData.AttackPercentList[index].Attack;
+                    return bossData.AttackPercentList[index].Attack;
+                }
             }
             attackNumber -= (int)bossData.AttackPercentList[index].ChanceWeights[CurrentPhase];
             index++;
@@ -88,10 +98,15 @@ public struct AttackPercents
     /// An array of the weights for this attack for each boss phase.
     /// </summary>
     public uint[] ChanceWeights {get;}
-    public int Attack {get;} //TODO: make this an attack class (maybe "BossAttack")
+    public BossAttack Attack {get;} //TODO: make this an attack class (maybe "BossAttack")
 
     public AttackPercents(uint[] chanceWeights, int attack){
         ChanceWeights = chanceWeights;
         Attack = attack;
     }
+}
+
+public class BossAttack
+{
+    
 }
