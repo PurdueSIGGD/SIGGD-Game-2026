@@ -22,9 +22,9 @@ public class ProjectileScriptableObject : ScriptableObject
     //public SplineKnotIndex debug_SKI;
     public List<Spline> SplineNodes;
 
-    public GameObject SplineGameObject;  // TBD add desc
+    public GameObject SplineGameObject;  // This gets the spline that was drawn in the engine.
 
-    public SplineContainer SplineContainer;  // TBD add desc 
+    public SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
     private static readonly List<Vector2> pathBuffer = new List<Vector2>();
 
     private void OnValidate()
@@ -51,6 +51,7 @@ public class ProjectileScriptableObject : ScriptableObject
 
         SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
         
+        // adds the spline game object componets to the spline nodes list
         for (int i = 0; i < SplineContainer.Splines.Count; i++)
         {
             SplineNodes.Add(SplineContainer.Splines[i]);
