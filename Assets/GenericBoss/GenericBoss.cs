@@ -47,7 +47,7 @@ public class GenericBoss : MonoBehaviour
         {
             if (bossData.AttackPercentList[index].ChanceWeights[CurrentPhase] >= attackNumber)
             {
-                if (lastAttack != null && lastAttack is bossData.AttackPercentList[index].Attack)
+                if (lastAttack != null && lastAttack == bossData.AttackPercentList[index].Attack)
                 {
                     lastAttack = null;
                     return CalculateRandomBossAttack();
@@ -80,6 +80,12 @@ public class GenericBoss : MonoBehaviour
         Debug.Assert(bossData.PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
         maxHealth = bossData.PhaseHealthBoundaries[0];
         CurrentHealth = maxHealth;
+        bossData.AttackPercentList = new AttackPercents[] {new AttackPercents(new uint[] {1},new BossAttack()), new AttackPercents(new uint[] {1},new BossAttack()), new AttackPercents(new uint[] {1},new BossAttack())};
+        CalculateRandomBossAttack().Test();
+        CalculateRandomBossAttack().Test();
+        CalculateRandomBossAttack().Test();
+        CalculateRandomBossAttack().Test();
+        CalculateRandomBossAttack().Test();
     }
 
     void Update()
@@ -98,9 +104,9 @@ public struct AttackPercents
     /// An array of the weights for this attack for each boss phase.
     /// </summary>
     public uint[] ChanceWeights {get;}
-    public BossAttack Attack {get;} //TODO: make this an attack class (maybe "BossAttack")
+    public BossAttack Attack {get;}
 
-    public AttackPercents(uint[] chanceWeights, int attack){
+    public AttackPercents(uint[] chanceWeights, BossAttack attack){
         ChanceWeights = chanceWeights;
         Attack = attack;
     }
@@ -108,5 +114,16 @@ public struct AttackPercents
 
 public class BossAttack
 {
-    
+    public static int Count = 0;
+    private int num;
+
+    public BossAttack ()
+    {
+        Count++;
+        num = Count;
+    }
+    public void Test()
+    {
+        Debug.Log("It works: " + num);
+    }
 }

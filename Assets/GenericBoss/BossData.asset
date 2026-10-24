@@ -12,15 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a616fa26e0f26c4097c07c1f63ec8e1, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::BossData
-  currentHealth: 0
-  MaxHealth: 0
-  OnBossTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBossDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  PhaseHealthBoundaries: 
-  CurrentPhase: 0
-  speedDamageThreshold: 5
-  damageMultiplier: 10
+  <PhaseHealthBoundaries>k__BackingField: 01000000
+  <SpeedDamageThreshold>k__BackingField: 5
+  <DamageMultiplier>k__BackingField: 10
