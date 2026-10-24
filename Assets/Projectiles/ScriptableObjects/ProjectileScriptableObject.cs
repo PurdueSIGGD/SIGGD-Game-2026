@@ -22,9 +22,9 @@ public class ProjectileScriptableObject : ScriptableObject
     //public SplineKnotIndex debug_SKI;
     public List<Spline> SplineNodes;
 
-    public GameObject SplineGameObject;  //
+    public GameObject SplineGameObject;  // TBD add desc
 
-    public SplineContainer SplineContainer;  // container 
+    public SplineContainer SplineContainer;  // TBD add desc 
     private static readonly List<Vector2> pathBuffer = new List<Vector2>();
 
     private void OnValidate()
