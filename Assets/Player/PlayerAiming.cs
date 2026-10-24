@@ -18,6 +18,8 @@ public class PlayerAiming : MonoBehaviour
     {
         mousePos = Mouse.current.position.ReadValue();
 
+        Debug.Log(mousePos);
+
         Vector3 rotation = mousePos - transform.position;
         float angle = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
