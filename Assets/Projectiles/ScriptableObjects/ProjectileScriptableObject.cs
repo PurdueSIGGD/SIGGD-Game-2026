@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Splines;
 using System.Collections.Generic;
+using TreeEditor;
 
 [CreateAssetMenu(fileName = "ProjectileScriptableObject", menuName = "Scriptable Objects/ProjectileScriptableObject")]
-public class ProjectileScriptableObject : ScriptableObject
+public class ProjectileScriptableObject : ScriptableObject 
 {
     public bool IsExplosive;
     public int Damage;
@@ -16,6 +18,13 @@ public class ProjectileScriptableObject : ScriptableObject
 
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
+
+    //public SplineKnotIndex debug_SKI;
+    public List<Spline> SplineNodes;
+
+    public GameObject SplineGameObject;  //
+
+    public SplineContainer SplineContainer;  // container 
     private static readonly List<Vector2> pathBuffer = new List<Vector2>();
 
     private void OnValidate()
@@ -38,5 +47,13 @@ public class ProjectileScriptableObject : ScriptableObject
             ProjectileSprite.GetPhysicsShape(i, pathBuffer);
             PhysicsPaths.Add(pathBuffer.ToArray());
         }
+
+
+        SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
+        
+        for (int i = 0; i < SplineContainer.Splines.Count; i++)
+        {
+            SplineNodes.Add(SplineContainer.Splines[i]);
+        }        
     }
 }
