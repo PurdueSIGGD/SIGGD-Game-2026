@@ -4,9 +4,9 @@ using System.Collections.Generic;
 public class Bullet : MonoBehaviour
 {
     private bool isExplosive;
+    private bool hasSpline;
     private int damage;
     private float lifetime;
-
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
@@ -23,6 +23,11 @@ public class Bullet : MonoBehaviour
         if (lifetime > 0)
         {
             lifetime -= 1f * Time.deltaTime;
+
+            if (hasSpline)
+            {
+                // todo, move the bullet forward, snap it to spline, change its angle to equal the IROC of the spline
+            }
         }
         else
         {
@@ -43,6 +48,7 @@ public class Bullet : MonoBehaviour
         bulletRB.angularVelocity = 0f; // reset angular velocity just incase its not 0 before firing
 
         isExplosive = projectileScriptableObject.IsExplosive;
+        hasSpline = projectileScriptableObject.HasSpline;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
 
@@ -86,6 +92,11 @@ public class Bullet : MonoBehaviour
     public bool GetIsExplosive()
     {
         return isExplosive;
+    }
+
+    public bool GetHasSpline()
+    {
+        return hasSpline;
     }
 
     public int GetDamage()
