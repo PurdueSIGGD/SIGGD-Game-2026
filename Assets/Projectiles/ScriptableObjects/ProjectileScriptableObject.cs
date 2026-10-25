@@ -24,7 +24,7 @@ public class ProjectileScriptableObject : ScriptableObject
     //Spline stuff
     public GameObject SplineGameObject;  // This gets the spline that was drawn in the engine.
 
-    private SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
+    public SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
 
     public List<Spline> SplineNodes;
     private static readonly List<Vector2> pathBuffer = new List<Vector2>();

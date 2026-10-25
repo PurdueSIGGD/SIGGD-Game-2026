@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
+using UnityEngine.Splines;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,12 +12,14 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
+    private Spline path;
 
     private void Awake()
     {
         bulletRB = gameObject.GetComponent<Rigidbody2D>();
         bulletSR = gameObject.GetComponent<SpriteRenderer>();
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
+        
     }
 
     private void Update()
@@ -26,6 +30,7 @@ public class Bullet : MonoBehaviour
 
             if (hasSpline)
             {
+                
                 // todo, move the bullet forward, snap it to spline, change its angle to equal the IROC of the spline
             }
         }
@@ -51,6 +56,7 @@ public class Bullet : MonoBehaviour
         hasSpline = projectileScriptableObject.HasSpline;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
+        path = projectileScriptableObject.SplineContainer.Spline;
 
         gameObject.transform.position = firePoint.position;
 
