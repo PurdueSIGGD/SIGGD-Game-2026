@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   stats: {fileID: 11400000, guid: 6119088f7668fa141870c6fb0b1e5960, type: 2}
   rb: {fileID: 3380938587474817520}
+  moveActionRef: {fileID: 0}
 --- !u!212 &6395204138503855043
 SpriteRenderer:
   serializedVersion: 2
