@@ -24,7 +24,7 @@ public class EquipmentManager : MonoBehaviour
     //weapons code
     [SerializeField] private IEquipment primaryWeapon; //add these in the inspector for right now
     [SerializeField] private IEquipment miscellaneous;
-    [SerializeField] private Passive passive;
+    [SerializeField] private IEquipment passive;
 
     void Awake()
     {
@@ -74,21 +74,6 @@ public class EquipmentManager : MonoBehaviour
         return false;
     }
 
-    public void setPrimaryWeapon(Weapon w)
-    //change to UseEquipment when weapon gets fixed!!!
-    public void shootPrimaryWeapon()
-    {
-        Debug.Log("shoot Primary");
-    }
-
-    //change to UseEquipment when weapon gets fixed!!!
-    public void shootMiscellaneous()
-    {
-        if (miscellaneous is IEquipment usable)
-        {
-            usable.Use();
-        }
-    }
     public void UseEquipment(IEquipment equipment)
     {
         if (equipment is IEquipment usable)
@@ -97,7 +82,7 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public void setPrimaryWeapon(PrimaryWeapon w)
+    public void setPrimaryWeapon(IEquipment w)
     {
         this.primaryWeapon = w;
     }
@@ -117,11 +102,11 @@ public class EquipmentManager : MonoBehaviour
         return miscellaneous;
     }
 
-    public void Setpassive(Passive passive)
+    public void Setpassive(IEquipment passive)
     {
         this.passive = passive;
     }
-    public Passive Getpassive()
+    public IEquipment Getpassive()
     {
         return passive;
     }

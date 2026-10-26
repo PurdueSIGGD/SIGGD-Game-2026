@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09218b70409f4c42ae6fe4a5015cf3f, type: 3}
   m_Name: HPIncrease
   m_EditorClassIdentifier: Assembly-CSharp::Passive
-  passiveName: HP Increase
-  description: 'This will increase health by a certain value. It gives this value
-    with a flat value(Ex: player health = 100, buff = 15, final health = 115)'
-  buff: 15
+  description: This will increase health by a certain value
+  buff: 20
   debuff: 0
-  mode: 0
+  mode: 1

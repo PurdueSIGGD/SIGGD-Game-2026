@@ -10,7 +10,6 @@ public enum StatModifyMode
 [CreateAssetMenu(fileName = "Passive", menuName = "Passives/Passive")]
 public class Passive : ScriptableObject, IEquipment
 {
-    [SerializeField] private string passiveName;
     [TextArea]
     [SerializeField] private string description;
 
