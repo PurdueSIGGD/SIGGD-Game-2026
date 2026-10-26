@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine.Splines;
+using Unity.Mathematics;
+using System;
 
 public class Bullet : MonoBehaviour
 {
@@ -12,7 +14,11 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    private Spline path;
+    private Spline splinePath;
+    private float distanceTravaledAlongSpline;
+    private float velocity;
+    private Transform firePoint;
+    private Vector3 shootDirection;
 
     private void Awake()
     {
@@ -28,11 +34,13 @@ public class Bullet : MonoBehaviour
         {
             lifetime -= 1f * Time.deltaTime;
 
-            if (hasSpline)
-            {
-                
-                // todo, move the bullet forward, snap it to spline, change its angle to equal the IROC of the spline
-            }
+            // if (hasSpline)
+            // {
+            //     // maybe this works?
+            //     distanceTravaledAlongSpline += velocity * Time.deltaTime;
+            //     splinePath.Evaluate(distanceTravaledAlongSpline / splinePath.GetLength(), out float3 localPositon, out float3 localTangent, out float3 localUp);
+            //     // todo, move the bullet forward, snap it to spline, change its angle to equal the IROC of the spline
+            // }
         }
         else
         {
@@ -57,6 +65,10 @@ public class Bullet : MonoBehaviour
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
         //path = projectileScriptableObject.SplineContainer.Spline; // bullets shooting dont work for now since splines arent set up properly yet but i believe in you jackson :D
+        splinePath = projectileScriptableObject.SplineContainer.Spline;
+        velocity = projectileScriptableObject.Velocity;
+        this.firePoint = firePoint;
+        this.shootDirection = shootDirection;
 
         gameObject.transform.position = firePoint.position;
 
