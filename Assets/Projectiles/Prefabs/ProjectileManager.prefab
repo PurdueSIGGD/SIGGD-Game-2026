@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileManager
   bulletPrefab: {fileID: 8743139753082222912, guid: f3b282903809c3a4cbee6090470ff8a6, type: 3}
-  miscBulletPrefab: {fileID: 0}
+  miscBulletPrefab: {fileID: 1519492458702417398, guid: 483fa8470df931f4d93e21bc720262ab, type: 3}

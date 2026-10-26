@@ -75,7 +75,13 @@ public class ProjectileManager : Singleton<ProjectileManager>
     public void ShootProjectileTowardsMouse(ProjectileScriptableObject projectileScriptableObject, Transform firePoint)
     {
         // rotate spawned bullet to face mouse
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Get mouse position on the screen
+        Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
+
+        // calculate the correct Z distance from the camera to the player/arm
+        float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
+
         mousePos.z = 0f;
 
         Vector2 direction = (mousePos - firePoint.position).normalized;
@@ -120,7 +126,13 @@ public class ProjectileManager : Singleton<ProjectileManager>
     public void ShootMiscTowardsMouse(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint)
     {
         // rotate spawned bullet to face mouse
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Get mouse position on the screen
+        Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
+
+        // calculate the correct Z distance from the camera to the player/arm
+        float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
+
         mousePos.z = 0f;
 
         Vector2 direction = (mousePos - firePoint.position).normalized;

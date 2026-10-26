@@ -16,7 +16,7 @@ public class RotateArmToMouse : MonoBehaviour
         // Get mouse position on the screen
         Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
 
-        // Fix: Calculate the correct Z distance from the camera to the player/arm
+        // calculate the correct Z distance from the camera to the player/arm
         float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
 

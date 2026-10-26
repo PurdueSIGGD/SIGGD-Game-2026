@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
         hasSpline = projectileScriptableObject.HasSpline;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
-        path = projectileScriptableObject.SplineContainer.Spline;
+        path = projectileScriptableObject.SplineContainer.Spline; // bullets shooting dont work for now since splines arent set up properly yet but i believe in you jackson :D
 
         gameObject.transform.position = firePoint.position;
 
@@ -69,7 +69,7 @@ public class Bullet : MonoBehaviour
         SetBulletCollider(projectileScriptableObject);
 
         // rotate bullet
-        Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.ProjectileAngleOffset) * shootDirection;
+        Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
         bulletRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
 
         // give bullet its speed and in the direction

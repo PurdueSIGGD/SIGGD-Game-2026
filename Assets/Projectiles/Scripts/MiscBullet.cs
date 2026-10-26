@@ -36,12 +36,12 @@ public class MiscBullet : MonoBehaviour
         gameObject.transform.position = firePoint.position;
 
         // set sprite and collider
-        miscSR.sprite = miscScriptableObject.Sprite;
+        miscSR.sprite = miscScriptableObject.MiscProjectileSprite;
 
         SetMiscCollider(miscScriptableObject);
 
         // set throw direction
-        Vector2 finalDirection = Quaternion.Euler(0, 0, miscScriptableObject.BulletAngleOffset) * direction;
+        Vector2 finalDirection = Quaternion.Euler(0, 0, miscScriptableObject.SpriteAngleOffset) * direction;
         miscRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
 
         // give speed
