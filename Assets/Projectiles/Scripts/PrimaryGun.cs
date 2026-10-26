@@ -35,7 +35,7 @@ public class PrimaryGun : MonoBehaviour
     {
         if (Weapon != null)
         {
-            CurrentAmmo = Weapon.ammoCapacity;
+            CurrentAmmo = Weapon.AmmoCapacity;
         }
         else
         {
@@ -56,15 +56,15 @@ public class PrimaryGun : MonoBehaviour
         float distanceToCamera = FirePoint.position.z - Camera.main.transform.position.z;
         targetPos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
 
-        nextFireTime = Time.time + 1f / Mathf.Max(Weapon.fireSpeed, 0.01f);
+        nextFireTime = Time.time + 1f / Mathf.Max(Weapon.FireSpeed, 0.01f);
         Vector2 aimDir = ((Vector2)((Vector3)targetPos - FirePoint.position)).normalized;
         if (aimDir == Vector2.zero) aimDir = Vector2.right;
 
-        int count = Mathf.Max(1, Weapon.numBullets);
+        int count = Mathf.Max(1, Weapon.NumBullets);
         for (int i = 0; i < count; i++)
         {
             Vector2 shotDir = GetShotDirection(aimDir, i, count);
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.projectile, FirePoint, shotDir);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
         }
         CurrentAmmo--;
         ApplyRecoil(aimDir);
@@ -74,7 +74,7 @@ public class PrimaryGun : MonoBehaviour
 
     private Vector2 GetShotDirection(Vector2 aimDir, int index, int count)
     {
-        float half = Weapon.spread * 0.5f;
+        float half = Weapon.Spread * 0.5f;
         float spreadAngle;
 
         if (count == 1)
@@ -87,20 +87,20 @@ public class PrimaryGun : MonoBehaviour
             spreadAngle = Mathf.Lerp(-half, half, t);
         }
 
-        float offsetAngle = UnityEngine.Random.Range(-Weapon.offset, Weapon.offset);
+        float offsetAngle = UnityEngine.Random.Range(-Weapon.Offset, Weapon.Offset);
 
         return Quaternion.Euler(0f, 0f, spreadAngle + offsetAngle) * aimDir;
     }
 
     private void ApplyRecoil(Vector2 aimDir)
     {
-        if (PlayerBody == null || Weapon.recoil <= 0f) return;
-        PlayerBody.AddForce(-aimDir * Weapon.recoil, ForceMode2D.Impulse);
+        if (PlayerBody == null || Weapon.Recoil <= 0f) return;
+        PlayerBody.AddForce(-aimDir * Weapon.Recoil, ForceMode2D.Impulse);
     }
 
     public void StartReload()
     {
-        if (IsReloading || Weapon == null || CurrentAmmo >= Weapon.ammoCapacity) return;
+        if (IsReloading || Weapon == null || CurrentAmmo >= Weapon.AmmoCapacity) return;
         reloadRoutine = StartCoroutine(ReloadRoutine());
     }
 
@@ -109,15 +109,15 @@ public class PrimaryGun : MonoBehaviour
         IsReloading = true;
         reloadAccumulator = 0f;
 
-        while (CurrentAmmo < Weapon.ammoCapacity)
+        while (CurrentAmmo < Weapon.AmmoCapacity)
         {
-            float ammoPerSecond = Weapon.ammoCapacity / Mathf.Max(Weapon.reloadTime, 0.01f);
+            float ammoPerSecond = Weapon.AmmoCapacity / Mathf.Max(Weapon.ReloadTime, 0.01f);
             reloadAccumulator += ammoPerSecond * Time.deltaTime;
 
             int wholeAmmo = Mathf.FloorToInt(reloadAccumulator);
             if (wholeAmmo > 0)
             {
-                CurrentAmmo = Mathf.Min(CurrentAmmo + wholeAmmo, Weapon.ammoCapacity);
+                CurrentAmmo = Mathf.Min(CurrentAmmo + wholeAmmo, Weapon.AmmoCapacity);
                 reloadAccumulator -= wholeAmmo;
             }
 
@@ -143,7 +143,7 @@ public class PrimaryGun : MonoBehaviour
         reloadAccumulator = 0f;
 
         Weapon = newWeapon;
-        CurrentAmmo = Weapon.ammoCapacity;
+        CurrentAmmo = Weapon.AmmoCapacity;
 
         // spawn and update new weapon visual
         if(curWeaponVisual != null)

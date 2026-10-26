@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6019014cc13e7ce4297c31dad9cfdb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiscGun
-  MiscWeapon: {fileID: 0}
+  MiscWeapon: {fileID: 11400000, guid: 9b6e4625e89a00a4998260f2b083e670, type: 2}
   FirePoint: {fileID: 5177184076353759602}
   WeaponHolderTransfrom: {fileID: 3250291457495055723}
 --- !u!1 &6519705854661548591
