@@ -7,28 +7,35 @@ using UnityEngine.InputSystem;
 
 public class PrimaryGun : MonoBehaviour
 {
-    public PrimaryWeapon weapon;
-    public Transform firePoint;
-    public Rigidbody2D playerBody;
-    public int currentAmmo;
-    public bool isReloading;
+    public PrimaryWeapon Weapon;
+    public Transform FirePoint;
+    public Transform WeaponHolderTransfrom;
+
+    private GameObject curWeaponVisual;
+
+    public Rigidbody2D PlayerBody;
+
+    public int CurrentAmmo;
+    public bool IsReloading;
+
     private float nextFireTime;
     private float reloadAccumulator;
     private Coroutine reloadRoutine;
 
     private void Awake()
     {
-        if (firePoint == null) firePoint = transform;
-        if (playerBody == null) playerBody = GetComponent<Rigidbody2D>();
+        if (FirePoint == null) FirePoint = transform;
+        if (PlayerBody == null) PlayerBody = GetComponent<Rigidbody2D>();
+        if (curWeaponVisual == null) curWeaponVisual = Weapon.WeaponVisualPrefab;
 
         InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
     }
 
     private void Start()
     {
-        if (weapon != null)
+        if (Weapon != null)
         {
-            currentAmmo = weapon.ammoCapacity;
+            CurrentAmmo = Weapon.ammoCapacity;
         }
         else
         {
@@ -38,28 +45,28 @@ public class PrimaryGun : MonoBehaviour
 
     private void Update()
     {
-        if (weapon == null || Mouse.current == null) return;
+        if (Weapon == null || Mouse.current == null) return;
     }
 
     private void Fire(Vector2 targetPos)
     {
-        if (currentAmmo <= 0 || Time.time < nextFireTime) return;
+        if (CurrentAmmo <= 0 || Time.time < nextFireTime) return;
 
         Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
-        float distanceToCamera = firePoint.position.z - Camera.main.transform.position.z;
+        float distanceToCamera = FirePoint.position.z - Camera.main.transform.position.z;
         targetPos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
 
-        nextFireTime = Time.time + 1f / Mathf.Max(weapon.fireSpeed, 0.01f);
-        Vector2 aimDir = ((Vector2)((Vector3)targetPos - firePoint.position)).normalized;
+        nextFireTime = Time.time + 1f / Mathf.Max(Weapon.fireSpeed, 0.01f);
+        Vector2 aimDir = ((Vector2)((Vector3)targetPos - FirePoint.position)).normalized;
         if (aimDir == Vector2.zero) aimDir = Vector2.right;
 
-        int count = Mathf.Max(1, weapon.numBullets);
+        int count = Mathf.Max(1, Weapon.numBullets);
         for (int i = 0; i < count; i++)
         {
             Vector2 shotDir = GetShotDirection(aimDir, i, count);
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(weapon.projectile, firePoint, shotDir);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.projectile, FirePoint, shotDir);
         }
-        currentAmmo--;
+        CurrentAmmo--;
         ApplyRecoil(aimDir);
 
         StartReload();
@@ -67,7 +74,7 @@ public class PrimaryGun : MonoBehaviour
 
     private Vector2 GetShotDirection(Vector2 aimDir, int index, int count)
     {
-        float half = weapon.spread * 0.5f;
+        float half = Weapon.spread * 0.5f;
         float spreadAngle;
 
         if (count == 1)
@@ -80,37 +87,37 @@ public class PrimaryGun : MonoBehaviour
             spreadAngle = Mathf.Lerp(-half, half, t);
         }
 
-        float offsetAngle = UnityEngine.Random.Range(-weapon.offset, weapon.offset);
+        float offsetAngle = UnityEngine.Random.Range(-Weapon.offset, Weapon.offset);
 
         return Quaternion.Euler(0f, 0f, spreadAngle + offsetAngle) * aimDir;
     }
 
     private void ApplyRecoil(Vector2 aimDir)
     {
-        if (playerBody == null || weapon.recoil <= 0f) return;
-        playerBody.AddForce(-aimDir * weapon.recoil, ForceMode2D.Impulse);
+        if (PlayerBody == null || Weapon.recoil <= 0f) return;
+        PlayerBody.AddForce(-aimDir * Weapon.recoil, ForceMode2D.Impulse);
     }
 
     public void StartReload()
     {
-        if (isReloading || weapon == null || currentAmmo >= weapon.ammoCapacity) return;
+        if (IsReloading || Weapon == null || CurrentAmmo >= Weapon.ammoCapacity) return;
         reloadRoutine = StartCoroutine(ReloadRoutine());
     }
 
     private IEnumerator ReloadRoutine()
     {
-        isReloading = true;
+        IsReloading = true;
         reloadAccumulator = 0f;
 
-        while (currentAmmo < weapon.ammoCapacity)
+        while (CurrentAmmo < Weapon.ammoCapacity)
         {
-            float ammoPerSecond = weapon.ammoCapacity / Mathf.Max(weapon.reloadTime, 0.01f);
+            float ammoPerSecond = Weapon.ammoCapacity / Mathf.Max(Weapon.reloadTime, 0.01f);
             reloadAccumulator += ammoPerSecond * Time.deltaTime;
 
             int wholeAmmo = Mathf.FloorToInt(reloadAccumulator);
             if (wholeAmmo > 0)
             {
-                currentAmmo = Mathf.Min(currentAmmo + wholeAmmo, weapon.ammoCapacity);
+                CurrentAmmo = Mathf.Min(CurrentAmmo + wholeAmmo, Weapon.ammoCapacity);
                 reloadAccumulator -= wholeAmmo;
             }
 
@@ -118,7 +125,7 @@ public class PrimaryGun : MonoBehaviour
         }
 
         reloadAccumulator = 0f;
-        isReloading = false;
+        IsReloading = false;
         reloadRoutine = null;
     }
 
@@ -132,16 +139,35 @@ public class PrimaryGun : MonoBehaviour
             StopCoroutine(reloadRoutine);
             reloadRoutine = null;
         }
-        isReloading = false;
+        IsReloading = false;
         reloadAccumulator = 0f;
 
-        weapon = newWeapon;
-        currentAmmo = weapon.ammoCapacity;
+        Weapon = newWeapon;
+        CurrentAmmo = Weapon.ammoCapacity;
+
+        // spawn and update new weapon visual
+        if(curWeaponVisual != null)
+        {
+            Destroy(curWeaponVisual);
+        }
+
+        if (Weapon.WeaponVisualPrefab != null && WeaponHolderTransfrom != null)
+        {
+            curWeaponVisual = Instantiate(Weapon.WeaponVisualPrefab, WeaponHolderTransfrom);
+            curWeaponVisual.transform.localPosition = Vector3.zero; // set position at zero of the gun holder
+            curWeaponVisual.transform.localRotation = Quaternion.Euler(0, 0, Weapon.WeaponVisualRotationOffset);
+
+            // quick lil thing to make sure if firepoint is deleted bullets still work
+            if (FirePoint == null)
+            {
+                FirePoint = WeaponHolderTransfrom;
+            }
+        }
     }
 
     private void OnDisable()
     {
-        isReloading = false;
+        IsReloading = false;
         reloadAccumulator = 0f;
         reloadRoutine = null;
     }

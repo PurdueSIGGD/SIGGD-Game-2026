@@ -37,6 +37,9 @@ public class MiscBullet : MonoBehaviour
 
         // set sprite and collider
         miscSR.sprite = miscScriptableObject.MiscProjectileSprite;
+        miscSR.color = miscScriptableObject.MiscProjectileColor;
+
+        gameObject.transform.localScale = miscScriptableObject.MiscProjectileScale;
 
         SetMiscCollider(miscScriptableObject);
 

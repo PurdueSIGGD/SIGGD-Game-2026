@@ -13,6 +13,9 @@ public class PrimaryWeapon : ScriptableObject, IEquipment
     public int ammoCapacity;
     public float fireSpeed;
 
+    public GameObject WeaponVisualPrefab; // prefab for what the gun should look like when equipped
+    public float WeaponVisualRotationOffset; // for if model needs to be facing a different direction when spawned probably not needed but good to have
+
     public void Use()
     {
 

@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
         hasSpline = projectileScriptableObject.HasSpline;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
-        path = projectileScriptableObject.SplineContainer.Spline; // bullets shooting dont work for now since splines arent set up properly yet but i believe in you jackson :D
+        //path = projectileScriptableObject.SplineContainer.Spline; // bullets shooting dont work for now since splines arent set up properly yet but i believe in you jackson :D
 
         gameObject.transform.position = firePoint.position;
 
