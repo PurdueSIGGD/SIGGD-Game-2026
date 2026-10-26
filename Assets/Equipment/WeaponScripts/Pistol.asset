@@ -18,7 +18,7 @@ MonoBehaviour:
   Spread: 0
   ReloadTime: 10
   Offset: 0
-  Recoil: 0
+  Recoil: 2
   AmmoCapacity: 12
   FireSpeed: 2
   WeaponVisualPrefab: {fileID: 3419575299417558390, guid: 60f73b4ec213d5748a5979e75f163767, type: 3}
