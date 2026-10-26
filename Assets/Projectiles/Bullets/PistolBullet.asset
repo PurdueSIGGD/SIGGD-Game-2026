@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: PistolBullet
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
+  HasSpline: 0
   Damage: 5
   Lifetime: 15
   Velocity: 2
+  SpriteAngleOffset: 0
   ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
     serializedVersion: 2
     rgba: 4287401100
-  ProjectileScale: {x: 0.3, y: 0.3, z: 1.22}
-  ProjectileAngleOffset: 0
+  ProjectileScale: {x: 0.3, y: 0.3, z: 1}
+  SplineGameObject: {fileID: 0}
+  SplineContainer: {fileID: 0}
+  SplineNodes: []

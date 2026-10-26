@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1530589769486340521}
   - component: {fileID: 3390856702441771330}
   m_Layer: 0
-  m_Name: Test_Bomb_Prefab
+  m_Name: Test_BombThower_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3989117881522060417, guid: 420b4b4985a0fdc4eabd39c73af452f9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Color: {r: 1, g: 0.54901963, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

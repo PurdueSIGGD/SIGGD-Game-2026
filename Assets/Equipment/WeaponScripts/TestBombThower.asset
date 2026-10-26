@@ -16,4 +16,4 @@ MonoBehaviour:
   Name: Test Bomb Thrower
   Cooldown: 10
   MiscWeaponVisualPrefab: {fileID: 9078182972333699350, guid: 2eabd2b34eebda646a5369ab30f3aada, type: 3}
-  MiscWeaponVisualRotationOffset: 0
+  MiscWeaponVisualRotationOffset: -90
