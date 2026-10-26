@@ -15,10 +15,10 @@ MonoBehaviour:
   Lifetime: 10
   Velocity: 2
   SpriteAngleOffset: 0
-  MiscProjectileSprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  MiscProjectileSprite: {fileID: 3989117881522060417, guid: 420b4b4985a0fdc4eabd39c73af452f9, type: 3}
   MiscProjectileColor:
     serializedVersion: 2
-    rgba: 4278232575
-  MiscProjectileScale: {x: 0.25, y: 0.25, z: 1}
+    rgba: 4294967295
+  MiscProjectileScale: {x: 0.5, y: 0.5, z: 1}
   UseSprite: {fileID: 0}
   RopeObject: {fileID: 0}

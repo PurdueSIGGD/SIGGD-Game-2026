@@ -6,9 +6,9 @@ public class MiscGun : MonoBehaviour
     // put this script with the PrimaryGun script like on the same object
     public MiscWeapon MiscWeapon;
     public Transform FirePoint;
-    public Transform WeaponHolderTransfrom;
+    private Transform weaponHolderTransform;
 
-    private GameObject curMiscWeaponVisual;
+    [SerializeField] private GameObject curMiscWeaponVisual;
 
     private Coroutine miscOnCooldown;
     private Coroutine miscIsThrown;
@@ -17,6 +17,14 @@ public class MiscGun : MonoBehaviour
     {
         InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
         InputManager.Instance.OnPlayerRightClick.AddListener(DestroyMisc);
+
+        weaponHolderTransform = gameObject.transform;
+    }
+
+    private void Start()
+    {
+        // just for now i this will be replaced later with the player actaully buying a misc
+        EquipMisc(MiscWeapon);
     }
 
     private void ShootMisc(Vector2 shootPos)
@@ -66,15 +74,15 @@ public class MiscGun : MonoBehaviour
             Destroy(curMiscWeaponVisual);
         }
 
-        if (MiscWeapon.MiscWeaponVisualPrefab != null && WeaponHolderTransfrom != null)
+        if (MiscWeapon.MiscWeaponVisualPrefab != null && weaponHolderTransform != null)
         {
-            curMiscWeaponVisual = Instantiate(MiscWeapon.MiscWeaponVisualPrefab, WeaponHolderTransfrom);
+            curMiscWeaponVisual = Instantiate(MiscWeapon.MiscWeaponVisualPrefab, weaponHolderTransform);
             curMiscWeaponVisual.transform.localPosition = Vector3.zero;
             curMiscWeaponVisual.transform.localRotation = Quaternion.Euler(0, 0, MiscWeapon.MiscWeaponVisualRotationOffset);
 
             if (FirePoint == null)
             {
-                FirePoint = WeaponHolderTransfrom;
+                FirePoint = weaponHolderTransform;
             }
         }
     }
