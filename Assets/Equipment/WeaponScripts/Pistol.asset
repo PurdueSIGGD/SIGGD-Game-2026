@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf3732a029d54644bd6d5a56dc87d00, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryWeapon
-  Projectile: {fileID: 11400000, guid: 5a93ab72c346e414a8d4871b76fcfe63, type: 2}
+  Projectile: {fileID: 11400000, guid: 45cd12a6760a6614b89fe15edac67b84, type: 2}
   WeaponName: Test Pistol
   NumBullets: 0
   Spread: 0
