@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour
         BezierKnot currentKnot = spline[currentKnotIndex];  //add increment thingy to change later // incremnt the incremtnty thingy =)
         BezierKnot targetKnot = spline[nextKnotIndex];
 
+        
 
 
         // dev notes DO NOT DELETE
