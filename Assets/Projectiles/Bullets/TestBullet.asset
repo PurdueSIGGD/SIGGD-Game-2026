@@ -23,6 +23,18 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   ProjectileScale: {x: 0.5, y: 0.5, z: 1}
-  SplineGameObject: {fileID: 0}
-  SplineContainer: {fileID: 0}
-  SplineNodes: []
+  SplineGameObject: {fileID: 404314599969650974, guid: 2f53b373ecc3e59ef99091d9d0d9f26d, type: 3}
+  SplineContainer: {fileID: 689180092553368705, guid: 2f53b373ecc3e59ef99091d9d0d9f26d, type: 3}
+  Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
