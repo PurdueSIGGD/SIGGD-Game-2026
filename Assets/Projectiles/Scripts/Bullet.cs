@@ -32,9 +32,9 @@ public class Bullet : MonoBehaviour
         
     }
 
-    private void MoveAlongSpline() 
+    private void MoveAlongSpline()  //This method may or may not exist in the future, the logic, however, will. DO NOT DELETE
     {
-        //  protects against Index Out of Range errors
+        //  protects against "Index Out of Range" errors
         nextKnotIndex = (currentKnotIndex == spline.Count - 1) ? -69420 : currentKnotIndex + 1;
         if (nextKnotIndex == -69420) lifetime = 0;
 
@@ -50,10 +50,8 @@ public class Bullet : MonoBehaviour
 
         Quaternion temp_rotation = new Quaternion(0,0,0,0);
 
-        gameObject.transform
+        gameObject.transform  //moves the bullet?
             .SetPositionAndRotation(new Vector3(gameObject.transform.position.x + step.x, gameObject.transform.position.y + step.y), temp_rotation);
-
-        Transform test = gameObject.transform;
 
         // dev notes DO NOT DELETE
         // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
