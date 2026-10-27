@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 /*  primary + Miscellaneous weapons
@@ -18,6 +19,7 @@ public class EquipmentManager : MonoBehaviour
 {
     //singleton code 
     public static EquipmentManager Instance { get; private set; }
+    public PlayerData PlayerData;
 
     //weapons code
     [SerializeField] private IEquipment primaryWeapon; //add these in the inspector for right now
@@ -52,7 +54,12 @@ public class EquipmentManager : MonoBehaviour
 
         if (passive == null)
         {
-            Debug.Log("Passuve weapon slot is empty!!");
+            Debug.Log("Passive weapon slot is empty!!");
+        }
+
+        if (PlayerData == null)
+        {
+            Debug.Log("PlayerData is empty!!");
         }
     }
 
@@ -73,23 +80,7 @@ public class EquipmentManager : MonoBehaviour
         Debug.Log("shoot Primary");
     }
 
-    //change to UseEquipment when weapon gets fixed!!!
-    public void shootMiscellaneous()
-    {
-        if (miscellaneous is IEquipment usable)
-        {
-            usable.Use();
-        }
-    }
-    public void UseEquipment(IEquipment equipment)
-    {
-        if (equipment is IEquipment usable)
-        {
-            usable.Use();
-        }
-    }
-
-    public void setPrimaryWeapon(PrimaryWeapon w)
+    public void setPrimaryWeapon(IEquipment w)
     {
         this.primaryWeapon = w;
     }
@@ -109,12 +100,11 @@ public class EquipmentManager : MonoBehaviour
         return miscellaneous;
     }
 
-    public void SetPassive(IEquipment equipment)
+    public void Setpassive(IEquipment passive)
     {
-        passive = equipment;
+        this.passive = passive;
     }
-
-    public IEquipment GetPassive()
+    public IEquipment Getpassive()
     {
         return passive;
     }

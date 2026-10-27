@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine.Splines;
+using Unity.Mathematics;
+using System;
+using Unity.Collections;
 
 public class Bullet : MonoBehaviour
 {
@@ -12,7 +15,11 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    private Spline path;
+    private float distanceTravaledAlongSpline;
+    private float velocity;
+    private Transform firePoint;
+    private List<Spline> splineNodes;
+    private Vector3 shootDirection;
 
     private void Awake()
     {
@@ -30,8 +37,10 @@ public class Bullet : MonoBehaviour
 
             if (hasSpline)
             {
-                
-                // todo, move the bullet forward, snap it to spline, change its angle to equal the IROC of the spline
+                // dev notes DO NOT DELETE
+                // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
+                // gameObject.transform allows us to get the x and y pos
+                // Vector3.SmoothDamp(x, y, 0); // gets smooth directoin along a path
             }
         }
         else
@@ -53,10 +62,17 @@ public class Bullet : MonoBehaviour
         bulletRB.angularVelocity = 0f; // reset angular velocity just incase its not 0 before firing
 
         isExplosive = projectileScriptableObject.IsExplosive;
-        hasSpline = projectileScriptableObject.HasSpline;
+        hasSpline = projectileScriptableObject.HasSpline; 
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
-        //path = projectileScriptableObject.SplineContainer.Spline; // bullets shooting dont work for now since splines arent set up properly yet but i believe in you jackson :D
+        velocity = projectileScriptableObject.Velocity;
+        this.firePoint = firePoint;
+        this.shootDirection = shootDirection;
+
+        if (projectileScriptableObject.HasSpline)
+        {
+            splineNodes = projectileScriptableObject.SplineNodes;
+        }
 
         gameObject.transform.position = firePoint.position;
 
@@ -98,11 +114,6 @@ public class Bullet : MonoBehaviour
     public bool GetIsExplosive()
     {
         return isExplosive;
-    }
-
-    public bool GetHasSpline()
-    {
-        return hasSpline;
     }
 
     public int GetDamage()

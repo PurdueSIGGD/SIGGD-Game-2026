@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8455415009632254787}
   - component: {fileID: 7191805582378374074}
   - component: {fileID: 1086237106142026918}
+  - component: {fileID: -1453287070630761871}
   m_Layer: 0
   m_Name: BaseBullet
   m_TagString: Untagged
@@ -200,3 +201,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f9a30dcb7873d4887c82270a59fc8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+--- !u!114 &-1453287070630761871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743139753082222912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
+  m_Target: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 0
+  m_Duration: 1
+  m_MaxSpeed: 10
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0

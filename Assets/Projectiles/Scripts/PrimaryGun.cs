@@ -9,9 +9,9 @@ public class PrimaryGun : MonoBehaviour
 {
     public PrimaryWeapon Weapon;
     public Transform FirePoint;
-    public Transform WeaponHolderTransfrom;
+    private Transform weaponHolderTransform;
 
-    private GameObject curWeaponVisual;
+    [SerializeField] private GameObject curWeaponVisual;
 
     public Rigidbody2D PlayerBody;
 
@@ -26,9 +26,10 @@ public class PrimaryGun : MonoBehaviour
     {
         if (FirePoint == null) FirePoint = transform;
         if (PlayerBody == null) PlayerBody = GetComponent<Rigidbody2D>();
-        if (curWeaponVisual == null) curWeaponVisual = Weapon.WeaponVisualPrefab;
 
         InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
+
+        weaponHolderTransform = gameObject.transform;
     }
 
     private void Start()
@@ -41,6 +42,9 @@ public class PrimaryGun : MonoBehaviour
         {
             Debug.LogWarning("dude put a gun in here");
         }
+
+        // just for now i this will be replaced later with the player actaully buying a gun
+        EquipWeapon(Weapon);
     }
 
     private void Update()
@@ -151,17 +155,28 @@ public class PrimaryGun : MonoBehaviour
             Destroy(curWeaponVisual);
         }
 
-        if (Weapon.WeaponVisualPrefab != null && WeaponHolderTransfrom != null)
+        if (Weapon.WeaponVisualPrefab != null && weaponHolderTransform != null)
         {
-            curWeaponVisual = Instantiate(Weapon.WeaponVisualPrefab, WeaponHolderTransfrom);
-            curWeaponVisual.transform.localPosition = Vector3.zero; // set position at zero of the gun holder
+            curWeaponVisual = Instantiate(Weapon.WeaponVisualPrefab);
+
+            WeaponPrefabTransformHolder holder = curWeaponVisual.GetComponent<WeaponPrefabTransformHolder>();
+
+            // put weapon in right position in hand
+            Vector3 offset = holder.Holdpoint.position - curWeaponVisual.transform.position;
+            curWeaponVisual.transform.position = weaponHolderTransform.position - offset;
+
+            // rotate weapon
             curWeaponVisual.transform.localRotation = Quaternion.Euler(0, 0, Weapon.WeaponVisualRotationOffset);
+
+            FirePoint = holder.Firepoint;
 
             // quick lil thing to make sure if firepoint is deleted bullets still work
             if (FirePoint == null)
             {
-                FirePoint = WeaponHolderTransfrom;
+                FirePoint = weaponHolderTransform;
             }
+
+            curWeaponVisual.transform.SetParent(weaponHolderTransform, true);
         }
     }
 

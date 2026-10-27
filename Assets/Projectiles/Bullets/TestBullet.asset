@@ -10,15 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf0e0d47d9b272c4a98dffab33a472ae, type: 3}
-  m_Name: PistolBullet
+  m_Name: TestBullet
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
-  Damage: 5
+  HasSpline: 0
+  Damage: 4
   Lifetime: 15
-  Velocity: 2
+  Velocity: 4
+  SpriteAngleOffset: 0
   ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
     serializedVersion: 2
-    rgba: 4287401100
-  ProjectileScale: {x: 0.3, y: 0.3, z: 1.22}
-  ProjectileAngleOffset: 0
+    rgba: 4294967295
+  ProjectileScale: {x: 0.5, y: 0.5, z: 1}
+  SplineGameObject: {fileID: 0}
+  SplineContainer: {fileID: 0}
+  SplineNodes: []

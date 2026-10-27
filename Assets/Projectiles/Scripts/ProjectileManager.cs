@@ -53,6 +53,10 @@ public class ProjectileManager : Singleton<ProjectileManager>
     private void OnRelease(GameObject pooledObject)
     {
         pooledObject.SetActive(false);
+
+        Rigidbody2D bulletRigidbody = pooledObject.GetComponent<Rigidbody2D>();
+        bulletRigidbody.linearVelocity = Vector3.zero;
+        bulletRigidbody.angularVelocity = 0f;
     }
 
     private void OnGet(GameObject pooledObject)
