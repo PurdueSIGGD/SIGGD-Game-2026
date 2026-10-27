@@ -68,24 +68,24 @@ public class EquipmentManager : MonoBehaviour
         //no use yet
     }
 
-    bool hasMisc()
+    bool HasMisc()
     {
         //return Miscellaneous weapon
         return false;
     }
 
     //change to UseEquipment when weapon gets fixed!!!
-    public void shootPrimaryWeapon()
+    public void ShootPrimaryWeapon()
     {
         Debug.Log("shoot Primary");
     }
 
-    public void setPrimaryWeapon(IEquipment w)
+    public void SetPrimaryWeapon(IEquipment w)
     {
         this.primaryWeapon = w;
     }
 
-    public IEquipment getPrimaryWeapon()
+    public IEquipment GetPrimaryWeapon()
     {
         return primaryWeapon;
     }

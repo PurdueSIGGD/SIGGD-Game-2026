@@ -18,8 +18,10 @@ public class Bullet : MonoBehaviour
     private float distanceTravaledAlongSpline;
     private float velocity;
     private Transform firePoint;
-    private List<Spline> splineNodes;
+    private Spline spline;
     private Vector3 shootDirection;
+    private int currentKnotIndex = 0;
+    private int nextKnotIndex;
 
     private void Awake()
     {
@@ -29,6 +31,23 @@ public class Bullet : MonoBehaviour
         
     }
 
+    private void MoveAlongSpline() 
+    {
+        //  protects against Index Out of Range errors
+        nextKnotIndex = (currentKnotIndex == spline.Count - 1) ? -69420 : currentKnotIndex + 1;
+        if (nextKnotIndex == -69420) lifetime = 0;
+
+        // set current and target knots
+        BezierKnot currentKnot = spline[currentKnotIndex];  //add increment thingy to change later // incremnt the incremtnty thingy =)
+        BezierKnot targetKnot = spline[nextKnotIndex];
+
+
+
+        // dev notes DO NOT DELETE
+        // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
+        // gameObject.transform allows us to get the x and y pos
+        // Vector3.SmoothDamp(x, y, 0); // gets smooth directoin along a path
+    }
     private void Update()
     {
         if (lifetime > 0)
@@ -37,10 +56,8 @@ public class Bullet : MonoBehaviour
 
             if (hasSpline)
             {
-                // dev notes DO NOT DELETE
-                // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
-                // gameObject.transform allows us to get the x and y pos
-                // Vector3.SmoothDamp(x, y, 0); // gets smooth directoin along a path
+                MoveAlongSpline();
+                
             }
         }
         else
@@ -71,7 +88,7 @@ public class Bullet : MonoBehaviour
 
         if (projectileScriptableObject.HasSpline)
         {
-            splineNodes = projectileScriptableObject.SplineNodes;
+            spline = projectileScriptableObject.Spline;
         }
 
         gameObject.transform.position = firePoint.position;

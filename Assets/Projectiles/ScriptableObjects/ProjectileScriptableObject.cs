@@ -24,7 +24,7 @@ public class ProjectileScriptableObject : ScriptableObject
 
     public SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
 
-    public List<Spline> SplineNodes;
+    public Spline Spline;
 
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
@@ -53,7 +53,7 @@ public class ProjectileScriptableObject : ScriptableObject
 
         /*
         SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
-        SplineNodes.Clear();
+        Spline.Clear();
 
         // adds the spline game object componets to the spline nodes list
         for (int i = 0; i < SplineContainer.Splines.Count; i++)
