@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine.Splines;
 using Unity.Mathematics;
 using System;
+using Unity.Collections;
 
 public class Bullet : MonoBehaviour
 {
@@ -36,7 +37,10 @@ public class Bullet : MonoBehaviour
 
             if (hasSpline)
             {
+                // dev notes DO NOT DELETE
                 // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
+                // gameObject.transform allows us to get the x and y pos
+                // Vector3.SmoothDamp(x, y, 0); // gets smooth directoin along a path
             }
         }
         else
