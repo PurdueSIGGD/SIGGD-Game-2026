@@ -81,11 +81,11 @@ public class GenericBoss : MonoBehaviour
         maxHealth = bossData.PhaseHealthBoundaries[0];
         CurrentHealth = maxHealth;
         bossData.AttackPercentList = new AttackPercents[] {new AttackPercents(new uint[] {1},new BossAttack()), new AttackPercents(new uint[] {1},new BossAttack()), new AttackPercents(new uint[] {1},new BossAttack())};
-        CalculateRandomBossAttack().Test();
-        CalculateRandomBossAttack().Test();
-        CalculateRandomBossAttack().Test();
-        CalculateRandomBossAttack().Test();
-        CalculateRandomBossAttack().Test();
+        CalculateRandomBossAttack().Test(gameObject);
+        CalculateRandomBossAttack().Test(gameObject);
+        CalculateRandomBossAttack().Test(gameObject);
+        CalculateRandomBossAttack().Test(gameObject);
+        CalculateRandomBossAttack().Test(gameObject);
     }
 
     void Update()
@@ -109,21 +109,5 @@ public struct AttackPercents
     public AttackPercents(uint[] chanceWeights, BossAttack attack){
         ChanceWeights = chanceWeights;
         Attack = attack;
-    }
-}
-
-public class BossAttack
-{
-    public static int Count = 0;
-    private int num;
-
-    public BossAttack ()
-    {
-        Count++;
-        num = Count;
-    }
-    public void Test()
-    {
-        Debug.Log("It works: " + num);
     }
 }

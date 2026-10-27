@@ -21,7 +21,7 @@ public class PrimaryGun : MonoBehaviour
         if (firePoint == null) firePoint = transform;
         if (playerBody == null) playerBody = GetComponent<Rigidbody2D>();
 
-        InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
+        // InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
     }
 
     private void Start()
