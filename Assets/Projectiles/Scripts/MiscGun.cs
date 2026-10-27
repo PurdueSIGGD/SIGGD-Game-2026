@@ -23,11 +23,13 @@ public class MiscGun : MonoBehaviour
     {
         if (miscOnCooldown != null) return;
 
-        ProjectileManager.Instance.ShootMiscTowardsMouse(MiscWeapon.MiscProjectile, FirePoint);
+        //ProjectileManager.Instance.ShootMiscTowardsMouse(MiscWeapon.MiscProjectile, FirePoint);
+        MiscWeapon.Use();
         miscOnCooldown = StartCoroutine(MiscOnCooldown());
         miscIsThrown = StartCoroutine(MiscIsThrown());
     }
 
+    
     private void DestroyMisc(Vector2 notUsedInThisFunctionIJustNeedToPassThisToGetRightClickInput)
     {
         if (miscIsThrown == null) return;

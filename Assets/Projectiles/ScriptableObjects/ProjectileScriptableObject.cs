@@ -51,7 +51,7 @@ public class ProjectileScriptableObject : ScriptableObject
             PhysicsPaths.Add(pathBuffer.ToArray());
         }
 
-
+        /*
         SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
         SplineNodes.Clear();
 
@@ -59,6 +59,7 @@ public class ProjectileScriptableObject : ScriptableObject
         for (int i = 0; i < SplineContainer.Splines.Count; i++)
         {
             SplineNodes.Add(SplineContainer.Splines[i]);
-        }        
+        }
+        */
     }
 }
