@@ -12,11 +12,13 @@ namespace Player
         public bool IsAlive => CurrentHealth > 0;
 
         private PlayerDeath playerDeath;
+        private PlayerController playerController;
         private float invincibilityTimer = 0f;
 
         void Awake()
         {
             playerDeath = GetComponent<PlayerDeath>();
+            playerController = GetComponent<PlayerController>();
             CurrentHealth = MaxHealth;
         }
 
@@ -45,6 +47,10 @@ namespace Player
             {
                 Debug.Log("Player died");
                 playerDeath.Die();
+            }
+            else
+            {
+                playerController.PlayerDamaged(context.Attacker.transform.position);
             }
             invincibilityTimer = stats.IframeDuration;
         }

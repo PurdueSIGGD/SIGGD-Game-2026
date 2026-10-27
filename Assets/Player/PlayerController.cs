@@ -11,7 +11,6 @@ namespace Player
         [SerializeField] private InputActionReference moveActionRef;
         private PlayerHealth playerHealth;
         private Vector2 currentInputVector;
-        private float currSpeed;
 
         private float x, y;
 
@@ -145,6 +144,31 @@ namespace Player
                 rb.linearVelocity = velocity.normalized * stats.MaxVelocity;
             }
             
+        }
+
+        /// <summary>
+        /// Handles the player being damaged, reducing their speed and applying a displacement.
+        /// </summary>
+        /// <param name="damageObjectCOM">The COM of the damaging object.</param>
+        public void PlayerDamaged(Vector2 damageObjectCOM)
+        {
+            Debug.Log("Player speed decreased from damage...");
+            if (storedSpeed > 0f)
+            {
+                storedSpeed = Mathf.Max(storedSpeed - stats.DamageSpeedDecrease, 0f);
+            }
+            else
+            {
+                if (stats.DamageSpeedDecrease * stats.DamageSpeedDecrease >= rb.linearVelocity.sqrMagnitude)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                }
+                else
+                {
+                    rb.linearVelocity -= rb.linearVelocity.normalized * stats.DamageSpeedDecrease;
+                }
+            }
+
         }
 
         /// <summary>
