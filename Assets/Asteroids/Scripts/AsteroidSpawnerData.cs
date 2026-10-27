@@ -17,10 +17,6 @@ public class AsteroidSpawnerData : ScriptableObject
     }
 
     private const float MinPeriod = 0.05f;
-    private const float MinFlyInTime = 0.1f;
-
-    // Below this decay rate (per second) damping is treated as zero
-    private const float NegligibleDecayRate = 1e-5f;
 
     [field: SerializeField, Tooltip("Asteroid prefab to spawn.")]
     public AsteroidController AsteroidPrefab { get; private set; }
@@ -43,10 +39,11 @@ public class AsteroidSpawnerData : ScriptableObject
     [field: SerializeField, Tooltip("Padding past the screen edge, in world units. Use at least the asteroid radius.")]
     public float OffscreenMargin { get; private set; } = 1.0f;
 
-    [field: SerializeField, Tooltip("Seconds an asteroid takes to reach its target point.")]
-    public float TimeToFlyIn { get; private set; } = 2.0f;
+    [field: SerializeField, Tooltip("Shrinks the target area by this many world units on every side, "
+    + "so asteroids don't arrive at the screen edge.")]
+    public float TargetInset { get; private set; } = 0.0f;
 
-    [field: SerializeField, Tooltip("Rigidbody2D linear damping applied to every spawned asteroid for its whole life.")]
+    [field: SerializeField, Tooltip("Rigidbody2D linear damping applied to every spawned asteroid for its whole life. Controls how quickly asteroids settle.")]
     public float LinearDamping { get; private set; } = 1.0f;
 
     /// <summary>
@@ -57,25 +54,17 @@ public class AsteroidSpawnerData : ScriptableObject
     /// <param name="fixedDeltaTime">Physics step length, in seconds.</param>
     public float ComputeLaunchSpeed(float distance, float fixedDeltaTime)
     {
-        // Linear damping gives exponential decay: distance(t) = (v0 / k) * (1 - e^(-k * t)). Solving for v0 gives
-        // the line below. Unity applies damping as v /= (1 + damping * dt) each physics step, which equals
-        // e^(-k * dt) with k = ln(1 + damping * dt) / dt, so that k is used to match the engine.
         float decayRate = Mathf.Log(1.0f + LinearDamping * fixedDeltaTime) / fixedDeltaTime;
-        if (decayRate < NegligibleDecayRate)
-        {
-            return distance / TimeToFlyIn;
-        }
-
-        return distance * decayRate / (1.0f - Mathf.Exp(-decayRate * TimeToFlyIn));
+        return distance * decayRate;
     }
 
     private void OnValidate()
     {
         Period = Mathf.Max(MinPeriod, Period);
-        TimeToFlyIn = Mathf.Max(MinFlyInTime, TimeToFlyIn);
         MinTravelDistance = Mathf.Max(0.0f, MinTravelDistance);
         OffscreenMargin = Mathf.Max(0.0f, OffscreenMargin);
-        LinearDamping = Mathf.Max(0.0f, LinearDamping);
+        TargetInset = Mathf.Max(0.0f, TargetInset);
+        LinearDamping = Mathf.Max(0.05f, LinearDamping);
 
         if (AsteroidPrefab == null)
         {

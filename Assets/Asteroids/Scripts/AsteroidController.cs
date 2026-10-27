@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -34,6 +35,10 @@ public class AsteroidController : MonoBehaviour, IDamageable
     private bool isInitialized;
     private bool isDead;
 
+    private readonly List<Collider2D> ignoredColliders = new List<Collider2D>();
+    private AsteroidData defaultAsteroidData;
+    private Sprite defaultSprite;
+
     /// <summary>Remaining health. The asteroid is destroyed when this reaches zero.</summary>
     public float CurrentHealth { get; private set; }
 
@@ -51,6 +56,8 @@ public class AsteroidController : MonoBehaviour, IDamageable
         asteroidRigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         asteroidCollider = GetComponent<Collider2D>();
+        defaultAsteroidData = asteroidData;
+        defaultSprite = spriteRenderer.sprite;
     }
 
     private void Start()
@@ -89,6 +96,20 @@ public class AsteroidController : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnDisable()
+    {
+        foreach (Collider2D other in ignoredColliders)
+        {
+            if (asteroidCollider != null && other != null)
+            {
+                Physics2D.IgnoreCollision(asteroidCollider, other, false);
+            }
+        }
+
+        ignoredColliders.Clear();
+        Died = null;
+    }
+
     private void OnValidate()
     {
         Rigidbody2D body = GetComponent<Rigidbody2D>();
@@ -105,8 +126,8 @@ public class AsteroidController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// Sets the asteroid up and gives it its starting motion. Call this right after instantiating; it is safe to
-    /// call before Start. Only the first call has any effect.
+    /// Sets the asteroid up and gives it its starting motion. Call this right after instantiating
+    /// call before Start. Calling this again resets the asteroid.
     /// </summary>
     /// <param name="velocity">Starting linear velocity in world units per second.</param>
     /// <param name="linearDamping">Rigidbody2D linear damping to use for the asteroid's whole life.</param>
@@ -122,26 +143,16 @@ public class AsteroidController : MonoBehaviour, IDamageable
         float? sizeOverride = null,
         float? angularVelocity = null)
     {
-        if (isInitialized)
-        {
-            Debug.LogWarning("Asteroid is already initialized. Ignoring the extra Initialize call.", this);
-            return;
-        }
-
-        if (dataOverride != null)
-        {
-            asteroidData = dataOverride;
-            if (asteroidData.AsteroidSprite != null)
-            {
-                spriteRenderer.sprite = asteroidData.AsteroidSprite;
-            }
-        }
+        asteroidData = dataOverride != null ? dataOverride : defaultAsteroidData;
 
         if (asteroidData == null)
         {
             Debug.LogError("No AsteroidData assigned, so the asteroid cannot be initialized.", this);
             return;
         }
+
+        Sprite overrideSprite = dataOverride != null ? dataOverride.AsteroidSprite : null;
+        spriteRenderer.sprite = overrideSprite != null ? overrideSprite : defaultSprite;
 
         CurrentHealth = asteroidData.BaseMaxHealth;
         mass = massOverride ?? RollVariation(asteroidData.BaseMass, asteroidData.MassVariationPercentage);
@@ -154,6 +165,7 @@ public class AsteroidController : MonoBehaviour, IDamageable
         ?? Random.Range(-asteroidData.MaxInitialSpin, asteroidData.MaxInitialSpin);
         transform.localScale = new Vector3(size, size, 1.0f);
 
+        isDead = false;
         isInitialized = true;
     }
 
@@ -184,8 +196,9 @@ public class AsteroidController : MonoBehaviour, IDamageable
         }
 
         Physics2D.IgnoreCollision(asteroidCollider, other, true);
+        ignoredColliders.Add(other);
 
-        while (asteroidCollider != null && other != null)
+        while (other != null && other.gameObject.activeInHierarchy)
         {
             ColliderDistance2D separation = asteroidCollider.Distance(other);
             if (!separation.isOverlapped && separation.distance > siblingClearance)
@@ -196,10 +209,12 @@ public class AsteroidController : MonoBehaviour, IDamageable
             yield return WaitForPhysicsStep;
         }
 
-        if (asteroidCollider != null && other != null)
+        if (other != null)
         {
             Physics2D.IgnoreCollision(asteroidCollider, other, false);
         }
+
+        ignoredColliders.Remove(other);
     }
 
     private void DestroyAsteroid()
@@ -211,7 +226,7 @@ public class AsteroidController : MonoBehaviour, IDamageable
         SpawnFragments(parentVelocity);
 
         Died?.Invoke(this);
-        Destroy(gameObject);
+        PrefabPool.Release(gameObject);
     }
 
     private void SpawnExplosion(Vector2 parentVelocity)
@@ -221,7 +236,7 @@ public class AsteroidController : MonoBehaviour, IDamageable
             return;
         }
 
-        ExplosionEffect explosion = Instantiate(
+        ExplosionEffect explosion = PrefabPool.Get(
             asteroidData.ExplosionPrefab,
             transform.position,
             Quaternion.identity);
@@ -255,7 +270,7 @@ public class AsteroidController : MonoBehaviour, IDamageable
             Vector2 position = (Vector2)transform.position
             + directions[i] * size * asteroidData.FragmentSpawnRadius;
 
-            AsteroidController fragment = Instantiate(asteroidData.FragmentPrefab, position, transform.rotation);
+            AsteroidController fragment = PrefabPool.Get(asteroidData.FragmentPrefab, position, transform.rotation);
             fragment.Initialize(
                 parentVelocity + impulses[i] / fragmentMass,
                 parentDamping,

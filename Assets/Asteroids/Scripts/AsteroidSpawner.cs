@@ -52,7 +52,7 @@ public class AsteroidSpawner : MonoBehaviour
             cameraRect.yMin - margin,
             cameraRect.width + 2.0f * margin,
             cameraRect.height + 2.0f * margin);
-        targetRect = GetTargetRect();
+        targetRect = ShrinkRect(GetTargetRect(), asteroidSpawnerData.TargetInset);
     }
 
     private void Update()
@@ -76,7 +76,7 @@ public class AsteroidSpawner : MonoBehaviour
         Vector2 spawnPosition = target - direction * distance;
         float launchSpeed = asteroidSpawnerData.ComputeLaunchSpeed(distance, Time.fixedDeltaTime);
 
-        AsteroidController asteroid = Instantiate(
+        AsteroidController asteroid = PrefabPool.Get(
             asteroidSpawnerData.AsteroidPrefab,
             spawnPosition,
             Quaternion.identity);
@@ -127,7 +127,7 @@ public class AsteroidSpawner : MonoBehaviour
     {
         return new Vector2(
             Mathf.Lerp(targetRect.xMin, targetRect.xMax, Random.value),
-                           Mathf.Lerp(targetRect.yMin, targetRect.yMax, Random.value));
+            Mathf.Lerp(targetRect.yMin, targetRect.yMax, Random.value));
     }
 
     private Vector2 GetRandomDirection()
@@ -166,5 +166,16 @@ public class AsteroidSpawner : MonoBehaviour
                 Debug.LogError("Unknown spawn boundary type. Aiming at the camera view instead.", this);
                 return GetCameraRect();
         }
+    }
+
+    private static Rect ShrinkRect(Rect rect, float inset)
+    {
+        // Never shrink past the center, or the rect would invert.
+        float safeInset = Mathf.Min(inset, Mathf.Min(rect.width, rect.height) * 0.5f);
+        return new Rect(
+            rect.xMin + safeInset,
+            rect.yMin + safeInset,
+            rect.width - 2.0f * safeInset,
+            rect.height - 2.0f * safeInset);
     }
 }

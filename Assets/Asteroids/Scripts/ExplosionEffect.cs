@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// A sprite that grows slightly and fades out, then destroys itself. Spawned when an asteroid dies so the
+/// A sprite that grows slightly and fades out, then returns itself to the pool. Spawned when an asteroid dies so the
 /// fade reveals the fragments underneath.
 /// </summary>
 [DisallowMultipleComponent]
@@ -40,7 +40,7 @@ public class ExplosionEffect : MonoBehaviour
 
         if (progress >= 1.0f)
         {
-            Destroy(gameObject);
+            PrefabPool.Release(gameObject);
         }
     }
 
@@ -49,11 +49,12 @@ public class ExplosionEffect : MonoBehaviour
         duration = Mathf.Max(MinDuration, duration);
     }
 
-    /// <summary>Starts the effect. Call right after instantiating.</summary>
+    /// <summary>Starts the effect. Call right after getting it from PrefabPool.</summary>
     /// <param name="baseSize">Starting scale of the sprite.</param>
     /// <param name="driftVelocity">Velocity to move with, so the blast travels with the debris.</param>
     public void Play(float baseSize, Vector2 driftVelocity)
     {
+        elapsed = 0.0f;
         startScale = baseSize;
         drift = driftVelocity;
         ApplyFrame(0.0f);
