@@ -65,6 +65,7 @@ public class InputManager : Singleton<InputManager>
     }
     void OnPlayerMoveInput(InputAction.CallbackContext context)
     {
+
         Vector2 vector = context.ReadValue<Vector2>();
         OnPlayerMove?.Invoke(vector);
     }

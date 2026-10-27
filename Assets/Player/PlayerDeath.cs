@@ -9,6 +9,7 @@ namespace Player
     {
         [SerializeField] private PlayerData stats;
         private PlayerHealth playerHealth;
+        private PlayerController playerController;
 
         private float ghostSpeed;
         private bool isGhost = false;
@@ -23,6 +24,7 @@ namespace Player
             rb = GetComponent<Rigidbody2D>();
             playerCollider = GetComponent<Collider2D>();
             playerHealth = GetComponent<PlayerHealth>();
+            playerController = GetComponent<PlayerController>();
 
             ghostSpeed = 0;
             SetGhostMoveDirection(Vector2.down); // Default direction, can be changed later
@@ -67,8 +69,7 @@ namespace Player
         /// </summary>
         public void Die()
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0;
+            playerController.PlayerDeath();
             // Single-player behavior
             if (!PlayerRegistery.IsMultiplayer)
             {

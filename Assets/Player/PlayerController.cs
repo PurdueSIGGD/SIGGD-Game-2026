@@ -9,6 +9,7 @@ namespace Player
         [SerializeField] private PlayerData stats;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private InputActionReference moveActionRef;
+        private PlayerHealth playerHealth;
         private Vector2 currentInputVector;
         private float currSpeed;
 
@@ -16,7 +17,6 @@ namespace Player
 
         private InputActions controls;
         private InputAction braking;
-        private InputAction movement;
 
         private float storedSpeed = 0f;
         private bool stopHeld = false;
@@ -38,15 +38,16 @@ namespace Player
             InputManager.Instance.OnPlayerMove.AddListener(MovePlayerCharacter);
             controls = new InputActions();
             braking = controls.Player.Brake;
-            
-            // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
-            rb = GetComponent<Rigidbody2D>();
             controls.Player.Enable();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (!playerHealth.IsAlive)
+            {
+                return;
+            }
             currentInputVector = moveActionRef.action.ReadValue<Vector2>();
             
             if (braking.WasPressedThisFrame())
@@ -55,7 +56,9 @@ namespace Player
             }
             stopHeld = braking.IsPressed();
 
-            float x = 0f, y = 0f;
+            //float x = 0f, y = 0f;
+            x = 0f;
+            y = 0f;
             if (currentInputVector.x < 0) 
                 x -= 1f;
             if (currentInputVector.x > 0) 
@@ -144,11 +147,28 @@ namespace Player
             
         }
 
+        /// <summary>
+        /// Stops all inputs and movement on player death.
+        /// </summary>
+        public void PlayerDeath()
+        {
+            rb.linearVelocity = Vector2.zero;
+            storedSpeed = 0f;
+            stopHeld = false;
+            launchPending = false;
+            hadLastInput = false;
+            currentInputVector = Vector2.zero;
+        }
+
         //The instant brake system
         void Brake()
         {
             float speed = rb.linearVelocity.magnitude;
             if (speed > 0.1f) storedSpeed = speed;
         }
-    }   
+
+        
+    }
+
+    
 }

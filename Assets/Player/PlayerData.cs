@@ -13,6 +13,7 @@ namespace Player
         [SerializeField] private float deceleration = 4f;
         [SerializeField] private float maxVelocity = 10f;
         [SerializeField] private float impulse = 20f;
+        [SerializeField] private float terminalVelocity = 10f;
         public float MoveSpeed => moveSpeed;
         public float Mass => mass;
         public float Acceleration => acceleration;
