@@ -5,6 +5,7 @@ using UnityEngine.Splines;
 using Unity.Mathematics;
 using System;
 using Unity.Collections;
+using Unity.VisualScripting;
 
 public class Bullet : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    private float distanceTravaledAlongSpline;
+    private float distanceTravaledAlongSpline;  //maybe delete?
     private float velocity;
     private Transform firePoint;
     private Spline spline;
@@ -41,13 +42,17 @@ public class Bullet : MonoBehaviour
         BezierKnot currentKnot = spline[currentKnotIndex];  //add increment thingy to change later // incremnt the incremtnty thingy =)
         BezierKnot targetKnot = spline[nextKnotIndex];
 
-        
+        Vector2 currentKnotVec = new Vector2(currentKnot.Position.x, currentKnot.Position.y);
+        Vector2 targetKnotVec = new Vector2(targetKnot.Position.x, targetKnot.Position.y);
+        Vector2 velocityVec = new Vector2(velocity, velocity);
 
+        Vector2.SmoothDamp(currentKnotVec, targetKnotVec, ref velocityVec, 5.0f); // gets smooth directoin along a path
+
+        Transform test = gameObject.transform;
 
         // dev notes DO NOT DELETE
         // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
         // gameObject.transform allows us to get the x and y pos
-        // Vector3.SmoothDamp(x, y, 0); // gets smooth directoin along a path
     }
     private void Update()
     {
