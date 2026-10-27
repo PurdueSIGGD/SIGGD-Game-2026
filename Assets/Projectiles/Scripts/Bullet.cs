@@ -8,16 +8,15 @@ using System;
 public class Bullet : MonoBehaviour
 {
     private bool isExplosive;
-    private bool hasSpline;
     private int damage;
     private float lifetime;
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    private Spline splinePath;
     private float distanceTravaledAlongSpline;
     private float velocity;
     private Transform firePoint;
+    private List<Spline> splineNodes;
     private Vector3 shootDirection;
 
     private void Awake()
@@ -61,14 +60,16 @@ public class Bullet : MonoBehaviour
         bulletRB.angularVelocity = 0f; // reset angular velocity just incase its not 0 before firing
 
         isExplosive = projectileScriptableObject.IsExplosive;
-        hasSpline = projectileScriptableObject.HasSpline;
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
-        //path = projectileScriptableObject.SplineContainer.Spline; // bullets shooting dont work for now since splines arent set up properly yet but i believe in you jackson :D
-        splinePath = projectileScriptableObject.SplineContainer.Spline;
         velocity = projectileScriptableObject.Velocity;
         this.firePoint = firePoint;
         this.shootDirection = shootDirection;
+
+        if (projectileScriptableObject.HasSpline)
+        {
+            splineNodes = projectileScriptableObject.SplineNodes;
+        }
 
         gameObject.transform.position = firePoint.position;
 
@@ -110,11 +111,6 @@ public class Bullet : MonoBehaviour
     public bool GetIsExplosive()
     {
         return isExplosive;
-    }
-
-    public bool GetHasSpline()
-    {
-        return hasSpline;
     }
 
     public int GetDamage()
