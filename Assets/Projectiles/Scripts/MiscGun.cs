@@ -31,8 +31,7 @@ public class MiscGun : MonoBehaviour
     {
         if (miscOnCooldown != null) return;
 
-        //ProjectileManager.Instance.ShootMiscTowardsMouse(MiscWeapon.MiscProjectile, FirePoint);
-        MiscWeapon.Use();
+        MiscWeapon.Use(FirePoint);
         miscOnCooldown = StartCoroutine(MiscOnCooldown());
         miscIsThrown = StartCoroutine(MiscIsThrown());
     }

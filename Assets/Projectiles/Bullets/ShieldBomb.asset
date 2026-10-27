@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06acde4a66af4540bf639439ba798d6, type: 3}
   m_Name: ShieldBomb
   m_EditorClassIdentifier: Assembly-CSharp::ShieldBombMiscWeapon
-  MiscProjectile: {fileID: 0}
-  Name: 
-  Cooldown: 4.25
-  Type: Shield
-  MiscWeaponVisualPrefab: {fileID: 0}
-  MiscWeaponVisualRotationOffset: 0
+  Lifetime: 99
+  Velocity: 5
+  SpriteAngleOffset: 0
+  MiscProjectileSprite: {fileID: 0}
+  MiscProjectileColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  MiscProjectileScale: {x: 1, y: 1, z: 1}
+  UseSprite: {fileID: 0}
+  RopeObject: {fileID: 0}
   Timer: 4
   Radius: 6
   Durability: 50

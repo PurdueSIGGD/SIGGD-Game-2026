@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed06326c9d7789a49b60f07e4c6f0bb5, type: 3}
   m_Name: BombThrower
   m_EditorClassIdentifier: Assembly-CSharp::BombThrowerMiscWeapon
-  MiscProjectile: {fileID: 0}
-  Name: 
-  Cooldown: 0
-  Type: 
-  MiscWeaponVisualPrefab: {fileID: 0}
+  MiscProjectile: {fileID: 11400000, guid: f6bee71db66f0a342b7d91116b930632, type: 2}
+  Cooldown: 5
+  Type: Bomb Thrower
+  MiscWeaponVisualPrefab: {fileID: 3419575299417558390, guid: 60f73b4ec213d5748a5979e75f163767, type: 3}
   MiscWeaponVisualRotationOffset: 0

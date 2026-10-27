@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3b947cfb90bb244b9c2b4629297dfd, type: 3}
   m_Name: RemoteBomb
   m_EditorClassIdentifier: Assembly-CSharp::RemoteBombMiscWeapon
-  MiscProjectile: {fileID: 0}
-  Name: 
-  Cooldown: 3
-  Type: Remote
-  MiscWeaponVisualPrefab: {fileID: 0}
-  MiscWeaponVisualRotationOffset: 0
+  Lifetime: 10
+  Velocity: 2
+  SpriteAngleOffset: 0
+  MiscProjectileSprite: {fileID: 3989117881522060417, guid: 420b4b4985a0fdc4eabd39c73af452f9, type: 3}
+  MiscProjectileColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  MiscProjectileScale: {x: 0.5, y: 0.5, z: 1}
+  UseSprite: {fileID: 0}
+  RopeObject: {fileID: 0}
   Timer: 30
   Radius: 9

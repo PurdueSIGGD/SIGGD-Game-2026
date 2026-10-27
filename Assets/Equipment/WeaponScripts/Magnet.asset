@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d343b4f7a24174540bef133806d3bc60, type: 3}
   m_Name: Magnet
   m_EditorClassIdentifier: Assembly-CSharp::MagnetMiscWeapon
-  MiscProjectile: {fileID: 0}
-  Name: 
+  MiscProjectile: {fileID: 11400000, guid: db892e8742440e0499a34cb1c731675f, type: 2}
   Cooldown: 2.5
   Type: Magnet
   MiscWeaponVisualPrefab: {fileID: 0}
