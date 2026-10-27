@@ -8,6 +8,7 @@ using System;
 public class Bullet : MonoBehaviour
 {
     private bool isExplosive;
+    private bool hasSpline;
     private int damage;
     private float lifetime;
     private Rigidbody2D bulletRB;
@@ -33,13 +34,10 @@ public class Bullet : MonoBehaviour
         {
             lifetime -= 1f * Time.deltaTime;
 
-            // if (hasSpline)
-            // {
-            //     // maybe this works?
-            //     distanceTravaledAlongSpline += velocity * Time.deltaTime;
-            //     splinePath.Evaluate(distanceTravaledAlongSpline / splinePath.GetLength(), out float3 localPositon, out float3 localTangent, out float3 localUp);
-            //     // todo, move the bullet forward, snap it to spline, change its angle to equal the IROC of the spline
-            // }
+            if (hasSpline)
+            {
+                // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
+            }
         }
         else
         {
@@ -60,6 +58,7 @@ public class Bullet : MonoBehaviour
         bulletRB.angularVelocity = 0f; // reset angular velocity just incase its not 0 before firing
 
         isExplosive = projectileScriptableObject.IsExplosive;
+        hasSpline = projectileScriptableObject.HasSpline; 
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
         velocity = projectileScriptableObject.Velocity;
