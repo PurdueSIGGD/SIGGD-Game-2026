@@ -46,7 +46,12 @@ public class Bullet : MonoBehaviour
         Vector2 targetKnotVec = new Vector2(targetKnot.Position.x, targetKnot.Position.y);
         Vector2 velocityVec = new Vector2(velocity, velocity);
 
-        Vector2.SmoothDamp(currentKnotVec, targetKnotVec, ref velocityVec, 5.0f); // gets smooth directoin along a path
+        Vector2 step = Vector2.SmoothDamp(currentKnotVec, targetKnotVec, ref velocityVec, 5.0f); // gets smooth directoin along a path
+
+        Quaternion temp_rotation = new Quaternion(0,0,0,0);
+
+        gameObject.transform
+            .SetPositionAndRotation(new Vector3(gameObject.transform.position.x + step.x, gameObject.transform.position.y + step.y), temp_rotation);
 
         Transform test = gameObject.transform;
 
@@ -62,8 +67,7 @@ public class Bullet : MonoBehaviour
 
             if (hasSpline)
             {
-                MoveAlongSpline();
-                
+                MoveAlongSpline(); 
             }
         }
         else
