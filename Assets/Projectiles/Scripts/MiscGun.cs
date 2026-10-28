@@ -54,7 +54,7 @@ public class MiscGun : MonoBehaviour
     // does the activated ability of the misc item like bomb exploding 
     private void UseMisc(Vector2 notUsedInThisFunctionIJustNeedToPassThisToGetEInput)
     {
-        if (miscIsThrown != null) return;
+        if (miscIsThrown == null) return;
         // this will probably have to check whether the secondary is grapple or not and then do a reel in or explosion/magnet aura kinda thing
         MiscWeapon.Use(FirePoint);
 
@@ -81,7 +81,7 @@ public class MiscGun : MonoBehaviour
 
         if (curMiscWeaponVisual != null)
         {
-            Destroy(curMiscWeaponVisual);
+            //Destroy(curMiscWeaponVisual);
         }
 
         if (MiscWeapon.MiscWeaponVisualPrefab != null && weaponHolderTransform != null)
