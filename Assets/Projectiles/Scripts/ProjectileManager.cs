@@ -127,7 +127,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
     #endregion
 
     #region Player Shooting Misc Projectiles
-    public void ShootMiscTowardsMouse(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint)
+    public GameObject ShootMiscTowardsMouse(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint)
     {
         // rotate spawned bullet to face mouse
         // Get mouse position on the screen
@@ -141,14 +141,17 @@ public class ProjectileManager : Singleton<ProjectileManager>
 
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
-        ShootMiscProjectile(miscScriptableObject, firePoint, direction);
+        // returning the refence to the pooled object so that when the item is used (if it needs to be returned to pool after use) it can be
+        return ShootMiscProjectile(miscScriptableObject, firePoint, direction);
     }
 
-    private void ShootMiscProjectile(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint, Vector2 direction)
+    private GameObject ShootMiscProjectile(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint, Vector2 direction)
     {
         GameObject miscObject = MiscProjectilePool.Get();
         MiscBullet miscScript = miscObject.GetComponent<MiscBullet>();
         miscScript.PopulateMiscValues(miscScriptableObject, firePoint, direction.normalized);
+
+        return miscObject;
     }
     #endregion
 }

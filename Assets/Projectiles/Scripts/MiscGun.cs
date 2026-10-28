@@ -9,14 +9,18 @@ public class MiscGun : MonoBehaviour
     private Transform weaponHolderTransform;
 
     [SerializeField] private GameObject curMiscWeaponVisual;
+    private GameObject miscBulletReference;
 
     private Coroutine miscOnCooldown;
     private Coroutine miscIsThrown;
 
     private void Awake()
     {
+        // man im so excited to rewrite all of this as soon as the input manager is fixed :D
         InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
         InputManager.Instance.OnPlayerRightClick.AddListener(DestroyMisc);
+
+        InputManager.Instance.OnUseMiscItem.AddListener(UseMisc);
 
         weaponHolderTransform = gameObject.transform;
     }
@@ -31,11 +35,12 @@ public class MiscGun : MonoBehaviour
     {
         if (miscOnCooldown != null) return;
 
-        MiscWeapon.Use(FirePoint);
+        // safe the reference to the object returned so that we can repool it later when activated if needed
+        miscBulletReference = ProjectileManager.Instance.ShootMiscTowardsMouse(MiscWeapon.MiscProjectile, FirePoint);
+
         miscOnCooldown = StartCoroutine(MiscOnCooldown());
         miscIsThrown = StartCoroutine(MiscIsThrown());
     }
-
     
     private void DestroyMisc(Vector2 notUsedInThisFunctionIJustNeedToPassThisToGetRightClickInput)
     {
@@ -46,10 +51,14 @@ public class MiscGun : MonoBehaviour
         // release the fired game object
     }
 
-    private void ActivateMisc(Vector2 shootPos)
+    // does the activated ability of the misc item like bomb exploding 
+    private void UseMisc(Vector2 notUsedInThisFunctionIJustNeedToPassThisToGetEInput)
     {
         if (miscIsThrown != null) return;
         // this will probably have to check whether the secondary is grapple or not and then do a reel in or explosion/magnet aura kinda thing
+        MiscWeapon.Use(FirePoint);
+
+        // then it will stop the misc is thrown corutine and probably force release the shot item which we have a reference to
     }
 
     public void EquipMisc(MiscWeapon newMisc)
