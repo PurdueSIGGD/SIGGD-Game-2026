@@ -46,7 +46,7 @@ public class MiscGun : MonoBehaviour
     {
         if (miscIsThrown == null) return;
 
-        StopCoroutine(MiscIsThrown());
+        StopCoroutine(miscIsThrown);
         miscIsThrown = null;
 
         ProjectileManager.Instance.MiscProjectilePool.Release(miscBulletReference);
