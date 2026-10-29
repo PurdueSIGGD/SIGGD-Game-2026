@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 6119088f7668fa141870c6fb0b1e5960, type: 2}
+    - target: {fileID: 3600724885500606743, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+      propertyPath: moveActionRef
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 3842481533645907128, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
