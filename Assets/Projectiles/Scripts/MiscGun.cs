@@ -62,6 +62,7 @@ public class MiscGun : MonoBehaviour
         // this will probably have to check whether the secondary is grapple or not and then do a reel in or explosion/magnet aura kinda thing
         MiscWeapon.Use(miscBulletReference);
 
+        DestroyMisc(notUsedInThisFunctionIJustNeedToPassThisToGetEInput);
         // then it will stop the misc is thrown corutine and probably force release the shot item which we have a reference to
     }
 
