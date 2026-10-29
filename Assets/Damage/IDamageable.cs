@@ -2,7 +2,6 @@ using UnityEngine;
 
 public interface IDamageable
 {
-
     float CurrentHealth { get; }
     float MaxHealth { get; }
     public void TakeDamage(DamageContext context);

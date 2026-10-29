@@ -1,0 +1,1024 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: test_SplineContainer
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: Unity.Splines::UnityEngine.Splines.SplineContainer
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_EditModeType
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_Knots.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_MetaData.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_Closed
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_IntData.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_FloatData.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_Float4Data.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Spline.m_ObjectData.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_EditModeType
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.size
+    value: 15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Position.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Position.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentIn.z
+    value: -0.21767603
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].TangentOut.z
+    value: 0.21767603
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Rotation.value.x
+    value: -0.2628649
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Rotation.value.y
+    value: 0.6564313
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Rotation.value.z
+    value: -0.6564313
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Rotation.value.w
+    value: 0.2628649
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Position.x
+    value: 1.5024238
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Position.y
+    value: -1.5751216
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentIn.z
+    value: -0.5691715
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].TangentOut.z
+    value: 0.6855037
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.x
+    value: 0.49016684
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.y
+    value: -0.5096435
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.z
+    value: 0.50964355
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.w
+    value: -0.49016672
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Position.x
+    value: 3.8529902
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Position.y
+    value: 0.5331181
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].TangentIn.z
+    value: -0.8378174
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].TangentOut.z
+    value: 0.8459874
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Rotation.value.x
+    value: 0.5183176
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Rotation.value.y
+    value: -0.48098525
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Rotation.value.z
+    value: 0.4809853
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[2].Rotation.value.w
+    value: -0.5183176
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Position.x
+    value: 6.542813
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Position.y
+    value: -1.2358646
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].TangentIn.z
+    value: -0.6823684
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].TangentOut.z
+    value: 0.61844575
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Rotation.value.x
+    value: 0.5598554
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Rotation.value.y
+    value: -0.43192816
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Rotation.value.z
+    value: 0.43192828
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[3].Rotation.value.w
+    value: -0.5598553
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Position.x
+    value: 7.754445
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Position.y
+    value: 1.1147015
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].TangentIn.z
+    value: -0.4977354
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].TangentOut.z
+    value: 0.5902133
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.x
+    value: 0.5175267
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.y
+    value: -0.48183623
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.z
+    value: 0.48183623
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.w
+    value: -0.51752675
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Position.x
+    value: 9.91115
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Position.y
+    value: -1.9143786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentIn.z
+    value: -0.5591579
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].TangentOut.z
+    value: 0.53790396
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Rotation.value.x
+    value: -0.5339086
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Rotation.value.y
+    value: 0.46361792
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Rotation.value.z
+    value: -0.46361792
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[5].Rotation.value.w
+    value: 0.53390855
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.x
+    value: 11.050084
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.y
+    value: 1.3327954
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentIn.z
+    value: -0.46606123
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].TangentOut.z
+    value: 0.44270754
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.x
+    value: 0.5226628
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.y
+    value: -0.4762599
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.z
+    value: 0.4762599
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[6].Rotation.value.w
+    value: -0.5226629
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Position.x
+    value: 12.600973
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Position.y
+    value: -1.357028
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].TangentIn.z
+    value: -0.3932835
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].TangentOut.z
+    value: 0.37960187
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Rotation.value.x
+    value: -0.5304432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Rotation.value.y
+    value: 0.4675789
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Rotation.value.z
+    value: -0.4675789
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[7].Rotation.value.w
+    value: 0.5304432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Position.x
+    value: 13.376417
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Position.y
+    value: 1.4297259
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].TangentIn.z
+    value: -0.3542521
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].TangentOut.z
+    value: 0.38363105
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Rotation.value.x
+    value: -0.5219234
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Rotation.value.y
+    value: 0.47707015
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Rotation.value.z
+    value: -0.47707006
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[8].Rotation.value.w
+    value: 0.5219235
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Position.x
+    value: 14.854609
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Position.y
+    value: -1.6235869
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].TangentIn.z
+    value: -0.34342596
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].TangentOut.z
+    value: 0.32596362
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Rotation.value.x
+    value: -0.5322914
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Rotation.value.y
+    value: 0.46547386
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Rotation.value.z
+    value: -0.4654738
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[9].Rotation.value.w
+    value: 0.53229135
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Position.x
+    value: 15.411959
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Position.y
+    value: 1.3812606
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].TangentIn.z
+    value: -0.14079893
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].TangentOut.z
+    value: 0.14488454
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Rotation.value.x
+    value: -0.48818752
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Rotation.value.y
+    value: 0.51153976
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Rotation.value.z
+    value: -0.5115398
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[10].Rotation.value.w
+    value: 0.48818752
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Position.x
+    value: 15.702751
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Position.y
+    value: -1.8416808
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].TangentIn.z
+    value: -0.1689406
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].TangentOut.z
+    value: 0.17009166
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Rotation.value.x
+    value: -0.48303786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Rotation.value.y
+    value: 0.5164053
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Rotation.value.z
+    value: -0.5164052
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[11].Rotation.value.w
+    value: 0.48303792
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Position.x
+    value: 16.42973
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Position.y
+    value: 1.3570279
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].TangentIn.z
+    value: -0.35874388
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].TangentOut.z
+    value: 0.3718188
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.x
+    value: 0.52547944
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.y
+    value: -0.47315037
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.z
+    value: 0.47315043
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.w
+    value: -0.52547944
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Position.x
+    value: 17.90792
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Position.y
+    value: -1.8416808
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].TangentIn.z
+    value: -0.3523746
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].TangentOut.z
+    value: 0.3523746
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Rotation.value.x
+    value: -0.15185681
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Rotation.value.y
+    value: 0.6906081
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Rotation.value.z
+    value: -0.690608
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Rotation.value.w
+    value: 0.15185694
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Position.x
+    value: 17.90792
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Position.y
+    value: -1.8416808
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Position.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentIn.x
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentIn.y
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentIn.z
+    value: -0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentOut.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentOut.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentOut.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.x
+    value: -0.70710665
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.y
+    value: 2.5121475e-15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.z
+    value: -0.00000005268357
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.w
+    value: 0.7071069
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.size
+    value: 15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[0].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[0].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[1].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[1].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[2].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[2].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[3].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[3].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[4].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[4].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[5].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[5].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[6].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[6].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[7].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[7].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[8].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[8].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[9].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[9].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[10].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[10].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[11].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[11].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[12].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[12].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[13].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[13].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[14].Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[14].Tension
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Closed
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_IntData.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_FloatData.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_Float4Data.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Splines.Array.data[0].m_ObjectData.m_Data.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Knots.m_KnotsLink.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Knots.m_KnotsLink.Array.data[0].Knots.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Knots.m_KnotsLink.Array.data[0].Knots.Array.data[0].Spline
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Knots.m_KnotsLink.Array.data[0].Knots.Array.data[0].Knot
+    value: 13
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Knots.m_KnotsLink.Array.data[0].Knots.Array.data[1].Spline
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Knots.m_KnotsLink.Array.data[0].Knots.Array.data[1].Knot
+    value: 14
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
+  m_CoupledType:
+    m_NativeTypeID: 0
+    m_ManagedTypePPtr: {fileID: 0}
+    m_ManagedTypeFallback: 
+  m_CoupledProperties: []

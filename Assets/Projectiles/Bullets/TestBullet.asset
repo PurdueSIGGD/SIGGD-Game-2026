@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0e0d47d9b272c4a98dffab33a472ae, type: 3}
+  m_Name: TestBullet
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
+  IsExplosive: 0
+  HasSpline: 0
+  Damage: 4
+  Lifetime: 15
+  Velocity: 4
+  SpriteAngleOffset: 0
+  ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  ProjectileColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  ProjectileScale: {x: 0.5, y: 0.5, z: 1}
+  SplineGameObject: {fileID: 404314599969650974, guid: 2f53b373ecc3e59ef99091d9d0d9f26d, type: 3}
+  SplineContainer: {fileID: 689180092553368705, guid: 2f53b373ecc3e59ef99091d9d0d9f26d, type: 3}
+  Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
