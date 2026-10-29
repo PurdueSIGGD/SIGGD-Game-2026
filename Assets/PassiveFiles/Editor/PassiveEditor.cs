@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 using UnityEditor;
 
 [CustomEditor(typeof(Passive))]
@@ -8,7 +7,6 @@ public class PassiveEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-
 
         EditorGUILayout.HelpBox(
             "PASSIVE SYSTEM GUIDE\n\n" +
@@ -48,4 +46,3 @@ public class PassiveEditor : Editor
         DrawDefaultInspector();
     }
 }
-
