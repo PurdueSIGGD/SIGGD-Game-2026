@@ -12,5 +12,6 @@ public class BossData : ScriptableObject
     [field: SerializeField] public int[] PhaseHealthBoundaries {get; private set; }
     [field: SerializeField] public float SpeedDamageThreshold {get; private set; } = 5.0f;
     [field: SerializeField] public float DamageMultiplier {get; private set; } = 10.0f;
-    [field: SerializeField] public AttackPercents[] AttackPercentList {get; set; }
+    [field: SerializeField] public AttackPercents[] AttackPercentList {get; private set; } = new AttackPercents[5];
+    [field: SerializeField] public BossAttack[] BossAttackList {get; private set; }
 }
