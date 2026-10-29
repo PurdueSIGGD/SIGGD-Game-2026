@@ -5,6 +5,7 @@ public class TimedBombProjectile : BombProjectile
 {
     public override void Detonate()
     {
-        Debug.Log("Kaboom! Explodes and extends " + Radius + " after " + Timer + " seconds.");
+        Debug.Log("Explodes and extends " + Radius + " after " + Timer + " seconds.");
+        base.Detonate();
     }
 }

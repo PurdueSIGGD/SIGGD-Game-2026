@@ -7,6 +7,7 @@ public class ShieldBombProjectile : BombProjectile
 
     public override void Detonate()
     {
-        Debug.Log("Kaboom! Explodes and extends " + Radius + " after " + Timer + " seconds, protecting you with " + Durability + " durability!");
+        Debug.Log("Explodes and extends " + Radius + " after " + Timer + " seconds, protecting you with " + Durability + " durability!");
+        base.Detonate();
     }
 }
