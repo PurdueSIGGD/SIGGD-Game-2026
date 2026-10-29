@@ -46,6 +46,7 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
+            return; // TODO PLEASE REMOVE
             currentInputVector = moveActionRef.action.ReadValue<Vector2>();
             
             if (braking.WasPressedThisFrame())
