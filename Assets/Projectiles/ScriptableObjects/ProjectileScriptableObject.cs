@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Splines;
 using System.Collections.Generic;
-using TreeEditor;
 
 [CreateAssetMenu(fileName = "ProjectileScriptableObject", menuName = "Scriptable Objects/ProjectileScriptableObject")]
 public class ProjectileScriptableObject : ScriptableObject 
