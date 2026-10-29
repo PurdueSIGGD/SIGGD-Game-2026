@@ -113,10 +113,10 @@ namespace Player
 
             if (hasInput)
             {
-                if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
-                {
-                    rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
-                }
+                // if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
+                // {
+                //     rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
+                // }
                 rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);
             }
             else if (velocity.sqrMagnitude > 0.0001f)
