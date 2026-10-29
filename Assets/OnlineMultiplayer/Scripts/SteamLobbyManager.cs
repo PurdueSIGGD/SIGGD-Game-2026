@@ -60,7 +60,8 @@ public class SteamLobbyManager : MonoBehaviour
 
     private void OnLobbyGameCreated(Lobby lobby, uint ip, ushort port, SteamId id) 
     {
-
+        Debug.Log("TestingBegan");
+        Debug.Log(id.ToString());
     }
 
     private async void OnLobbyMemberJoined(Lobby lobby, Friend friend) 
@@ -97,10 +98,13 @@ public class SteamLobbyManager : MonoBehaviour
         RoomEnter joinedLobbySuccess = await joinedLobby.Join();
         if(joinedLobbySuccess != RoomEnter.Success)
         {
+            
             Debug.Log("failed to join lobby : " + joinedLobbySuccess);
         }
         else 
-        {
+        {   
+            Debug.Log("TestingBegan");
+            Debug.Log(id.ToString());
             currentLobby = joinedLobby;
         }
     }
@@ -109,14 +113,17 @@ public class SteamLobbyManager : MonoBehaviour
     {
         if(result != Result.OK) 
         {
+
             Debug.Log("lobby creation result was not ok : " + result);
         }
         else
         {
+            // LobbyCreated_t response = (LobbyCreated_t)result;
             OnLobbyCreated.Invoke();
             Debug.Log("successfully created lobby");
         }
     }
+
 
     async void OnLobbyEntered(Lobby lobby) 
     {
@@ -176,6 +183,7 @@ public class SteamLobbyManager : MonoBehaviour
             currentLobby = createLobbyOutput.Value;
             currentLobby.SetPublic(); // lobbies can also be set private (SetPrivate)
             currentLobby.SetJoinable(true); 
+            Debug.Log("There is a steam lobby created with ID: " + createLobbyOutput.Value);
 
             return true;
         }
