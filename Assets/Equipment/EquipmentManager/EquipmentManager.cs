@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using Extensions.Singleton;
 
 /*  primary + Miscellaneous weapons
  *  right click Miscellaneous, left click primary 
@@ -15,10 +16,8 @@ using UnityEngine;
  *  will we add anything to equipment??
  */
 
-public class EquipmentManager : MonoBehaviour
+public class EquipmentManager : Singleton<EquipmentManager>
 {
-    //singleton code 
-    public static EquipmentManager Instance { get; private set; }
     public PlayerData PlayerData;
 
     //weapons code
@@ -26,19 +25,6 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private IEquipment miscellaneous;
     [SerializeField] private IEquipment passive;
 
-    void Awake()
-    {
-        //more singleton code
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-    }
 
     private void Start()
     {
