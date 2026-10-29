@@ -17,8 +17,8 @@ public class MiscGun : MonoBehaviour
     private void Awake()
     {
         // man im so excited to rewrite all of this as soon as the input manager is fixed :D
-        InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
         InputManager.Instance.OnPlayerRightClick.AddListener(DestroyMisc);
+        InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
 
         InputManager.Instance.OnUseMiscItem.AddListener(UseMisc);
 
@@ -47,6 +47,10 @@ public class MiscGun : MonoBehaviour
         if (miscIsThrown == null) return;
 
         StopCoroutine(MiscIsThrown());
+        miscIsThrown = null;
+
+        ProjectileManager.Instance.MiscProjectilePool.Release(miscBulletReference);
+        miscBulletReference = null;
 
         // release the fired game object
     }
@@ -56,7 +60,7 @@ public class MiscGun : MonoBehaviour
     {
         if (miscIsThrown == null) return;
         // this will probably have to check whether the secondary is grapple or not and then do a reel in or explosion/magnet aura kinda thing
-        MiscWeapon.Use(FirePoint);
+        MiscWeapon.Use(miscBulletReference);
 
         // then it will stop the misc is thrown corutine and probably force release the shot item which we have a reference to
     }
