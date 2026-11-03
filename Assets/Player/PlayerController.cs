@@ -1,6 +1,5 @@
 namespace Player
 {
-    using Unity.VisualScripting.Antlr3.Runtime.Misc;
     using UnityEngine;
     using UnityEngine.InputSystem;
 
@@ -22,9 +21,12 @@ namespace Player
         private bool launchPending = false;
         private bool hadLastInput;
 
+        private float brakeTimer;
+
         // Variables needed initialized in Awake
         void Awake()
         {
+            // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
             if (rb == null) rb = GetComponent<Rigidbody2D>();
             playerHealth = GetComponent<PlayerHealth>();
 
@@ -55,9 +57,8 @@ namespace Player
             }
             stopHeld = braking.IsPressed();
 
-            //float x = 0f, y = 0f;
-            x = 0f;
-            y = 0f;
+            //sets the x and y values of the input vector
+            float x = 0f, y = 0f;
             if (currentInputVector.x < 0) 
                 x -= 1f;
             if (currentInputVector.x > 0) 
@@ -95,7 +96,6 @@ namespace Player
         void MovePlayerCharacter(Vector2 moveVector)
         {
             moveVector = new Vector2(x, y).normalized;
-            currentInputVector = Vector2.ClampMagnitude(moveVector, 1f);
         }
 
         private void FixedUpdate()
@@ -118,14 +118,14 @@ namespace Player
                 launchPending = false;
             }
             Vector2 velocity = rb.linearVelocity;
-            bool hasInput = (currentInputVector.sqrMagnitude > 0.01f);
+            bool hasInput = currentInputVector.sqrMagnitude > 0.01f;
 
             if (hasInput)
             {
-                if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
-                {
-                    rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
-                }
+                // if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
+                // {
+                //     rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
+                // }
                 rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);
             }
             else if (velocity.sqrMagnitude > 0.0001f)
