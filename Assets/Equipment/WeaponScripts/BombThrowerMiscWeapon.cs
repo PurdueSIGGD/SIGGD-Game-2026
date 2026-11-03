@@ -6,6 +6,7 @@ public class BombThrowerMiscWeapon : MiscWeapon
     public override void Use(GameObject miscProjectileObject)
     {
         Debug.Log("Fwhoosh!");
-//        BombProjectile bomb = (BombProjectile) miscProjectileObject;
+        MiscBullet bomb = miscProjectileObject.GetComponent<MiscBullet>();
+        bomb.bulletFunction?.Invoke(bomb);
     }
 }

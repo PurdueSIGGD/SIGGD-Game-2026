@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "MiscellaneousScriptableObject", menuName = "Scriptable Objects/MiscellaneousScriptableObject")]
@@ -15,6 +16,8 @@ public class MiscellaneousScriptableObject : ScriptableObject
 
     public Sprite UseSprite; // sprite for when you use the misc you just threw like the explosion for the bomb or suck sprite for the magnet throwable
     public GameObject RopeObject; // really only for grappling hook but if we have a gameobject that needs to follow the projectile
+
+    public Action<MiscBullet> function = (bullet) => Debug.Log("Projectile activated!");
 
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
