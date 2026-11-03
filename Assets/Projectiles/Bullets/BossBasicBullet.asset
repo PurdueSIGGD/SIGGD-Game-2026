@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: BossBasicBullet
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
-  Damage: 0
-  Lifetime: 0
-  Velocity: 0
-  ProjectileSprite: {fileID: 0}
+  Damage: 1
+  Lifetime: 10
+  Velocity: 1
+  ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4279173375
   ProjectileScale: {x: 1, y: 1, z: 1}
   ProjectileAngleOffset: 0

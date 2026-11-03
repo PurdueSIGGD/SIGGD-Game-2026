@@ -1,38 +1,40 @@
-using System.Runtime.InteropServices;
+using System;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
-public class BossAttack : MonoBehaviour
+[System.Serializable]
+[CreateAssetMenu(fileName = "BossAttack", menuName = "Data/BossAttack")]
+public class BossAttack : ScriptableObject
 {
     public static int Count = 0;
     private int num;
     [SerializeField] public ProjectileScriptableObject pso;
     private ProjectileScriptableObject pso1;
     [field: SerializeField] private int[] Origin {get; set;} = new int[2] {0, 0};
-    private int projectileCount = 1;
-    private float delay = 0;
-    private float angleOffset = 0;
-    private float hOffset = 0;
-
-    private void Update()
-    {
-        Debug.Log("testing1" + (pso == null));    
-        pso1 = new ProjectileScriptableObject();
-        Debug.Log("testing2" + (pso1 == null));    
-    }
-    
+    public int ProjectileCount = 1;
+    public float Delay = 0;
+    public float AngleOffset = 0;
+    public float HOffset = 0;
 
     public BossAttack ()
     {
         Count++;
         num = Count;
     }
+
     public void Test(GameObject bossObject)
     {
-        Debug.Log("It works: " + num);
         GameObject gameObject = new GameObject();
         gameObject.transform.position = new Vector3(Origin[0], Origin[1], 0);
-        Debug.Log("testing" + (pso1 == null));
-        bool a = pso1.IsExplosive;
-        ProjectileManager.Instance.ShootProjectileTowardsDirection(pso1, gameObject.transform, new Vector2(0, 1));
+        Vector2 angle = new Vector2(1, 0);
+        float newAngle = 0f;
+        for (int i = 0; i < ProjectileCount; i++)
+        {
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(pso, gameObject.transform, angle);
+            newAngle = newAngle + AngleOffset * (float) Math.PI / 180;
+            angle = new Vector2((float) Math.Sin(newAngle), (float) Math.Cos(newAngle));
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + HOffset, Origin[1], 0);
+            //insert delay here
+        }
     }
 }

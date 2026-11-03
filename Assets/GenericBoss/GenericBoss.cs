@@ -80,11 +80,6 @@ public class GenericBoss : MonoBehaviour
         Debug.Assert(bossData.PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
         maxHealth = bossData.PhaseHealthBoundaries[0];
         CurrentHealth = maxHealth;
-        // bossData.AttackPercentList = new AttackPercents[] {new AttackPercents(new uint[] {1},new BossAttack()), new AttackPercents(new uint[] {1},new BossAttack()), new AttackPercents(new uint[] {1},new BossAttack())};
-        CalculateRandomBossAttack().Test(gameObject);
-        CalculateRandomBossAttack().Test(gameObject);
-        CalculateRandomBossAttack().Test(gameObject);
-        CalculateRandomBossAttack().Test(gameObject);
         CalculateRandomBossAttack().Test(gameObject);
     }
 
@@ -95,20 +90,4 @@ public class GenericBoss : MonoBehaviour
 }
 
 
-/// <summary>
-/// Stores an attack and its chance weight for each boss phase.
-/// </summary>
-[System.Serializable]
-public struct AttackPercents
-{
-    /// <summary>
-    /// An array of the weights for this attack for each boss phase.
-    /// </summary>
-    public uint[] ChanceWeights {get;}
-    public BossAttack Attack {get;}
 
-    public AttackPercents(uint[] chanceWeights, BossAttack attack){
-        ChanceWeights = chanceWeights;
-        Attack = attack;
-    }
-}
