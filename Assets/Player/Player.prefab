@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4483921797233886003}
   - component: {fileID: 899679957218730839}
   - component: {fileID: 7738264016632498203}
+  - component: {fileID: 5574284884053378487}
   m_Layer: 0
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -66,6 +67,20 @@ MonoBehaviour:
   MiscWeapon: {fileID: 11400000, guid: 9b6e4625e89a00a4998260f2b083e670, type: 2}
   FirePoint: {fileID: 0}
   curMiscWeaponVisual: {fileID: 9078182972333699350, guid: 2eabd2b34eebda646a5369ab30f3aada, type: 3}
+--- !u!114 &5574284884053378487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68992226076511993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9b48d07ea9d4240b9ba1eae299e6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveHolder
+  listOfPassive: []
+  currentPassive: {fileID: 0}
 --- !u!1 &5804805563443515540
 GameObject:
   m_ObjectHideFlags: 0
