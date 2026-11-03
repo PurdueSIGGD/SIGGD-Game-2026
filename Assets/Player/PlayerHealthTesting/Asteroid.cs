@@ -28,7 +28,6 @@ public class Asteroid : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("asteroid collision " + collision.collider.gameObject);
         if (collision.collider.CompareTag("Player"))
         {
             collision.collider.GetComponent<IDamageable>()?.TakeDamage(new DamageContext
