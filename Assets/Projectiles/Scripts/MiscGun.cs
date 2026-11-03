@@ -8,6 +8,7 @@ public class MiscGun : MonoBehaviour
     public Transform FirePoint;
     private Transform weaponHolderTransform;
 
+    [SerializeField] private Transform armRotatePoint;
     [SerializeField] private GameObject curMiscWeaponVisual;
     private GameObject miscBulletReference;
 
@@ -36,7 +37,8 @@ public class MiscGun : MonoBehaviour
         if (miscOnCooldown != null) return;
 
         // safe the reference to the object returned so that we can repool it later when activated if needed
-        miscBulletReference = ProjectileManager.Instance.ShootMiscTowardsMouse(MiscWeapon.MiscProjectile, FirePoint);
+        Vector2 shotDir = -(armRotatePoint.position - FirePoint.position).normalized;
+        miscBulletReference = ProjectileManager.Instance.ShootMiscProjectileTowardsDirection(MiscWeapon.MiscProjectile, FirePoint, shotDir);
 
         miscOnCooldown = StartCoroutine(MiscOnCooldown());
         miscIsThrown = StartCoroutine(MiscIsThrown());

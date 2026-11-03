@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryGun
   Weapon: {fileID: 11400000, guid: ee76a40422a9b784d9b2d515118fc4bf, type: 2}
   FirePoint: {fileID: 0}
+  armRotatePoint: {fileID: 7041925094160131928}
   curWeaponVisual: {fileID: 0}
   PlayerBody: {fileID: 3380938587474817520}
   CurrentAmmo: 0
@@ -65,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MiscGun
   MiscWeapon: {fileID: 11400000, guid: 9b6e4625e89a00a4998260f2b083e670, type: 2}
   FirePoint: {fileID: 0}
+  armRotatePoint: {fileID: 7041925094160131928}
   curMiscWeaponVisual: {fileID: 9078182972333699350, guid: 2eabd2b34eebda646a5369ab30f3aada, type: 3}
 --- !u!1 &5804805563443515540
 GameObject:

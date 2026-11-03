@@ -70,7 +70,7 @@ public class PrimaryGun : MonoBehaviour
         {
             //Vector2 shotDir = GetShotDirection(aimDir, i, count);
 
-            Vector2 shotDir = -(armRotatePoint.position - FirePoint.position).normalized; ;
+            Vector2 shotDir = -(armRotatePoint.position - FirePoint.position).normalized;
 
             ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
         }
@@ -103,7 +103,7 @@ public class PrimaryGun : MonoBehaviour
     private void ApplyRecoil(Vector2 aimDir)
     {
         if (PlayerBody == null || Weapon.Recoil <= 0f) return;
-        PlayerBody.AddForce(-aimDir * Weapon.Recoil, ForceMode2D.Impulse);
+        PlayerBody.AddForce(aimDir * Weapon.Recoil, ForceMode2D.Impulse);
     }
 
     public void StartReload()

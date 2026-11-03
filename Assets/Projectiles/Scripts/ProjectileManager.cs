@@ -118,20 +118,6 @@ public class ProjectileManager : Singleton<ProjectileManager>
         ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
 
-    /// <summary>
-    /// fuckass method i made cuz im a lazy bitch
-    /// </summary>
-    /// <param name="projectileScriptableObject"></param>
-    /// <param name="firePoint"></param>
-    /// <param name="direction"></param>
-    public void ShootProjectileTowardsPointNegative(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint)
-    {
-        // make direction vector from the starting point and end point
-        Vector2 direction = (targetPoint.position - firePoint.position).normalized;
-
-        ShootProjectile(projectileScriptableObject, firePoint, -direction);
-    }
-
     private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
     {
         GameObject bullet = ProjectilePool.Get();
@@ -155,6 +141,12 @@ public class ProjectileManager : Singleton<ProjectileManager>
 
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
+        // returning the refence to the pooled object so that when the item is used (if it needs to be returned to pool after use) it can be
+        return ShootMiscProjectile(miscScriptableObject, firePoint, direction);
+    }
+
+    public GameObject ShootMiscProjectileTowardsDirection(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint, Vector2 direction)
+    {
         // returning the refence to the pooled object so that when the item is used (if it needs to be returned to pool after use) it can be
         return ShootMiscProjectile(miscScriptableObject, firePoint, direction);
     }
