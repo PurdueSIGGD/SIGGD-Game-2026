@@ -152,7 +152,6 @@ namespace Player
         /// <param name="damageObjectCOM">The COM of the damaging object.</param>
         public void PlayerDamaged(Vector2 damageObjectCOM)
         {
-            Debug.Log("Player speed decreased from damage...");
             if (storedSpeed > 0f)
             {
                 storedSpeed = Mathf.Max(storedSpeed - stats.DamageSpeedDecrease, 0f);
@@ -168,6 +167,8 @@ namespace Player
                     rb.linearVelocity -= rb.linearVelocity.normalized * stats.DamageSpeedDecrease;
                 }
             }
+            // Implement iframe animations?
+            // Apply displacement manually?
         }
 
         /// <summary>

@@ -38,14 +38,11 @@ namespace Player
         {
             if (invincibilityTimer > 0f)
             {
-                Debug.Log("iframe active, no damage taken");
                 return;
             }
             CurrentHealth = Mathf.Max(CurrentHealth - context.DamageAmount, 0);
-            Debug.Log("Player took damage: " + context.DamageAmount + ", remaining health: " + CurrentHealth);
             if (CurrentHealth == 0)
             {
-                Debug.Log("Player died");
                 playerDeath.Die();
             }
             else

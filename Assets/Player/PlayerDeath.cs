@@ -14,6 +14,8 @@ namespace Player
         private float ghostSpeed;
         private bool isGhost = false;
         private Vector2 ghostMoveDirection;
+        [Tooltip("Layers to ignore while the player is a ghost.")]
+        [SerializeField] private LayerMask layersToIgnore;
 
         private Rigidbody2D rb;
         private Collider2D playerCollider;
@@ -73,7 +75,6 @@ namespace Player
             // Single-player behavior
             if (!PlayerRegistery.IsMultiplayer)
             {
-                Debug.Log("Singleplayer Game Over");
                 GameOver();
                 return;
             }
@@ -89,7 +90,6 @@ namespace Player
             }
             if (allPlayersDead)
             {
-                Debug.Log("Multiplayer Game Over");
                 GameOver();
             }
             else
@@ -132,20 +132,28 @@ namespace Player
         private void TurnIntoGhost()
         {
             isGhost = true;
+            playerCollider.excludeLayers += layersToIgnore;
             // Change player appearance?
         }
 
+        /// <summary>
+        /// Revives the player from ghost state.
+        /// </summary>
         private void Revive()
         {
             isGhost = false;
             playerHealth.Revive();
+            playerCollider.excludeLayers -= layersToIgnore;
             // Change player appearance back to normal?
         }
 
+        /// <summary>
+        /// Handles the scenario when the ghost was not revived in time, meaning the player
+        /// is out of the round.
+        /// </summary>
         private void RemovePlayer()
         {
             isGhost = false;
-            // player was not revived, no longer in the round
             gameObject.SetActive(false); // for now just disable gameobject
         }
 
