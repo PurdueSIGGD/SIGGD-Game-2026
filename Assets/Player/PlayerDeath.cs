@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Player
+namespace PlayerSystem
 {
     /// <summary>
     /// Manages the player death behavior, including restarting the level or becoming
@@ -73,16 +73,16 @@ namespace Player
         {
             playerController.PlayerDeath();
             // Single-player behavior
-            if (!PlayerRegistery.IsMultiplayer)
+            if (!PlayerRegistry.IsMultiplayer)
             {
                 GameOver();
                 return;
             }
             // Multiplayer behavior
             bool allPlayersDead = true;
-            for (int i = 0; i < PlayerRegistery.PlayerCount; i++)
+            for (int i = 0; i < PlayerRegistry.PlayerCount; i++)
             {
-                if (PlayerRegistery.Players[i] != null && PlayerRegistery.Players[i].Health.IsAlive)
+                if (PlayerRegistry.Players[i] != null && PlayerRegistry.Players[i].Health.IsAlive)
                 {
                     allPlayersDead = false;
                     break;
@@ -122,7 +122,7 @@ namespace Player
         {
             // Game over UI?
             // Restart the current boss
-            // Reset all players (maybe the PlayerRegistery handles this?)
+            // Reset all players (maybe the PlayerRegistry handles this?)
             Reset();
         }
 

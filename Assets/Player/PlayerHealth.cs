@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Player
+namespace PlayerSystem
 {
     /// <summary>
     /// Manages a player's health and calls the PlayerDeath script when health reaches zero.

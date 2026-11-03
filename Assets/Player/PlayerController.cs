@@ -1,8 +1,8 @@
-namespace Player
-{
-    using UnityEngine;
-    using UnityEngine.InputSystem;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
+namespace PlayerSystem
+{
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerData stats;
@@ -10,8 +10,6 @@ namespace Player
         [SerializeField] private InputActionReference moveActionRef;
         private PlayerHealth playerHealth;
         private Vector2 currentInputVector;
-
-        private float x, y;
 
         private InputActions controls;
         private InputAction braking;
@@ -29,13 +27,9 @@ namespace Player
 
             rb.linearDamping = 0f; // set to zero currently because of space
             rb.mass = stats.Mass; // from PlayerData.cs
-        }
 
-        void Start()
-        {
             controls = new InputActions();
             braking = controls.Player.Brake;
-            controls.Player.Enable();
         }
 
         // Update is called once per frame
@@ -57,22 +51,23 @@ namespace Player
             }
             stopHeld = braking.IsPressed();
 
-            //sets the x and y values of the input vector
-            float x = 0f, y = 0f;
-            if (currentInputVector.x < 0)
-                x -= 1f;
-            if (currentInputVector.x > 0)
-                x += 1f;
-            if (currentInputVector.y > 0)
-                y += 1f;
-            if (currentInputVector.y < 0)
-                y -= 1f;
             currentInputVector = currentInputVector.normalized;
+        }
+
+        private void OnEnable()
+        {
+            controls.Player.Enable();
         }
 
         private void OnDisable()
         {
+            controls.Player.Disable();
             currentInputVector = Vector2.zero;
+        }
+
+        private void OnDestroy()
+        {
+            controls.Dispose();
         }
 
         private void FixedUpdate()
@@ -81,7 +76,7 @@ namespace Player
             {
                 return;
             }
-            
+
             if (stopHeld)
             {
                 rb.linearVelocity = Vector2.zero;
@@ -104,16 +99,12 @@ namespace Player
 
             if (hasInput)
             {
-                // if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
-                // {
-                //     rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
-                // }
-                rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);
+                rb.AddForce(currentInputVector * stats.Acceleration * rb.mass, ForceMode2D.Force);
             }
             else if (velocity.sqrMagnitude > 0.0001f)
             {
                 float maxStopForce = velocity.magnitude * rb.mass / Time.fixedDeltaTime;
-                float backForce = Mathf.Min(stats.Deceleration, maxStopForce);
+                float backForce = Mathf.Min(stats.Deceleration * rb.mass, maxStopForce);
                 rb.AddForce(-velocity.normalized * backForce);
 
             }
@@ -162,7 +153,7 @@ namespace Player
             currentInputVector = Vector2.zero;
         }
 
-        //The instant brake system
+        // The instant brake system.
         void Brake()
         {
             float speed = rb.linearVelocity.magnitude;
