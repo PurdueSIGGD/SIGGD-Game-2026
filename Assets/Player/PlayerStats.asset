@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerData
   moveSpeed: 8
   mass: 1
-  acceleration: 8
+  acceleration: 20
   deceleration: 4
-  maxVelocity: 10
+  maxVelocity: 8
   impulse: 20
   terminalVelocity: 10
   maxHealth: 3
