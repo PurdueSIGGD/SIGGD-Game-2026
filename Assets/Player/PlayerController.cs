@@ -19,9 +19,6 @@ namespace Player
         private float storedSpeed = 0f;
         private bool stopHeld = false;
         private int launchStep = 0;
-        private bool hadLastInput;
-
-        private float brakeTimer;
 
         // Variables needed initialized in Awake
         void Awake()
@@ -121,8 +118,6 @@ namespace Player
 
             }
 
-            hadLastInput = hasInput;
-
             velocity = rb.linearVelocity;
             if (velocity.sqrMagnitude > stats.MaxVelocity * stats.MaxVelocity)
             {
@@ -164,8 +159,6 @@ namespace Player
             rb.linearVelocity = Vector2.zero;
             storedSpeed = 0f;
             stopHeld = false;
-            launchPending = false;
-            hadLastInput = false;
             currentInputVector = Vector2.zero;
         }
 
