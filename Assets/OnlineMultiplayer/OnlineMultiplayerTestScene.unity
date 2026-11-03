@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763545903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e238b06c2abfd8a4680115d4c4e56483, type: 3}
   m_Name: 
@@ -2315,7 +2315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8696b68b8e39d7d4ab445821d16f9993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SteamP2PRelayTransport
-  serverId: 76561199184526172
+  serverId: 76561198152691148
   debug: 0
 --- !u!1 &2098749158
 GameObject:

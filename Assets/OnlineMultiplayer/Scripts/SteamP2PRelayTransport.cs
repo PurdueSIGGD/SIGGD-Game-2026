@@ -62,7 +62,7 @@ public class SteamP2PRelayTransport : NetworkTransport
         /// <summary>
         /// Received a message
         /// </summary>
-        public unsafe void OnMessage(IntPtr data, int size, long messageNum, long recvTime, int channel)
+        public void OnMessage(IntPtr data, int size, long messageNum, long recvTime, int channel)
         {
             Debug.Log("ClientCallbacks: OnMessage");
             Debug.Assert(size <= buffer.Length, "Message size exceeds the max buffer length");
