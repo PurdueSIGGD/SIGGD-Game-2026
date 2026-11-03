@@ -45,6 +45,8 @@ public class AsteroidController : MonoBehaviour, IDamageable
     /// <summary>Starting health from the asteroid's data, or 0 if no data is assigned.</summary>
     public float MaxHealth => asteroidData != null ? asteroidData.BaseMaxHealth : 0.0f;
 
+    public bool IsAlive => CurrentHealth > 0.0f;
+
     /// <summary>
     /// Raised once as this asteroid is destroyed, after its explosion and fragments have been spawned.
     /// Subscribers must unsubscribe (usually in OnDisable).
@@ -173,6 +175,11 @@ public class AsteroidController : MonoBehaviour, IDamageable
     public void TakeDamage(DamageContext context)
     {
         CurrentHealth -= context.DamageAmount;
+    }
+
+    public void ResetHealth()
+    {
+        CurrentHealth = MaxHealth;
     }
 
     /// <summary>

@@ -10,11 +10,10 @@ public class InputManager : Singleton<InputManager>
     public UnityEvent<Vector2> OnPlayerLeftClick;
     public UnityEvent<Vector2> OnPlayerRightClick;
     public UnityEvent<Vector2> OnPlayerMove;
-    public UnityEvent<Vector2> OnUseMiscItem; 
 
     public bool IsLeftClickHeld => inputActions != null && inputActions.Player.LeftClick.IsPressed();
     public bool IsRightClickHeld => inputActions != null && inputActions.Player.RightClick.IsPressed();
-    public Vector2 PointerScreenPosition => inputActions != null ? inputActions.Player.Look.ReadValue<Vector2>() : Vector2.zero;
+    public Vector2 PointerScreenPosition => Pointer.current != null ? Pointer.current.position.ReadValue() : Vector2.zero;
 
     protected override void Awake()
     {
@@ -47,9 +46,6 @@ public class InputManager : Singleton<InputManager>
             // subscribes to mouse button presses
             inputActions.Player.LeftClick.performed += OnPlayerLeftClickInput;
             inputActions.Player.RightClick.performed += OnPlayerRightClickInput;
-
-            // mise use key button (E as of now)
-            inputActions.Player.UseMisc.performed += OnMiscUseInput;
         }
     }
 
@@ -62,7 +58,6 @@ public class InputManager : Singleton<InputManager>
             inputActions.Player.Move.canceled -= OnPlayerMoveInput;
             inputActions.Player.LeftClick.performed -= OnPlayerLeftClickInput;
             inputActions.Player.RightClick.performed -= OnPlayerRightClickInput;
-            inputActions.Player.UseMisc.performed -= OnMiscUseInput;
 
             // Disable the map
             inputActions.Player.Disable();
@@ -82,10 +77,5 @@ public class InputManager : Singleton<InputManager>
     void OnPlayerRightClickInput(InputAction.CallbackContext context)
     {
         OnPlayerRightClick?.Invoke(PointerScreenPosition);
-    }
-
-    void OnMiscUseInput(InputAction.CallbackContext context)
-    {
-        OnUseMiscItem?.Invoke(PointerScreenPosition);
     }
 }
