@@ -1,3 +1,4 @@
+using PlayerSystem;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
@@ -28,7 +29,7 @@ public class Asteroid : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag(Tags.Player))
         {
             collision.collider.GetComponent<IDamageable>()?.TakeDamage(new DamageContext
             {

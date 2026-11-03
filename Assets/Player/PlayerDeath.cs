@@ -1,4 +1,5 @@
 using UnityEngine;
+
 namespace PlayerSystem
 {
     /// <summary>
@@ -45,11 +46,11 @@ namespace PlayerSystem
         {
             if (isGhost)
             {
-                if (collision.collider.CompareTag("Player")) // temporary tag
+                if (collision.collider.CompareTag(Tags.Player) && collision.collider.GetComponent<PlayerHealth>().IsAlive)
                 {
                     Revive();
                 }
-                else if (collision.collider.CompareTag("Finish")) // temporary tag
+                else if (collision.collider.CompareTag(Tags.Finish))
                 {
                     RemovePlayer();
                 }
@@ -80,7 +81,7 @@ namespace PlayerSystem
             }
             // Multiplayer behavior
             bool allPlayersDead = true;
-            for (int i = 0; i < PlayerRegistry.PlayerCount; i++)
+            for (int i = 0; i < PlayerRegistry.Players.Length; i++)
             {
                 if (PlayerRegistry.Players[i] != null && PlayerRegistry.Players[i].Health.IsAlive)
                 {
@@ -109,10 +110,11 @@ namespace PlayerSystem
         /// <summary>
         /// Resets the ghost speed and ghost status.
         /// </summary>
-        public void Reset()
+        public void ResetGhost()
         {
             ghostSpeed = 0;
             isGhost = false;
+            playerCollider.excludeLayers &= ~layersToIgnore;
         }
 
         /// <summary>
@@ -123,7 +125,7 @@ namespace PlayerSystem
             // Game over UI?
             // Restart the current boss
             // Reset all players (maybe the PlayerRegistry handles this?)
-            Reset();
+            ResetGhost();
         }
 
         /// <summary>
@@ -132,7 +134,7 @@ namespace PlayerSystem
         private void TurnIntoGhost()
         {
             isGhost = true;
-            playerCollider.excludeLayers += layersToIgnore;
+            playerCollider.excludeLayers |= layersToIgnore;
             // Change player appearance?
         }
 
@@ -143,7 +145,7 @@ namespace PlayerSystem
         {
             isGhost = false;
             playerHealth.Revive();
-            playerCollider.excludeLayers -= layersToIgnore;
+            playerCollider.excludeLayers &= ~layersToIgnore;
             // Change player appearance back to normal?
         }
 
@@ -154,6 +156,7 @@ namespace PlayerSystem
         private void RemovePlayer()
         {
             isGhost = false;
+            playerCollider.excludeLayers &= ~layersToIgnore;
             gameObject.SetActive(false); // for now just disable gameobject
         }
 

@@ -23,35 +23,39 @@ namespace PlayerSystem
 
         [SerializeField, Tooltip("Impulse applied when moving from a standstill. Not currently used.")]
         private float impulse = 20f;
-        [SerializeField] private float terminalVelocity = 10f;
 
         public float MoveSpeed => moveSpeed;
         public float Mass => mass;
         public float Acceleration => acceleration;
-        public float TerminalVelocity => terminalVelocity;
         public float Deceleration => deceleration;
         public float MaxVelocity => maxVelocity;
         public float Impulse => impulse;
 
         [Header("Health")]
-        [SerializeField] private float maxHealth = 3f;
-        [Tooltip("Health to restore when reviving the player.")]
-        [SerializeField] private float reviveHealth = 1f;
-        [Tooltip("Duration of invincibility frames after taking damage, in seconds.")]
-        [SerializeField] private float iframeDuration;
-        [Tooltip("Amount player speed decreases by when taking damage.")]
-        [SerializeField] private float damageSpeedDecrease;
+        [SerializeField, Tooltip("Health the player starts with.")]
+        private float maxHealth = 3f;
+
+        [SerializeField, Tooltip("Health to restore when reviving the player.")]
+        private float reviveHealth = 1f;
+
+        [SerializeField, Tooltip("Duration of invincibility frames after taking damage, in seconds.")]
+        private float iframeDuration;
+
+        [SerializeField, Tooltip("Speed lost when taking damage, in units per second.")]
+        private float damageSpeedDecrease;
+
         public float MaxHealth => maxHealth;
         public float ReviveHealth => reviveHealth;
         public float IframeDuration => iframeDuration;
         public float DamageSpeedDecrease => damageSpeedDecrease;
 
-
         [Header("Ghost Stats")]
-        [Tooltip("Base ghost speed before any deaths.")]
-        [SerializeField] private float baseGhostSpeed;
-        [Tooltip("Increase in ghost speed per death.")]
-        [SerializeField] private float deathSpeedIncrease;
+        [SerializeField, Tooltip("Base ghost speed before any deaths, in units per second.")]
+        private float baseGhostSpeed;
+
+        [SerializeField, Tooltip("Increase in ghost speed per death, in units per second.")]
+        private float deathSpeedIncrease;
+
         public float BaseGhostSpeed => baseGhostSpeed;
         public float DeathSpeedIncrease => deathSpeedIncrease;
     }

@@ -1,9 +1,11 @@
 using UnityEngine;
+
 namespace PlayerSystem
 {
     /// <summary>
     /// Manages a player's health and calls the PlayerDeath script when health reaches zero.
     /// </summary>
+    [RequireComponent(typeof(PlayerDeath))]
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
         [SerializeField] private PlayerData stats;
@@ -36,7 +38,7 @@ namespace PlayerSystem
         /// <param name="context">The damage context containing damage information.</param>
         public void TakeDamage(DamageContext context)
         {
-            if (invincibilityTimer > 0f)
+            if (!IsAlive || invincibilityTimer > 0f)
             {
                 return;
             }
@@ -47,7 +49,7 @@ namespace PlayerSystem
             }
             else
             {
-                playerController.PlayerDamaged(context.Attacker.transform.position);
+                playerController.PlayerDamaged();
             }
             invincibilityTimer = stats.IframeDuration;
         }

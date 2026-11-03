@@ -7,13 +7,12 @@ namespace PlayerSystem
         /// </summary>
         public static Player[] Players { get; private set; }
         public const int MaxPlayers = 2;
-        public static int PlayerCount;
+        public static int PlayerCount { get; private set; }
         public static bool IsMultiplayer => PlayerCount > 1;
 
         static PlayerRegistry()
         {
             Players = new Player[MaxPlayers];
-            PlayerCount = 0;
         }
 
         /// <summary>
@@ -44,6 +43,7 @@ namespace PlayerSystem
                 if (Players[i] == player)
                 {
                     Players[i] = null;
+                    PlayerCount--;
                     return;
                 }
             }

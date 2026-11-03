@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace PlayerSystem
 {
+    [RequireComponent(typeof(PlayerHealth))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerData stats;
@@ -118,12 +119,11 @@ namespace PlayerSystem
         }
 
         /// <summary>
-        /// Handles the player being damaged, reducing their speed and applying a displacement.
+        /// Handles the player being damaged, reducing their speed.
         /// </summary>
-        /// <param name="damageObjectCOM">The COM of the damaging object.</param>
-        public void PlayerDamaged(Vector2 damageObjectCOM)
+        public void PlayerDamaged()
         {
-            if (storedSpeed > 0f)
+            if (stopHeld || launchStep > 0)
             {
                 storedSpeed = Mathf.Max(storedSpeed - stats.DamageSpeedDecrease, 0f);
             }
