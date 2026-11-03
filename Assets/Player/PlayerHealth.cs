@@ -9,7 +9,7 @@ namespace Player
         [SerializeField] private PlayerData stats;
         public float CurrentHealth { get; private set; }
         public float MaxHealth => stats.MaxHealth;
-        public bool IsAlive => CurrentHealth > 0;
+        public bool IsAlive => CurrentHealth > 0.0f;
 
         private PlayerDeath playerDeath;
         private PlayerController playerController;
@@ -69,7 +69,7 @@ namespace Player
         /// <summary>
         /// Resets the player's health status. (For resetting the level)
         /// </summary>
-        public void Reset()
+        public void ResetHealth()
         {
             CurrentHealth = MaxHealth;
         }

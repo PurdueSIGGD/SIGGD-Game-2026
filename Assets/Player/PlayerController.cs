@@ -168,7 +168,6 @@ namespace Player
                     rb.linearVelocity -= rb.linearVelocity.normalized * stats.DamageSpeedDecrease;
                 }
             }
-
         }
 
         /// <summary>

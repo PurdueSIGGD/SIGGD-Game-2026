@@ -23,5 +23,6 @@ MonoBehaviour:
   reviveHealth: 1
   iframeDuration: 1
   damageSpeedDecrease: 2
+  damageDisplacement: 2
   baseGhostSpeed: 2
   deathSpeedIncrease: 1
