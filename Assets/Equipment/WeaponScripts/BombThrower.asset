@@ -15,5 +15,5 @@ MonoBehaviour:
   MiscProjectile: {fileID: 11400000, guid: f6bee71db66f0a342b7d91116b930632, type: 2}
   Cooldown: 5
   Type: Bomb Thrower
-  MiscWeaponVisualPrefab: {fileID: 3419575299417558390, guid: 60f73b4ec213d5748a5979e75f163767, type: 3}
+  MiscWeaponVisualPrefab: {fileID: 9078182972333699350, guid: 2eabd2b34eebda646a5369ab30f3aada, type: 3}
   MiscWeaponVisualRotationOffset: 0
