@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{b376cc22-48b6-4ec8-a938-70a638cd4c97}">
+		<property name="assetPath">
+			<value>space_gun_concept.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.26122448979591839</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3bc1b3f2-8e13-45ad-a25b-7cb68caedfae}</destination>
+		</relationship>
+	</object>
+</objects>
