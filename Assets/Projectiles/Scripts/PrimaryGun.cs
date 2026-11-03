@@ -57,6 +57,7 @@ public class PrimaryGun : MonoBehaviour
     {
         if (CurrentAmmo <= 0 || Time.time < nextFireTime) return;
 
+        /*
         Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
         float distanceToCamera = FirePoint.position.z - Camera.main.transform.position.z;
         targetPos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
@@ -64,18 +65,19 @@ public class PrimaryGun : MonoBehaviour
         nextFireTime = Time.time + 1f / Mathf.Max(Weapon.FireSpeed, 0.01f);
         Vector2 aimDir = ((Vector2)((Vector3)targetPos - FirePoint.position)).normalized;
         if (aimDir == Vector2.zero) aimDir = Vector2.right;
+        */
+
+        Vector2 aimDir = -(armRotatePoint.position - FirePoint.position).normalized;
 
         int count = Mathf.Max(1, Weapon.NumBullets);
         for (int i = 0; i < count; i++)
         {
-            //Vector2 shotDir = GetShotDirection(aimDir, i, count);
-
-            Vector2 shotDir = -(armRotatePoint.position - FirePoint.position).normalized;
+            Vector2 shotDir = GetShotDirection(aimDir, i, count);
 
             ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
         }
         CurrentAmmo--;
-        ApplyRecoil(aimDir);
+        ApplyRecoil(-aimDir);
 
         StartReload();
     }
