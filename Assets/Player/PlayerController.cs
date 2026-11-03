@@ -3,11 +3,13 @@ using UnityEngine.InputSystem;
 
 namespace PlayerSystem
 {
+    [RequireComponent(typeof(PlayerHealth))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerData stats;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private InputActionReference moveActionRef;
+        private PlayerHealth playerHealth;
         private Vector2 currentInputVector;
 
         private InputActions controls;
@@ -22,6 +24,7 @@ namespace PlayerSystem
         {
             // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
             if (rb == null) rb = GetComponent<Rigidbody2D>();
+            playerHealth = GetComponent<PlayerHealth>();
 
             rb.linearDamping = 0f; // set to zero currently because of space
             rb.mass = stats.Mass; // from PlayerData.cs
@@ -33,6 +36,10 @@ namespace PlayerSystem
         // Update is called once per frame
         void Update()
         {
+            if (!playerHealth.IsAlive)
+            {
+                return;
+            }
             currentInputVector = moveActionRef.action.ReadValue<Vector2>();
 
             if (braking.WasPressedThisFrame())
@@ -66,6 +73,11 @@ namespace PlayerSystem
 
         private void FixedUpdate()
         {
+            if (!playerHealth.IsAlive)
+            {
+                return;
+            }
+
             if (stopHeld)
             {
                 rb.linearVelocity = Vector2.zero;
@@ -104,6 +116,41 @@ namespace PlayerSystem
                 rb.linearVelocity = velocity.normalized * stats.MaxVelocity;
             }
 
+        }
+
+        /// <summary>
+        /// Handles the player being damaged, reducing their speed.
+        /// </summary>
+        public void PlayerDamaged()
+        {
+            if (stopHeld || launchStep > 0)
+            {
+                storedSpeed = Mathf.Max(storedSpeed - stats.DamageSpeedDecrease, 0f);
+            }
+            else
+            {
+                if (stats.DamageSpeedDecrease * stats.DamageSpeedDecrease >= rb.linearVelocity.sqrMagnitude)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                }
+                else
+                {
+                    rb.linearVelocity -= rb.linearVelocity.normalized * stats.DamageSpeedDecrease;
+                }
+            }
+            // Implement iframe animations?
+            // Apply displacement manually?
+        }
+
+        /// <summary>
+        /// Stops all inputs and movement on player death.
+        /// </summary>
+        public void PlayerDeath()
+        {
+            rb.linearVelocity = Vector2.zero;
+            storedSpeed = 0f;
+            stopHeld = false;
+            currentInputVector = Vector2.zero;
         }
 
         // The instant brake system.
