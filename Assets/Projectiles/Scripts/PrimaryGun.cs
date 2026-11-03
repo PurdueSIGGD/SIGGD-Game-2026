@@ -68,9 +68,11 @@ public class PrimaryGun : MonoBehaviour
         int count = Mathf.Max(1, Weapon.NumBullets);
         for (int i = 0; i < count; i++)
         {
-            Vector2 shotDir = GetShotDirection(aimDir, i, count);
-            //ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
-            ProjectileManager.Instance.ShootProjectileTowardsPointNegative(Weapon.Projectile, FirePoint, armRotatePoint);
+            //Vector2 shotDir = GetShotDirection(aimDir, i, count);
+
+            Vector2 shotDir = -(armRotatePoint.position - FirePoint.position).normalized; ;
+
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
         }
         CurrentAmmo--;
         ApplyRecoil(aimDir);
