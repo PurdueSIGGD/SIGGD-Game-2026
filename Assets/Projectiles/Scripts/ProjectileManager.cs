@@ -118,6 +118,20 @@ public class ProjectileManager : Singleton<ProjectileManager>
         ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
 
+    /// <summary>
+    /// fuckass method i made cuz im a lazy bitch
+    /// </summary>
+    /// <param name="projectileScriptableObject"></param>
+    /// <param name="firePoint"></param>
+    /// <param name="direction"></param>
+    public void ShootProjectileTowardsPointNegative(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint)
+    {
+        // make direction vector from the starting point and end point
+        Vector2 direction = (targetPoint.position - firePoint.position).normalized;
+
+        ShootProjectile(projectileScriptableObject, firePoint, -direction);
+    }
+
     private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
     {
         GameObject bullet = ProjectilePool.Get();

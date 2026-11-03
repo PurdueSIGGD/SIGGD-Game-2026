@@ -11,6 +11,7 @@ public class PrimaryGun : MonoBehaviour
     public Transform FirePoint;
     private Transform weaponHolderTransform;
 
+    [SerializeField] private Transform armRotatePoint;
     [SerializeField] private GameObject curWeaponVisual;
 
     public Rigidbody2D PlayerBody;
@@ -68,7 +69,8 @@ public class PrimaryGun : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector2 shotDir = GetShotDirection(aimDir, i, count);
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
+            //ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
+            ProjectileManager.Instance.ShootProjectileTowardsPointNegative(Weapon.Projectile, FirePoint, armRotatePoint);
         }
         CurrentAmmo--;
         ApplyRecoil(aimDir);
