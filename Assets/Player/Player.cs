@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Player
+namespace PlayerSystem
 {
     [RequireComponent(typeof(PlayerController))]
     public class Player : MonoBehaviour
@@ -14,7 +14,7 @@ namespace Player
 
         void Awake()
         {
-            PlayerIndex = PlayerRegistery.RegisterPlayer(this);
+            PlayerIndex = PlayerRegistry.RegisterPlayer(this);
             if (PlayerIndex == -1)
             {
                 Debug.LogError("Max player count exceeded, cannot register player");
@@ -22,6 +22,11 @@ namespace Player
             }
 
             Controller = GetComponent<PlayerController>();
+        }
+
+        void OnDestroy()
+        {
+            PlayerRegistry.UnregisterPlayer(this);
         }
     }
 }
