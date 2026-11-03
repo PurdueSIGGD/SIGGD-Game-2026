@@ -18,7 +18,7 @@ namespace Player
 
         private float storedSpeed = 0f;
         private bool stopHeld = false;
-        private bool launchPending = false;
+        private int launchStep = 0;
         private bool hadLastInput;
 
         private float brakeTimer;
@@ -35,10 +35,9 @@ namespace Player
 
         void Start()
         {
-            InputManager.Instance.OnPlayerMove.AddListener(MovePlayerCharacter);
             controls = new InputActions();
             braking = controls.Player.Brake;
-            
+
             controls.Player.Enable();
         }
 
@@ -46,68 +45,54 @@ namespace Player
         void Update()
         {
             currentInputVector = moveActionRef.action.ReadValue<Vector2>();
-            
+
             if (braking.WasPressedThisFrame())
             {
                 Brake();
+            }
+            if (braking.WasReleasedThisFrame())
+            {
+                launchStep = 8;
             }
             stopHeld = braking.IsPressed();
 
             //sets the x and y values of the input vector
             float x = 0f, y = 0f;
-            if (currentInputVector.x < 0) 
+            if (currentInputVector.x < 0)
                 x -= 1f;
-            if (currentInputVector.x > 0) 
+            if (currentInputVector.x > 0)
                 x += 1f;
             if (currentInputVector.y > 0)
                 y += 1f;
             if (currentInputVector.y < 0)
                 y -= 1f;
-            //allow player to redirect their direction
-            MovePlayerCharacter(currentInputVector);
-            bool dirPressed = currentInputVector != Vector2.zero;
-            if (!stopHeld && dirPressed && storedSpeed > 0f && currentInputVector.sqrMagnitude > 0.01f)
-            {
-                launchPending = true;
-            }
-        }
-
-        private void OnEnable()
-        {
-            InputManager.Instance.OnPlayerMove.AddListener(MovePlayerCharacter);
+            currentInputVector = currentInputVector.normalized;
         }
 
         private void OnDisable()
         {
-            // Always unsubscribe from events when destroyed or disabled to prevent memory leaks
-            if (InputManager.Instance != null)
-            {
-                hadLastInput = false;
-                InputManager.Instance.OnPlayerMove.RemoveListener(MovePlayerCharacter);
-            }
-
             currentInputVector = Vector2.zero;
-        }
-
-        void MovePlayerCharacter(Vector2 moveVector)
-        {
-            moveVector = new Vector2(x, y).normalized;
         }
 
         private void FixedUpdate()
         {
-           if (stopHeld)
+            if (stopHeld)
             {
                 rb.linearVelocity = Vector2.zero;
                 return;
             }
-            
-            if (launchPending)
+
+            if (launchStep > 0)
             {
-                rb.linearVelocity = currentInputVector * storedSpeed;
-                storedSpeed = 0f;
-                launchPending = false;
+                if (currentInputVector.sqrMagnitude > 0.01f)
+                {
+                    rb.linearVelocity = currentInputVector * storedSpeed;
+                    storedSpeed = 0f;
+                    launchStep = 0;
+                }
+                launchStep--;
             }
+
             Vector2 velocity = rb.linearVelocity;
             bool hasInput = currentInputVector.sqrMagnitude > 0.01f;
 
@@ -134,7 +119,7 @@ namespace Player
             {
                 rb.linearVelocity = velocity.normalized * stats.MaxVelocity;
             }
-            
+
         }
 
         //The instant brake system
@@ -143,5 +128,5 @@ namespace Player
             float speed = rb.linearVelocity.magnitude;
             if (speed > 0.1f) storedSpeed = speed;
         }
-    }   
+    }
 }
