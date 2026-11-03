@@ -119,31 +119,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &20682431 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 68992226076511993, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+--- !u!114 &20682432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5574284884053378487, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
   m_PrefabInstance: {fileID: 3811248447348275952}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &20682432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20682431}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad9b48d07ea9d4240b9ba1eae299e6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassiveHolder
-  listOfPassive: []
-  currentPassive: {fileID: 0}
 --- !u!114 &20682434 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7738264016632498203, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
   m_PrefabInstance: {fileID: 3811248447348275952}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20682431}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6019014cc13e7ce4297c31dad9cfdb5e, type: 3}
@@ -154,7 +146,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 899679957218730839, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
   m_PrefabInstance: {fileID: 3811248447348275952}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20682431}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d64aac45c0e69e4eba3c0538704908e, type: 3}
@@ -909,7 +901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Pistol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1046,7 +1038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: TestBomb
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1178,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e25a81d3c64f9a0b8e4d6c2f1508a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipGunButton
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: ee76a40422a9b784d9b2d515118fc4bf, type: 2}
   target: {fileID: 834480212}
   equippedMarker: {fileID: 0}
 --- !u!114 &1610239979
@@ -1373,7 +1365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Asteriod Spawner
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1562,6 +1554,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.141
       objectReference: {fileID: 0}
+    - target: {fileID: 7738264016632498203, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+      propertyPath: MiscWeapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8808339969569689809, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1573,10 +1569,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 68992226076511993, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 20682432}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
