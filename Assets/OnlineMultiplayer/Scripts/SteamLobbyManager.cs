@@ -60,8 +60,7 @@ public class SteamLobbyManager : MonoBehaviour
 
     private void OnLobbyGameCreated(Lobby lobby, uint ip, ushort port, SteamId id) 
     {
-        Debug.Log("TestingBegan");
-        Debug.Log(id.ToString());
+        
     }
 
     private async void OnLobbyMemberJoined(Lobby lobby, Friend friend) 
@@ -142,7 +141,8 @@ public class SteamLobbyManager : MonoBehaviour
         // obj.GetComponentInChildren<RawImage>().texture = await SteamFriends.GetLargeAvatarAsync(SteamClient.SteamId);
 
         inLobby.Add(SteamClient.SteamId, obj);
-
+        
+        int friendLobbyNumber = 0;
         foreach (var friend in currentLobby.Members) 
         {
             if(friend.Id != SteamClient.SteamId) 
@@ -150,11 +150,13 @@ public class SteamLobbyManager : MonoBehaviour
                 GameObject obj2 = Instantiate(InLobbyFriend, content);
                 obj2.GetComponentInChildren<Text>().text = friend.Name;
                 var image2 = await SteamFriends.GetLargeAvatarAsync(friend.Id);
-        obj.GetComponentInChildren<RawImage>().texture = GetTextureFromImage(image2.Value);
+                obj.GetComponentInChildren<RawImage>().texture = GetTextureFromImage(image2.Value);
                 // obj2.GetComponentInChildren<RawImage>().texture = await SteamFriends.GetLargeAvatarAsync(friend.Id);
 
                 inLobby.Add(friend.Id, obj);
+                Debug.Log("Friend Number " + friendLobbyNumber + "'s ID: " + friend.Id);
             }
+            friendLobbyNumber ++;
         }
 
         OnLobbyJoined.Invoke();

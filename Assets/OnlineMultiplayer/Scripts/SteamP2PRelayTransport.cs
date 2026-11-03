@@ -12,14 +12,12 @@ using Steamworks.Data;
 
 public class SteamP2PRelayTransport : NetworkTransport
 {
-    /// <summary>
-    /// For clients, this is the steam id we want to connect to.
-    /// </summary>
+
+    // For clients, this is the steam id we want to connect to.
     public ulong serverId = 0;
 
-    /// <summary>
-    /// Enables additional debug logs.
-    /// </summary>
+
+    // Enables additional debug logs.
     public bool debug = false;
 
     class ClientCallbacks : IConnectionManager
