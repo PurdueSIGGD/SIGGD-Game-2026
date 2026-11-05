@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ca96195bd9aa448ae083f1a64c8429, type: 3}
-  m_Name: BasicAttackBehavior
+  m_Name: BossAtkLinearFan
   m_EditorClassIdentifier: Assembly-CSharp::BossAttack
   pso: {fileID: 11400000, guid: ecc742a16b872be4aab1e5acdb200d12, type: 2}
-  <Origin>k__BackingField: 0000000000000000
-  ProjectileCount: 5
-  Delay: 0
-  AngleOffset: 45
-  HOffset: 2
+  <Origin>k__BackingField: 0100000001000000
+  ProjectileCount: 100
+  Delay: 500
+  InitAngle: -45
+  AngleOffset: 15
+  HOffset: 0

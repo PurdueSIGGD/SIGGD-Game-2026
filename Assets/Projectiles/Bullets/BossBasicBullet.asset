@@ -15,7 +15,7 @@ MonoBehaviour:
   IsExplosive: 0
   Damage: 1
   Lifetime: 10
-  Velocity: 1
+  Velocity: 5
   ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
     serializedVersion: 2
