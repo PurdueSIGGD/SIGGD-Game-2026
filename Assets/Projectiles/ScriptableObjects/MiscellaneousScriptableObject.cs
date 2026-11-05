@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 [CreateAssetMenu(fileName = "MiscellaneousScriptableObject", menuName = "Scriptable Objects/MiscellaneousScriptableObject")]
 public class MiscellaneousScriptableObject : ScriptableObject
@@ -7,6 +8,7 @@ public class MiscellaneousScriptableObject : ScriptableObject
     public float Lifetime;
     public float Velocity;
     public float SpriteAngleOffset;
+    public string Type;
 
     public Sprite MiscProjectileSprite;
 
@@ -19,6 +21,8 @@ public class MiscellaneousScriptableObject : ScriptableObject
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
     private static readonly List<Vector2> pathBuffer = new List<Vector2>();
+
+    public Action<MiscBullet> function = (bullet) => Debug.Log("Projectile activated!");
 
     private void OnValidate()
     {

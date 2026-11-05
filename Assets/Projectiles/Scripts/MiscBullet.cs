@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MiscBullet : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class MiscBullet : MonoBehaviour
     private Rigidbody2D miscRB;
     private SpriteRenderer miscSR;
     private PolygonCollider2D miscCollider;
+
+    public Action<MiscBullet> bulletFunction;
+    public string Type;
 
     private void Awake()
     {
@@ -49,6 +53,15 @@ public class MiscBullet : MonoBehaviour
 
         // give speed
         miscRB.linearVelocity = finalDirection * miscScriptableObject.Velocity;
+
+        Type = miscScriptableObject.Type;
+
+        // give function
+        bulletFunction = miscScriptableObject.function;
+        if (miscScriptableObject is BombProjectile)
+        {
+            bulletFunction = ((BombProjectile)miscScriptableObject).Detonate;
+        }
     }
 
     private void SetMiscCollider(MiscellaneousScriptableObject miscScriptableObject)
@@ -68,5 +81,19 @@ public class MiscBullet : MonoBehaviour
         {
             miscCollider.pathCount = 0;
         }
+    }
+
+    public void DisplayUseSprite(Sprite useSprite)
+    {
+        if (useSprite == null) return;
+
+        miscSR.sprite = useSprite;
+
+        // stop the projectile from moving
+        miscRB.linearVelocity = Vector2.zero;
+        miscRB.angularVelocity = 0f;
+
+        // disable its collider so the explosion doesn't collide
+        miscCollider.enabled = false;
     }
 }
