@@ -80,7 +80,7 @@ public class GenericBoss : MonoBehaviour
         Debug.Assert(bossData.PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
         maxHealth = bossData.PhaseHealthBoundaries[0];
         CurrentHealth = maxHealth;
-        CalculateRandomBossAttack().Test(gameObject);
+        CalculateRandomBossAttack().Shoot(gameObject);
     }
 
     void Update()

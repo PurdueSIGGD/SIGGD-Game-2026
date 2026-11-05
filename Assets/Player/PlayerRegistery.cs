@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace Player
+namespace PlayerSystem
 {
     [InitializeOnLoad]
     public static class PlayerRegistery
