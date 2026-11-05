@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//An attempt at creating scriptable objects for player movement/physcs
+//An attempt at creating scriptable objects for player movement/physics
 
 [CreateAssetMenu(fileName ="PlayerStats", menuName = "Player/Stats")]
 public class PlayerScriptableObject : ScriptableObject
