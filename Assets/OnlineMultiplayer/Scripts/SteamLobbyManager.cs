@@ -149,7 +149,7 @@ public class SteamLobbyManager : MonoBehaviour
         int friendLobbyNumber = 0;
         foreach (var friend in currentLobby.Members) 
         {
-            int yvalue = -25;
+            int yvalue = -75;
             if(friend.Id != SteamClient.SteamId) 
             {
                 GameObject obj2 = Instantiate(InLobbyFriend, content);
