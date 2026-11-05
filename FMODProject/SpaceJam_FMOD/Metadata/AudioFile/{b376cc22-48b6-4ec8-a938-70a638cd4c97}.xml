@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{b376cc22-48b6-4ec8-a938-70a638cd4c97}">
 		<property name="assetPath">
-			<value>space_gun_concept.mp3</value>
+			<value>Player/Gun/space_gun_concept.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
