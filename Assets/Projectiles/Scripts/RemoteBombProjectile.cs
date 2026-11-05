@@ -5,7 +5,7 @@ public class RemoteBombProjectile : BombProjectile
 {
     public override void Detonate(MiscBullet bomb)
     {
-        Debug.Log("Explodes and extends " + Radius + " after " + Timer + " seconds, or after a remote activation.");
+        Debug.Log("Explodes after a remote activation or after a long enough time passes.");
         base.Detonate(bomb);
     }
 }

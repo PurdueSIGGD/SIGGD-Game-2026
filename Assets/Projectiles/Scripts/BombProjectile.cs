@@ -4,7 +4,7 @@ using System;
 public class BombProjectile : MiscellaneousScriptableObject
 {
     public float Timer;
-    public float Radius;
+    public float Width;
 
     private void OnEnable()
     {
@@ -13,7 +13,7 @@ public class BombProjectile : MiscellaneousScriptableObject
 
     public virtual void Detonate(MiscBullet bomb)
     {
-        Debug.Log("Kaboom!");
+        Debug.Log("Kaboom! Explodes and extends " + Width + " after " + Timer + " seconds.");
 
         bomb.DisplayUseSprite(UseSprite);
     }

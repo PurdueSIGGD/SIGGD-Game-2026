@@ -21,7 +21,9 @@ public class MiscGun : MonoBehaviour
         InputManager.Instance.OnPlayerRightClick.AddListener(DestroyMisc);
         InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
 
-        InputManager.Instance.OnUseMiscItem.AddListener(UseMisc);
+        // fix this when onusemiscitem works
+        InputManager.Instance.OnPlayerLeftClick.AddListener(UseMisc);
+        //InputManager.Instance.OnUseMiscItem.AddListener(UseMisc);
 
         weaponHolderTransform = gameObject.transform;
     }

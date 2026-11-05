@@ -13,6 +13,8 @@ public class MiscBullet : MonoBehaviour
     public Action<MiscBullet> bulletFunction;
     public string Type;
 
+    public float Width;
+
     private void Awake()
     {
         miscRB = gameObject.GetComponent<Rigidbody2D>();
@@ -56,11 +58,14 @@ public class MiscBullet : MonoBehaviour
 
         Type = miscScriptableObject.Type;
 
+        Width = miscSR.bounds.size.x;
+
         // give function
         bulletFunction = miscScriptableObject.function;
         if (miscScriptableObject is BombProjectile)
         {
             bulletFunction = ((BombProjectile)miscScriptableObject).Detonate;
+            Width = ((BombProjectile)miscScriptableObject).Width;
         }
     }
 
@@ -88,6 +93,7 @@ public class MiscBullet : MonoBehaviour
         if (useSprite == null) return;
 
         miscSR.sprite = useSprite;
+        gameObject.transform.localScale *= Width / miscSR.bounds.size.x;
 
         // stop the projectile from moving
         miscRB.linearVelocity = Vector2.zero;

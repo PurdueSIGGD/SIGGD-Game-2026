@@ -7,6 +7,7 @@ public class BombThrowerMiscWeapon : MiscWeapon
     {
         Debug.Log("Fwhoosh!");
         MiscBullet bomb = miscProjectileObject.GetComponent<MiscBullet>();
+
         if (bomb.Type == "Remote Bomb")
         {
             bomb.bulletFunction?.Invoke(bomb);

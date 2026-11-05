@@ -7,7 +7,7 @@ public class ShieldBombProjectile : BombProjectile
 
     public override void Detonate(MiscBullet bomb)
     {
-        Debug.Log("Explodes and extends " + Radius + " after " + Timer + " seconds, protecting you with " + Durability + " durability!");
+        Debug.Log("Protecting you with " + Durability + " durability!");
         base.Detonate(bomb);
     }
 }
