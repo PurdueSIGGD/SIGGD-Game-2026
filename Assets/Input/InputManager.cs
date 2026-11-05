@@ -35,6 +35,7 @@ public class InputManager : Singleton<InputManager>
         playerLookPos.z = Camera.main.nearClipPlane;
         playerLookPos = Camera.main.ScreenToWorldPoint(playerLookPos);
         OnPlayerLook?.Invoke(playerLookPos);
+        
     }
 
     private void OnEnable()
