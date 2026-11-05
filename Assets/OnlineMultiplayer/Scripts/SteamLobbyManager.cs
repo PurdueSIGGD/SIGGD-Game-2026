@@ -149,12 +149,17 @@ public class SteamLobbyManager : MonoBehaviour
         int friendLobbyNumber = 0;
         foreach (var friend in currentLobby.Members) 
         {
+            int yvalue = -25;
             if(friend.Id != SteamClient.SteamId) 
             {
                 GameObject obj2 = Instantiate(InLobbyFriend, content);
                 obj2.GetComponentInChildren<Text>().text = friend.Name;
                 var image2 = await SteamFriends.GetLargeAvatarAsync(friend.Id);
                 obj.GetComponentInChildren<RawImage>().texture = GetTextureFromImage(image2.Value);
+                var rectTransform = obj.GetComponent<RectTransform>();
+                rectTransform.anchoredPosition = new Vector2 (125, yvalue);
+                yvalue -= 50;
+                
                 // obj2.GetComponentInChildren<RawImage>().texture = await SteamFriends.GetLargeAvatarAsync(friend.Id);
 
                 inLobby.Add(friend.Id, obj);
