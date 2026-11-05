@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
@@ -10,6 +11,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
+    public UnityEvent<GameObject> OnBulletHit;
 
     private void Awake()
     {
@@ -110,5 +112,10 @@ public class Bullet : MonoBehaviour
     public void SetLifetime(float inLifetime)
     {
         lifetime = inLifetime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        OnBulletHit?.Invoke(collision.gameObject);
     }
 }
