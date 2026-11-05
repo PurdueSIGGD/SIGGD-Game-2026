@@ -21,6 +21,9 @@ public class SteamLobbyManager : MonoBehaviour
 
     public Dictionary<SteamId, GameObject> inLobby = new Dictionary<SteamId, GameObject>();
 
+    // for automating server id
+    public SteamP2PRelayTransport steamP2PRelayTransport;
+
     // this function is need to make textures work
     public static Texture2D GetTextureFromImage(Steamworks.Data.Image image)
     {
@@ -119,7 +122,8 @@ public class SteamLobbyManager : MonoBehaviour
         {
             // LobbyCreated_t response = (LobbyCreated_t)result;
             OnLobbyCreated.Invoke();
-            Debug.Log("successfully created lobby");
+            Debug.Log("successfully created lobby, lobby id: " + SteamClient.SteamId);
+            steamP2PRelayTransport.serverId = SteamClient.SteamId;
         }
     }
 
@@ -155,6 +159,10 @@ public class SteamLobbyManager : MonoBehaviour
 
                 inLobby.Add(friend.Id, obj);
                 Debug.Log("Friend Number " + friendLobbyNumber + "'s ID: " + friend.Id);
+                if(friendLobbyNumber == 0) 
+                {
+                    steamP2PRelayTransport.serverId = friend.Id;
+                }
             }
             friendLobbyNumber ++;
         }
