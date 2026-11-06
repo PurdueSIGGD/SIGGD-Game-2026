@@ -10,6 +10,7 @@ public abstract class Tool : MonoBehaviour
     {
         if (Time.time < nextUseTime) return;
         nextUseTime = Time.time + data.cooldown;
+        OnUse();
     }
 
     public virtual void UseAlt() {}

@@ -5,10 +5,8 @@ using Extensions.Singleton;
 public class ProjectileManager : Singleton<ProjectileManager>
 {
     public ObjectPool<GameObject> ProjectilePool;
-    public ObjectPool<GameObject> MiscProjectilePool; // projectile pool for misc objects since they use a different prefab with different scripts
 
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject miscBulletPrefab;
 
     protected override void Awake()
     {
@@ -23,15 +21,6 @@ public class ProjectileManager : Singleton<ProjectileManager>
             defaultCapacity: 20, // allocates memory for the first 20 objects
             collectionCheck: true
         );
-
-        MiscProjectilePool = new ObjectPool<GameObject>(
-            createFunc: MakeMiscProjectile,
-            actionOnRelease: OnRelease,
-            actionOnGet: OnGet,
-            actionOnDestroy: OnDestroyItem,
-            defaultCapacity: 2, // there probably wont be more than 2 but we'll see
-            collectionCheck: true
-        );
     }
 
     // will be called when a new projectile needs to be made
@@ -39,13 +28,6 @@ public class ProjectileManager : Singleton<ProjectileManager>
     {
         // we dont have a way to access transform or rotation so we just 0 them for now and theyll get set when the bullet values are populated
         GameObject newBullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
-        newBullet.SetActive(false);
-        return newBullet;
-    }
-
-    private GameObject MakeMiscProjectile()
-    {
-        GameObject newBullet = Instantiate(miscBulletPrefab, Vector3.zero, Quaternion.identity);
         newBullet.SetActive(false);
         return newBullet;
     }
@@ -123,41 +105,6 @@ public class ProjectileManager : Singleton<ProjectileManager>
         GameObject bullet = ProjectilePool.Get();
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized);
-    }
-    #endregion
-
-    #region Player Shooting Misc Projectiles
-    public GameObject ShootMiscTowardsMouse(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint)
-    {
-        // rotate spawned bullet to face mouse
-        // Get mouse position on the screen
-        Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
-
-        // calculate the correct Z distance from the camera to the player/arm
-        float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
-
-        mousePos.z = 0f;
-
-        Vector2 direction = (mousePos - firePoint.position).normalized;
-
-        // returning the refence to the pooled object so that when the item is used (if it needs to be returned to pool after use) it can be
-        return ShootMiscProjectile(miscScriptableObject, firePoint, direction);
-    }
-
-    public GameObject ShootMiscProjectileTowardsDirection(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint, Vector2 direction)
-    {
-        // returning the refence to the pooled object so that when the item is used (if it needs to be returned to pool after use) it can be
-        return ShootMiscProjectile(miscScriptableObject, firePoint, direction);
-    }
-
-    private GameObject ShootMiscProjectile(MiscellaneousScriptableObject miscScriptableObject, Transform firePoint, Vector2 direction)
-    {
-        GameObject miscObject = MiscProjectilePool.Get();
-        MiscBullet miscScript = miscObject.GetComponent<MiscBullet>();
-        miscScript.PopulateMiscValues(miscScriptableObject, firePoint, direction.normalized);
-
-        return miscObject;
     }
     #endregion
 }
