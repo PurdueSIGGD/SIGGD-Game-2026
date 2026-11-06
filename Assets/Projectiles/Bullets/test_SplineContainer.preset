@@ -66,7 +66,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_Knots.Array.size
-    value: 15
+    value: 14
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[0].Position.x
@@ -734,7 +734,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.y
-    value: -0.47315037
+    value: -0.47315043
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.z
@@ -742,7 +742,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[12].Rotation.value.w
-    value: -0.52547944
+    value: -0.5254795
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[13].Position.x
@@ -797,60 +797,8 @@ Preset:
     value: 0.15185694
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Position.x
-    value: 17.90792
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Position.y
-    value: -1.8416808
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Position.z
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentIn.x
-    value: -0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentIn.y
-    value: -0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentIn.z
-    value: -0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentOut.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentOut.y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].TangentOut.z
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.x
-    value: -0.70710665
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.y
-    value: 2.5121475e-15
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.z
-    value: -0.00000005268357
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[14].Rotation.value.w
-    value: 0.7071069
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_MetaData.Array.size
-    value: 15
+    value: 14
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[0].Mode
@@ -962,14 +910,6 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[13].Tension
-    value: 0.5
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[14].Mode
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_Splines.Array.data[0].m_MetaData.Array.data[14].Tension
     value: 0.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}

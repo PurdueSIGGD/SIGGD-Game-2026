@@ -41,4 +41,9 @@ public class MiscellaneousScriptableObject : ScriptableObject
             PhysicsPaths.Add(pathBuffer.ToArray());
         }
     }
+
+    public void OnHit(Collision2D collision, GameObject gameObject)
+    {
+
+    }
 }

@@ -7,4 +7,5 @@ public class MagnetMiscWeapon : MiscWeapon
     {
         Debug.Log("Buzz...");
     }
+
 }

@@ -24,12 +24,15 @@ public class Bullet : MonoBehaviour
     private int currentKnotIndex = 0;
     private int nextKnotIndex;
 
+    private float bulletRotation;
+    private Vector3 curTarget;
+    private bool initialzedTarget = false;
+
     private void Awake()
     {
         bulletRB = gameObject.GetComponent<Rigidbody2D>();
         bulletSR = gameObject.GetComponent<SpriteRenderer>();
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
-        
     }
 
     private void MoveAlongSpline()  //This method may or may not exist in the future, the logic, however, will. DO NOT DELETE
@@ -57,6 +60,51 @@ public class Bullet : MonoBehaviour
         // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
         // gameObject.transform allows us to get the x and y pos
     }
+
+    // THIS IS WORK IN PROGRESS LIKE THE REST OF THE SPLINE SYSTEM PLZ REFRAIM FROM TOUCHING
+    private void MoveAlongSpline2()
+    {
+        // get knot at index
+        BezierKnot curKnot = spline[currentKnotIndex];
+
+        int nextKnotIndex = currentKnotIndex + 1;
+
+        // if we are at end of spline reset to start
+        if (nextKnotIndex >= spline.GetLength())
+        {
+            currentKnotIndex = 0;
+            curKnot = spline[currentKnotIndex];
+            nextKnotIndex = currentKnotIndex + 1;
+        }
+
+        BezierKnot nextKnot = spline[nextKnotIndex];
+
+        // set the target at the beginning of moving one spline to another since the target wont change at all until the bullet reaches it
+        if (initialzedTarget == false)
+        {
+            float xMoveAmount = (nextKnot.Position.x * Mathf.Cos(bulletRotation) - nextKnot.Position.y * Mathf.Sin(bulletRotation)) - (curKnot.Position.x * Mathf.Cos(bulletRotation) - curKnot.Position.y * Mathf.Sin(bulletRotation));
+            float yMoveAmount = (nextKnot.Position.x * Mathf.Sin(bulletRotation) + nextKnot.Position.y * Mathf.Cos(bulletRotation)) - (curKnot.Position.x * Mathf.Sin(bulletRotation) + curKnot.Position.y * Mathf.Cos(bulletRotation));
+
+            // move the actual bullet by the move amount
+            curTarget = new Vector3(transform.position.x + xMoveAmount, transform.position.y + yMoveAmount, 0);
+
+            initialzedTarget = true;
+        }
+        // calculate how much it should move based on velocity then move it
+        float step = velocity * Time.deltaTime;
+
+        Vector3 moveVector = Vector3.MoveTowards(transform.position, curTarget, step);
+
+        gameObject.transform.position = new Vector3(moveVector.x, moveVector.y, 0);
+
+        // now that the move has happened check if the current position is at the nextKnot position and increment index if so
+        if ((gameObject.transform.position - (Vector3)nextKnot.Position).sqrMagnitude < 0.0001f)
+        {
+            currentKnotIndex += 1;
+            initialzedTarget = false;
+        }
+    }
+
     private void Update()
     {
         if (lifetime > 0)
@@ -97,6 +145,7 @@ public class Bullet : MonoBehaviour
         if (projectileScriptableObject.HasSpline)
         {
             spline = projectileScriptableObject.Spline;
+            bulletRotation = firePoint.rotation.z;
         }
 
         gameObject.transform.position = firePoint.position;

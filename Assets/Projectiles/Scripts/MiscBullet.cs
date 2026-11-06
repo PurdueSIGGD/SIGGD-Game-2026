@@ -9,6 +9,8 @@ public class MiscBullet : MonoBehaviour
     private SpriteRenderer miscSR;
     private PolygonCollider2D miscCollider;
 
+    private MiscellaneousScriptableObject miscScriptableObject;
+
     private void Awake()
     {
         miscRB = gameObject.GetComponent<Rigidbody2D>();
@@ -68,5 +70,10 @@ public class MiscBullet : MonoBehaviour
         {
             miscCollider.pathCount = 0;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        miscScriptableObject.OnHit(collision, gameObject);
     }
 }
