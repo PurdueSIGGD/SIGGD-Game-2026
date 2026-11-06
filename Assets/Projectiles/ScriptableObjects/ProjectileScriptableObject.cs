@@ -60,5 +60,33 @@ public class ProjectileScriptableObject : ScriptableObject
             SplineNodes.Add(SplineContainer.Splines[i]);
         }
         */
+
+        Spline = null;
+
+        if (SplineGameObject != null)
+        {
+            SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
+
+            if (SplineContainer != null)
+            {
+                if (SplineContainer[0] != null)
+                {
+                    Spline = SplineContainer[0];
+                    HasSpline = true;
+                }
+                else
+                {
+                    HasSpline = false;
+                }
+            }
+            else
+            {
+                HasSpline = false;
+            }
+        }
+        else
+        {
+            HasSpline = false;
+        }
     }
 }
