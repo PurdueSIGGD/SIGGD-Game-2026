@@ -87,11 +87,6 @@ public class MiscBullet : MonoBehaviour
             miscCollider.pathCount = 0;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        miscScriptableObject.OnHit(collision, gameObject);
-    }
     
     public void DisplayUseSprite(Sprite useSprite)
     {
