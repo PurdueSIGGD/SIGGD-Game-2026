@@ -1,12 +1,20 @@
 using UnityEngine;
+using System;
 
 public class BombProjectile : MiscellaneousScriptableObject
 {
     public float Timer;
-    public float Radius;
+    public float Width;
 
-    public virtual void Detonate()
+    private void OnEnable()
     {
-        Debug.Log("Kaboom!");
+        function = Detonate;
+    }
+
+    public virtual void Detonate(MiscBullet bomb)
+    {
+        Debug.Log("Kaboom! Explodes and extends " + Width + " after " + Timer + " seconds.");
+
+        bomb.DisplayUseSprite(UseSprite);
     }
 }
