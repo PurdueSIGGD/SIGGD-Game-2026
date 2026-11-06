@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{daa1b1af-a217-4bb6-aab6-b550d32c6863}">
+		<property name="assetPath">
+			<value>Player/Jetpack/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3bc1b3f2-8e13-45ad-a25b-7cb68caedfae}</destination>
+		</relationship>
+	</object>
+</objects>
