@@ -295,8 +295,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f03b92e4d75a0b1c9e5d7a3f2619b4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipMiscButton
-  misc: {fileID: 11400000, guid: 9b6e4625e89a00a4998260f2b083e670, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipToolButton
+  tool: {fileID: 11400000, guid: 9b6e4625e89a00a4998260f2b083e670, type: 2}
   target: {fileID: 834480212}
   equippedMarker: {fileID: 0}
 --- !u!114 &488415525
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadoutTarget
   gun: {fileID: 20682435}
-  misc: {fileID: 20682434}
+  tool: {fileID: 20682434}
   passiveHolder: {fileID: 20682432}
 --- !u!114 &834480213
 MonoBehaviour:

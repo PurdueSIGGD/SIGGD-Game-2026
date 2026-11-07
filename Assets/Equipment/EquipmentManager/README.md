@@ -6,16 +6,16 @@ The working menu is in `Assets/Equipment/LoadoutMenu`. This file explains that m
 
 ## What the menu does
 
-Each button equips one item. A gun click calls `PrimaryGun.EquipWeapon`, which swaps the asset, refills ammo, and replaces the held visual. A misc click calls `MiscGun.EquipMisc`, which swaps the asset, clears the cooldown, and replaces the misc visual. A passive click calls `PassiveHolder.setPassive` and only stores the asset. Health, speed, and cooldowns do not change yet.
+Each button equips one item. A gun click calls `PrimaryGun.EquipWeapon`, which swaps the asset, refills ammo, and replaces the held visual. A tool click calls `MiscGun.EquipMisc` through `LoadoutTarget.EquipTool`, which swaps the asset, clears the cooldown, and replaces the tool visual. A passive click calls `PassiveHolder.setPassive` and only stores the asset. Health, speed, and cooldowns do not change yet.
 
 ## Setup
 
 1. Put an **Input Manager** in the scene. The guns subscribe to it when Play starts. Without it, Play errors before a button can run.
 2. On the player, add **Passive Holder** if it is missing.
-3. On the menu panel, add **Loadout Target**. Drag in the player's **Primary Gun**, **Misc Gun**, and **Passive Holder**. Both guns are on the Weapon Holder.
+3. On the menu panel, add **Loadout Target**. Drag in the player's **Primary Gun**, **Tool**, and **Passive Holder**. The Tool field takes the Misc Gun on the Weapon Holder. Both sit on that same object.
 4. Put each choice on its own button, as a child of that panel:
    - **Equip Gun Button**: drag one Primary Weapon asset into **Weapon**.
-   - **Equip Misc Button**: drag one Misc Weapon asset into **Misc**.
+   - **Equip Tool Button**: drag one tool asset into **Tool**.
    - **Equip Passive Button**: drag one Passive asset into **Passive**.
 5. Leave **Target** empty. Leave the button's On Click list empty. The button equips the item on its own.
 6. Duplicate a button and swap the asset to add another choice.
@@ -33,9 +33,9 @@ Each button equips one item. A gun click calls `PrimaryGun.EquipWeapon`, which s
 
 | Script | What it does |
 | --- | --- |
-| `LoadoutTarget` | Holds the player's gun, misc, and passive holder. Equip methods live here. |
+| `LoadoutTarget` | Holds the player's gun, tool, and passive holder. Equip methods live here. |
 | `EquipGunButton` | One button, one gun asset. Calls `LoadoutTarget.EquipGun`. |
-| `EquipMiscButton` | One button, one misc asset. Calls `LoadoutTarget.EquipMisc`. |
+| `EquipToolButton` | One button, one tool asset. Calls `LoadoutTarget.EquipTool`. |
 | `EquipPassiveButton` | One button, one passive asset. Calls `LoadoutTarget.EquipPassive`. |
 | `LoadoutReadout` | Writes the current names into text labels. |
 | `Editor/LoadoutMenuEditors` | Draws the blue help boxes in the Inspector. Editor only. |

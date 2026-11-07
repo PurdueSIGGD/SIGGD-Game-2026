@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Optional labels for the equipped gun, misc, and passive.
+// Optional labels for the equipped gun, tool, and passive.
 // Drag a Text or TextMeshPro component into each field. See README.md in this folder.
 // This listens to LoadoutTarget.Changed, so the words update on the same click that equips.
 public class LoadoutReadout : MonoBehaviour
@@ -13,8 +13,8 @@ public class LoadoutReadout : MonoBehaviour
     [Tooltip("Drag a Text or TextMeshPro component here. Shows the equipped gun.")]
     public Component gunLabel;
 
-    [Tooltip("Drag a Text or TextMeshPro component here. Shows the equipped misc.")]
-    public Component miscLabel;
+    [Tooltip("Drag a Text or TextMeshPro component here. Shows the equipped tool.")]
+    public Component toolLabel;
 
     [Tooltip("Drag a Text or TextMeshPro component here. Shows the equipped passive.")]
     public Component passiveLabel;
@@ -54,13 +54,13 @@ public class LoadoutReadout : MonoBehaviour
         if (bound == null)
         {
             SetLabel(gunLabel, "None");
-            SetLabel(miscLabel, "None");
+            SetLabel(toolLabel, "None");
             SetLabel(passiveLabel, "None");
             return;
         }
 
         SetLabel(gunLabel, bound.CurrentGunName());
-        SetLabel(miscLabel, bound.CurrentMiscName());
+        SetLabel(toolLabel, bound.CurrentToolName());
         SetLabel(passiveLabel, bound.CurrentPassiveName());
     }
 

@@ -1,19 +1,21 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-// Same pattern as EquipGunButton, for one Misc Weapon asset.
-// Duplicate the button and swap the Misc asset for each choice.
+// Same pattern as EquipGunButton, for one tool asset.
+// Duplicate the button and swap the Tool asset for each choice.
 // Leave Target empty when a Loadout Target is on a parent. Leave the Button On Click list empty.
 [DisallowMultipleComponent]
-public class EquipMiscButton : MonoBehaviour
+public class EquipToolButton : MonoBehaviour
 {
-    [Tooltip("The misc this button equips. Duplicate this button and drag a different Misc Weapon asset here for each choice.")]
-    public MiscWeapon misc;
+    [Tooltip("The tool this button equips. Duplicate this button and drag a different tool asset here for each choice.")]
+    [FormerlySerializedAs("misc")]
+    public MiscWeapon tool;
 
     [Tooltip("Leave empty to use the Loadout Target on a parent of this button.")]
     public LoadoutTarget target;
 
-    [Tooltip("Optional. A child object, such as a checkmark, that turns on while this misc is equipped. Do not drag this button itself here.")]
+    [Tooltip("Optional. A child object, such as a checkmark, that turns on while this tool is equipped. Do not drag this button itself here.")]
     public GameObject equippedMarker;
 
     LoadoutTarget bound;
@@ -51,11 +53,11 @@ public class EquipMiscButton : MonoBehaviour
         Bind();
         if (bound == null)
         {
-            Debug.LogWarning("Equip Misc Button could not find a Loadout Target. Put one on a parent, or drag it into Target.", this);
+            Debug.LogWarning("Equip Tool Button could not find a Loadout Target. Put one on a parent, or drag it into Target.", this);
             return;
         }
 
-        bound.EquipMisc(misc);
+        bound.EquipTool(tool);
     }
 
     void Bind()
@@ -79,6 +81,6 @@ public class EquipMiscButton : MonoBehaviour
             return;
 
         // The marker must be a child, such as a checkmark. Turning this button off would make it unclickable.
-        equippedMarker.SetActive(bound != null && bound.IsCurrentMisc(misc));
+        equippedMarker.SetActive(bound != null && bound.IsCurrentTool(tool));
     }
 }

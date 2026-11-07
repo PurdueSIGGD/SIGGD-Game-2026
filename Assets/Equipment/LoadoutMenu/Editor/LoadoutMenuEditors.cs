@@ -11,7 +11,7 @@ public class LoadoutTargetEditor : Editor
     {
         EditorGUILayout.HelpBox(
             "Put this on the menu panel once.\n" +
-            "Drag in the player's Primary Gun, Misc Gun, and Passive Holder.\n" +
+            "Drag in the player's Primary Gun, Tool, and Passive Holder.\n" +
             "Equip buttons under this object use it automatically.\n" +
             "For a second player, duplicate the whole menu and point this copy at player 2.",
             MessageType.Info);
@@ -34,14 +34,14 @@ public class EquipGunButtonEditor : Editor
     }
 }
 
-[CustomEditor(typeof(EquipMiscButton))]
-public class EquipMiscButtonEditor : Editor
+[CustomEditor(typeof(EquipToolButton))]
+public class EquipToolButtonEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         EditorGUILayout.HelpBox(
-            "Put this on a Button. Drag the misc asset into Misc.\n" +
-            "Duplicate the button and swap the asset for each misc.\n" +
+            "Put this on a Button. Drag the tool asset into Tool.\n" +
+            "Duplicate the button and swap the asset for each tool.\n" +
             "Leave Target empty when a Loadout Target is on a parent.\n" +
             "The button equips on click. Leave the Button On Click list empty.",
             MessageType.Info);
@@ -70,7 +70,7 @@ public class LoadoutReadoutEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.HelpBox(
-            "Optional labels for the current gun, misc, and passive.\n" +
+            "Optional labels for the current gun, tool, and passive.\n" +
             "Drag a Text or TextMeshPro component into each label field.\n" +
             "Leave Target empty when a Loadout Target is on this object or a parent.",
             MessageType.Info);

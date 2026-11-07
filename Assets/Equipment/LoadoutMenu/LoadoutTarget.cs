@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // One of these sits on the menu panel. See README.md in this folder for setup.
-// Buttons under this object call EquipGun, EquipMisc, and EquipPassive.
+// Buttons under this object call EquipGun, EquipTool, and EquipPassive.
 // Those methods talk to the live player. They do not use EquipmentManager.
 // For a second player, duplicate the whole menu and drag in that player's guns.
 public class LoadoutTarget : MonoBehaviour
@@ -11,8 +12,9 @@ public class LoadoutTarget : MonoBehaviour
     [Tooltip("Primary Gun on the player's Weapon Holder.")]
     public PrimaryGun gun;
 
-    [Tooltip("Misc Gun on the player's Weapon Holder. It sits on the same object as Primary Gun.")]
-    public MiscGun misc;
+    [Tooltip("Tool on the player's Weapon Holder. It sits on the same object as Primary Gun. The component is still named Misc Gun.")]
+    [FormerlySerializedAs("misc")]
+    public MiscGun tool;
 
     [Tooltip("Passive Holder on the player. Add that component to the player if it is missing, then drag it here. Choosing a passive stores it. It does not change the player's stats yet.")]
     public PassiveHolder passiveHolder;
@@ -39,22 +41,22 @@ public class LoadoutTarget : MonoBehaviour
         Changed?.Invoke();
     }
 
-    public void EquipMisc(MiscWeapon weapon)
+    public void EquipTool(MiscWeapon weapon)
     {
-        if (misc == null)
+        if (tool == null)
         {
-            Debug.LogWarning("Loadout Target has no Misc Gun. Drag the player's Weapon Holder into the Misc field.", this);
+            Debug.LogWarning("Loadout Target has no Tool. Drag the player's Weapon Holder into the Tool field.", this);
             return;
         }
 
         if (weapon == null)
         {
-            Debug.LogWarning("This misc button has no misc. Drag a Misc Weapon asset onto it.", this);
+            Debug.LogWarning("This tool button has no tool. Drag a tool asset onto it.", this);
             return;
         }
 
-        // EquipMisc swaps the asset, clears the cooldown, and replaces the misc visual.
-        misc.EquipMisc(weapon);
+        // EquipMisc is the method on Misc Gun. It swaps the asset, clears the cooldown, and replaces the tool visual.
+        tool.EquipMisc(weapon);
         Changed?.Invoke();
     }
 
@@ -83,9 +85,9 @@ public class LoadoutTarget : MonoBehaviour
         return gun != null && weapon != null && gun.Weapon == weapon;
     }
 
-    public bool IsCurrentMisc(MiscWeapon weapon)
+    public bool IsCurrentTool(MiscWeapon weapon)
     {
-        return misc != null && weapon != null && misc.MiscWeapon == weapon;
+        return tool != null && weapon != null && tool.MiscWeapon == weapon;
     }
 
     public bool IsCurrentPassive(Passive passive)
@@ -105,15 +107,15 @@ public class LoadoutTarget : MonoBehaviour
         return gun.Weapon.WeaponName;
     }
 
-    public string CurrentMiscName()
+    public string CurrentToolName()
     {
-        if (misc == null || misc.MiscWeapon == null)
+        if (tool == null || tool.MiscWeapon == null)
             return "None";
 
-        if (string.IsNullOrEmpty(misc.MiscWeapon.Name))
-            return misc.MiscWeapon.name;
+        if (string.IsNullOrEmpty(tool.MiscWeapon.Name))
+            return tool.MiscWeapon.name;
 
-        return misc.MiscWeapon.Name;
+        return tool.MiscWeapon.Name;
     }
 
     public string CurrentPassiveName()
