@@ -107,4 +107,15 @@ public class ProjectileManager : Singleton<ProjectileManager>
         bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized);
     }
     #endregion
+
+    /// <summary>
+    /// Shoots a tool projectile along the arm from the fire point
+    /// </summary>
+    public ToolProjectile ShootToolProjectile(ToolProjectileData data, Transform firePoint, Vector2 direction)
+    {
+        GameObject obj = Instantiate(data.prefab, firePoint.position, firePoint.rotation);
+        ToolProjectile projectile = obj.GetComponent<ToolProjectile>();
+        projectile.Init(data, direction.normalized);
+        return projectile;
+    }
 }

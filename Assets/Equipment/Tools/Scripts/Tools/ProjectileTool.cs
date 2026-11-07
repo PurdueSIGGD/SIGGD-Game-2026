@@ -6,9 +6,15 @@ public abstract class ProjectileTool : Tool
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected Transform armRotatePoint;
 
+    RotateArmToMouse aim;
+
+    void Awake() => aim = armRotatePoint.GetComponent<RotateArmToMouse>();
+
     protected ToolProjectile Fire()
     {
-        Vector2 aimDir = firePoint.position = armRotatePoint.position;
-        return ToolProjectileManager.Instance.Spawn(projectileData, firePoint, aimDir);
+        return ProjectileManager.Instance.ShootToolProjectile(projectileData, firePoint, aim.AimDirection);
     }
+
+    //void OnDrawGizmos() { if (firePoint && aim)
+    //Gizmos.DrawRay(firePoint.position, aim.AimDirection * 3f); }
 }

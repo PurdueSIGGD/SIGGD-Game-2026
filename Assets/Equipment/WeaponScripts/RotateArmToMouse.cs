@@ -1,34 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/*
- * this whole script will probably be temporary as once we have actual art and guns n shit itll need to be done differently but it works for now
- */
-
 public class RotateArmToMouse : MonoBehaviour
 {
     [SerializeField] float angleOffset;
+
+    public Vector2 AimDirection { get; private set; } = Vector2.right;
+
     void Update()
     {
-        // Safety check to prevent errors if the mouse isn't active
         if (Mouse.current == null) return;
 
-        // Get mouse position on the screen
         Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-
-        // calculate the correct Z distance from the camera to the player/arm
         float zDistance = Mathf.Abs(Camera.main.transform.position.z);
-        Vector3 mouseScreenWithZ = new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, zDistance);
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(
+            new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, zDistance));
 
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenWithZ);
-
-        // Calculate direction vector from arm to mouse
         Vector2 direction = (Vector2)mouseWorldPosition - (Vector2)transform.position;
+        if (direction.sqrMagnitude > 0.0001f) AimDirection = direction.normalized;
 
-        // Calculate angle and apply offset
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
-
-        // Apply rotation
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }
