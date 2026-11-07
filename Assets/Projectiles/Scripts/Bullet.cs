@@ -114,8 +114,8 @@ public class Bullet : MonoBehaviour
         lifetime = inLifetime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        OnBulletHit?.Invoke(collision.gameObject);
+        OnBulletHit?.Invoke(other.gameObject);
     }
 }
