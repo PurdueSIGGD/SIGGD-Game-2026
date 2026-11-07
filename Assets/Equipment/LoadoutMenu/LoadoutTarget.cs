@@ -14,7 +14,7 @@ public class LoadoutTarget : MonoBehaviour
 
     [Tooltip("Tool on the player's Weapon Holder. It sits on the same object as Primary Gun. The component is still named Misc Gun.")]
     [FormerlySerializedAs("misc")]
-    public MiscGun tool;
+    public Tool tool;
 
     [Tooltip("Passive Holder on the player. Add that component to the player if it is missing, then drag it here. Choosing a passive stores it. It does not change the player's stats yet.")]
     public PassiveHolder passiveHolder;
@@ -41,7 +41,7 @@ public class LoadoutTarget : MonoBehaviour
         Changed?.Invoke();
     }
 
-    public void EquipTool(MiscWeapon weapon)
+    public void EquipTool(Tool weapon)
     {
         if (tool == null)
         {
@@ -56,7 +56,7 @@ public class LoadoutTarget : MonoBehaviour
         }
 
         // EquipMisc is the method on Misc Gun. It swaps the asset, clears the cooldown, and replaces the tool visual.
-        tool.EquipMisc(weapon);
+        //tool.EquipTool(weapon);
         Changed?.Invoke();
     }
 
@@ -85,9 +85,9 @@ public class LoadoutTarget : MonoBehaviour
         return gun != null && weapon != null && gun.Weapon == weapon;
     }
 
-    public bool IsCurrentTool(MiscWeapon weapon)
+    public bool IsCurrentTool(Tool weapon)
     {
-        return tool != null && weapon != null && tool.MiscWeapon == weapon;
+        return tool != null && weapon != null; //&& tool.MiscWeapon == weapon;
     }
 
     public bool IsCurrentPassive(Passive passive)
@@ -109,13 +109,13 @@ public class LoadoutTarget : MonoBehaviour
 
     public string CurrentToolName()
     {
-        if (tool == null || tool.MiscWeapon == null)
+        if (tool == null)// || tool.MiscWeapon == null)
             return "None";
 
-        if (string.IsNullOrEmpty(tool.MiscWeapon.Type))
-            return tool.MiscWeapon.name;
+        //if (string.IsNullOrEmpty(tool.MiscWeapon.Type))
+        //return tool.MiscWeapon.name;
 
-        return tool.MiscWeapon.Type;
+        return "";//tool.MiscWeapon.Type;
     }
 
     public string CurrentPassiveName()

@@ -10,7 +10,7 @@ public class EquipToolButton : MonoBehaviour
 {
     [Tooltip("The tool this button equips. Duplicate this button and drag a different tool asset here for each choice.")]
     [FormerlySerializedAs("misc")]
-    public MiscWeapon tool;
+    public Tool tool;
 
     [Tooltip("Leave empty to use the Loadout Target on a parent of this button.")]
     public LoadoutTarget target;
