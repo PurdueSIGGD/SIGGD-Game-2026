@@ -634,7 +634,10 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Music
+  - Sound Effects
+  - Voice Lines
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

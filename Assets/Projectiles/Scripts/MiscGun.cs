@@ -8,15 +8,22 @@ public class MiscGun : MonoBehaviour
     public Transform FirePoint;
     private Transform weaponHolderTransform;
 
+    [SerializeField] private Transform armRotatePoint;
     [SerializeField] private GameObject curMiscWeaponVisual;
+    private GameObject miscBulletReference;
 
     private Coroutine miscOnCooldown;
     private Coroutine miscIsThrown;
 
     private void Awake()
     {
-        InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
+        // man im so excited to rewrite all of this as soon as the input manager is fixed :D
         InputManager.Instance.OnPlayerRightClick.AddListener(DestroyMisc);
+        InputManager.Instance.OnPlayerRightClick.AddListener(ShootMisc);
+
+        // fix this when onusemiscitem works
+        InputManager.Instance.OnPlayerLeftClick.AddListener(UseMisc);
+        //InputManager.Instance.OnUseMiscItem.AddListener(UseMisc);
 
         weaponHolderTransform = gameObject.transform;
     }
@@ -31,24 +38,35 @@ public class MiscGun : MonoBehaviour
     {
         if (miscOnCooldown != null) return;
 
-        ProjectileManager.Instance.ShootMiscTowardsMouse(MiscWeapon.MiscProjectile, FirePoint);
+        // safe the reference to the object returned so that we can repool it later when activated if needed
+        Vector2 shotDir = -(armRotatePoint.position - FirePoint.position).normalized;
+        miscBulletReference = ProjectileManager.Instance.ShootMiscProjectileTowardsDirection(MiscWeapon.MiscProjectile, FirePoint, shotDir);
+
         miscOnCooldown = StartCoroutine(MiscOnCooldown());
         miscIsThrown = StartCoroutine(MiscIsThrown());
     }
-
+    
     private void DestroyMisc(Vector2 notUsedInThisFunctionIJustNeedToPassThisToGetRightClickInput)
     {
         if (miscIsThrown == null) return;
 
-        StopCoroutine(MiscIsThrown());
+        StopCoroutine(miscIsThrown);
+        miscIsThrown = null;
+
+        ProjectileManager.Instance.MiscProjectilePool.Release(miscBulletReference);
+        miscBulletReference = null;
 
         // release the fired game object
     }
 
-    private void ActivateMisc(Vector2 shootPos)
+    // does the activated ability of the misc item like bomb exploding 
+    private void UseMisc(Vector2 notUsedInThisFunctionIJustNeedToPassThisToGetEInput)
     {
-        if (miscIsThrown != null) return;
+        if (miscIsThrown == null) return;
         // this will probably have to check whether the secondary is grapple or not and then do a reel in or explosion/magnet aura kinda thing
+        MiscWeapon.Use(miscBulletReference);
+
+        // then we will either have to delete it or not depending on which misc object it is perhapsn misc weapon can return a bool for if we should destroy it or not?
     }
 
     public void EquipMisc(MiscWeapon newMisc)
@@ -71,7 +89,7 @@ public class MiscGun : MonoBehaviour
 
         if (curMiscWeaponVisual != null)
         {
-            Destroy(curMiscWeaponVisual);
+            //Destroy(curMiscWeaponVisual);
         }
 
         if (MiscWeapon.MiscWeaponVisualPrefab != null && weaponHolderTransform != null)

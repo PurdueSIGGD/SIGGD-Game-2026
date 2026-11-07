@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Splines;
 using System.Collections.Generic;
-using TreeEditor;
 
 [CreateAssetMenu(fileName = "ProjectileScriptableObject", menuName = "Scriptable Objects/ProjectileScriptableObject")]
 public class ProjectileScriptableObject : ScriptableObject 
@@ -24,7 +23,7 @@ public class ProjectileScriptableObject : ScriptableObject
 
     public SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
 
-    public List<Spline> SplineNodes;
+    public Spline Spline;
 
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
@@ -51,14 +50,43 @@ public class ProjectileScriptableObject : ScriptableObject
             PhysicsPaths.Add(pathBuffer.ToArray());
         }
 
-
+        /*
         SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
-        SplineNodes.Clear();
+        Spline.Clear();
 
         // adds the spline game object componets to the spline nodes list
         for (int i = 0; i < SplineContainer.Splines.Count; i++)
         {
             SplineNodes.Add(SplineContainer.Splines[i]);
-        }        
+        }
+        */
+
+        Spline = null;
+
+        if (SplineGameObject != null)
+        {
+            SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
+
+            if (SplineContainer != null)
+            {
+                if (SplineContainer[0] != null)
+                {
+                    Spline = SplineContainer[0];
+                    HasSpline = true;
+                }
+                else
+                {
+                    HasSpline = false;
+                }
+            }
+            else
+            {
+                HasSpline = false;
+            }
+        }
+        else
+        {
+            HasSpline = false;
+        }
     }
 }
