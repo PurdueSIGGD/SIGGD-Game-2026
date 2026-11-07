@@ -1,6 +1,7 @@
 using PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerAiming : MonoBehaviour
 {
@@ -8,26 +9,14 @@ public class PlayerAiming : MonoBehaviour
     public bool CanLook = true;
 
     [SerializeField] private float controllerDeadzone = 0.1f;
-    [SerializeField] private float rotateSmoothing = 1000f;
+    //[SerializeField] private float rotateSmoothing = 1000f;
 
     [SerializeField] private bool isGamepad;
     private Vector2 gamepadAim;
-    private PlayerInput input;
-    private InputAction lookAction;
-
-    void Awake()
-    {
-        InputActionMap inputMap = input.actions.FindActionMap("InputActions");
-        lookAction = inputMap.FindAction("Look");   
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mainCam = Camera.main;
         InputManager.Instance.OnPlayerLook.AddListener(RotatePlayerArm);
-        
-        isGamepad = true;
     }
 
     // Update is called once per frame
@@ -48,49 +37,39 @@ public class PlayerAiming : MonoBehaviour
         //Debug.Log(angle);
 
         //transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        if(isGamepad)
-        {
-            HandleGamepadInput();
-            HandleGamepadAim();
-        }
     }
 
     private void RotatePlayerArm(Vector2 target)
     {
-        Debug.Log(target);
-
         Vector2 playerPos = PlayerRegistry.Players[0].transform.position;
 
-        Vector2 direction = target - playerPos;
-        //print(direction);
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        ////Debug.Log(angle);
+        Vector2 direction = (target - playerPos).normalized;
+        //Debug.Log(target);
+        transform.up = direction;
 
-        //transform.rotation = Quaternion.Euler(0, 0, angle);
-        transform.up = -direction;
-    }
-
-    //gamepad functions
-    void HandleGamepadInput()
-    {
-        //gamepadAim = Gamepad.current.rightStick.ReadValue();
-        gamepadAim = lookAction.ReadValue<Vector2>();
+        //Gamepad
+        gamepadAim = Gamepad.current.rightStick.ReadValue();
+        float angle = HandleGamepadAim();
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     
-    void HandleGamepadAim()
+    float HandleGamepadAim()
     {
         //rotate aim
         if (Mathf.Abs(gamepadAim.x) > controllerDeadzone || Mathf.Abs(gamepadAim.y) > controllerDeadzone)
         {
-            Vector3 playerDirection = Vector3.right * gamepadAim.x + Vector3.forward * gamepadAim.y;
 
-            if (playerDirection.sqrMagnitude > 0.0f)
+            if (gamepadAim.sqrMagnitude > 0.0f)
             {
-                Quaternion newrotation = Quaternion.LookRotation(playerDirection, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, newrotation, rotateSmoothing * Time.deltaTime);
+                float angle = Mathf.Atan2(gamepadAim.y, gamepadAim.x);
+                if (angle != 0f)
+                {
+                    angle = angle * Mathf.Rad2Deg + 90f;
+                }
+                return angle;
             }
         }
+        return 0f;
     }
 
     public void OnControlsChanged (PlayerInput pi)

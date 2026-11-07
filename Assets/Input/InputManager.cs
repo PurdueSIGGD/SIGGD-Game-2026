@@ -32,9 +32,11 @@ public class InputManager : Singleton<InputManager>
     void Update()
     {
         Vector3 playerLookPos = inputActions.Player.Look.ReadValue<Vector2>();
-        playerLookPos.z = Camera.main.nearClipPlane;
-        playerLookPos = Camera.main.ScreenToWorldPoint(playerLookPos);
-        OnPlayerLook?.Invoke(playerLookPos);
+        //Vector3 playerLookPos = Mouse.current.position.ReadValue();
+        playerLookPos.z = Camera.main.nearClipPlane + 10f;
+        playerLookPos.z = playerLookPos.z * -1;
+        Vector3 lookWorldPos = Camera.main.ScreenToWorldPoint(playerLookPos);
+        OnPlayerLook?.Invoke(lookWorldPos);
         
     }
 
