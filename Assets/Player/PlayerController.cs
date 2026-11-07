@@ -18,6 +18,7 @@ namespace PlayerSystem
         private float storedSpeed = 0f;
         private bool stopHeld = false;
         private int launchStep = 0;
+        private bool hadLastInput = false;
 
         // Variables needed initialized in Awake
         void Awake()
@@ -62,9 +63,14 @@ namespace PlayerSystem
 
         private void OnDisable()
         {
+            if (InputManager.Instance != null)
+            {
+                hadLastInput = false;
+            }
             controls.Player.Disable();
             currentInputVector = Vector2.zero;
         }
+
 
         private void OnDestroy()
         {
@@ -100,8 +106,11 @@ namespace PlayerSystem
 
             if (hasInput)
             {
-                rb.AddForce(currentInputVector * stats.Acceleration * rb.mass, ForceMode2D.Force);
-            }
+                if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
+                {
+                    rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
+                }
+                rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);            }
             else if (velocity.sqrMagnitude > 0.0001f)
             {
                 float maxStopForce = velocity.magnitude * rb.mass / Time.fixedDeltaTime;
@@ -109,6 +118,7 @@ namespace PlayerSystem
                 rb.AddForce(-velocity.normalized * backForce);
 
             }
+            hadLastInput = hasInput;
 
             velocity = rb.linearVelocity;
             if (velocity.sqrMagnitude > stats.MaxVelocity * stats.MaxVelocity)
