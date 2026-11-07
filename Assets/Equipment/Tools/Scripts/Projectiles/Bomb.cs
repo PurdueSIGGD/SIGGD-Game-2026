@@ -53,14 +53,12 @@ public class Bomb : ToolProjectile
 
             float distance = Vector2.Distance(origin, hit.ClosestPoint(origin));
             float ratio = bombData.blastMinDistance / Mathf.Max(distance, bombData.blastMinDistance);
-            float falloff = ratio * ratio;
 
             Vector2 direction = body.worldCenterOfMass - origin;
             direction = direction.sqrMagnitude > 0.0001f ? direction.normalized : Vector2.up;
 
-            body.AddForce(direction * bombData.blastImpulse * falloff, ForceMode2D.Impulse);
+            body.AddForce(direction * bombData.blastImpulse * ratio, ForceMode2D.Impulse);
         }
-
 
         // TODO: explosion effects
         Finish();

@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 6234340524598417515}
   - component: {fileID: 2381905092480761345}
   - component: {fileID: 1411501873943394296}
+  - component: {fileID: 3408908975871159361}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -429,4 +430,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200c2a7a0b40c83cda0bb59c24ff1fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolUser
-  SecondaryTool: {fileID: 0}
+  SecondaryTool: {fileID: 3408908975871159361}
+--- !u!114 &3408908975871159361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9140298992855012124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf3ff3852bfcdbfdac09e9993205031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BombThrower
+  data: {fileID: 11400000, guid: d9ff9d73dc74160e2a7c9bfa8ccef1f7, type: 2}
+  projectileData: {fileID: 11400000, guid: 61d651fffadc545bf9799e243e57915e, type: 2}
+  firePoint: {fileID: 6234340524598417515}
+  armRotatePoint: {fileID: 7680011871215750500}
