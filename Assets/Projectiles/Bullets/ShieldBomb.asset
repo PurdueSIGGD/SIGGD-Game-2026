@@ -15,12 +15,13 @@ MonoBehaviour:
   Lifetime: 99
   Velocity: 5
   SpriteAngleOffset: 0
+  Type: Shield Bomb
   MiscProjectileSprite: {fileID: 0}
   MiscProjectileColor:
     serializedVersion: 2
     rgba: 4294967295
   MiscProjectileScale: {x: 1, y: 1, z: 1}
-  UseSprite: {fileID: 0}
+  UseSprite: {fileID: 2503992082558401399, guid: 1f1fc097fa2ed6c4e979a3f518cc90ee, type: 3}
   RopeObject: {fileID: 0}
   Timer: 4
   Radius: 6

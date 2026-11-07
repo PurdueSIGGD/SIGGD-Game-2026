@@ -13,22 +13,182 @@ MonoBehaviour:
   m_Name: TestBullet
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
-  HasSpline: 0
+  HasSpline: 1
   Damage: 4
   Lifetime: 15
-  Velocity: 4
+  Velocity: 10
   SpriteAngleOffset: 0
   ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
     serializedVersion: 2
     rgba: 4294967295
   ProjectileScale: {x: 0.5, y: 0.5, z: 1}
-  SplineGameObject: {fileID: 404314599969650974, guid: 2f53b373ecc3e59ef99091d9d0d9f26d, type: 3}
-  SplineContainer: {fileID: 689180092553368705, guid: 2f53b373ecc3e59ef99091d9d0d9f26d, type: 3}
+  SplineGameObject: {fileID: 0}
+  SplineContainer: {fileID: 0}
   Spline:
     m_EditModeType: 1
-    m_Knots: []
-    m_MetaData: []
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.2967144
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.2967144
+      Rotation:
+        value:
+          x: 0.504597
+          y: -0.49536026
+          z: 0.49536037
+          w: -0.504597
+    - Position:
+        x: 12.9649315
+        y: 0.23953676
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -2.3622975
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.552695
+      Rotation:
+        value:
+          x: -0.2683751
+          y: 0.6541978
+          z: -0.65419775
+          w: 0.2683752
+    - Position:
+        x: 12.785278
+        y: -5.3596373
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.5851804
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.9168898
+      Rotation:
+        value:
+          x: -0.22622223
+          y: 0.66994286
+          z: -0.6699429
+          w: 0.22622234
+    - Position:
+        x: 20.749882
+        y: -7.275931
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.8345026
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.7767222
+      Rotation:
+        value:
+          x: 0.62262934
+          y: -0.33516064
+          z: 0.3351607
+          w: -0.6226294
+    - Position:
+        x: 22.037388
+        y: 0.2994213
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.9243357
+      TangentOut:
+        x: 0
+        y: 0
+        z: 2.0897038
+      Rotation:
+        value:
+          x: 0.6759033
+          y: 0.20773736
+          z: -0.20773745
+          w: -0.6759033
+    - Position:
+        x: 13.174526
+        y: 2.185773
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.74430543
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.81153494
+      Rotation:
+        value:
+          x: 0.7070337
+          y: 0.010167745
+          z: -0.010167755
+          w: -0.7070337
+    - Position:
+        x: 23.564436
+        y: 5.0302725
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -2.9551578
+      TangentOut:
+        x: 0
+        y: 0
+        z: 2.543869
+      Rotation:
+        value:
+          x: -0.4455921
+          y: 0.5490426
+          z: -0.5490426
+          w: 0.4455921
+    - Position:
+        x: 29.762451
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.79824203
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.79824203
+      Rotation:
+        value:
+          x: -0.30406868
+          y: 0.63839036
+          z: -0.6383903
+          w: 0.30406874
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
     m_Closed: 0
     m_IntData:
       m_Data: []
