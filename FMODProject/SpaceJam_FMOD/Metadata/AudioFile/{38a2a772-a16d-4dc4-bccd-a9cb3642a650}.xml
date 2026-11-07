@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{38a2a772-a16d-4dc4-bccd-a9cb3642a650}">
+		<property name="assetPath">
+			<value>Bosses/Foundary/Boss1_ShootScrap.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.7901360544217688</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3bc1b3f2-8e13-45ad-a25b-7cb68caedfae}</destination>
+		</relationship>
+	</object>
+</objects>

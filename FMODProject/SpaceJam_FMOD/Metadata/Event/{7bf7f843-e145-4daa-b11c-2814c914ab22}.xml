@@ -119,6 +119,9 @@
 		<property name="overlap">
 			<value>1</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{35b76d4c-98ce-457c-a0df-d85b042375ee}</destination>
+		</relationship>
 	</object>
 	<object class="PitchShifterEffect" id="{aa18cfcb-a637-42dc-aaae-ff60157ceed2}" />
 	<object class="DelayEffect" id="{5bc68713-7894-46fe-9d87-32af463e95cd}">
@@ -162,5 +165,13 @@
 		<relationship name="audioFile">
 			<destination>{b376cc22-48b6-4ec8-a938-70a638cd4c97}</destination>
 		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{35b76d4c-98ce-457c-a0df-d85b042375ee}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>10</value>
+		</property>
 	</object>
 </objects>
