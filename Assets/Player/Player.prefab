@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6234340524598417515}
   - component: {fileID: 2381905092480761345}
-  - component: {fileID: 4497906183040209905}
+  - component: {fileID: 1411501873943394296}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -417,7 +417,7 @@ MonoBehaviour:
   PlayerBody: {fileID: 3380938587474817520}
   CurrentAmmo: 0
   IsReloading: 0
---- !u!114 &4497906183040209905
+--- !u!114 &1411501873943394296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,10 +426,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9140298992855012124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6019014cc13e7ce4297c31dad9cfdb5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 200c2a7a0b40c83cda0bb59c24ff1fd7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MiscGun
-  MiscWeapon: {fileID: 11400000, guid: d43984239e476fb43b478726ec2b5ff8, type: 2}
-  FirePoint: {fileID: 0}
-  armRotatePoint: {fileID: 7680011871215750500}
-  curMiscWeaponVisual: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ToolUser
+  SecondaryTool: {fileID: 0}
