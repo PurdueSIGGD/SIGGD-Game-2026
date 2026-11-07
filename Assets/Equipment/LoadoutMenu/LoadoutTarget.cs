@@ -112,10 +112,10 @@ public class LoadoutTarget : MonoBehaviour
         if (tool == null || tool.MiscWeapon == null)
             return "None";
 
-        if (string.IsNullOrEmpty(tool.MiscWeapon.Name))
+        if (string.IsNullOrEmpty(tool.MiscWeapon.Type))
             return tool.MiscWeapon.name;
 
-        return tool.MiscWeapon.Name;
+        return tool.MiscWeapon.Type;
     }
 
     public string CurrentPassiveName()
