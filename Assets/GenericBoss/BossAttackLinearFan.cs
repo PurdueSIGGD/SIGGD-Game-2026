@@ -17,16 +17,17 @@ public class BossAttackLinearFan : BossAttack
 
     override public async UniTaskVoid Shoot(GameObject bossObject)
     {
-        GameObject gameObject = new GameObject();
-        gameObject.transform.position = new Vector3(Origin[0], Origin[1], 0);
+        GameObject targetObject = new GameObject();
+        targetObject.transform.position = new Vector3(Origin[0], Origin[1], 0);
         float newAngle = InitAngle * (float) Math.PI / 180;
         for (int i = 0; i < ProjectileCount; i++)
         {
             Vector2 angle = new Vector2((float) Math.Sin(newAngle), (float) Math.Cos(newAngle));
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, gameObject.transform, angle, TargetLayerMask, IgnorePlayerMask);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, targetObject.transform, angle, TargetLayerMask, IgnorePlayerMask);
             newAngle = newAngle + AngleOffset * (float) Math.PI / 180;
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + HOffset, Origin[1], 0);
+            targetObject.transform.position = new Vector3(targetObject.transform.position.x + HOffset, Origin[1], 0);
             await UniTask.Delay(Delay);
         }
+        Destroy(targetObject);
     }
 }

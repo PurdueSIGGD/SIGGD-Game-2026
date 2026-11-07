@@ -16,4 +16,4 @@ MonoBehaviour:
   <SpeedDamageThreshold>k__BackingField: 5
   <DamageMultiplier>k__BackingField: 10
   <AttackPercentList>k__BackingField:
-  - {fileID: 11400000, guid: 14395c5d1b93b89458b5154665743659, type: 2}
+  - {fileID: 11400000, guid: 2395c942a4847c94db17f10bc478118c, type: 2}
