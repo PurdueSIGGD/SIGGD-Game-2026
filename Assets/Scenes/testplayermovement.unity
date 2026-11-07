@@ -395,6 +395,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3158273e169a76f4b8457f4c31bc4af6, type: 3}
+--- !u!4 &1471959015 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7680011871215750500, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+  m_PrefabInstance: {fileID: 3811248447348275952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1802523113
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +464,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1411501873943394296, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+      propertyPath: SecondaryTool
+      value: 
+      objectReference: {fileID: 3811248447348275958}
     - target: {fileID: 3842481533645907128, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -506,8 +515,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9140298992855012124, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3811248447348275958}
   m_SourcePrefab: {fileID: 100100000, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+--- !u!1 &3811248447348275953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9140298992855012124, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+  m_PrefabInstance: {fileID: 3811248447348275952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3811248447348275955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6234340524598417515, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
+  m_PrefabInstance: {fileID: 3811248447348275952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3811248447348275958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811248447348275953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf3ff3852bfcdbfdac09e9993205031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BombThrower
+  data: {fileID: 11400000, guid: d9ff9d73dc74160e2a7c9bfa8ccef1f7, type: 2}
+  projectileData: {fileID: 11400000, guid: 61d651fffadc545bf9799e243e57915e, type: 2}
+  firePoint: {fileID: 3811248447348275955}
+  armRotatePoint: {fileID: 1471959015}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
