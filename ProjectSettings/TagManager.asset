@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - Asteroid
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Boss
   - 
   - 
   - 

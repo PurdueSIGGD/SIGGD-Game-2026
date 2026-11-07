@@ -12,6 +12,9 @@ public class BossAttackLinearFan : BossAttack
     [field: SerializeField] private float InitAngle {get; set;} = 0f;
     [field: SerializeField] private float AngleOffset {get; set;} = 0f;
     [field: SerializeField] private float HOffset {get; set;} = 0f;
+    [field: SerializeField] private LayerMask TargetLayerMask {get; set;} = 0;
+    [field: SerializeField] private LayerMask IgnorePlayerMask { get; set; } = 0;
+
     override public async UniTaskVoid Shoot(GameObject bossObject)
     {
         GameObject gameObject = new GameObject();
@@ -20,7 +23,7 @@ public class BossAttackLinearFan : BossAttack
         for (int i = 0; i < ProjectileCount; i++)
         {
             Vector2 angle = new Vector2((float) Math.Sin(newAngle), (float) Math.Cos(newAngle));
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, gameObject.transform, angle);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, gameObject.transform, angle, TargetLayerMask, IgnorePlayerMask);
             newAngle = newAngle + AngleOffset * (float) Math.PI / 180;
             gameObject.transform.position = new Vector3(gameObject.transform.position.x + HOffset, Origin[1], 0);
             await UniTask.Delay(Delay);

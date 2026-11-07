@@ -16,6 +16,8 @@ public class PrimaryGun : MonoBehaviour
     private float reloadAccumulator;
     private Coroutine reloadRoutine;
 
+    [SerializeField] LayerMask enemyLayerMasks;
+
     private void Awake()
     {
         if (firePoint == null) firePoint = transform;
@@ -57,7 +59,7 @@ public class PrimaryGun : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector2 shotDir = GetShotDirection(aimDir, i, count);
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(weapon.projectile, firePoint, shotDir);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(weapon.projectile, firePoint, shotDir, enemyLayerMasks, default);
         }
         currentAmmo--;
         ApplyRecoil(aimDir);

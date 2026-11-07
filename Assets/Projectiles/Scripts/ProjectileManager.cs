@@ -72,7 +72,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// </summary>
     /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
     /// <param name="firePoint"> The point where the bullet is shooting from </param>
-    public void ShootProjectileTowardsMouse(ProjectileScriptableObject projectileScriptableObject, Transform firePoint)
+    public void ShootProjectileTowardsMouse(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         // rotate spawned bullet to face mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -80,7 +80,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
 
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
-        ShootProjectile(projectileScriptableObject, firePoint, direction);
+        ShootProjectile(projectileScriptableObject, firePoint, direction, layerToHit, layerToIgnore);
     }
 
     /// <summary>
@@ -89,9 +89,9 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
     /// <param name="firePoint"> The point where the bullet is shooting from </param>
     /// <param name="direction"> The direction that the projectile should be shot in </param>
-    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction) // this could not work i dunno testing will come later
+    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction, LayerMask layerToHit, LayerMask layerToIgnore) // this could not work i dunno testing will come later
     {
-        ShootProjectile(projectileScriptableObject, firePoint, direction);
+        ShootProjectile(projectileScriptableObject, firePoint, direction, layerToHit, layerToIgnore);
     }
 
     /// <summary>
@@ -100,19 +100,19 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
     /// <param name="firePoint"> The point where the bullet is shooting from </param>
     /// <param name="targetPoint"> the target that the projectile is being shot to </param>
-    public void ShootProjectileTowardsPoint(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint)
+    public void ShootProjectileTowardsPoint(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         // make direction vector from the starting point and end point
         Vector2 direction = (targetPoint.position - firePoint.position).normalized;
 
-        ShootProjectile(projectileScriptableObject, firePoint, direction);
+        ShootProjectile(projectileScriptableObject, firePoint, direction, layerToHit, layerToIgnore);
     }
 
-    private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
+    private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         GameObject bullet = ProjectilePool.Get();
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized);
+        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized, layerToHit, layerToIgnore);
     }
     #endregion
 

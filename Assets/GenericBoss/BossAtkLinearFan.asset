@@ -19,3 +19,9 @@ MonoBehaviour:
   <InitAngle>k__BackingField: -45
   <AngleOffset>k__BackingField: 15
   <HOffset>k__BackingField: 0
+  <TargetLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 768
+  <IgnorePlayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 3072

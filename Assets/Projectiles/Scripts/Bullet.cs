@@ -4,14 +4,17 @@ using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
 {
-    private bool isExplosive;
-    private int damage;
-    private float lifetime;
+    public static UnityEvent<Bullet, GameObject> OnBulletHit;
+
+    public bool IsExplosive { get; set; }
+    public float Damage { get; set; }
+    public float Lifetime { get; set; }
+    public bool DestroyOnHit { get; set; } = true;
+
 
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    public UnityEvent<GameObject> OnBulletHit;
 
     private void Awake()
     {
@@ -22,13 +25,13 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if (lifetime > 0)
+        if (Lifetime > 0)
         {
-            lifetime -= 1f * Time.deltaTime;
+            Lifetime -= 1f * Time.deltaTime;
         }
         else
         {
-            if (isExplosive)
+            if (IsExplosive)
             {
                 // call some sort of blow up function eventually when that gets made
             }
@@ -40,13 +43,13 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Set the sprite, position, rotation and velocity of the bullet as well as the basic bullet values gotten from the ProjectilScriptableObject
     /// </summary>
-    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection)
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         bulletRB.angularVelocity = 0f; // reset angular velocity just incase its not 0 before firing
 
-        isExplosive = projectileScriptableObject.IsExplosive;
-        damage = projectileScriptableObject.Damage;
-        lifetime = projectileScriptableObject.Lifetime;
+        IsExplosive = projectileScriptableObject.IsExplosive;
+        Damage = projectileScriptableObject.Damage;
+        Lifetime = projectileScriptableObject.Lifetime;
 
         gameObject.transform.position = firePoint.position;
 
@@ -56,7 +59,7 @@ public class Bullet : MonoBehaviour
 
         gameObject.transform.localScale = projectileScriptableObject.ProjectileScale;
 
-        SetBulletCollider(projectileScriptableObject);
+        SetBulletCollider(projectileScriptableObject, layerToHit, layerToIgnore);
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.ProjectileAngleOffset) * shootDirection;
@@ -66,9 +69,12 @@ public class Bullet : MonoBehaviour
         bulletRB.linearVelocity = finalDirection * projectileScriptableObject.Velocity;
     }
 
-    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject)
+    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         List<Vector2[]> paths = projectileScriptableObject.PhysicsPaths;
+
+        bulletCollider.includeLayers = layerToHit;
+        bulletCollider.excludeLayers = layerToIgnore;
 
         if (paths != null && paths.Count > 0)
         {
@@ -85,37 +91,20 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public bool GetIsExplosive()
-    {
-        return isExplosive;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public float GetLifetime()
-    {
-        return lifetime;
-    }
-
-    public void SetIsExplosive(bool inIsExplosive)
-    {
-        isExplosive = inIsExplosive;
-    }
-
-    public void SetDamage(int inDamage)
-    {
-        damage = inDamage;
-    }
-    public void SetLifetime(float inLifetime)
-    {
-        lifetime = inLifetime;
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        OnBulletHit?.Invoke(other.gameObject);
+        var damageable = other.GetComponent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(new DamageContext(Damage, gameObject, other.gameObject));
+        }
+
+        OnBulletHit?.Invoke(this, other.gameObject);
+
+        if (DestroyOnHit)
+        {
+            ProjectileManager.Instance.ProjectilePool.Release(gameObject);
+        }
     }
 }
