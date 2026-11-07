@@ -41,16 +41,17 @@ public class PlayerAiming : MonoBehaviour
 
     private void RotatePlayerArm(Vector2 target)
     {
+        //mouse 
         Vector2 playerPos = PlayerRegistry.Players[0].transform.position;
 
         Vector2 direction = (target - playerPos).normalized;
         //Debug.Log(target);
         transform.up = direction;
 
-        //Gamepad
-        gamepadAim = Gamepad.current.rightStick.ReadValue();
-        float angle = HandleGamepadAim();
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        //KEEP - Gamepad
+        //gamepadAim = Gamepad.current.rightStick.ReadValue();
+        //float angle = HandleGamepadAim();
+        //transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     
     float HandleGamepadAim()
