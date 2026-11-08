@@ -9,6 +9,7 @@ namespace PlayerSystem
         [SerializeField] private PlayerData stats;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private InputActionReference moveActionRef;
+
         private PlayerHealth playerHealth;
         private Vector2 currentInputVector;
 
