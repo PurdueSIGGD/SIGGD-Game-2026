@@ -17,13 +17,14 @@ public class PrimaryGun : MonoBehaviour
     private Coroutine reloadRoutine;
 
     [SerializeField] LayerMask enemyLayerMasks;
+    [SerializeField] LayerMask ignoreLayerMasks;
 
     private void Awake()
     {
         if (firePoint == null) firePoint = transform;
         if (playerBody == null) playerBody = GetComponent<Rigidbody2D>();
 
-        // InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
+        InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
     }
 
     private void Start()
@@ -59,7 +60,7 @@ public class PrimaryGun : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector2 shotDir = GetShotDirection(aimDir, i, count);
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(weapon.projectile, firePoint, shotDir, enemyLayerMasks, default);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(weapon.projectile, firePoint, shotDir, enemyLayerMasks, ignoreLayerMasks);
         }
         currentAmmo--;
         ApplyRecoil(aimDir);
