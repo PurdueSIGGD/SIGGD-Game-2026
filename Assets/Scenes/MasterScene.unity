@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 237121303}
   - component: {fileID: 237121305}
   - component: {fileID: 237121304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +173,9 @@ MonoBehaviour:
   enemyLayerMasks:
     serializedVersion: 2
     m_Bits: 3072
+  ignoreLayerMasks:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!212 &237121305
 SpriteRenderer:
   serializedVersion: 2
@@ -384,7 +387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 664510614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
