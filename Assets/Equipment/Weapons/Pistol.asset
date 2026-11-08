@@ -20,4 +20,4 @@ MonoBehaviour:
   offset: 0
   recoil: 4
   ammoCapacity: 11
-  fireSpeed: 3
+  fireSpeed: 30
