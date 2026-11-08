@@ -3,12 +3,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+// run after PlayerAnimator (default order 0) so the body's facing flip is already applied this frame
+[DefaultExecutionOrder(100)]
 public class PlayerAiming : MonoBehaviour
 {
     private Camera mainCam;
     public bool CanLook = true;
 
     [SerializeField] private float controllerDeadzone = 0.1f;
+
+    [SerializeField] private float spriteAngleOffset = 180f;
     //[SerializeField] private float rotateSmoothing = 1000f;
 
     [SerializeField] private bool isGamepad;
@@ -16,7 +20,19 @@ public class PlayerAiming : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
-        InputManager.Instance.OnPlayerLook.AddListener(RotatePlayerArm);
+    }
+
+    void LateUpdate()
+    {
+        if (!CanLook || InputManager.Instance == null) return;
+        if (mainCam == null) mainCam = Camera.main;
+        if (mainCam == null) return;
+
+        Vector3 screenPos = InputManager.Instance.PointerScreenPosition;
+        screenPos.z = transform.position.z - mainCam.transform.position.z;
+        Vector2 target = mainCam.ScreenToWorldPoint(screenPos);
+
+        RotatePlayerArm(target);
     }
 
     // Update is called once per frame
@@ -41,12 +57,14 @@ public class PlayerAiming : MonoBehaviour
 
     private void RotatePlayerArm(Vector2 target)
     {
-        //mouse 
-        Vector2 playerPos = PlayerRegistry.Players[0].transform.position;
+        //mouse
+        Vector2 direction = target - (Vector2)transform.position;
+        if (direction.sqrMagnitude < 0.0001f) return;
 
-        Vector2 direction = (target - playerPos).normalized;
-        //Debug.Log(target);
-        transform.up = direction;
+        Vector3 localDir = transform.parent.InverseTransformDirection(direction);
+
+        float angle = Mathf.Atan2(localDir.y, localDir.x) * Mathf.Rad2Deg - 90f + spriteAngleOffset;
+        transform.localRotation = Quaternion.Euler(0f, 0f, angle);
 
         //KEEP - Gamepad
         //gamepadAim = Gamepad.current.rightStick.ReadValue();
