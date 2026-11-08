@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 84b46c6a5a698bc4f884b58a9e63da51
+guid: 293efbda11227414fb853a56f7147151
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1055162804339543248
-    second: scope_backarm_centered_0
+      213: -7995689482813325831
+    second: scope_forward_sprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scope_backarm_centered_0
+      name: scope_forward_sprite_0
       rect:
         serializedVersion: 2
-        x: 138
-        y: 156
-        width: 128
-        height: 294
-      alignment: 9
-      pivot: {x: 0.45, y: 0.86}
+        x: 259
+        y: 219
+        width: 509
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 033f22b150f4b51f0800000000000000
-      internalID: -1055162804339543248
+      spriteID: 9fdb59247ca990190800000000000000
+      internalID: -7995689482813325831
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eb9b0de2bcf5dab46b61da74992cd2a5
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      scope_backarm_centered_0: -1055162804339543248
+      scope_forward_sprite_0: -7995689482813325831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

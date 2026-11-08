@@ -18,7 +18,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else
+        else if (rb.linearVelocityX > 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
