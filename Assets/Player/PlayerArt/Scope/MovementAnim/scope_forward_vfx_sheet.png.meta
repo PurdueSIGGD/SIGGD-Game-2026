@@ -131,11 +131,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 165
-        width: 445
-        height: 127
+        y: 150
+        width: 500
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,11 +153,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 162
-        width: 442
-        height: 129
+        y: 150
+        width: 500
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: scope_forward_vfx_sheet_2
       rect:
         serializedVersion: 2
-        x: 927
-        y: 233
-        width: 29
-        height: 10
+        x: 0
+        y: 0
+        width: 500
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: scope_forward_vfx_sheet_3
       rect:
         serializedVersion: 2
-        x: 450
-        y: 222
-        width: 23
-        height: 6
+        x: 500
+        y: 0
+        width: 500
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -214,143 +214,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: scope_forward_vfx_sheet_4
-      rect:
-        serializedVersion: 2
-        x: 962
-        y: 219
-        width: 27
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 40b2befc610de3680800000000000000
-      internalID: -8773346227674993916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scope_forward_vfx_sheet_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 432
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba406068a68cdc970800000000000000
-      internalID: 8776891608655594667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scope_forward_vfx_sheet_6
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 72
-        width: 32
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8b8a36e1528b4760800000000000000
-      internalID: 7443186097426434954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scope_forward_vfx_sheet_7
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 71
-        width: 19
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e694fcb48ca6ccfb0800000000000000
-      internalID: -4626205308718462610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scope_forward_vfx_sheet_8
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 18
-        width: 426
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 803d75174f1517860800000000000000
-      internalID: 7525886562628260616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scope_forward_vfx_sheet_9
-      rect:
-        serializedVersion: 2
-        x: 946
-        y: 69
-        width: 29
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16d3108da3d03b0c0800000000000000
-      internalID: -4561287451212956319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 572616f4aa6ddd24b86bfbadf2a336af
     internalID: 0
     vertices: []
     indices: 
@@ -358,18 +226,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":500.0,"y":150.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       scope_forward_vfx_sheet_0: -6674026288154546160
       scope_forward_vfx_sheet_1: 5737301324057990264
       scope_forward_vfx_sheet_2: -9034940449961149797
       scope_forward_vfx_sheet_3: 8022734955618560832
-      scope_forward_vfx_sheet_4: -8773346227674993916
-      scope_forward_vfx_sheet_5: 8776891608655594667
-      scope_forward_vfx_sheet_6: 7443186097426434954
-      scope_forward_vfx_sheet_7: -4626205308718462610
-      scope_forward_vfx_sheet_8: 7525886562628260616
-      scope_forward_vfx_sheet_9: -4561287451212956319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

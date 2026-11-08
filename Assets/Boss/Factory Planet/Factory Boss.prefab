@@ -56,8 +56,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   CurrentPhase: 0
-  <MaxHealth>k__BackingField: 0
-  <IsAlive>k__BackingField: 1
 --- !u!114 &6828251714174656392
 MonoBehaviour:
   m_ObjectHideFlags: 0
