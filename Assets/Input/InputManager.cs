@@ -11,6 +11,8 @@ public class InputManager : Singleton<InputManager>
     public UnityEvent<Vector2> OnPlayerRightClick;
     public UnityEvent<Vector2> OnPlayerMove;
 
+    public UnityEvent<Vector2> OnPlayerLook;
+
     public bool IsLeftClickHeld => inputActions != null && inputActions.Player.LeftClick.IsPressed();
     public bool IsRightClickHeld => inputActions != null && inputActions.Player.RightClick.IsPressed();
     public Vector2 PointerScreenPosition => Pointer.current != null ? Pointer.current.position.ReadValue() : Vector2.zero;
@@ -29,6 +31,12 @@ public class InputManager : Singleton<InputManager>
 
     void Update()
     {
+        Vector3 playerLookPos = inputActions.Player.Look.ReadValue<Vector2>();
+        //Vector3 playerLookPos = Mouse.current.position.ReadValue();
+        playerLookPos.z = Camera.main.nearClipPlane + 10f;
+        playerLookPos.z = playerLookPos.z * -1;
+        Vector3 lookWorldPos = Camera.main.ScreenToWorldPoint(playerLookPos);
+        OnPlayerLook?.Invoke(lookWorldPos);
         
     }
 
