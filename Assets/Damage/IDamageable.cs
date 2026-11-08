@@ -1,4 +1,5 @@
 using UnityEngine;
+
 /// <summary>
 /// Interface for damageable entities. Any entity that can take damage should implement this interface.
 /// </summary>
@@ -19,4 +20,11 @@ public struct DamageContext
     public float DamageAmount;
     public GameObject Attacker;
     public GameObject Victim;
+
+    public DamageContext(float damageAmount, GameObject attacker, GameObject victim)
+    {
+        DamageAmount = damageAmount;
+        Attacker = attacker;
+        Victim = victim;
+    }
 }
