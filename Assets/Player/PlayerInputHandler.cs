@@ -4,10 +4,12 @@ using UnityEngine.InputSystem;
 
 namespace PlayerSystem
 {
-    /// <summary>
-    /// Reads one player's input and exposes it in gameplay terms. Each player has their own PlayerInput, which
-    /// pairs them to their own devices, so scripts that read from this only ever hear the player they belong to.
-    /// </summary>
+    /**
+     * <summary>
+     * Reads one player's input and exposes it in gameplay terms. Each player has their own PlayerInput, which
+     * pairs them to their own devices.
+     * </summary>
+     */
     [DisallowMultipleComponent]
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerInputHandler : MonoBehaviour
@@ -25,9 +27,11 @@ namespace PlayerSystem
         private InputAction brakeAction;
         private Vector2 lastAimDirection = Vector2.right;
 
-        /// <summary>
-        /// Movement input, from -1 to 1 on each axis.
-        /// </summary>
+        /**
+         * <summary>
+         * Movement input, from -1 to 1 on each axis.
+         * </summary>
+         */
         public Vector2 Move => moveAction.ReadValue<Vector2>();
 
         public bool IsBrakeHeld => brakeAction.IsPressed();
@@ -67,17 +71,17 @@ namespace PlayerSystem
             useToolAltAction.performed -= OnUseToolAltPerformed;
         }
 
-        /// <summary>
-        /// Returns the direction the player is aiming from <paramref name="origin"/>. Mouse players aim at the
-        /// cursor and gamepad players aim with the right stick.
-        /// </summary>
+        /**
+         * <summary>
+         * Returns the direction the player is aiming from <paramref name="origin"/>, where mouse players aim at the
+         * cursor and gamepad players aim with the right stick.
+         * </summary>
+         */
         public Vector2 GetAimDirection(Vector2 origin)
         {
             Vector2 aim = playerInput.currentControlScheme == KeyboardMouseScheme
-                ? GetPointerWorldPosition() - origin
-                : aimAction.ReadValue<Vector2>();
+                ? GetPointerWorldPosition() - origin : aimAction.ReadValue<Vector2>();
 
-            // Keep the last direction while the stick is released or the cursor sits on the origin.
             if (aim.sqrMagnitude > MinAimSqrMagnitude)
             {
                 lastAimDirection = aim.normalized;
@@ -90,7 +94,7 @@ namespace PlayerSystem
             Camera camera = Camera.main;
             Vector2 screenPosition = pointAction.ReadValue<Vector2>();
 
-            // Gameplay happens on the z = 0 plane, so this depth also works for perspective cameras.
+            // This will also work for perspective cameras
             float depth = Mathf.Abs(camera.transform.position.z);
             return camera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, depth));
         }

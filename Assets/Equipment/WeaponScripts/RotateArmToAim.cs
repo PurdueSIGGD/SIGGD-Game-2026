@@ -1,6 +1,11 @@
 using PlayerSystem;
 using UnityEngine;
 
+/**
+ * <summary>
+ * Rotates an arm to face the direction the player is aiming.
+ * </summary>
+ */
 public class RotateArmToAim : MonoBehaviour
 {
     [SerializeField] float angleOffset;
