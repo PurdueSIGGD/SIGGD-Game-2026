@@ -37,7 +37,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "Interact",
+                    "name": "UseMisc",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
                     "expectedControlType": "",
@@ -50,7 +50,7 @@
                     "name": "Crouch",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false,
@@ -476,7 +476,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Interact",
+                    "action": "UseMisc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -487,7 +487,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Interact",
+                    "action": "UseMisc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
