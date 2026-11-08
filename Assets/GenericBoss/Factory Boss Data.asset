@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a616fa26e0f26c4097c07c1f63ec8e1, type: 3}
-  m_Name: BossData
+  m_Name: Factory Boss Data
   m_EditorClassIdentifier: Assembly-CSharp::BossData
-  <PhaseHealthBoundaries>k__BackingField: 01000000
+  <PhaseHealthBoundaries>k__BackingField: 64000000
   <SpeedDamageThreshold>k__BackingField: 5
   <DamageMultiplier>k__BackingField: 10
   <AttackPercentList>k__BackingField:
-  - {fileID: 11400000, guid: 2395c942a4847c94db17f10bc478118c, type: 2}
+  - {fileID: 11400000, guid: 14395c5d1b93b89458b5154665743659, type: 2}
+  - {fileID: 11400000, guid: b92ca9021f2fda143a5236f71f300afb, type: 2}
+  - {fileID: 11400000, guid: 87fe9e38d1ac5964fae79689b4a7350d, type: 2}

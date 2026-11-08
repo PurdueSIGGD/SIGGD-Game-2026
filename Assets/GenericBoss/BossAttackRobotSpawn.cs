@@ -13,7 +13,7 @@ public class BossAttackRobotSpawn : BossAttack
     [field: SerializeField] private float AngleOffset {get; set;} = 0f;
     [field: SerializeField] private float HOffset {get; set;} = 0f;
     [field: SerializeField] private GameObject robotPrefab;
-    override public async UniTaskVoid Shoot(GameObject bossObject)
+    override public async UniTask Shoot(GameObject bossObject)
     {
         GameObject gameObject = new GameObject();
         gameObject.transform.position = new Vector3(Origin[0], Origin[1], 0);

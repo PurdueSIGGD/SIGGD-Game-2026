@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class turn : MonoBehaviour
+public class PlanetRotation : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     public float SpinSpeed = 5f;

@@ -14,7 +14,7 @@ public class BossAttackLaser : BossAttack
     [field: SerializeField] private GameObject Laser {get; set;}
 
 
-    override public async UniTaskVoid Shoot(GameObject bossObject)
+    override public async UniTask Shoot(GameObject bossObject)
     {
         GameObject laserL = Instantiate(Laser, Origin, Quaternion.identity);
         laserL.GetComponent<Laser>().InitLaser(Length, LeftAngle, Origin, Damage, Lifetime);

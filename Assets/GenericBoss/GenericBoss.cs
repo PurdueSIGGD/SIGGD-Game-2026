@@ -1,20 +1,25 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
+using Cysharp.Threading.Tasks;
+using Sirenix.OdinInspector;
 
 
-public class GenericBoss : MonoBehaviour
+public class GenericBoss : MonoBehaviour, IDamageable
 {
     [SerializeField] private BossData bossData;
     public UnityEvent<DamageContext> OnBossTakeDamage;
     public UnityEvent<DamageContext> OnBossDeath;
-    public float CurrentHealth;
-    private float maxHealth;
+
     /// <summary>
     /// Stores the current phase (index into PhaseHealthBoundries).
     /// </summary>
     public int CurrentPhase = 0;
-    private System.Random rng = new System.Random();
     private BossAttack lastAttack = null;
+
+    [ShowInInspector, ReadOnly] public float CurrentHealth { get; private set; }
+    [ShowInInspector, ReadOnly] public float MaxHealth { get; private set; }
+    [ShowInInspector, ReadOnly] public bool IsAlive { get; private set; } = true;
 
     /// <summary>
     /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
@@ -31,6 +36,7 @@ public class GenericBoss : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
+            IsAlive = false;
             OnBossDeath?.Invoke(context);
         }
     }
@@ -41,7 +47,7 @@ public class GenericBoss : MonoBehaviour
         foreach(AttackPercents c in bossData.AttackPercentList){
             totalPercentage += c.ChanceWeights[CurrentPhase];
         }
-        int attackNumber = rng.Next(1, (int)totalPercentage + 1);
+        int attackNumber = Random.Range(1, (int)totalPercentage + 1);
         int index = 0;
         while (true)
         {
@@ -78,14 +84,28 @@ public class GenericBoss : MonoBehaviour
     void Start()
     {
         Debug.Assert(bossData.PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
-        maxHealth = bossData.PhaseHealthBoundaries[0];
-        CurrentHealth = maxHealth;
-        CalculateRandomBossAttack().Shoot(gameObject);
+        MaxHealth = bossData.PhaseHealthBoundaries[0];
+        CurrentHealth = MaxHealth;
+        AttackLoop(this.GetCancellationTokenOnDestroy()).Forget();
     }
 
-    void Update()
+    /// <summary>
+    /// Continuously picks a random attack, waits for it to finish firing, then waits
+    /// that attack's cooldown before the next one. Stops when the boss dies or is destroyed.
+    /// </summary>
+    private async UniTaskVoid AttackLoop(CancellationToken token)
     {
-        
+        while (IsAlive && !token.IsCancellationRequested)
+        {
+            BossAttack attack = CalculateRandomBossAttack();
+            await attack.Shoot(gameObject).AttachExternalCancellation(token);
+            await UniTask.Delay(Mathf.FloorToInt(attack.Cooldown * 1000), cancellationToken: token);
+        }
+    }
+
+    public void ResetHealth()
+    {
+        throw new System.NotImplementedException();
     }
 }
 

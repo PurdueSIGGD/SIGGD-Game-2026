@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 namespace PlayerSystem
 {
@@ -10,6 +11,7 @@ namespace PlayerSystem
         /// </summary>
         public static Player[] Players;
         public static readonly int MaxPlayers = 2;
+        public static int PlayerCount { get; private set; } = 0;
 
         static PlayerRegistery()
         {
@@ -32,10 +34,33 @@ namespace PlayerSystem
                 if (Players[i] == null)
                 {
                     Players[i] = player;
+                    PlayerCount++;
                     return i;
                 }
             }
             return -1;
+        }
+
+        public static void UnregisterPlayer(Player player)
+        {
+            for (int i = 0; i < Players.Length; i++)
+            {
+                if (Players[i] == player)
+                {
+                    Players[i] = null;
+                    PlayerCount--;
+                    return;
+                }
+            }
+        }
+
+        public static Player GetRandomPlayer()
+        {
+            if (PlayerCount == 0)
+            {
+                return null;
+            }
+            return Players[Random.Range(0, PlayerCount)];
         }
     }
 }

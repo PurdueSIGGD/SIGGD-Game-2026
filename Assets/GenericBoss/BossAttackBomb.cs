@@ -14,7 +14,7 @@ public class BossAttackBomb : BossAttack
     [field: SerializeField] private LayerMask IgnorePlayerMask { get; set; } = 0;
 
     private System.Random rng = new System.Random();
-    override public async UniTaskVoid Shoot(GameObject bossObject)
+    override public async UniTask Shoot(GameObject bossObject)
     {
         
         Player[] players = PlayerRegistery.Players;

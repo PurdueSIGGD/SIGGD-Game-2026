@@ -15,7 +15,7 @@ public class BossAttackLinearFan : BossAttack
     [field: SerializeField] private LayerMask TargetLayerMask {get; set;} = 0;
     [field: SerializeField] private LayerMask IgnorePlayerMask { get; set; } = 0;
 
-    override public async UniTaskVoid Shoot(GameObject bossObject)
+    override public async UniTask Shoot(GameObject bossObject)
     {
         GameObject targetObject = new GameObject();
         targetObject.transform.position = new Vector3(Origin[0], Origin[1], 0);

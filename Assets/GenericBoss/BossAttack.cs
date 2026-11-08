@@ -8,5 +8,14 @@ public abstract class BossAttack : ScriptableObject
     int[] Origin;
     int ProjectileCount;
     int Delay;
-    public abstract UniTaskVoid Shoot(GameObject bossObject);
+
+    /// <summary>
+    /// Seconds the boss waits after this attack finishes before starting its next attack.
+    /// </summary>
+    [field: SerializeField] public float Cooldown {get; private set;} = 2f;
+
+    /// <summary>
+    /// Performs the attack. The returned task completes once the attack has finished firing.
+    /// </summary>
+    public abstract UniTask Shoot(GameObject bossObject);
 }
