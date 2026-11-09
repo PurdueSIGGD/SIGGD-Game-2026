@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 
 [CreateAssetMenu(fileName = "BossAttackRobotSpawn", menuName = "Data/BossAttackRobotSpawn")]
 public class BossAttackRobotSpawn : BossAttack
@@ -15,6 +16,8 @@ public class BossAttackRobotSpawn : BossAttack
     [field: SerializeField] private GameObject robotPrefab;
     override public async UniTask Shoot(GameObject bossObject)
     {
+        AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Boss_1.Attacks.Boss_1_SpawnRobot);
+
         GameObject gameObject = new GameObject();
         gameObject.transform.position = new Vector3(Origin[0], Origin[1], 0);
         float newAngle = InitAngle * (float) Math.PI / 180;

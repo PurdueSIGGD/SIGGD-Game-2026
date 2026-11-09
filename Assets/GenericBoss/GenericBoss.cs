@@ -87,6 +87,8 @@ public class GenericBoss : MonoBehaviour, IDamageable
         MaxHealth = bossData.PhaseHealthBoundaries[0];
         CurrentHealth = MaxHealth;
         AttackLoop(this.GetCancellationTokenOnDestroy()).Forget();
+
+        AudioManager.PlayTrack(bossData.BossSoundTrack);
     }
 
     /// <summary>

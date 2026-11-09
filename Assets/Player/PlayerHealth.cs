@@ -42,6 +42,9 @@ namespace PlayerSystem
             {
                 return;
             }
+
+            AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Player.Misc.Player_Hurt);
+
             CurrentHealth = Mathf.Max(CurrentHealth - context.DamageAmount, 0);
             if (CurrentHealth == 0)
             {
