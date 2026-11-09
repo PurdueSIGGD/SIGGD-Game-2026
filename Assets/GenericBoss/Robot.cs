@@ -64,7 +64,7 @@ public class Robot : MonoBehaviour
         SetBulletCollider(projectileScriptableObject);
 
         // rotate bullet
-        Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.ProjectileAngleOffset) * shootDirection;
+        Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
         bulletRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
 
         // give bullet its speed and in the direction
