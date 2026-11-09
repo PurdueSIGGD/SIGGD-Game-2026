@@ -13,12 +13,28 @@ MonoBehaviour:
   m_Name: BossBasicBullet
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
+  HasSpline: 0
   Damage: 1
   Lifetime: 10
   Velocity: 5
-  ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  SpriteAngleOffset: 0
+  ProjectileSprite: {fileID: 21300000, guid: 76a112c75160b3848968dabbba4e6606, type: 3}
   ProjectileColor:
     serializedVersion: 2
-    rgba: 4279173375
+    rgba: 4294967295
   ProjectileScale: {x: 1, y: 1, z: 1}
-  ProjectileAngleOffset: 0
+  SplineGameObject: {fileID: 0}
+  SplineContainer: {fileID: 0}
+  Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
