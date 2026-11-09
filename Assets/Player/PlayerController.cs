@@ -1,23 +1,20 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace PlayerSystem
 {
-    [RequireComponent(typeof(PlayerHealth))]
+    [RequireComponent(typeof(PlayerHealth), typeof(PlayerInputHandler))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerData stats;
         [SerializeField] private Rigidbody2D rb;
-        [SerializeField] private InputActionReference moveActionRef;
         private PlayerHealth playerHealth;
+        private PlayerInputHandler input;
         private Vector2 currentInputVector;
-
-        private InputActions controls;
-        private InputAction braking;
 
         private float storedSpeed = 0f;
         private bool stopHeld = false;
         private int launchStep = 0;
+        private bool hadLastInput = false;
 
         // Variables needed initialized in Awake
         void Awake()
@@ -25,12 +22,10 @@ namespace PlayerSystem
             // Fallback: If not assigned in Inspector, grab the attached Rigidbody2D automatically
             if (rb == null) rb = GetComponent<Rigidbody2D>();
             playerHealth = GetComponent<PlayerHealth>();
+            input = GetComponent<PlayerInputHandler>();
 
             rb.linearDamping = 0f; // set to zero currently because of space
             rb.mass = stats.Mass; // from PlayerData.cs
-
-            controls = new InputActions();
-            braking = controls.Player.Brake;
         }
 
         // Update is called once per frame
@@ -40,35 +35,25 @@ namespace PlayerSystem
             {
                 return;
             }
-            currentInputVector = moveActionRef.action.ReadValue<Vector2>();
+            currentInputVector = input.Move;
 
-            if (braking.WasPressedThisFrame())
+            if (input.WasBrakePressedThisFrame)
             {
                 Brake();
             }
-            if (braking.WasReleasedThisFrame())
+            if (input.WasBrakeReleasedThisFrame)
             {
                 launchStep = 8;
             }
-            stopHeld = braking.IsPressed();
+            stopHeld = input.IsBrakeHeld;
 
             currentInputVector = currentInputVector.normalized;
         }
 
-        private void OnEnable()
-        {
-            controls.Player.Enable();
-        }
-
         private void OnDisable()
         {
-            controls.Player.Disable();
+            hadLastInput = false;
             currentInputVector = Vector2.zero;
-        }
-
-        private void OnDestroy()
-        {
-            controls.Dispose();
         }
 
         private void FixedUpdate()
@@ -100,8 +85,11 @@ namespace PlayerSystem
 
             if (hasInput)
             {
-                rb.AddForce(currentInputVector * stats.Acceleration * rb.mass, ForceMode2D.Force);
-            }
+                if (!hadLastInput && velocity.sqrMagnitude < 0.001f)
+                {
+                    rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
+                }
+                rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);            }
             else if (velocity.sqrMagnitude > 0.0001f)
             {
                 float maxStopForce = velocity.magnitude * rb.mass / Time.fixedDeltaTime;
@@ -109,6 +97,7 @@ namespace PlayerSystem
                 rb.AddForce(-velocity.normalized * backForce);
 
             }
+            hadLastInput = hasInput;
 
             velocity = rb.linearVelocity;
             if (velocity.sqrMagnitude > stats.MaxVelocity * stats.MaxVelocity)

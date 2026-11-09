@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43c716d9ca9c062a91d9db1c5012c77, type: 3}
+  m_Name: BombData
+  m_EditorClassIdentifier: Assembly-CSharp::BombData
+  prefab: {fileID: 9210412078896655841, guid: add2b56c9bebab3b4bc515c1f698565a, type: 3}
+  speed: 8
+  lifetime: 0
+  <fuseTime>k__BackingField: 2
+  <blastRadius>k__BackingField: 3
+  <blastDamage>k__BackingField: 0
+  <blastImpulse>k__BackingField: 20
+  <blastMinDistance>k__BackingField: 0.5
