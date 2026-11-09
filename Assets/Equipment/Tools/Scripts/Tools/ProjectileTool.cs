@@ -6,9 +6,9 @@ public abstract class ProjectileTool : Tool
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected Transform armRotatePoint;
 
-    RotateArmToMouse aim;
+    RotateArmToAim aim;
 
-    void Awake() => aim = armRotatePoint.GetComponent<RotateArmToMouse>();
+    void Awake() => aim = armRotatePoint.GetComponent<RotateArmToAim>();
 
     protected ToolProjectile Fire()
     {

@@ -1,20 +1,27 @@
+using PlayerSystem;
 using UnityEngine;
 
 public class ToolUser : MonoBehaviour
 {
     [SerializeField] Tool SecondaryTool;
 
-    void Start()
+    private PlayerInputHandler input;
+
+    void Awake()
     {
-        InputManager.Instance.OnPlayerRightClick.AddListener(HandleUse);
-        InputManager.Instance.OnUseMiscItem.AddListener(HandleUseAlt);
+        input = GetComponentInParent<PlayerInputHandler>();
     }
 
-    void OnDestroy()
+    void OnEnable()
     {
-        if (InputManager.Instance == null) return;
-        InputManager.Instance.OnPlayerRightClick.RemoveListener(HandleUse);
-        InputManager.Instance.OnUseMiscItem.RemoveListener(HandleUseAlt);
+        input.UseToolPressed += HandleUse;
+        input.UseToolAltPressed += HandleUseAlt;
+    }
+
+    void OnDisable()
+    {
+        input.UseToolPressed -= HandleUse;
+        input.UseToolAltPressed -= HandleUseAlt;
     }
 
     public void SetTool(Tool tool)
@@ -22,14 +29,14 @@ public class ToolUser : MonoBehaviour
         SecondaryTool = tool;
     }
 
-    void HandleUse(Vector2 _)
+    void HandleUse()
     {
         if (SecondaryTool != null) {
             SecondaryTool.Use();
         }
     }
 
-    void HandleUseAlt(Vector2 _) {
+    void HandleUseAlt() {
         if (SecondaryTool != null) {
             SecondaryTool.UseAlt();
         }

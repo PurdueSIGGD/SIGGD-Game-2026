@@ -1,7 +1,6 @@
 using PlayerSystem;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 // this script should be attatched to the player object! - ryan :P
 
@@ -22,15 +21,21 @@ public class PrimaryGun : MonoBehaviour
     private float nextFireTime;
     private float reloadAccumulator;
     private Coroutine reloadRoutine;
+    private PlayerInputHandler input;
 
     private void Awake()
     {
         if (FirePoint == null) FirePoint = transform;
         if (PlayerBody == null) PlayerBody = GetComponent<Rigidbody2D>();
 
-        InputManager.Instance.OnPlayerLeftClick.AddListener(Fire);
+        input = GetComponentInParent<PlayerInputHandler>();
 
         weaponHolderTransform = gameObject.transform;
+    }
+
+    private void OnEnable()
+    {
+        input.FirePressed += Fire;
     }
 
     private void Start()
@@ -50,10 +55,10 @@ public class PrimaryGun : MonoBehaviour
 
     private void Update()
     {
-        if (Weapon == null || Mouse.current == null) return;
+        if (Weapon == null) return;
     }
 
-    private void Fire(Vector2 targetPos)
+    private void Fire()
     {
         if (CurrentAmmo <= 0 || Time.time < nextFireTime) return;
 
@@ -188,6 +193,7 @@ public class PrimaryGun : MonoBehaviour
 
     private void OnDisable()
     {
+        input.FirePressed -= Fire;
         IsReloading = false;
         reloadAccumulator = 0f;
         reloadRoutine = null;

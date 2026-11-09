@@ -54,28 +54,6 @@ public class ProjectileManager : Singleton<ProjectileManager>
 
     #region Player / Bosses shooting bullets
     /// <summary>
-    /// Shoots projectile towards the mouse, only needed to be called when a player is shooting a projectile
-    /// </summary>
-    /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
-    /// <param name="firePoint"> The point where the bullet is shooting from </param>
-    public void ShootProjectileTowardsMouse(ProjectileScriptableObject projectileScriptableObject, Transform firePoint)
-    {
-        // rotate spawned bullet to face mouse
-        // Get mouse position on the screen
-        Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
-
-        // calculate the correct Z distance from the camera to the player/arm
-        float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, distanceToCamera));
-
-        mousePos.z = 0f;
-
-        Vector2 direction = (mousePos - firePoint.position).normalized;
-
-        ShootProjectile(projectileScriptableObject, firePoint, direction);
-    }
-
-    /// <summary>
     /// Shoots the projectile towards the passed in direction vector for boss attacks / enemy attacks
     /// </summary>
     /// <param name="projectileScriptableObject"> The scriptableobject that holds all the values for the bullet </param>
