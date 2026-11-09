@@ -30,5 +30,6 @@ public class BossAttackRobotSpawn : BossAttack
             gameObject.transform.position = new Vector3(gameObject.transform.position.x + HOffset, Origin[1], 0);
             await UniTask.Delay(Delay);
         }
+        Destroy(gameObject);
     }
 }

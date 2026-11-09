@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668206befc345f443a93ccb2fdf998a5, type: 3}
   m_Name: RobotSpawn
   m_EditorClassIdentifier: Assembly-CSharp::AttackPercents
-  <ChanceWeights>k__BackingField: 0500000005000000
+  <ChanceWeights>k__BackingField: 0100000002000000
   <Attack>k__BackingField: {fileID: 11400000, guid: 205cda7c2277ab143b4d8ee3cc4580e1, type: 2}

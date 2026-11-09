@@ -13,12 +13,28 @@ MonoBehaviour:
   m_Name: Robot
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
+  HasSpline: 0
   Damage: 1
-  Lifetime: 100
+  Lifetime: 20
   Velocity: 2
-  ProjectileSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  SpriteAngleOffset: 0
+  ProjectileSprite: {fileID: 21300000, guid: 2dfbf4b283fa4a945bf342c1c4839401, type: 3}
   ProjectileColor:
     serializedVersion: 2
-    rgba: 4294910976
+    rgba: 4294967295
   ProjectileScale: {x: 1, y: 1, z: 1}
-  ProjectileAngleOffset: 0
+  SplineGameObject: {fileID: 0}
+  SplineContainer: {fileID: 0}
+  Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []

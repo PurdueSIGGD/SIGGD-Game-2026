@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using PlayerSystem;
 
-public class Robot : MonoBehaviour
+public class Robot : MonoBehaviour, IDamageable
 {
+    [SerializeField] private float maxHealth = 10f;
+    public UnityEvent<DamageContext> OnRobotTakeDamage;
+    public UnityEvent<DamageContext> OnRobotDeath;
+
+    public float CurrentHealth { get; private set; }
+    public float MaxHealth => maxHealth;
+    public bool IsAlive { get; private set; } = true;
+
     private System.Random rng = new System.Random();
     private int damage;
     private float lifetime;
@@ -26,7 +33,7 @@ public class Robot : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         if (timeTillDash > 0)
         {
             timeTillDash -= 1f * Time.deltaTime;
@@ -44,6 +51,7 @@ public class Robot : MonoBehaviour
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
 
         pso = projectileScriptableObject;
+        ResetHealth();
 
         dashTime = dashtime;
         timeTillDash = dashtime;
@@ -109,17 +117,44 @@ public class Robot : MonoBehaviour
         lifetime = inLifetime;
     }
 
+    public void TakeDamage(DamageContext context)
+    {
+        if (!IsAlive) return;
+
+        CurrentHealth -= context.DamageAmount;
+        OnRobotTakeDamage?.Invoke(context);
+
+        if (CurrentHealth <= 0)
+        {
+            IsAlive = false;
+            OnRobotDeath?.Invoke(context);
+            Destroy(gameObject);
+        }
+    }
+
+    public void ResetHealth()
+    {
+        CurrentHealth = maxHealth;
+        IsAlive = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnBulletHit?.Invoke(collision.gameObject);
     }
     private void DashTowardsPlayer()
     {
-        Player[] players = PlayerRegistry.Players;
-        Player target = GameObject.FindAnyObjectByType<Player>();
-        print(target == null);
-        Rigidbody2D target_rb = target.gameObject.GetComponent<Rigidbody2D>();
-        Vector2 direction = new Vector2(target_rb.position.x - bulletRB.position.x, target_rb.position.y - bulletRB.position.y);
+        Player target = null;
+        float bestDistSq = float.MaxValue;
+        foreach (Player p in PlayerRegistry.Players)
+        {
+            if (p == null) continue;
+            float d = ((Vector2)p.transform.position - bulletRB.position).sqrMagnitude;
+            if (d < bestDistSq) { bestDistSq = d; target = p; }
+        }
+        if (target == null) return; // no player alive/registered: keep drifting
+
+        Vector2 direction = (Vector2)target.transform.position - bulletRB.position;
         bulletRB.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bulletRB.linearVelocity = direction.normalized * pso.Velocity;
     }

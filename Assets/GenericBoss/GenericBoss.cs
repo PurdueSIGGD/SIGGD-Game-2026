@@ -43,30 +43,38 @@ public class GenericBoss : MonoBehaviour, IDamageable
 
     private BossAttack CalculateRandomBossAttack()
     {
-        uint totalPercentage = 0;
-        foreach(AttackPercents c in bossData.AttackPercentList){
-            totalPercentage += c.ChanceWeights[CurrentPhase];
-        }
-        int attackNumber = Random.Range(1, (int)totalPercentage + 1);
-        int index = 0;
-        while (true)
+        AttackPercents[] list = bossData.AttackPercentList;
+
+        uint WeightOf(AttackPercents c, bool excludeLast) =>
+            c == null || c.Attack == null || (excludeLast && c.Attack == lastAttack) ? 0u : c.ChanceWeights[CurrentPhase];
+
+        uint total = 0;
+        foreach (AttackPercents c in list) total += WeightOf(c, true);
+
+        // only one attack is available this phase: allow repeating it
+        bool excludeLast = total > 0;
+        if (!excludeLast)
         {
-            if (bossData.AttackPercentList[index].ChanceWeights[CurrentPhase] >= attackNumber)
-            {
-                if (lastAttack != null && lastAttack == bossData.AttackPercentList[index].Attack)
-                {
-                    lastAttack = null;
-                    return CalculateRandomBossAttack();
-                }
-                else
-                {
-                    lastAttack = bossData.AttackPercentList[index].Attack;
-                    return bossData.AttackPercentList[index].Attack;
-                }
-            }
-            attackNumber -= (int)bossData.AttackPercentList[index].ChanceWeights[CurrentPhase];
-            index++;
+            foreach (AttackPercents c in list) total += WeightOf(c, false);
         }
+        if (total == 0)
+        {
+            Debug.LogError("GenericBoss: no attacks with weight > 0 in phase " + CurrentPhase);
+            return null;
+        }
+
+        int roll = Random.Range(0, (int)total);
+        foreach (AttackPercents c in list)
+        {
+            int w = (int)WeightOf(c, excludeLast);
+            if (roll < w)
+            {
+                lastAttack = c.Attack;
+                return c.Attack;
+            }
+            roll -= w;
+        }
+        return null;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -100,6 +108,7 @@ public class GenericBoss : MonoBehaviour, IDamageable
         while (IsAlive && !token.IsCancellationRequested)
         {
             BossAttack attack = CalculateRandomBossAttack();
+            if (attack == null) return;
             await attack.Shoot(gameObject).AttachExternalCancellation(token);
             await UniTask.Delay(Mathf.FloorToInt(attack.Cooldown * 1000), cancellationToken: token);
         }
