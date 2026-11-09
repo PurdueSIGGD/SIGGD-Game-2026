@@ -1,0 +1,33 @@
+using System;
+using UnityEngine;
+using Cysharp.Threading.Tasks;
+
+[CreateAssetMenu(fileName = "BossAttackLinearFan", menuName = "Data/BossAttackLinearFan")]
+public class BossAttackLinearFan : BossAttack
+{
+    [field: SerializeField] private ProjectileScriptableObject Pso {get; set;}
+    [field: SerializeField] private int[] Origin {get; set;} = new int[2] {0, 0};
+    [field: SerializeField] private int ProjectileCount {get; set;} = 1;
+    [field: SerializeField] private int Delay {get; set;} = 0;
+    [field: SerializeField] private float InitAngle {get; set;} = 0f;
+    [field: SerializeField] private float AngleOffset {get; set;} = 0f;
+    [field: SerializeField] private float HOffset {get; set;} = 0f;
+    [field: SerializeField] private LayerMask TargetLayerMask {get; set;} = 0;
+    [field: SerializeField] private LayerMask IgnorePlayerMask { get; set; } = 0;
+
+    override public async UniTask Shoot(GameObject bossObject)
+    {
+        GameObject targetObject = new GameObject();
+        targetObject.transform.position = new Vector3(Origin[0], Origin[1], 0);
+        float newAngle = InitAngle * (float) Math.PI / 180;
+        for (int i = 0; i < ProjectileCount; i++)
+        {
+            Vector2 angle = new Vector2((float) Math.Sin(newAngle), (float) Math.Cos(newAngle));
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, targetObject.transform, angle, TargetLayerMask, IgnorePlayerMask);
+            newAngle = newAngle + AngleOffset * (float) Math.PI / 180;
+            targetObject.transform.position = new Vector3(targetObject.transform.position.x + HOffset, Origin[1], 0);
+            await UniTask.Delay(Delay);
+        }
+        Destroy(targetObject);
+    }
+}
