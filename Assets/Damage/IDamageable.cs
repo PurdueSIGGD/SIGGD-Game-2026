@@ -19,4 +19,11 @@ public struct DamageContext
     public float DamageAmount;
     public GameObject Attacker;
     public GameObject Victim;
+
+    public DamageContext(float damageAmount, GameObject attacker, GameObject victim)
+    {
+        DamageAmount = damageAmount;
+        Attacker = attacker;
+        Victim = victim;
+    }
 }

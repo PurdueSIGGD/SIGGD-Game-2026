@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine.Splines;
@@ -9,6 +10,10 @@ using Unity.VisualScripting;
 
 public class Bullet : MonoBehaviour
 {
+    public static UnityEvent<Bullet, GameObject> OnBulletHit;
+
+    public bool DestroyOnHit { get; set; } = true;
+
     private bool isExplosive;
     private bool hasSpline;
     private int damage;
@@ -133,7 +138,7 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Set the sprite, position, rotation and velocity of the bullet as well as the basic bullet values gotten from the ProjectilScriptableObject
     /// </summary>
-    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection)
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         currentKnotIndex = 0;
         initialzedTarget = false;
@@ -156,7 +161,7 @@ public class Bullet : MonoBehaviour
 
         gameObject.transform.localScale = projectileScriptableObject.ProjectileScale;
 
-        SetBulletCollider(projectileScriptableObject);
+        SetBulletCollider(projectileScriptableObject, layerToHit, layerToIgnore);
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
@@ -175,9 +180,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject)
+    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject, LayerMask layerToHit, LayerMask layerToIgnore)
     {
         List<Vector2[]> paths = projectileScriptableObject.PhysicsPaths;
+
+        bulletCollider.includeLayers = layerToHit;
+        bulletCollider.excludeLayers = layerToIgnore;
 
         if (paths != null && paths.Count > 0)
         {
@@ -191,6 +199,23 @@ public class Bullet : MonoBehaviour
         else
         {
             bulletCollider.pathCount = 0;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var damageable = other.GetComponent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(new DamageContext(damage, gameObject, other.gameObject));
+        }
+
+        OnBulletHit?.Invoke(this, other.gameObject);
+
+        if (DestroyOnHit)
+        {
+            ProjectileManager.Instance.ProjectilePool.Release(gameObject);
         }
     }
 

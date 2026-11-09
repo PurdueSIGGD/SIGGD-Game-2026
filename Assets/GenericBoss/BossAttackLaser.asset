@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a494cd24be79f6346a42153b670fe436, type: 3}
+  m_Name: BossAttackLaser
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttackLaser
+  <Origin>k__BackingField: {x: 26, y: 0}
+  <Length>k__BackingField: 70
+  <LeftAngle>k__BackingField: 165
+  <RightAngle>k__BackingField: 195
+  <Damage>k__BackingField: 1
+  <Lifetime>k__BackingField: 500
+  <Laser>k__BackingField: {fileID: 4352225993967385610, guid: a0e60902d60fb334083f0c22c7876759, type: 3}

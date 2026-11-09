@@ -1,0 +1,3003 @@
+fileFormatVersion: 2
+guid: a70790e818edb2b449e3d13b980aa887
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1106175145477813410
+    second: T_Background_SpaceIndustrialDebris_0
+  - first:
+      213: 9189495820462717479
+    second: T_Background_SpaceIndustrialDebris_1
+  - first:
+      213: -6792004918172660244
+    second: T_Background_SpaceIndustrialDebris_2
+  - first:
+      213: -2242930238966890164
+    second: T_Background_SpaceIndustrialDebris_3
+  - first:
+      213: 8715055512227293667
+    second: T_Background_SpaceIndustrialDebris_4
+  - first:
+      213: -4142565958778839872
+    second: T_Background_SpaceIndustrialDebris_5
+  - first:
+      213: 7506028204658016173
+    second: T_Background_SpaceIndustrialDebris_6
+  - first:
+      213: 9149190514334690783
+    second: T_Background_SpaceIndustrialDebris_7
+  - first:
+      213: -1561999997651798444
+    second: T_Background_SpaceIndustrialDebris_8
+  - first:
+      213: 1813597675311352142
+    second: T_Background_SpaceIndustrialDebris_9
+  - first:
+      213: 1304524849279497888
+    second: T_Background_SpaceIndustrialDebris_10
+  - first:
+      213: 2006120571526778140
+    second: T_Background_SpaceIndustrialDebris_11
+  - first:
+      213: -864043638713138035
+    second: T_Background_SpaceIndustrialDebris_12
+  - first:
+      213: -6703352306150777595
+    second: T_Background_SpaceIndustrialDebris_13
+  - first:
+      213: 2649052838526540365
+    second: T_Background_SpaceIndustrialDebris_14
+  - first:
+      213: 6071688185981337033
+    second: T_Background_SpaceIndustrialDebris_15
+  - first:
+      213: -4209030543421849792
+    second: T_Background_SpaceIndustrialDebris_16
+  - first:
+      213: -5551881847916174693
+    second: T_Background_SpaceIndustrialDebris_17
+  - first:
+      213: 5130972369389729862
+    second: T_Background_SpaceIndustrialDebris_18
+  - first:
+      213: -8769805568077204522
+    second: T_Background_SpaceIndustrialDebris_19
+  - first:
+      213: -9097657826809288022
+    second: T_Background_SpaceIndustrialDebris_20
+  - first:
+      213: -9202583606547406464
+    second: T_Background_SpaceIndustrialDebris_21
+  - first:
+      213: -5632099385649635501
+    second: T_Background_SpaceIndustrialDebris_22
+  - first:
+      213: -9066119228958208266
+    second: T_Background_SpaceIndustrialDebris_23
+  - first:
+      213: 7764825989265101173
+    second: T_Background_SpaceIndustrialDebris_24
+  - first:
+      213: 2604686518272604165
+    second: T_Background_SpaceIndustrialDebris_25
+  - first:
+      213: 601969715575673440
+    second: T_Background_SpaceIndustrialDebris_26
+  - first:
+      213: -4569346371419516998
+    second: T_Background_SpaceIndustrialDebris_27
+  - first:
+      213: -4563458962841679025
+    second: T_Background_SpaceIndustrialDebris_28
+  - first:
+      213: 3335972130036803727
+    second: T_Background_SpaceIndustrialDebris_29
+  - first:
+      213: 9132418833446029191
+    second: T_Background_SpaceIndustrialDebris_30
+  - first:
+      213: -4542842470811210744
+    second: T_Background_SpaceIndustrialDebris_31
+  - first:
+      213: -2483990822145184639
+    second: T_Background_SpaceIndustrialDebris_32
+  - first:
+      213: -858071879139632599
+    second: T_Background_SpaceIndustrialDebris_33
+  - first:
+      213: 8681036905625650537
+    second: T_Background_SpaceIndustrialDebris_34
+  - first:
+      213: -5733399956523843947
+    second: T_Background_SpaceIndustrialDebris_35
+  - first:
+      213: -4359918321147838445
+    second: T_Background_SpaceIndustrialDebris_36
+  - first:
+      213: -8749709779153473688
+    second: T_Background_SpaceIndustrialDebris_37
+  - first:
+      213: 2505667807946418598
+    second: T_Background_SpaceIndustrialDebris_38
+  - first:
+      213: 7592330534557036042
+    second: T_Background_SpaceIndustrialDebris_39
+  - first:
+      213: -3089372724662590034
+    second: T_Background_SpaceIndustrialDebris_40
+  - first:
+      213: 7439781153143822684
+    second: T_Background_SpaceIndustrialDebris_41
+  - first:
+      213: -550297075650878586
+    second: T_Background_SpaceIndustrialDebris_42
+  - first:
+      213: -7099326683679222665
+    second: T_Background_SpaceIndustrialDebris_43
+  - first:
+      213: 409146413865530783
+    second: T_Background_SpaceIndustrialDebris_44
+  - first:
+      213: -5136471541133799246
+    second: T_Background_SpaceIndustrialDebris_45
+  - first:
+      213: 5947537136832431109
+    second: T_Background_SpaceIndustrialDebris_46
+  - first:
+      213: 1933152772685973503
+    second: T_Background_SpaceIndustrialDebris_47
+  - first:
+      213: 817508904707288358
+    second: T_Background_SpaceIndustrialDebris_48
+  - first:
+      213: -2871030650873600869
+    second: T_Background_SpaceIndustrialDebris_49
+  - first:
+      213: -1133367889064322965
+    second: T_Background_SpaceIndustrialDebris_50
+  - first:
+      213: 2240688536029279381
+    second: T_Background_SpaceIndustrialDebris_51
+  - first:
+      213: 3574938085333612466
+    second: T_Background_SpaceIndustrialDebris_52
+  - first:
+      213: 1832202521173362767
+    second: T_Background_SpaceIndustrialDebris_53
+  - first:
+      213: 8920292917850416247
+    second: T_Background_SpaceIndustrialDebris_54
+  - first:
+      213: 7855895852835090849
+    second: T_Background_SpaceIndustrialDebris_55
+  - first:
+      213: -964305669444180996
+    second: T_Background_SpaceIndustrialDebris_56
+  - first:
+      213: 7219226131601061621
+    second: T_Background_SpaceIndustrialDebris_57
+  - first:
+      213: -1724774242322180410
+    second: T_Background_SpaceIndustrialDebris_58
+  - first:
+      213: -3757515460244793976
+    second: T_Background_SpaceIndustrialDebris_59
+  - first:
+      213: -1010391663368227066
+    second: T_Background_SpaceIndustrialDebris_60
+  - first:
+      213: 4525469660151744721
+    second: T_Background_SpaceIndustrialDebris_61
+  - first:
+      213: -3640721696671960853
+    second: T_Background_SpaceIndustrialDebris_62
+  - first:
+      213: 4155660155204161032
+    second: T_Background_SpaceIndustrialDebris_63
+  - first:
+      213: -8029555350899342135
+    second: T_Background_SpaceIndustrialDebris_64
+  - first:
+      213: 2282117818010684524
+    second: T_Background_SpaceIndustrialDebris_65
+  - first:
+      213: -697523454482346878
+    second: T_Background_SpaceIndustrialDebris_66
+  - first:
+      213: 8742581155488176432
+    second: T_Background_SpaceIndustrialDebris_67
+  - first:
+      213: 7144633736681507056
+    second: T_Background_SpaceIndustrialDebris_68
+  - first:
+      213: -3486179259642519298
+    second: T_Background_SpaceIndustrialDebris_69
+  - first:
+      213: 5256373166542947450
+    second: T_Background_SpaceIndustrialDebris_70
+  - first:
+      213: 8114408189448057808
+    second: T_Background_SpaceIndustrialDebris_71
+  - first:
+      213: -9033035674459861446
+    second: T_Background_SpaceIndustrialDebris_72
+  - first:
+      213: -6440922808772672899
+    second: T_Background_SpaceIndustrialDebris_73
+  - first:
+      213: 9092483688386078678
+    second: T_Background_SpaceIndustrialDebris_74
+  - first:
+      213: -6258525178238829417
+    second: T_Background_SpaceIndustrialDebris_75
+  - first:
+      213: -6870639265807189743
+    second: T_Background_SpaceIndustrialDebris_76
+  - first:
+      213: 1132294649686959145
+    second: T_Background_SpaceIndustrialDebris_77
+  - first:
+      213: -854194238461306377
+    second: T_Background_SpaceIndustrialDebris_78
+  - first:
+      213: 8069916157777083095
+    second: T_Background_SpaceIndustrialDebris_79
+  - first:
+      213: -5611703173083491242
+    second: T_Background_SpaceIndustrialDebris_80
+  - first:
+      213: -6474731423817279894
+    second: T_Background_SpaceIndustrialDebris_81
+  - first:
+      213: -3241652927577731450
+    second: T_Background_SpaceIndustrialDebris_82
+  - first:
+      213: -3089185744109503031
+    second: T_Background_SpaceIndustrialDebris_83
+  - first:
+      213: -2734422205241485436
+    second: T_Background_SpaceIndustrialDebris_84
+  - first:
+      213: 507000203161125338
+    second: T_Background_SpaceIndustrialDebris_85
+  - first:
+      213: -2128883555983456340
+    second: T_Background_SpaceIndustrialDebris_86
+  - first:
+      213: 2786485790048317402
+    second: T_Background_SpaceIndustrialDebris_87
+  - first:
+      213: -3573873272330354025
+    second: T_Background_SpaceIndustrialDebris_88
+  - first:
+      213: -5263267262979460788
+    second: T_Background_SpaceIndustrialDebris_89
+  - first:
+      213: -7358928472266797310
+    second: T_Background_SpaceIndustrialDebris_90
+  - first:
+      213: 4649738653810952460
+    second: T_Background_SpaceIndustrialDebris_91
+  - first:
+      213: -7969661143376367247
+    second: T_Background_SpaceIndustrialDebris_92
+  - first:
+      213: -4862481141336022301
+    second: T_Background_SpaceIndustrialDebris_93
+  - first:
+      213: -3017073429460352268
+    second: T_Background_SpaceIndustrialDebris_94
+  - first:
+      213: 2050524992870521026
+    second: T_Background_SpaceIndustrialDebris_95
+  - first:
+      213: 542022452688455980
+    second: T_Background_SpaceIndustrialDebris_96
+  - first:
+      213: -2677039138218472064
+    second: T_Background_SpaceIndustrialDebris_97
+  - first:
+      213: -7536278728991234051
+    second: T_Background_SpaceIndustrialDebris_98
+  - first:
+      213: -9118974846282523068
+    second: T_Background_SpaceIndustrialDebris_99
+  - first:
+      213: 5173556454344825812
+    second: T_Background_SpaceIndustrialDebris_100
+  - first:
+      213: 3997566191977056787
+    second: T_Background_SpaceIndustrialDebris_101
+  - first:
+      213: 7688402818395691638
+    second: T_Background_SpaceIndustrialDebris_102
+  - first:
+      213: 5332086169870656546
+    second: T_Background_SpaceIndustrialDebris_103
+  - first:
+      213: 7253408015004015402
+    second: T_Background_SpaceIndustrialDebris_104
+  - first:
+      213: 4493805280655406620
+    second: T_Background_SpaceIndustrialDebris_105
+  - first:
+      213: 4578964742519103508
+    second: T_Background_SpaceIndustrialDebris_106
+  - first:
+      213: 5197070203196561256
+    second: T_Background_SpaceIndustrialDebris_107
+  - first:
+      213: -2609648100956979209
+    second: T_Background_SpaceIndustrialDebris_108
+  - first:
+      213: -6425678553281504380
+    second: T_Background_SpaceIndustrialDebris_109
+  - first:
+      213: -432233832544302626
+    second: T_Background_SpaceIndustrialDebris_110
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_0
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1850
+        width: 49
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bcd62e09316a0f0800000000000000
+      internalID: -1106175145477813410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_1
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 1869
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72afd9bb2c5a78f70800000000000000
+      internalID: 9189495820462717479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_2
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 1814
+        width: 193
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedcc933383fdb1a0800000000000000
+      internalID: -6792004918172660244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_3
+      rect:
+        serializedVersion: 2
+        x: 3135
+        y: 1852
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41856ac4d28fd0e0800000000000000
+      internalID: -2242930238966890164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_4
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 1798
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e92e1460d812f870800000000000000
+      internalID: 8715055512227293667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_5
+      rect:
+        serializedVersion: 2
+        x: 3109
+        y: 1811
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc9c507536a286c0800000000000000
+      internalID: -4142565958778839872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1763
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf34bc22e4ca2860800000000000000
+      internalID: 7506028204658016173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_7
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1273
+        width: 416
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fddea4d5c4478fe70800000000000000
+      internalID: 9149190514334690783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_8
+      rect:
+        serializedVersion: 2
+        x: 2992
+        y: 1764
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456bdc82749a25ae0800000000000000
+      internalID: -1561999997651798444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_9
+      rect:
+        serializedVersion: 2
+        x: 3084
+        y: 1729
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4948621a713b2910800000000000000
+      internalID: 1813597675311352142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_10
+      rect:
+        serializedVersion: 2
+        x: 3382
+        y: 1547
+        width: 234
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a679f1507a9a1210800000000000000
+      internalID: 1304524849279497888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_11
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1675
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d057ae70c27db10800000000000000
+      internalID: 2006120571526778140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_12
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 1604
+        width: 174
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84411473ec4204f0800000000000000
+      internalID: -864043638713138035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_13
+      rect:
+        serializedVersion: 2
+        x: 2510
+        y: 1390
+        width: 323
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d569be798e8f2a0800000000000000
+      internalID: -6703352306150777595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_14
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1552
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a5d97758353c420800000000000000
+      internalID: 2649052838526540365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_15
+      rect:
+        serializedVersion: 2
+        x: 2852
+        y: 1557
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cd7a586c38f24450800000000000000
+      internalID: 6071688185981337033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_16
+      rect:
+        serializedVersion: 2
+        x: 3107
+        y: 1451
+        width: 114
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f329a65058695c0800000000000000
+      internalID: -4209030543421849792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_17
+      rect:
+        serializedVersion: 2
+        x: 3498
+        y: 1518
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92640cdfd0c3f2b0800000000000000
+      internalID: -5551881847916174693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_18
+      rect:
+        serializedVersion: 2
+        x: 3579
+        y: 1515
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648b1d55f20e43740800000000000000
+      internalID: 5130972369389729862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_19
+      rect:
+        serializedVersion: 2
+        x: 3001
+        y: 1498
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3f38ddc446b4680800000000000000
+      internalID: -8769805568077204522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_20
+      rect:
+        serializedVersion: 2
+        x: 3518
+        y: 1501
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaaeaf07860aeb180800000000000000
+      internalID: -9097657826809288022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_21
+      rect:
+        serializedVersion: 2
+        x: 3596
+        y: 1486
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081a8eb97fad94080800000000000000
+      internalID: -9202583606547406464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_22
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 1457
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f58aae273c6d1b0800000000000000
+      internalID: -5632099385649635501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_23
+      rect:
+        serializedVersion: 2
+        x: 3254
+        y: 1459
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fe8b9a789cae2280800000000000000
+      internalID: -9066119228958208266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_24
+      rect:
+        serializedVersion: 2
+        x: 3532
+        y: 1454
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5711ed0f81432cb60800000000000000
+      internalID: 7764825989265101173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_25
+      rect:
+        serializedVersion: 2
+        x: 2978
+        y: 1431
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50833e09694b52420800000000000000
+      internalID: 2604686518272604165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_26
+      rect:
+        serializedVersion: 2
+        x: 3135
+        y: 1440
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0625e665440aa5800800000000000000
+      internalID: 601969715575673440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_27
+      rect:
+        serializedVersion: 2
+        x: 3027
+        y: 1428
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abfc1d34fab6690c0800000000000000
+      internalID: -4569346371419516998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_28
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 1411
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4bcfb460465ba0c0800000000000000
+      internalID: -4563458962841679025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_29
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 1290
+        width: 175
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f88627f3af0cb4e20800000000000000
+      internalID: 3335972130036803727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_30
+      rect:
+        serializedVersion: 2
+        x: 3172
+        y: 1376
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78743ab1b8edcbe70800000000000000
+      internalID: 9132418833446029191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_31
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1011
+        width: 318
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c6db087d494f0c0800000000000000
+      internalID: -4542842470811210744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_32
+      rect:
+        serializedVersion: 2
+        x: 3158
+        y: 1360
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ca4bc0287178dd0800000000000000
+      internalID: -2483990822145184639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_33
+      rect:
+        serializedVersion: 2
+        x: 3239
+        y: 1367
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a51241c248714f0800000000000000
+      internalID: -858071879139632599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_34
+      rect:
+        serializedVersion: 2
+        x: 3143
+        y: 1321
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9658fd1521d397870800000000000000
+      internalID: 8681036905625650537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_35
+      rect:
+        serializedVersion: 2
+        x: 3184
+        y: 1324
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ef72ccd1fde60b0800000000000000
+      internalID: -5733399956523843947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_36
+      rect:
+        serializedVersion: 2
+        x: 3834
+        y: 1321
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310044203657e73c0800000000000000
+      internalID: -4359918321147838445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_37
+      rect:
+        serializedVersion: 2
+        x: 3860
+        y: 1322
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fabc55059c29680800000000000000
+      internalID: -8749709779153473688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_38
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 1292
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a927c1889be5c220800000000000000
+      internalID: 2505667807946418598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_39
+      rect:
+        serializedVersion: 2
+        x: 3314
+        y: 1026
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0eaf9135606d5960800000000000000
+      internalID: 7592330534557036042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_40
+      rect:
+        serializedVersion: 2
+        x: 3808
+        y: 1275
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5a4b700e75025d0800000000000000
+      internalID: -3089372724662590034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_41
+      rect:
+        serializedVersion: 2
+        x: 3881
+        y: 1292
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5998c78a896f3760800000000000000
+      internalID: 7439781153143822684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_42
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1272
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 683a4eca9b3fc58f0800000000000000
+      internalID: -550297075650878586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_43
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 1267
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77419dabeff1a7d90800000000000000
+      internalID: -7099326683679222665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_44
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 1179
+        width: 61
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f957493ee749da500800000000000000
+      internalID: 409146413865530783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_45
+      rect:
+        serializedVersion: 2
+        x: 3874
+        y: 1247
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b011d7f85697b8b0800000000000000
+      internalID: -5136471541133799246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_46
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 1220
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5044759b385e98250800000000000000
+      internalID: 5947537136832431109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_47
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 1208
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff742885430f3da10800000000000000
+      internalID: 1933152772685973503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_48
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 1188
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62debc97400685b00800000000000000
+      internalID: 817508904707288358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_49
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 1150
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94ab6b95dc0828d0800000000000000
+      internalID: -2871030650873600869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_50
+      rect:
+        serializedVersion: 2
+        x: 2789
+        y: 1172
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b689c74e8e77540f0800000000000000
+      internalID: -1133367889064322965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_51
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1082
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594b0521a56881f10800000000000000
+      internalID: 2240688536029279381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_52
+      rect:
+        serializedVersion: 2
+        x: 2555
+        y: 846
+        width: 222
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7335e6f3bbc9130800000000000000
+      internalID: 3574938085333612466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_53
+      rect:
+        serializedVersion: 2
+        x: 3195
+        y: 1000
+        width: 146
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f480d1f4c7a4d6910800000000000000
+      internalID: 1832202521173362767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_54
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 636
+        width: 351
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77428e4a52f3bcb70800000000000000
+      internalID: 8920292917850416247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_55
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 859
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a133b4e7afb50d60800000000000000
+      internalID: 7855895852835090849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_56
+      rect:
+        serializedVersion: 2
+        x: 3275
+        y: 787
+        width: 200
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf362ed4a191e92f0800000000000000
+      internalID: -964305669444180996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_57
+      rect:
+        serializedVersion: 2
+        x: 3190
+        y: 838
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f67c47eae7df2460800000000000000
+      internalID: 7219226131601061621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_58
+      rect:
+        serializedVersion: 2
+        x: 3227
+        y: 821
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c694a007fe5018e0800000000000000
+      internalID: -1724774242322180410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_59
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 762
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885121ad89f9adbc0800000000000000
+      internalID: -3757515460244793976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_60
+      rect:
+        serializedVersion: 2
+        x: 3192
+        y: 813
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607bbeca22e5af1f0800000000000000
+      internalID: -1010391663368227066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_61
+      rect:
+        serializedVersion: 2
+        x: 3174
+        y: 790
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8072fcda2bdce30800000000000000
+      internalID: 4525469660151744721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_62
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 675
+        width: 125
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be07fcff7ee897dc0800000000000000
+      internalID: -3640721696671960853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_63
+      rect:
+        serializedVersion: 2
+        x: 2811
+        y: 581
+        width: 201
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e403eb4eedba930800000000000000
+      internalID: 4155660155204161032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_64
+      rect:
+        serializedVersion: 2
+        x: 2891
+        y: 755
+        width: 76
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4ce4563f9419090800000000000000
+      internalID: -8029555350899342135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_65
+      rect:
+        serializedVersion: 2
+        x: 2896
+        y: 748
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ccd167016bbaf10800000000000000
+      internalID: 2282117818010684524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_66
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 742
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c83112d16e156f0800000000000000
+      internalID: -697523454482346878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_67
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 746
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03995e0ad33e35970800000000000000
+      internalID: 8742581155488176432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_68
+      rect:
+        serializedVersion: 2
+        x: 2910
+        y: 740
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f84c259786d62360800000000000000
+      internalID: 7144633736681507056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_69
+      rect:
+        serializedVersion: 2
+        x: 2899
+        y: 736
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef06ca51f6a9e9fc0800000000000000
+      internalID: -3486179259642519298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_70
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 726
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7400b6ab8362f840800000000000000
+      internalID: 5256373166542947450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_71
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 336
+        width: 407
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3729e914b2c9070800000000000000
+      internalID: 8114408189448057808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_72
+      rect:
+        serializedVersion: 2
+        x: 2974
+        y: 699
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e8364c9e534a280800000000000000
+      internalID: -9033035674459861446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_73
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 680
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d72c465b4de3d96a0800000000000000
+      internalID: -6440922808772672899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_74
+      rect:
+        serializedVersion: 2
+        x: 2977
+        y: 683
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d729449dbdfe2e70800000000000000
+      internalID: 9092483688386078678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_75
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 673
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c7c3d62804529a0800000000000000
+      internalID: -6258525178238829417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_76
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 628
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11936bd6df596a0a0800000000000000
+      internalID: -6870639265807189743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_77
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 641
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924aaa71cf7b6bf00800000000000000
+      internalID: 1132294649686959145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_78
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 640
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f91457adda4524f0800000000000000
+      internalID: -854194238461306377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_79
+      rect:
+        serializedVersion: 2
+        x: 3204
+        y: 647
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dafc7f3df91eff60800000000000000
+      internalID: 8069916157777083095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_80
+      rect:
+        serializedVersion: 2
+        x: 3263
+        y: 627
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6541d6732b93f12b0800000000000000
+      internalID: -5611703173083491242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_81
+      rect:
+        serializedVersion: 2
+        x: 3730
+        y: 485
+        width: 139
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a66df4b13122526a0800000000000000
+      internalID: -6474731423817279894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_82
+      rect:
+        serializedVersion: 2
+        x: 3047
+        y: 605
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ecf9e56d55303d0800000000000000
+      internalID: -3241652927577731450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_83
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 614
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cdf625dee10125d0800000000000000
+      internalID: -3089185744109503031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_84
+      rect:
+        serializedVersion: 2
+        x: 3206
+        y: 518
+        width: 123
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48714aeed716d0ad0800000000000000
+      internalID: -2734422205241485436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_85
+      rect:
+        serializedVersion: 2
+        x: 3182
+        y: 595
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad14872aff9390700800000000000000
+      internalID: 507000203161125338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_86
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 588
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca78f656fafa472e0800000000000000
+      internalID: -2128883555983456340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_87
+      rect:
+        serializedVersion: 2
+        x: 2223
+        y: 561
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adfe08700169ba620800000000000000
+      internalID: 2786485790048317402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_88
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 416
+        width: 190
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7928c7aa13d076ec0800000000000000
+      internalID: -3573873272330354025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_89
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 380
+        width: 58
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41ba207f4e15f6b0800000000000000
+      internalID: -5263267262979460788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_90
+      rect:
+        serializedVersion: 2
+        x: 2753
+        y: 458
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f87033b85dfd990800000000000000
+      internalID: -7358928472266797310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_91
+      rect:
+        serializedVersion: 2
+        x: 3547
+        y: 192
+        width: 350
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c090ec69ba0378040800000000000000
+      internalID: 4649738653810952460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_92
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 386
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17171d84a63166190800000000000000
+      internalID: -7969661143376367247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_93
+      rect:
+        serializedVersion: 2
+        x: 2625
+        y: 421
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e261ab1a2ff48cb0800000000000000
+      internalID: -4862481141336022301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_94
+      rect:
+        serializedVersion: 2
+        x: 2826
+        y: 392
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f20fb773b33126d0800000000000000
+      internalID: -3017073429460352268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_95
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 346
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c89b1bed9de47c10800000000000000
+      internalID: 2050524992870521026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_96
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 245
+        width: 138
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2908c88c86a58700800000000000000
+      internalID: 542022452688455980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_97
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 315
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d8bac561f39dad0800000000000000
+      internalID: -2677039138218472064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_98
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 315
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df72526cc62c96790800000000000000
+      internalID: -7536278728991234051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_99
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 253
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e9b9311b4e27180800000000000000
+      internalID: -9118974846282523068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_100
+      rect:
+        serializedVersion: 2
+        x: 2851
+        y: 251
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db17ae3f2a2cc740800000000000000
+      internalID: 5173556454344825812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_101
+      rect:
+        serializedVersion: 2
+        x: 2874
+        y: 250
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a47e685453a7730800000000000000
+      internalID: 3997566191977056787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_102
+      rect:
+        serializedVersion: 2
+        x: 2802
+        y: 220
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a5690e0a1b2ba60800000000000000
+      internalID: 7688402818395691638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_103
+      rect:
+        serializedVersion: 2
+        x: 2845
+        y: 216
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224e9e2fe106ff940800000000000000
+      internalID: 5332086169870656546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_104
+      rect:
+        serializedVersion: 2
+        x: 2867
+        y: 202
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b1941d82849a460800000000000000
+      internalID: 7253408015004015402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_105
+      rect:
+        serializedVersion: 2
+        x: 2843
+        y: 198
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c167d33f7143d5e30800000000000000
+      internalID: 4493805280655406620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_106
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 184
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410a3e44c20cb8f30800000000000000
+      internalID: 4578964742519103508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_107
+      rect:
+        serializedVersion: 2
+        x: 2922
+        y: 182
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8675c4680d3bf1840800000000000000
+      internalID: 5197070203196561256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_108
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 187
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ffbfa1f0eaa8cbd0800000000000000
+      internalID: -2609648100956979209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_109
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 56
+        width: 272
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b5fc6866763d6a0800000000000000
+      internalID: -6425678553281504380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Background_SpaceIndustrialDebris_110
+      rect:
+        serializedVersion: 2
+        x: 2696
+        y: 91
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed98a4f8e95600af0800000000000000
+      internalID: -432233832544302626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      T_Background_SpaceIndustrialDebris_0: -1106175145477813410
+      T_Background_SpaceIndustrialDebris_1: 9189495820462717479
+      T_Background_SpaceIndustrialDebris_10: 1304524849279497888
+      T_Background_SpaceIndustrialDebris_100: 5173556454344825812
+      T_Background_SpaceIndustrialDebris_101: 3997566191977056787
+      T_Background_SpaceIndustrialDebris_102: 7688402818395691638
+      T_Background_SpaceIndustrialDebris_103: 5332086169870656546
+      T_Background_SpaceIndustrialDebris_104: 7253408015004015402
+      T_Background_SpaceIndustrialDebris_105: 4493805280655406620
+      T_Background_SpaceIndustrialDebris_106: 4578964742519103508
+      T_Background_SpaceIndustrialDebris_107: 5197070203196561256
+      T_Background_SpaceIndustrialDebris_108: -2609648100956979209
+      T_Background_SpaceIndustrialDebris_109: -6425678553281504380
+      T_Background_SpaceIndustrialDebris_11: 2006120571526778140
+      T_Background_SpaceIndustrialDebris_110: -432233832544302626
+      T_Background_SpaceIndustrialDebris_12: -864043638713138035
+      T_Background_SpaceIndustrialDebris_13: -6703352306150777595
+      T_Background_SpaceIndustrialDebris_14: 2649052838526540365
+      T_Background_SpaceIndustrialDebris_15: 6071688185981337033
+      T_Background_SpaceIndustrialDebris_16: -4209030543421849792
+      T_Background_SpaceIndustrialDebris_17: -5551881847916174693
+      T_Background_SpaceIndustrialDebris_18: 5130972369389729862
+      T_Background_SpaceIndustrialDebris_19: -8769805568077204522
+      T_Background_SpaceIndustrialDebris_2: -6792004918172660244
+      T_Background_SpaceIndustrialDebris_20: -9097657826809288022
+      T_Background_SpaceIndustrialDebris_21: -9202583606547406464
+      T_Background_SpaceIndustrialDebris_22: -5632099385649635501
+      T_Background_SpaceIndustrialDebris_23: -9066119228958208266
+      T_Background_SpaceIndustrialDebris_24: 7764825989265101173
+      T_Background_SpaceIndustrialDebris_25: 2604686518272604165
+      T_Background_SpaceIndustrialDebris_26: 601969715575673440
+      T_Background_SpaceIndustrialDebris_27: -4569346371419516998
+      T_Background_SpaceIndustrialDebris_28: -4563458962841679025
+      T_Background_SpaceIndustrialDebris_29: 3335972130036803727
+      T_Background_SpaceIndustrialDebris_3: -2242930238966890164
+      T_Background_SpaceIndustrialDebris_30: 9132418833446029191
+      T_Background_SpaceIndustrialDebris_31: -4542842470811210744
+      T_Background_SpaceIndustrialDebris_32: -2483990822145184639
+      T_Background_SpaceIndustrialDebris_33: -858071879139632599
+      T_Background_SpaceIndustrialDebris_34: 8681036905625650537
+      T_Background_SpaceIndustrialDebris_35: -5733399956523843947
+      T_Background_SpaceIndustrialDebris_36: -4359918321147838445
+      T_Background_SpaceIndustrialDebris_37: -8749709779153473688
+      T_Background_SpaceIndustrialDebris_38: 2505667807946418598
+      T_Background_SpaceIndustrialDebris_39: 7592330534557036042
+      T_Background_SpaceIndustrialDebris_4: 8715055512227293667
+      T_Background_SpaceIndustrialDebris_40: -3089372724662590034
+      T_Background_SpaceIndustrialDebris_41: 7439781153143822684
+      T_Background_SpaceIndustrialDebris_42: -550297075650878586
+      T_Background_SpaceIndustrialDebris_43: -7099326683679222665
+      T_Background_SpaceIndustrialDebris_44: 409146413865530783
+      T_Background_SpaceIndustrialDebris_45: -5136471541133799246
+      T_Background_SpaceIndustrialDebris_46: 5947537136832431109
+      T_Background_SpaceIndustrialDebris_47: 1933152772685973503
+      T_Background_SpaceIndustrialDebris_48: 817508904707288358
+      T_Background_SpaceIndustrialDebris_49: -2871030650873600869
+      T_Background_SpaceIndustrialDebris_5: -4142565958778839872
+      T_Background_SpaceIndustrialDebris_50: -1133367889064322965
+      T_Background_SpaceIndustrialDebris_51: 2240688536029279381
+      T_Background_SpaceIndustrialDebris_52: 3574938085333612466
+      T_Background_SpaceIndustrialDebris_53: 1832202521173362767
+      T_Background_SpaceIndustrialDebris_54: 8920292917850416247
+      T_Background_SpaceIndustrialDebris_55: 7855895852835090849
+      T_Background_SpaceIndustrialDebris_56: -964305669444180996
+      T_Background_SpaceIndustrialDebris_57: 7219226131601061621
+      T_Background_SpaceIndustrialDebris_58: -1724774242322180410
+      T_Background_SpaceIndustrialDebris_59: -3757515460244793976
+      T_Background_SpaceIndustrialDebris_6: 7506028204658016173
+      T_Background_SpaceIndustrialDebris_60: -1010391663368227066
+      T_Background_SpaceIndustrialDebris_61: 4525469660151744721
+      T_Background_SpaceIndustrialDebris_62: -3640721696671960853
+      T_Background_SpaceIndustrialDebris_63: 4155660155204161032
+      T_Background_SpaceIndustrialDebris_64: -8029555350899342135
+      T_Background_SpaceIndustrialDebris_65: 2282117818010684524
+      T_Background_SpaceIndustrialDebris_66: -697523454482346878
+      T_Background_SpaceIndustrialDebris_67: 8742581155488176432
+      T_Background_SpaceIndustrialDebris_68: 7144633736681507056
+      T_Background_SpaceIndustrialDebris_69: -3486179259642519298
+      T_Background_SpaceIndustrialDebris_7: 9149190514334690783
+      T_Background_SpaceIndustrialDebris_70: 5256373166542947450
+      T_Background_SpaceIndustrialDebris_71: 8114408189448057808
+      T_Background_SpaceIndustrialDebris_72: -9033035674459861446
+      T_Background_SpaceIndustrialDebris_73: -6440922808772672899
+      T_Background_SpaceIndustrialDebris_74: 9092483688386078678
+      T_Background_SpaceIndustrialDebris_75: -6258525178238829417
+      T_Background_SpaceIndustrialDebris_76: -6870639265807189743
+      T_Background_SpaceIndustrialDebris_77: 1132294649686959145
+      T_Background_SpaceIndustrialDebris_78: -854194238461306377
+      T_Background_SpaceIndustrialDebris_79: 8069916157777083095
+      T_Background_SpaceIndustrialDebris_8: -1561999997651798444
+      T_Background_SpaceIndustrialDebris_80: -5611703173083491242
+      T_Background_SpaceIndustrialDebris_81: -6474731423817279894
+      T_Background_SpaceIndustrialDebris_82: -3241652927577731450
+      T_Background_SpaceIndustrialDebris_83: -3089185744109503031
+      T_Background_SpaceIndustrialDebris_84: -2734422205241485436
+      T_Background_SpaceIndustrialDebris_85: 507000203161125338
+      T_Background_SpaceIndustrialDebris_86: -2128883555983456340
+      T_Background_SpaceIndustrialDebris_87: 2786485790048317402
+      T_Background_SpaceIndustrialDebris_88: -3573873272330354025
+      T_Background_SpaceIndustrialDebris_89: -5263267262979460788
+      T_Background_SpaceIndustrialDebris_9: 1813597675311352142
+      T_Background_SpaceIndustrialDebris_90: -7358928472266797310
+      T_Background_SpaceIndustrialDebris_91: 4649738653810952460
+      T_Background_SpaceIndustrialDebris_92: -7969661143376367247
+      T_Background_SpaceIndustrialDebris_93: -4862481141336022301
+      T_Background_SpaceIndustrialDebris_94: -3017073429460352268
+      T_Background_SpaceIndustrialDebris_95: 2050524992870521026
+      T_Background_SpaceIndustrialDebris_96: 542022452688455980
+      T_Background_SpaceIndustrialDebris_97: -2677039138218472064
+      T_Background_SpaceIndustrialDebris_98: -7536278728991234051
+      T_Background_SpaceIndustrialDebris_99: -9118974846282523068
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

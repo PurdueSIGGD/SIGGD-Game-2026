@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 891077233689310710}
   - component: {fileID: 7748490189266953058}
   - component: {fileID: 5437340627052415855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -457,6 +457,12 @@ MonoBehaviour:
   Weapon: {fileID: 11400000, guid: ee76a40422a9b784d9b2d515118fc4bf, type: 2}
   FirePoint: {fileID: 0}
   armRotatePoint: {fileID: 7680011871215750500}
+  enemyLayerMasks:
+    serializedVersion: 2
+    m_Bits: 3072
+  ignoreLayerMasks:
+    serializedVersion: 2
+    m_Bits: 512
   curWeaponVisual: {fileID: 0}
   PlayerBody: {fileID: 3380938587474817520}
   CurrentAmmo: 0

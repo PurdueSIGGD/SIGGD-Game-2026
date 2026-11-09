@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4b9d1628374024e8e10aa56932014f, type: 3}
+  m_Name: BossAttackRobotSpawn
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttackRobotSpawn
+  <Pso>k__BackingField: {fileID: 11400000, guid: d1c5b29cc37313a4890d544cbced0ab6, type: 2}
+  <Origin>k__BackingField: 0100000001000000
+  <ProjectileCount>k__BackingField: 3
+  <Delay>k__BackingField: 500
+  <InitAngle>k__BackingField: -45
+  <AngleOffset>k__BackingField: 45
+  <HOffset>k__BackingField: 0
+  robotPrefab: {fileID: 6581808557611418782, guid: ff949fd1050459441b9a6ceb7a5a8bb1, type: 3}

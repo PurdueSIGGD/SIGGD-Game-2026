@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf3732a029d54644bd6d5a56dc87d00, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryWeapon
-  Projectile: {fileID: 11400000, guid: 45cd12a6760a6614b89fe15edac67b84, type: 2}
+  Projectile: {fileID: 11400000, guid: 5a93ab72c346e414a8d4871b76fcfe63, type: 2}
   WeaponName: Test Pistol
   NumBullets: 0
   Spread: 0
@@ -20,6 +20,6 @@ MonoBehaviour:
   Offset: 0
   Recoil: 2
   AmmoCapacity: 12
-  FireSpeed: 2
+  FireSpeed: 30
   WeaponVisualPrefab: {fileID: 3419575299417558390, guid: 60f73b4ec213d5748a5979e75f163767, type: 3}
   WeaponVisualRotationOffset: 0

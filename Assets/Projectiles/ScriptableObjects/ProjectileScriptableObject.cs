@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Splines;
 using System.Collections.Generic;
 
@@ -10,6 +11,7 @@ public class ProjectileScriptableObject : ScriptableObject
     public int Damage;
     public float Lifetime;
     public float Velocity;
+    [FormerlySerializedAs("ProjectileAngleOffset")]
     public float SpriteAngleOffset;
     // offsets the bullet used when attack are being fired to a point but need to be a little offset think like a shotgun or a boss shooting waves of attacks at different angles
     // just tweak this value from the gun script to change how the bullet is rotated

@@ -11,6 +11,8 @@ public class PrimaryGun : MonoBehaviour
     private Transform weaponHolderTransform;
 
     [SerializeField] private Transform armRotatePoint;
+    [SerializeField] LayerMask enemyLayerMasks;
+    [SerializeField] LayerMask ignoreLayerMasks;
     [SerializeField] private GameObject curWeaponVisual;
 
     public Rigidbody2D PlayerBody;
@@ -60,7 +62,11 @@ public class PrimaryGun : MonoBehaviour
 
     private void Fire()
     {
-        if (CurrentAmmo <= 0 || Time.time < nextFireTime) return;
+        if (CurrentAmmo <= 0 || Time.time < nextFireTime)
+        {
+            AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Player.Gun.FirstGun.FirstGun_CantShoot);
+            return;
+        }
 
         /*
         Vector2 mouseScreenPosition = InputManager.Instance.PointerScreenPosition;
@@ -74,12 +80,14 @@ public class PrimaryGun : MonoBehaviour
 
         Vector2 aimDir = -(armRotatePoint.position - FirePoint.position).normalized;
 
+        AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Player.Gun.FirstGun.FirstGun_Shoot);
+
         int count = Mathf.Max(1, Weapon.NumBullets);
         for (int i = 0; i < count; i++)
         {
             Vector2 shotDir = GetShotDirection(aimDir, i, count);
 
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Weapon.Projectile, FirePoint, shotDir, enemyLayerMasks, ignoreLayerMasks);
         }
         CurrentAmmo--;
         ApplyRecoil(-aimDir);
