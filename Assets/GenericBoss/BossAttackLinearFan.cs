@@ -22,6 +22,8 @@ public class BossAttackLinearFan : BossAttack
         float newAngle = InitAngle * (float) Math.PI / 180;
         for (int i = 0; i < ProjectileCount; i++)
         {
+            AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Boss_1.Attacks.Boss_1_ShootScrap);
+
             Vector2 angle = new Vector2((float) Math.Sin(newAngle), (float) Math.Cos(newAngle));
             ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, targetObject.transform, angle, TargetLayerMask, IgnorePlayerMask);
             newAngle = newAngle + AngleOffset * (float) Math.PI / 180;

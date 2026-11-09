@@ -1,5 +1,5 @@
+using FMODUnity;
 using UnityEngine;
-using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "BossData", menuName = "Data/BossData")]
 public class BossData : ScriptableObject
@@ -13,4 +13,5 @@ public class BossData : ScriptableObject
     [field: SerializeField] public float SpeedDamageThreshold {get; private set; } = 5.0f;
     [field: SerializeField] public float DamageMultiplier {get; private set; } = 10.0f;
     [field: SerializeField] public AttackPercents[] AttackPercentList {get; private set; } = new AttackPercents[5];
+    [field: SerializeField] public EventReference BossSoundTrack = AudioEvents.Music.Boss_Music.Boss_1.Boss_1_Music;
 }

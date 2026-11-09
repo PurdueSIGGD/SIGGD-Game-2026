@@ -16,6 +16,8 @@ public class BossAttackLaser : BossAttack
 
     override public async UniTask Shoot(GameObject bossObject)
     {
+        AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Boss_1.Attacks.Boss_1_Laser);
+        
         GameObject laserL = Instantiate(Laser, Origin, Quaternion.identity);
         laserL.GetComponent<Laser>().InitLaser(Length, LeftAngle, Origin, Damage, Lifetime);
         GameObject laserR = Instantiate(Laser, Origin, Quaternion.identity);

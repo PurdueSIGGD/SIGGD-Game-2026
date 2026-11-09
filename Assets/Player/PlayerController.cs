@@ -89,13 +89,25 @@ namespace PlayerSystem
                 {
                     rb.AddForce(currentInputVector * stats.Impulse, ForceMode2D.Impulse);
                 }
-                rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);            }
+                rb.AddForce(currentInputVector * stats.Acceleration, ForceMode2D.Force);
+
+                if (!hadLastInput)
+                {
+                    // player started input movement, play jetpack starting sfx
+                    AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Player.Movement.Jetpack.Jetpack_Start);
+                }
+            }
             else if (velocity.sqrMagnitude > 0.0001f)
             {
                 float maxStopForce = velocity.magnitude * rb.mass / Time.fixedDeltaTime;
                 float backForce = Mathf.Min(stats.Deceleration * rb.mass, maxStopForce);
                 rb.AddForce(-velocity.normalized * backForce);
 
+                if (hadLastInput)
+                {
+                    // player stopped input movement, play jetpack ending sfx
+                    AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Player.Movement.Jetpack.Jetpack_End);
+                }
             }
             hadLastInput = hasInput;
 
