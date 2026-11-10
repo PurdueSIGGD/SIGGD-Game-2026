@@ -4,8 +4,10 @@ using UnityEngine;
 public class ToolUser : MonoBehaviour
 {
     [SerializeField] private Transform armRotatePoint;
-    [SerializeField] private Tool SecondaryTool;
+    [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject SecondaryToolObject;
+
+    private Tool SecondaryTool;
 
     private PlayerInputHandler input;
 
@@ -52,12 +54,12 @@ public class ToolUser : MonoBehaviour
 
         SecondaryTool = newTool.GetComponent<Tool>();
 
+        // might not actually be needed depends on if we make a "shooter for the misc"
         WeaponPrefabTransformHolder holder = GetComponent<WeaponPrefabTransformHolder>();
 
-        // i hate object oriented programming so much
         if (SecondaryTool is ProjectileTool projectileTool)
         {
-            projectileTool.Equip(transform, armRotatePoint);
+            projectileTool.Equip(firePoint, armRotatePoint);
         }
         // else if (SecondaryTool is MeleeTool) // will need to be added eventually
         
