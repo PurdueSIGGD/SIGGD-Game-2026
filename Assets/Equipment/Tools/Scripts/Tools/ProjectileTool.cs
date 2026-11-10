@@ -2,17 +2,23 @@ using UnityEngine;
 
 public abstract class ProjectileTool : Tool
 {
-    [SerializeField] protected ToolProjectileData projectileData;
-    [SerializeField] protected Transform firePoint;
-    [SerializeField] protected Transform armRotatePoint;
+    [SerializeField] protected ToolProjectileData ProjectileData;
+    [SerializeField] protected Transform FirePoint;
+    [SerializeField] protected Transform ArmRotatePoint;
 
     RotateArmToAim aim;
 
-    void Awake() => aim = armRotatePoint.GetComponent<RotateArmToAim>();
+    void Awake() => aim = ArmRotatePoint.GetComponent<RotateArmToAim>();
 
     protected ToolProjectile Fire()
     {
-        return ProjectileManager.Instance.ShootToolProjectile(projectileData, firePoint, aim.AimDirection);
+        return ProjectileManager.Instance.ShootToolProjectile(ProjectileData, FirePoint, aim.AimDirection);
+    }
+
+    public virtual void Equip(Transform newFirepoint, Transform newArmRotatePoint)
+    {
+        FirePoint = newFirepoint;
+        ArmRotatePoint = newArmRotatePoint; // will be getting set to the same thing each time but needs to be set at least once
     }
 
     //void OnDrawGizmos() { if (firePoint && aim)

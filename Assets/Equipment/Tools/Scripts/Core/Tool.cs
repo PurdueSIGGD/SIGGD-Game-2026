@@ -16,4 +16,7 @@ public abstract class Tool : MonoBehaviour
     public virtual void UseAlt() {}
 
     protected abstract void OnUse();
+
+    // base equip method thatll get a definition in ProjectileTool and MeleeTool
+    public virtual void Equip() {}
 }

@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class ToolUser : MonoBehaviour
 {
-    [SerializeField] Tool SecondaryTool;
+    [SerializeField] private Transform armRotatePoint;
+    [SerializeField] private Tool SecondaryTool;
+    [SerializeField] private GameObject SecondaryToolObject;
 
     private PlayerInputHandler input;
 
     void Awake()
     {
         input = GetComponentInParent<PlayerInputHandler>();
+
+        EquipTool(SecondaryToolObject);
     }
 
     void OnEnable()
@@ -40,5 +44,24 @@ public class ToolUser : MonoBehaviour
         if (SecondaryTool != null) {
             SecondaryTool.UseAlt();
         }
+    }
+
+    public void EquipTool(GameObject newTool)
+    {
+        if (newTool == null) return;
+
+        SecondaryTool = newTool.GetComponent<Tool>();
+
+        WeaponPrefabTransformHolder holder = GetComponent<WeaponPrefabTransformHolder>();
+
+        // i hate object oriented programming so much
+        if (SecondaryTool is ProjectileTool projectileTool)
+        {
+            projectileTool.Equip(transform, armRotatePoint);
+        }
+        // else if (SecondaryTool is MeleeTool) // will need to be added eventually
+        
+
+        // maybe do the actual equip stuff here?
     }
 }
