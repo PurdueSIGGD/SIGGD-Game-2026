@@ -450,9 +450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombThrower
   data: {fileID: 11400000, guid: d9ff9d73dc74160e2a7c9bfa8ccef1f7, type: 2}
-  projectileData: {fileID: 11400000, guid: 61d651fffadc545bf9799e243e57915e, type: 2}
-  firePoint: {fileID: 0}
-  armRotatePoint: {fileID: 0}
+  ProjectileData: {fileID: 11400000, guid: 61d651fffadc545bf9799e243e57915e, type: 2}
+  FirePoint: {fileID: 0}
+  ArmRotatePoint: {fileID: 0}
 --- !u!4 &554955606
 Transform:
   m_ObjectHideFlags: 0
@@ -930,7 +930,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player - Scope
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3319864485988153012, guid: b98f1abfa783643768069936ce5cf459, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
