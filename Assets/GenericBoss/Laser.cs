@@ -51,12 +51,14 @@ public class Laser : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+        if (damageable == null) {return;}
         _damageablesInRange.Add(damageable);
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+        if (damageable == null) {return;}
         _damageablesInRange.Remove(damageable);
     }
 }
