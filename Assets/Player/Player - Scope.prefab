@@ -400,7 +400,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player - Scope
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3408908975871159361, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3842481533645907128, guid: 7c10f19edbfd3c74a8a504032a745bd6, type: 3}

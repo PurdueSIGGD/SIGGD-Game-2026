@@ -7,7 +7,7 @@ public class ToolUser : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject SecondaryToolObject;
 
-    private Tool SecondaryTool;
+    [SerializeField] private Tool SecondaryTool;
 
     private PlayerInputHandler input;
 
@@ -38,6 +38,7 @@ public class ToolUser : MonoBehaviour
     void HandleUse()
     {
         if (SecondaryTool != null) {
+            Debug.Log("secondary tool use called");
             SecondaryTool.Use();
         }
     }
