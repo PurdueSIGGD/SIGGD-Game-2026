@@ -1,0 +1,73 @@
+name: Task
+description: A piece of work someone can finish in one PR.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe what this should accomplish. If something is unclear,
+        list it under Open questions and note who to ask.
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be accomplished when this is finished?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Links to related issues or docs, what currently exists, etc.
+    validations:
+      required: false
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Outcomes of the feature/task to verify.
+      value: |
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: Open questions
+      description: >-
+        Anything that isn't decided yet (and ideally who to ask about it).
+        PLEASE make sure to settle these before building AND add the answers to this issue.
+    validations:
+      required: false
+
+  - type: textarea
+    id: start
+    attributes:
+      label: Where to start
+      description: Scripts, scenes, or assets that are a good starting point.
+    validations:
+      required: false
+
+  - type: input
+    id: blocked
+    attributes:
+      label: Blocked by
+      description: >-
+        Issues that must be merged first, e.g. "#110, #111". Also add them as
+        "Blocked by" in the issue's Relationships, and set Status to Blocked.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - Small (a meeting or two)
+        - Medium (a week or so)
+        - Large (should be ideally split into smaller tasks)
+    validations:
+      required: true
