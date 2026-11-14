@@ -38,7 +38,7 @@ namespace PlayerSystem
         /// <param name="context">The damage context containing damage information.</param>
         public void TakeDamage(DamageContext context)
         {
-            if (!IsAlive || invincibilityTimer > 0f)
+            if (!IsAlive || invincibilityTimer > 0f || DebugSettings.Instance.EnablePlayerInvincibility)
             {
                 return;
             }
@@ -48,7 +48,10 @@ namespace PlayerSystem
             CurrentHealth = Mathf.Max(CurrentHealth - context.DamageAmount, 0);
             if (CurrentHealth == 0)
             {
-                playerDeath.Die();
+                if (!DebugSettings.Instance.DisablePlayerDeath)
+                {
+                    playerDeath.Die();
+                }
             }
             else
             {

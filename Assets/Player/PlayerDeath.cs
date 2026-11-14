@@ -21,7 +21,6 @@ namespace PlayerSystem
         private Rigidbody2D rb;
         private Collider2D playerCollider;
 
-
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
