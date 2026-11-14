@@ -1320,7 +1320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8421198743664123506, guid: b98f1abfa783643768069936ce5cf459, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 4229017482
+      value: 1089831269
       objectReference: {fileID: 0}
     - target: {fileID: -8421198743664123506, guid: b98f1abfa783643768069936ce5cf459, type: 3}
       propertyPath: SceneMigrationSynchronization
@@ -1373,6 +1373,10 @@ PrefabInstance:
     - target: {fileID: 8890638956503321124, guid: b98f1abfa783643768069936ce5cf459, type: 3}
       propertyPath: m_Name
       value: Player - Scope
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890638956503321124, guid: b98f1abfa783643768069936ce5cf459, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
