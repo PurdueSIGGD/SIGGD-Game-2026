@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace PlayerSystem
 {
     public static class PlayerRegistry
@@ -27,6 +29,7 @@ namespace PlayerSystem
                 {
                     Players[i] = player;
                     PlayerCount++;
+                    Debug.Log("Registered new player");
                     return i;
                 }
             }
