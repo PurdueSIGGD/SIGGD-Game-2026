@@ -55,9 +55,9 @@ public class ToolUser : MonoBehaviour
         if (newTool == null) return;
         if (activeTool != null) Destroy(activeTool);
 
-        activeTool = Instantiate(SecondaryToolObject, transform);
+        activeTool = Instantiate(newTool, transform);
 
-        secondaryTool = newTool.GetComponent<Tool>();
+        secondaryTool = activeTool.GetComponent<Tool>();
 
         // might not actually be needed depends on if we make a "shooter for the misc"
         WeaponPrefabTransformHolder holder = GetComponent<WeaponPrefabTransformHolder>();
