@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbe046d7abfe5b48a482b2968bcb1c9, type: 3}
   m_Name: Debug Settings
   m_EditorClassIdentifier: Assembly-CSharp::DebugSettings
-  EnableDebugMode: 0
-  EnablePlayerInvincibility: 0
-  DisablePlayerDeath: 0
+  enableDebugMode: 1
+  enablePlayerInvincibility: 0
+  disablePlayerDeath: 1

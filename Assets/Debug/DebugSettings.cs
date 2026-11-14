@@ -1,4 +1,10 @@
 using UnityEngine;
+
+/// <summary>
+/// Scriptable object for debug settings during development. Edit settings using the
+/// Debug Settings asset under Debug/Resources.
+/// </summary>
+
 [CreateAssetMenu(fileName = "Debug Settings", menuName = "Debug/Debug Settings")]
 public class DebugSettings : ScriptableObject
 {
@@ -8,7 +14,10 @@ public class DebugSettings : ScriptableObject
         get
         {
             if (_instance == null)
-                _instance = Resources.Load<DebugSettings>("DebugSettings");
+            {
+                _instance = Resources.Load<DebugSettings>("Debug Settings");
+            }
+                
             return _instance;
         }
     }
