@@ -1,19 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine.Splines;
-using Unity.Mathematics;
-using System;
-using Unity.Collections;
-using Unity.VisualScripting;
+
 
 public class Bullet : MonoBehaviour
 {
     public static UnityEvent<Bullet, GameObject> OnBulletHit;
-
-    public bool DestroyOnHit { get; set; } = true;
-
     private bool isExplosive;
     private bool hasSpline;
     private int damage;
@@ -21,17 +14,13 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    private float distanceTravaledAlongSpline;  //maybe delete?
     private float velocity;
-    private Transform firePoint;
     private Spline spline;
-    private Vector3 shootDirection;
-    private int currentKnotIndex = 0;
-    private int nextKnotIndex;
-
     private float bulletRotation;
     private Vector3 curTarget;
+    private int currentKnotIndex = 0;
     private bool initialzedTarget = false;
+    public bool DestroyOnHit { get; set; } = true;
 
     private void Awake()
     {
@@ -40,34 +29,8 @@ public class Bullet : MonoBehaviour
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
     }
 
-    private void MoveAlongSpline()  //This method may or may not exist in the future, the logic, however, will. DO NOT DELETE
-    {
-        //  protects against "Index Out of Range" errors
-        nextKnotIndex = (currentKnotIndex == spline.Count - 1) ? -69420 : currentKnotIndex + 1;
-        if (nextKnotIndex == -69420) lifetime = 0;
-
-        // set current and target knots
-        BezierKnot currentKnot = spline[currentKnotIndex];  //add increment thingy to change later // incremnt the incremtnty thingy =)
-        BezierKnot targetKnot = spline[nextKnotIndex];
-
-        Vector2 currentKnotVec = new Vector2(currentKnot.Position.x, currentKnot.Position.y);
-        Vector2 targetKnotVec = new Vector2(targetKnot.Position.x, targetKnot.Position.y);
-        Vector2 velocityVec = new Vector2(velocity, velocity);
-
-        Vector2 step = Vector2.SmoothDamp(currentKnotVec, targetKnotVec, ref velocityVec, 5.0f); // gets smooth directoin along a path
-
-        Quaternion temp_rotation = new Quaternion(0, 0, 0, 0);
-
-        gameObject.transform  //moves the bullet?
-            .SetPositionAndRotation(new Vector3(gameObject.transform.position.x + step.x, gameObject.transform.position.y + step.y), temp_rotation);
-
-        // dev notes DO NOT DELETE
-        // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
-        // gameObject.transform allows us to get the x and y pos
-    }
-
     // THIS IS WORK IN PROGRESS LIKE THE REST OF THE SPLINE SYSTEM PLZ REFRAIM FROM TOUCHING
-    private void MoveAlongSpline2()
+    private void MoveAlongSpline()
     {
         // get knot at index
         BezierKnot curKnot = spline[currentKnotIndex];
@@ -119,10 +82,7 @@ public class Bullet : MonoBehaviour
         {
             lifetime -= 1f * Time.deltaTime;
 
-            if (hasSpline)
-            {
-                MoveAlongSpline2();
-            }
+            if (hasSpline) { MoveAlongSpline(); }
         }
         else
         {
@@ -150,8 +110,6 @@ public class Bullet : MonoBehaviour
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
         velocity = projectileScriptableObject.Velocity;
-        this.firePoint = firePoint;
-        this.shootDirection = shootDirection;
 
         gameObject.transform.position = firePoint.position;
 
@@ -169,10 +127,7 @@ public class Bullet : MonoBehaviour
         bulletRotation = firePoint.eulerAngles.z * Mathf.Deg2Rad;
 
         // if have a spline thatll determine velocity and shooting stuff so set rigidbody velocity to 0 this will totally not cause unexpected issues later what are you talking about
-        if (projectileScriptableObject.HasSpline)
-        {
-            spline = projectileScriptableObject.Spline;
-        }
+        if (projectileScriptableObject.HasSpline) { spline = projectileScriptableObject.Spline; }
         else
         {
             // give bullet its speed and in the direction
@@ -191,10 +146,7 @@ public class Bullet : MonoBehaviour
         {
             bulletCollider.pathCount = paths.Count;
 
-            for (int i = 0; i < paths.Count; i++)
-            {
-                bulletCollider.SetPath(i, paths[i]);
-            }
+            for (int i = 0; i < paths.Count; i++) { bulletCollider.SetPath(i, paths[i]); }
         }
         else
         {
@@ -219,32 +171,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public bool GetIsExplosive()
-    {
-        return isExplosive;
-    }
+    public bool GetIsExplosive() { return isExplosive; }
 
-    public int GetDamage()
-    {
-        return damage;
-    }
+    public int GetDamage() { return damage; }
 
-    public float GetLifetime()
-    {
-        return lifetime;
-    }
+    public float GetLifetime() { return lifetime; }
 
-    public void SetIsExplosive(bool inIsExplosive)
-    {
-        isExplosive = inIsExplosive;
-    }
+    public void SetIsExplosive(bool inIsExplosive) { isExplosive = inIsExplosive; }
 
-    public void SetDamage(int inDamage)
-    {
-        damage = inDamage;
-    }
-    public void SetLifetime(float inLifetime)
-    {
-        lifetime = inLifetime;
-    }
+    public void SetDamage(int inDamage) { damage = inDamage; }
+
+    public void SetLifetime(float inLifetime) { lifetime = inLifetime; }
 }
