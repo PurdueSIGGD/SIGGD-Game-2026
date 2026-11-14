@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombThrower
   data: {fileID: 11400000, guid: d9ff9d73dc74160e2a7c9bfa8ccef1f7, type: 2}
+  nextUseTime: 0
   ProjectileData: {fileID: 11400000, guid: 61d651fffadc545bf9799e243e57915e, type: 2}
   FirePoint: {fileID: 0}
   ArmRotatePoint: {fileID: 0}
