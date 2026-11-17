@@ -15,14 +15,14 @@ namespace PlayerSystem
         public struct CharacterPrefabEntry
         {
             public Character Character;
-            public GameObject Prefab;
+            public Player Prefab;
         }
 
         [SerializeField] private CharacterPrefabEntry[] characterPrefabs;
 
-        private static Dictionary<Character, GameObject> prefabDictionary;
+        private static Dictionary<Character, Player> prefabDictionary;
 
-        public static IReadOnlyDictionary<Character, GameObject> Prefabs
+        public static IReadOnlyDictionary<Character, Player> Prefabs
         {
             get
             {
@@ -36,7 +36,7 @@ namespace PlayerSystem
 
         private static void Initialize()
         {
-            prefabDictionary = new Dictionary<Character, GameObject>();
+            prefabDictionary = new Dictionary<Character, Player>();
             var registry = Resources.Load<CharacterPrefabRegistry>("Character Prefab Registry");
 
             if (registry == null)

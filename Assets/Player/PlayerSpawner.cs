@@ -4,12 +4,13 @@ using UnityEngine;
 namespace PlayerSystem
 {
     /// <summary>
-    /// Handles player spawning based on information from the shop.
+    /// Handles player spawning for each scene based on information from the shop.
     /// </summary>
     public class PlayerSpawner : MonoBehaviour
     {
         [Tooltip("List of positions where players can spawn")]
         [SerializeField] private Vector2[] spawnPositions;
+        [SerializeField] private GameObject boss;
         private List<int> availablePositions;
 
         void Start()
@@ -37,8 +38,12 @@ namespace PlayerSystem
             }
             // Choose a random available spawn position
             int randomIndex = Random.Range(0, availablePositions.Count);
-            GameObject newPlayer = Instantiate(CharacterPrefabRegistry.Prefabs[character], spawnPositions[availablePositions[randomIndex]], Quaternion.identity);
+            Player newPlayer = Instantiate(CharacterPrefabRegistry.Prefabs[character], spawnPositions[availablePositions[randomIndex]], Quaternion.identity);
             availablePositions.RemoveAt(randomIndex);
+            // Initialize player information
+            PlayerRegistry.RegisterPlayer(newPlayer);
+            newPlayer.Death.SetBoss(boss);
+            // Inventory info?
         }
     }
 }

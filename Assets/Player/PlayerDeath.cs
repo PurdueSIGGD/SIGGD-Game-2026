@@ -14,7 +14,7 @@ namespace PlayerSystem
 
         private float ghostSpeed;
         private bool isGhost = false;
-        private Vector2 ghostMoveDirection;
+        private GameObject boss;
         [Tooltip("Layers to ignore while the player is a ghost.")]
         [SerializeField] private LayerMask layersToIgnore;
 
@@ -29,15 +29,18 @@ namespace PlayerSystem
             playerController = GetComponent<PlayerController>();
 
             ghostSpeed = 0;
-            SetGhostMoveDirection(Vector2.down); // Default direction, can be changed later
         }
 
         void FixedUpdate()
         {
             if (isGhost)
             {
-                rb.MovePosition(rb.position + ghostMoveDirection * ghostSpeed * Time.deltaTime);
                 // Handle ghost movement if the player is a ghost...
+                if (boss != null)
+                {
+                    Vector2 direction = (boss.transform.position - transform.position).normalized;
+                    rb.MovePosition(rb.position + direction * ghostSpeed * Time.deltaTime);
+                }
             }
         }
 
@@ -57,13 +60,12 @@ namespace PlayerSystem
         }
 
         /// <summary>
-        /// Sets the direction that the ghost should move in, in case
-        /// of different planets being placed on different sides of the screen.
+        /// Sets the boss GameObject that the ghost will move toward.
         /// </summary>
-        /// <param name="direction">Direction for the ghost to move in.</param>
-        public void SetGhostMoveDirection(Vector2 direction)
+        /// <param name="boss">The boss of the level.</param>
+        public void SetBoss(GameObject boss)
         {
-            ghostMoveDirection = direction.normalized;
+            this.boss = boss;
         }
 
         /// <summary>
