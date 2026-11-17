@@ -6,13 +6,12 @@ public class PrimaryWeapon : ScriptableObject, IEquipment
     public ProjectileScriptableObject Projectile;
     public string WeaponName;
     public int NumBullets;
-    public float Spread;
+    public float Spread; // how much the bullet should deviate from where you are shooting at
     public float ReloadTime;
-    public float Offset;
+    public float Offset; // offset is how much each bullet should be offset from each other in a mult bullet gun
     public float Recoil;
     public int AmmoCapacity;
     public float FireSpeed;
-
     public GameObject WeaponVisualPrefab; // prefab for what the gun should look like when equipped
     public float WeaponVisualRotationOffset; // for if model needs to be facing a different direction when spawned probably not needed but good to have
 

@@ -98,7 +98,7 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Set the sprite, position, rotation and velocity of the bullet as well as the basic bullet values gotten from the ProjectilScriptableObject
     /// </summary>
-    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection, LayerMask layerToHit, LayerMask layerToIgnore)
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection)
     {
         currentKnotIndex = 0;
         initialzedTarget = false;
