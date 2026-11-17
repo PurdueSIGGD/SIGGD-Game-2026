@@ -23,6 +23,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4287401100
   ProjectileScale: {x: 0.3, y: 0.3, z: 1.22}
+  CollisionExcludes:
+    serializedVersion: 2
+    m_Bits: 513
   SplineGameObject: {fileID: 0}
   SplineContainer: {fileID: 0}
   Spline:
