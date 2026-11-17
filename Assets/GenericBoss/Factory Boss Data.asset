@@ -16,6 +16,14 @@ MonoBehaviour:
   <SpeedDamageThreshold>k__BackingField: 5
   <DamageMultiplier>k__BackingField: 10
   <AttackPercentList>k__BackingField:
-  - {fileID: 11400000, guid: 14395c5d1b93b89458b5154665743659, type: 2}
   - {fileID: 11400000, guid: b92ca9021f2fda143a5236f71f300afb, type: 2}
+  - {fileID: 11400000, guid: 14395c5d1b93b89458b5154665743659, type: 2}
+  - {fileID: 11400000, guid: 2395c942a4847c94db17f10bc478118c, type: 2}
   - {fileID: 11400000, guid: 87fe9e38d1ac5964fae79689b4a7350d, type: 2}
+  BossSoundTrack:
+    Guid:
+      Data1: 850758060
+      Data2: 1220387205
+      Data3: -670470526
+      Data4: -1415203665
+    Path: event:/Music/Boss Music/Boss 1/Boss_1_Music

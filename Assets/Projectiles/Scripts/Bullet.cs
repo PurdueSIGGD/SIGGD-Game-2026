@@ -16,6 +16,12 @@ public class Bullet : MonoBehaviour
     private PolygonCollider2D bulletCollider;
     private float velocity;
     private Spline spline;
+    private Vector3 shootDirection;
+    private int currentKnotIndex = 0;
+    private int nextKnotIndex;
+
+    private bool hasHit = false; // track if bullet has hit something yet
+
     private float bulletRotation;
     private Vector3 curTarget;
     private int currentKnotIndex = 0;
@@ -110,6 +116,9 @@ public class Bullet : MonoBehaviour
         damage = projectileScriptableObject.Damage;
         lifetime = projectileScriptableObject.Lifetime;
         velocity = projectileScriptableObject.Velocity;
+        hasHit = false;
+        this.firePoint = firePoint;
+        this.shootDirection = shootDirection;
 
         gameObject.transform.position = firePoint.position;
 
@@ -155,7 +164,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var damageable = other.GetComponent<IDamageable>();
+        if (hasHit) return;
+
+        IDamageable damageable = other.GetComponent<IDamageable>();
 
         if (damageable != null)
         {
@@ -166,6 +177,8 @@ public class Bullet : MonoBehaviour
 
         if (DestroyOnHit)
         {
+            hasHit = true;
+
             ProjectileManager.Instance.ProjectilePool.Release(gameObject);
         }
     }
