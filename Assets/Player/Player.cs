@@ -7,7 +7,6 @@ namespace PlayerSystem
     public class Player : MonoBehaviour
     {
         [ShowInInspector, ReadOnly] public int PlayerIndex { get; private set; }
-        private Character character;
 
         // Player Components
         public PlayerController Controller { get; private set; }
