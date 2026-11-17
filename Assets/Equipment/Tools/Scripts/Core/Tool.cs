@@ -4,7 +4,7 @@ public abstract class Tool : MonoBehaviour
 {
     [SerializeField] protected ToolData data;
 
-    float nextUseTime;
+    [SerializeField] float nextUseTime = 0;
 
     public void Use()
     {
@@ -16,4 +16,7 @@ public abstract class Tool : MonoBehaviour
     public virtual void UseAlt() {}
 
     protected abstract void OnUse();
+
+    // base equip method thatll get a definition in ProjectileTool and MeleeTool
+    public virtual void Equip() {}
 }

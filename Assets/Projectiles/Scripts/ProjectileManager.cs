@@ -95,6 +95,11 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// </summary>
     public ToolProjectile ShootToolProjectile(ToolProjectileData data, Transform firePoint, Vector2 direction)
     {
+        Debug.Log("in shoot tool projectile");
+        if (data == null) Debug.Log("projectile data null");
+        if (firePoint == null) Debug.Log("fire point null");
+        if (direction == null) Debug.Log("arm rotate null");
+
         GameObject obj = Instantiate(data.prefab, firePoint.position, firePoint.rotation);
         ToolProjectile projectile = obj.GetComponent<ToolProjectile>();
         projectile.Init(data, direction.normalized);

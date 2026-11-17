@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 9210412078896655841, guid: add2b56c9bebab3b4bc515c1f698565a, type: 3}
   speed: 8
   lifetime: 0
-  <fuseTime>k__BackingField: 2
+  <fuseTime>k__BackingField: 1
   <blastRadius>k__BackingField: 3
   <blastDamage>k__BackingField: 0
   <blastImpulse>k__BackingField: 20
