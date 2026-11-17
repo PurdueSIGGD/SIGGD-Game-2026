@@ -17,7 +17,6 @@ public class BossAttackBomb : BossAttack
         
         Player[] players = PlayerRegistry.Players;
         Player target = GameObject.FindAnyObjectByType<Player>();
-        Debug.Log("test" + target);
 
         GameObject targetObject = new GameObject();
         targetObject.transform.position = new Vector3(Origin[0], Origin[1], 0);
