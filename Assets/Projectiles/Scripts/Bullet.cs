@@ -24,7 +24,6 @@ public class Bullet : MonoBehaviour
 
     private float bulletRotation;
     private Vector3 curTarget;
-    private int currentKnotIndex = 0;
     private bool initialzedTarget = false;
     public bool DestroyOnHit { get; set; } = true;
 
@@ -117,8 +116,6 @@ public class Bullet : MonoBehaviour
         lifetime = projectileScriptableObject.Lifetime;
         velocity = projectileScriptableObject.Velocity;
         hasHit = false;
-        this.firePoint = firePoint;
-        this.shootDirection = shootDirection;
 
         gameObject.transform.position = firePoint.position;
 
