@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : SerializedMonoBehaviour
 {
+    //odin inspector 
     public enum gameScenes {
         MainMenu,
         BossOne,
@@ -15,6 +16,22 @@ public class GameSceneManager : SerializedMonoBehaviour
         DeathScreen,
         ResultsScreen,
         Shop
+    }
+
+    //singleton code
+    public static GameSceneManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
 
