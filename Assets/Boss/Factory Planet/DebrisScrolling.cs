@@ -39,7 +39,9 @@ public class DebrisScrolling : MonoBehaviour
         Camera cam = Camera.main;
 
         float right = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+        float left = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
         float top = cam.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
+        float bottom = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
 
         // move the right two debris objects to the left side when they move offscreen to the right
         if (DebrisField[1].transform.position.x - DebrisField[1].GetComponent<Renderer>().bounds.extents.x > right)
@@ -55,6 +57,20 @@ public class DebrisScrolling : MonoBehaviour
             DebrisField[2] = temp2;
         }
 
+        // move the left two debris objects to the right side when they move offscreen to the left
+        else if (DebrisField[0].transform.position.x + DebrisField[0].GetComponent<Renderer>().bounds.extents.x < left)
+        {
+            DebrisField[0].transform.position = new Vector2(DebrisField[1].transform.position.x + DebrisField[0].GetComponent<Renderer>().bounds.size.x, DebrisField[0].transform.position.y);
+            DebrisField[2].transform.position = new Vector2(DebrisField[1].transform.position.x + DebrisField[2].GetComponent<Renderer>().bounds.size.x, DebrisField[2].transform.position.y);
+
+            GameObject temp1 = DebrisField[0];
+            GameObject temp2 = DebrisField[2];
+            DebrisField[0] = DebrisField[1];
+            DebrisField[2] = DebrisField[3];
+            DebrisField[1] = temp1;
+            DebrisField[3] = temp2;
+        }
+
         // move the top two debris objects to the bottom side when they move offscreen to the top
         if (DebrisField[0].transform.position.y - DebrisField[0].GetComponent<Renderer>().bounds.extents.y > top)
         {
@@ -67,6 +83,20 @@ public class DebrisScrolling : MonoBehaviour
             DebrisField[1] = DebrisField[3];
             DebrisField[2] = temp1;
             DebrisField[3] = temp2;
+        }
+
+        // move the bottom two debris objects to the top side when they move offscreen to the bottom
+        else if (DebrisField[2].transform.position.y + DebrisField[2].GetComponent<Renderer>().bounds.extents.y < bottom)
+        {
+            DebrisField[2].transform.position = new Vector2(DebrisField[2].transform.position.x, DebrisField[0].transform.position.y + DebrisField[2].GetComponent<Renderer>().bounds.size.y);
+            DebrisField[3].transform.position = new Vector2(DebrisField[3].transform.position.x, DebrisField[0].transform.position.y + DebrisField[3].GetComponent<Renderer>().bounds.size.y);
+
+            GameObject temp1 = DebrisField[2];
+            GameObject temp2 = DebrisField[3];
+            DebrisField[2] = DebrisField[0];
+            DebrisField[3] = DebrisField[1];
+            DebrisField[0] = temp1;
+            DebrisField[1] = temp2;
         }
     }
 }

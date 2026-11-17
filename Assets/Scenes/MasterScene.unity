@@ -903,8 +903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38c3568bf3574d46bbc5e1f9a267f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebrisScrolling
-  XVelocity: 0
-  YVelocity: 0
+  XVelocity: 0.5
+  YVelocity: 0.25
 --- !u!1001 &1316952716
 PrefabInstance:
   m_ObjectHideFlags: 0
