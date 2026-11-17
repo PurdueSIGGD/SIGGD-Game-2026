@@ -39,7 +39,6 @@ public class ToolUser : MonoBehaviour
     void HandleUse()
     {
         if (secondaryTool != null) {
-            Debug.Log("secondary tool use called");
             secondaryTool.Use();
         }
     }
