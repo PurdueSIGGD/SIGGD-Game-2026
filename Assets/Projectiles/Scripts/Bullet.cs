@@ -119,7 +119,7 @@ public class Bullet : MonoBehaviour
 
         gameObject.transform.localScale = projectileScriptableObject.ProjectileScale;
 
-        SetBulletCollider(projectileScriptableObject, layerToHit, layerToIgnore);
+        SetBulletCollider(projectileScriptableObject);
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
@@ -135,12 +135,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject, LayerMask layerToHit, LayerMask layerToIgnore)
+    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject)
     {
         List<Vector2[]> paths = projectileScriptableObject.PhysicsPaths;
 
-        bulletCollider.includeLayers = layerToHit;
-        bulletCollider.excludeLayers = layerToIgnore;
+        bulletCollider.excludeLayers = projectileScriptableObject.CollisionExcludes;
 
         if (paths != null && paths.Count > 0)
         {
