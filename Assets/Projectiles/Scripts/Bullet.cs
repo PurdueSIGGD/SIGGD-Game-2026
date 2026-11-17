@@ -125,6 +125,7 @@ public class Bullet : MonoBehaviour
 
         gameObject.transform.localScale = projectileScriptableObject.ProjectileScale;
 
+        gameObject.layer = Mathf.RoundToInt(Mathf.Log(projectileScriptableObject.BulletLayer.value, 2));
         SetBulletCollider(projectileScriptableObject);
 
         // rotate bullet
