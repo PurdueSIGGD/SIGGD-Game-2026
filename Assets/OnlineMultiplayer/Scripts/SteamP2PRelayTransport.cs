@@ -194,6 +194,7 @@ public class SteamP2PRelayTransport : NetworkTransport
                 Steamworks.SteamNetworkingSockets.ConnectRelay<ConnectionManager>(serverId, 0);
             clientConnection.Interface = new ClientCallbacks(this);
             isClient = true;
+            Debug.Log(NetworkManager.Singleton.LocalClientId); // TESTING DEBUG
 
             return true;
         }
@@ -213,6 +214,7 @@ public class SteamP2PRelayTransport : NetworkTransport
         {
             socketManager = Steamworks.SteamNetworkingSockets.CreateRelaySocket<SocketManager>(0);
             socketManager.Interface = new ServerCallbacks(this);
+            Debug.Log(NetworkManager.Singleton.LocalClientId); // TESTING DEBUG
             return true;
         }
         catch (Exception e)

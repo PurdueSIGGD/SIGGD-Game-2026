@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Netcode;
 
-namespace PlayerSystem
+namespace PlayerSystem 
 {
     /**
      * <summary>
@@ -12,7 +13,7 @@ namespace PlayerSystem
      */
     [DisallowMultipleComponent]
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerInputHandler : MonoBehaviour
+    public class PlayerInputHandler : NetworkBehaviour
     {
         private const string KeyboardMouseScheme = "Keyboard&Mouse";
         private const float MinAimSqrMagnitude = 0.0001f;
@@ -55,6 +56,17 @@ namespace PlayerSystem
             useToolAction = actions.FindAction("UseTool", true);
             useToolAltAction = actions.FindAction("UseToolAlt", true);
             brakeAction = actions.FindAction("Brake", true);
+            
+            if (NetworkManager.Singleton.LocalClientId == OwnerClientId) {
+                playerInput.enabled = true;
+                Debug.Log("input enabled");
+            }
+            else {
+                playerInput.enabled = false;
+                Debug.Log("input disabled");
+                Debug.Log(OwnerClientId); // TESTING DEBUG
+            }
+
         }
 
         void OnEnable()
