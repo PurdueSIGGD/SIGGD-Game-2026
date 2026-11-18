@@ -20,7 +20,8 @@ public class ProjectileScriptableObject : ScriptableObject
     public Vector3 ProjectileScale = new Vector3(1, 1, 1); // so that we can scale up and scale down bullets for different attack and have it be done in scriptable object instead of in game
 
     public LayerMask CollisionExcludes; // what this bullet should not collide with when shot
-    public LayerMask BulletLayer; // what layer the bullet should be on
+    [SerializeField] private LayerMask BulletLayerSelector; // what layer the bullet should be on
+    [HideInInspector] public int BulletLayer; // the actual layer the bullet is on which other things access
 
     // Spline stuff
     public bool HasSpline;
@@ -64,5 +65,7 @@ public class ProjectileScriptableObject : ScriptableObject
                 HasSpline = true;
             }
         }
+
+        BulletLayer = Mathf.RoundToInt(Mathf.Log(BulletLayerSelector.value, 2));
     }
 }
