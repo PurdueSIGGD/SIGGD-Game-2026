@@ -61,7 +61,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="direction"> The direction that the projectile should be shot in </param>
     /// <param name="layerToHit"> The layers the projectile can hit </param>
     /// <param name="layerToIgnore"> The layers the projectile passes through </param>
-    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction) // this could not work i dunno testing will come later
+    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
     {
         ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
