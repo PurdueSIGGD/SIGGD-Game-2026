@@ -7,7 +7,6 @@ using System.Collections.Generic;
 public class ProjectileScriptableObject : ScriptableObject 
 {
     public bool IsExplosive;
-    public bool HasSpline;
     public int Damage;
     public float Lifetime;
     public float Velocity;
@@ -20,12 +19,10 @@ public class ProjectileScriptableObject : ScriptableObject
     public Color32 ProjectileColor = new Color32(255, 255, 255, 255); // in case we wanna change the color
     public Vector3 ProjectileScale = new Vector3(1, 1, 1); // so that we can scale up and scale down bullets for different attack and have it be done in scriptable object instead of in game
 
-    //Spline stuff
-    public GameObject SplineGameObject;  // This gets the spline that was drawn in the engine.
-
-    public SplineContainer SplineContainer;  // This is the ultiment destination of the Spline
-
-    public Spline Spline;
+    // Spline stuff
+    public bool HasSpline;
+    [SerializeField] private SplineContainer SplineContainer;  // This is really just a holder and used to assign the spline object
+    public Spline Spline; // the spline itself (what bullet uses to move the bullet along a pattern)
 
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
@@ -52,43 +49,17 @@ public class ProjectileScriptableObject : ScriptableObject
             PhysicsPaths.Add(pathBuffer.ToArray());
         }
 
-        /*
-        SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
-        Spline.Clear();
-
-        // adds the spline game object componets to the spline nodes list
-        for (int i = 0; i < SplineContainer.Splines.Count; i++)
-        {
-            SplineNodes.Add(SplineContainer.Splines[i]);
-        }
-        */
-
+        // use the stored spline object to get the spline container
         Spline = null;
+        HasSpline = false;
 
-        if (SplineGameObject != null)
+        if (SplineContainer != null)
         {
-            SplineContainer = SplineGameObject.GetComponent<SplineContainer>();
-
-            if (SplineContainer != null)
+            if (SplineContainer[0] != null)
             {
-                if (SplineContainer[0] != null)
-                {
-                    Spline = SplineContainer[0];
-                    HasSpline = true;
-                }
-                else
-                {
-                    HasSpline = false;
-                }
+                Spline = SplineContainer[0];
+                HasSpline = true;
             }
-            else
-            {
-                HasSpline = false;
-            }
-        }
-        else
-        {
-            HasSpline = false;
         }
     }
 }

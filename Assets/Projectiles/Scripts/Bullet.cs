@@ -21,13 +21,10 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D bulletRB;
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
-    private float distanceTravaledAlongSpline;  //maybe delete?
     private float velocity;
-    private Transform firePoint;
     private Spline spline;
-    private Vector3 shootDirection;
     private int currentKnotIndex = 0;
-    private int nextKnotIndex;
+    private int nextKnotIndex = 0;
 
     private bool hasHit = false; // track if bullet has hit something yet
 
@@ -42,39 +39,13 @@ public class Bullet : MonoBehaviour
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
     }
 
-    private void MoveAlongSpline()  //This method may or may not exist in the future, the logic, however, will. DO NOT DELETE
-    {
-        //  protects against "Index Out of Range" errors
-        nextKnotIndex = (currentKnotIndex == spline.Count - 1) ? -69420 : currentKnotIndex + 1;
-        if (nextKnotIndex == -69420) lifetime = 0;
-
-        // set current and target knots
-        BezierKnot currentKnot = spline[currentKnotIndex];  //add increment thingy to change later // incremnt the incremtnty thingy =)
-        BezierKnot targetKnot = spline[nextKnotIndex];
-
-        Vector2 currentKnotVec = new Vector2(currentKnot.Position.x, currentKnot.Position.y);
-        Vector2 targetKnotVec = new Vector2(targetKnot.Position.x, targetKnot.Position.y);
-        Vector2 velocityVec = new Vector2(velocity, velocity);
-
-        Vector2 step = Vector2.SmoothDamp(currentKnotVec, targetKnotVec, ref velocityVec, 5.0f); // gets smooth directoin along a path
-
-        Quaternion temp_rotation = new Quaternion(0, 0, 0, 0);
-
-        gameObject.transform  //moves the bullet?
-            .SetPositionAndRotation(new Vector3(gameObject.transform.position.x + step.x, gameObject.transform.position.y + step.y), temp_rotation);
-
-        // dev notes DO NOT DELETE
-        // add logic that incremnts bullet along spline nodes, no while loop, need to have current node and next node and reset once next node is hit.
-        // gameObject.transform allows us to get the x and y pos
-    }
-
-    // THIS IS WORK IN PROGRESS LIKE THE REST OF THE SPLINE SYSTEM PLZ REFRAIM FROM TOUCHING
-    private void MoveAlongSpline2()
+    // The Vector3.MoveTowards will need to be changed to a Lerp or some sort of physics based movement to move more smoothly but thats for later
+    private void MoveAlongSpline()
     {
         // get knot at index
         BezierKnot curKnot = spline[currentKnotIndex];
 
-        int nextKnotIndex = currentKnotIndex + 1;
+        nextKnotIndex = currentKnotIndex + 1;
 
         // if we are at end of spline reset to start
         if (nextKnotIndex >= spline.Count)
@@ -123,7 +94,7 @@ public class Bullet : MonoBehaviour
 
             if (hasSpline)
             {
-                MoveAlongSpline2();
+                MoveAlongSpline();
             }
         }
         else
@@ -153,8 +124,6 @@ public class Bullet : MonoBehaviour
         lifetime = projectileScriptableObject.Lifetime;
         velocity = projectileScriptableObject.Velocity;
         hasHit = false;
-        this.firePoint = firePoint;
-        this.shootDirection = shootDirection;
 
         gameObject.transform.position = firePoint.position;
 
