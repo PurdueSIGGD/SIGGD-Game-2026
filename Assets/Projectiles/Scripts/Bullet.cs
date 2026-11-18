@@ -16,9 +16,8 @@ public class Bullet : MonoBehaviour
     private PolygonCollider2D bulletCollider;
     private float velocity;
     private Spline spline;
-    private Vector3 shootDirection;
     private int currentKnotIndex = 0;
-    private int nextKnotIndex;
+    private int nextKnotIndex = 0;
 
     private bool hasHit = false; // track if bullet has hit something yet
 
@@ -34,13 +33,13 @@ public class Bullet : MonoBehaviour
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
     }
 
-    // THIS IS WORK IN PROGRESS LIKE THE REST OF THE SPLINE SYSTEM PLZ REFRAIM FROM TOUCHING
+    // The Vector3.MoveTowards will need to be changed to a Lerp or some sort of physics based movement to move more smoothly but thats for later
     private void MoveAlongSpline()
     {
         // get knot at index
         BezierKnot curKnot = spline[currentKnotIndex];
 
-        int nextKnotIndex = currentKnotIndex + 1;
+        nextKnotIndex = currentKnotIndex + 1;
 
         // if we are at end of spline reset to start
         if (nextKnotIndex >= spline.Count)
@@ -87,7 +86,10 @@ public class Bullet : MonoBehaviour
         {
             lifetime -= 1f * Time.deltaTime;
 
-            if (hasSpline) { MoveAlongSpline(); }
+            if (hasSpline) 
+            {
+                MoveAlongSpline();
+            }
         }
         else
         {
