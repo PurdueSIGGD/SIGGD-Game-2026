@@ -57,8 +57,11 @@ public class Bullet : MonoBehaviour
             float cos = Mathf.Cos(bulletRotation);
             float sin = Mathf.Sin(bulletRotation);
 
-            float xMoveAmount = -((nextKnot.Position.x * cos - nextKnot.Position.y * sin) - (curKnot.Position.x * cos - curKnot.Position.y * sin));
-            float yMoveAmount = -((nextKnot.Position.x * sin + nextKnot.Position.y * cos) - (curKnot.Position.x * sin + curKnot.Position.y * cos));
+            float changeInX = nextKnot.Position.x - curKnot.Position.x;
+            float changeInY = nextKnot.Position.y - curKnot.Position.y;
+
+            float xMoveAmount = changeInX * cos - changeInY * sin;
+            float yMoveAmount = changeInX * sin - changeInY * cos;
 
             // move the actual bullet by the move amount
             curTarget = new Vector3(transform.position.x + xMoveAmount, transform.position.y + yMoveAmount, 0);
@@ -132,11 +135,14 @@ public class Bullet : MonoBehaviour
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
-        bulletRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
-        bulletRotation = firePoint.eulerAngles.z * Mathf.Deg2Rad;
+        bulletRotation = Mathf.Atan2(finalDirection.y, finalDirection.x);
+        bulletRB.rotation = bulletRotation * Mathf.Rad2Deg;
 
         // if have a spline thatll determine velocity and shooting stuff so set rigidbody velocity to 0 this will totally not cause unexpected issues later what are you talking about
-        if (projectileScriptableObject.HasSpline) { spline = projectileScriptableObject.Spline; }
+        if (projectileScriptableObject.HasSpline)
+        {
+            spline = projectileScriptableObject.Spline;
+        }
         else
         {
             // give bullet its speed and in the direction
