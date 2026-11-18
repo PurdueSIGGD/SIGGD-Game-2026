@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: BossBomb
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 1
-  HasSpline: 0
   Damage: 0
   Lifetime: 10000
   Velocity: 1
@@ -26,10 +25,11 @@ MonoBehaviour:
   CollisionExcludes:
     serializedVersion: 2
     m_Bits: 7425
-  BulletLayer:
+  BulletLayerSelector:
     serializedVersion: 2
     m_Bits: 4096
-  SplineGameObject: {fileID: 0}
+  BulletLayer: 12
+  HasSpline: 0
   SplineContainer: {fileID: 0}
   Spline:
     m_EditModeType: 1

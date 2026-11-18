@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Robot
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
-  HasSpline: 0
   Damage: 1
   Lifetime: 20
   Velocity: 2
@@ -26,7 +25,11 @@ MonoBehaviour:
   CollisionExcludes:
     serializedVersion: 2
     m_Bits: 2049
-  SplineGameObject: {fileID: 0}
+  BulletLayerSelector:
+    serializedVersion: 2
+    m_Bits: 1024
+  BulletLayer: 10
+  HasSpline: 0
   SplineContainer: {fileID: 0}
   Spline:
     m_EditModeType: 1

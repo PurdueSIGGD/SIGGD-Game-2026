@@ -66,6 +66,14 @@ public class ProjectileScriptableObject : ScriptableObject
             }
         }
 
-        BulletLayer = Mathf.RoundToInt(Mathf.Log(BulletLayerSelector.value, 2));
+        if ((BulletLayerSelector.value & (BulletLayerSelector.value - 1)) != 0)
+        {
+            Debug.LogWarning("Multiple layers selected for a projectiles layer. Ensure only on layer is selected in the BulletLayerSelector.");
+            BulletLayer = 0; // set to default so that it does hold a value it just wont work
+        } 
+        else
+        {
+            BulletLayer = Mathf.RoundToInt(Mathf.Log(BulletLayerSelector.value, 2));
+        }
     }
 }
