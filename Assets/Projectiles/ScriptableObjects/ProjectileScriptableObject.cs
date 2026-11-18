@@ -19,6 +19,10 @@ public class ProjectileScriptableObject : ScriptableObject
     public Color32 ProjectileColor = new Color32(255, 255, 255, 255); // in case we wanna change the color
     public Vector3 ProjectileScale = new Vector3(1, 1, 1); // so that we can scale up and scale down bullets for different attack and have it be done in scriptable object instead of in game
 
+    public LayerMask CollisionExcludes; // what this bullet should not collide with when shot
+    [SerializeField] private LayerMask BulletLayerSelector; // what layer the bullet should be on
+    [HideInInspector] public int BulletLayer; // the actual layer the bullet is on which other things access
+
     // Spline stuff
     public bool HasSpline;
     [SerializeField] private SplineContainer SplineContainer;  // This is really just a holder and used to assign the spline object
@@ -60,6 +64,16 @@ public class ProjectileScriptableObject : ScriptableObject
                 Spline = SplineContainer[0];
                 HasSpline = true;
             }
+        }
+
+        if ((BulletLayerSelector.value & (BulletLayerSelector.value - 1)) != 0)
+        {
+            Debug.LogWarning("Multiple layers selected for a projectiles layer. Ensure only on layer is selected in the BulletLayerSelector.");
+            BulletLayer = 0; // set to default so that it does hold a value it just wont work
+        } 
+        else
+        {
+            BulletLayer = Mathf.RoundToInt(Mathf.Log(BulletLayerSelector.value, 2));
         }
     }
 }

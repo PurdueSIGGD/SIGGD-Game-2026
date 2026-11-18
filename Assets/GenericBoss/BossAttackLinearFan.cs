@@ -12,8 +12,6 @@ public class BossAttackLinearFan : BossAttack
     [field: SerializeField] private float InitAngle {get; set;} = 0f;
     [field: SerializeField] private float AngleOffset {get; set;} = 0f;
     [field: SerializeField] private float HOffset {get; set;} = 0f;
-    [field: SerializeField] private LayerMask TargetLayerMask {get; set;} = 0;
-    [field: SerializeField] private LayerMask IgnorePlayerMask { get; set; } = 0;
 
     override public async UniTask Shoot(GameObject bossObject)
     {
@@ -25,7 +23,7 @@ public class BossAttackLinearFan : BossAttack
             AudioManager.PlayOneShot(AudioEvents.Sound_Effects.Boss_1.Attacks.Boss_1_ShootScrap);
 
             Vector2 angle = new Vector2((float) Math.Sin(newAngle), (float) Math.Cos(newAngle));
-            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, targetObject.transform, angle, TargetLayerMask, IgnorePlayerMask);
+            ProjectileManager.Instance.ShootProjectileTowardsDirection(Pso, targetObject.transform, angle);
             newAngle = newAngle + AngleOffset * (float) Math.PI / 180;
             targetObject.transform.position = new Vector3(targetObject.transform.position.x + HOffset, Origin[1], 0);
             await UniTask.Delay(Delay);

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryWeapon
   Projectile: {fileID: 11400000, guid: 5a93ab72c346e414a8d4871b76fcfe63, type: 2}
   WeaponName: Test Pistol
-  NumBullets: 0
-  Spread: 0
+  NumBullets: 5
+  Spread: 10
   ReloadTime: 10
-  Offset: 0
+  Offset: 2
   Recoil: 2
   AmmoCapacity: 12
   FireSpeed: 30

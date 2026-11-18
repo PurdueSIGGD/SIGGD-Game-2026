@@ -1,19 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine.Splines;
-using Unity.Mathematics;
-using System;
-using Unity.Collections;
-using Unity.VisualScripting;
+
 
 public class Bullet : MonoBehaviour
 {
     public static UnityEvent<Bullet, GameObject> OnBulletHit;
-
-    public bool DestroyOnHit { get; set; } = true;
-
     private bool isExplosive;
     private bool hasSpline;
     private int damage;
@@ -31,6 +24,7 @@ public class Bullet : MonoBehaviour
     private float bulletRotation;
     private Vector3 curTarget;
     private bool initialzedTarget = false;
+    public bool DestroyOnHit { get; set; } = true;
 
     private void Awake()
     {
@@ -63,8 +57,11 @@ public class Bullet : MonoBehaviour
             float cos = Mathf.Cos(bulletRotation);
             float sin = Mathf.Sin(bulletRotation);
 
-            float xMoveAmount = -((nextKnot.Position.x * cos - nextKnot.Position.y * sin) - (curKnot.Position.x * cos - curKnot.Position.y * sin));
-            float yMoveAmount = -((nextKnot.Position.x * sin + nextKnot.Position.y * cos) - (curKnot.Position.x * sin + curKnot.Position.y * cos));
+            float changeInX = nextKnot.Position.x - curKnot.Position.x;
+            float changeInY = nextKnot.Position.y - curKnot.Position.y;
+
+            float xMoveAmount = changeInX * cos - changeInY * sin;
+            float yMoveAmount = changeInX * sin - changeInY * cos;
 
             // move the actual bullet by the move amount
             curTarget = new Vector3(transform.position.x + xMoveAmount, transform.position.y + yMoveAmount, 0);
@@ -92,7 +89,7 @@ public class Bullet : MonoBehaviour
         {
             lifetime -= 1f * Time.deltaTime;
 
-            if (hasSpline)
+            if (hasSpline) 
             {
                 MoveAlongSpline();
             }
@@ -111,7 +108,7 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Set the sprite, position, rotation and velocity of the bullet as well as the basic bullet values gotten from the ProjectilScriptableObject
     /// </summary>
-    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection, LayerMask layerToHit, LayerMask layerToIgnore)
+    public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection)
     {
         currentKnotIndex = 0;
         initialzedTarget = false;
@@ -133,12 +130,13 @@ public class Bullet : MonoBehaviour
 
         gameObject.transform.localScale = projectileScriptableObject.ProjectileScale;
 
-        SetBulletCollider(projectileScriptableObject, layerToHit, layerToIgnore);
+        gameObject.layer = projectileScriptableObject.BulletLayer;
+        SetBulletCollider(projectileScriptableObject);
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
-        bulletRB.rotation = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
-        bulletRotation = firePoint.eulerAngles.z * Mathf.Deg2Rad;
+        bulletRotation = Mathf.Atan2(finalDirection.y, finalDirection.x);
+        bulletRB.rotation = bulletRotation * Mathf.Rad2Deg;
 
         // if have a spline thatll determine velocity and shooting stuff so set rigidbody velocity to 0 this will totally not cause unexpected issues later what are you talking about
         if (projectileScriptableObject.HasSpline)
@@ -152,21 +150,17 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject, LayerMask layerToHit, LayerMask layerToIgnore)
+    private void SetBulletCollider(ProjectileScriptableObject projectileScriptableObject)
     {
         List<Vector2[]> paths = projectileScriptableObject.PhysicsPaths;
 
-        bulletCollider.includeLayers = layerToHit;
-        bulletCollider.excludeLayers = layerToIgnore;
+        bulletCollider.excludeLayers = projectileScriptableObject.CollisionExcludes;
 
         if (paths != null && paths.Count > 0)
         {
             bulletCollider.pathCount = paths.Count;
 
-            for (int i = 0; i < paths.Count; i++)
-            {
-                bulletCollider.SetPath(i, paths[i]);
-            }
+            for (int i = 0; i < paths.Count; i++) { bulletCollider.SetPath(i, paths[i]); }
         }
         else
         {
@@ -195,32 +189,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public bool GetIsExplosive()
-    {
-        return isExplosive;
-    }
+    public bool GetIsExplosive() { return isExplosive; }
 
-    public int GetDamage()
-    {
-        return damage;
-    }
+    public int GetDamage() { return damage; }
 
-    public float GetLifetime()
-    {
-        return lifetime;
-    }
+    public float GetLifetime() { return lifetime; }
 
-    public void SetIsExplosive(bool inIsExplosive)
-    {
-        isExplosive = inIsExplosive;
-    }
+    public void SetIsExplosive(bool inIsExplosive) { isExplosive = inIsExplosive; }
 
-    public void SetDamage(int inDamage)
-    {
-        damage = inDamage;
-    }
-    public void SetLifetime(float inLifetime)
-    {
-        lifetime = inLifetime;
-    }
+    public void SetDamage(int inDamage) { damage = inDamage; }
+
+    public void SetLifetime(float inLifetime) { lifetime = inLifetime; }
 }

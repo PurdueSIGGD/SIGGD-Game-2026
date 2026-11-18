@@ -16,9 +16,31 @@ MonoBehaviour:
   Damage: 0
   Lifetime: 10000
   Velocity: 1
+  SpriteAngleOffset: 0
   ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
     serializedVersion: 2
     rgba: 4278255370
   ProjectileScale: {x: 1, y: 1, z: 1}
-  ProjectileAngleOffset: 0
+  CollisionExcludes:
+    serializedVersion: 2
+    m_Bits: 7425
+  BulletLayerSelector:
+    serializedVersion: 2
+    m_Bits: 4096
+  BulletLayer: 12
+  HasSpline: 0
+  SplineContainer: {fileID: 0}
+  Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []

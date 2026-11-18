@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668206befc345f443a93ccb2fdf998a5, type: 3}
   m_Name: LaserAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackPercents
-  <ChanceWeights>k__BackingField: 0000000001000000
+  <ChanceWeights>k__BackingField: 0100000001000000
   <Attack>k__BackingField: {fileID: 11400000, guid: 0e17d55f5633db44b82eaae3c5957cc2, type: 2}
