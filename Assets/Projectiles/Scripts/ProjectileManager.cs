@@ -61,9 +61,9 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="direction"> The direction that the projectile should be shot in </param>
     /// <param name="layerToHit"> The layers the projectile can hit </param>
     /// <param name="layerToIgnore"> The layers the projectile passes through </param>
-    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction, LayerMask layerToHit, LayerMask layerToIgnore) // this could not work i dunno testing will come later
+    public void ShootProjectileTowardsDirection(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
     {
-        ShootProjectile(projectileScriptableObject, firePoint, direction, layerToHit, layerToIgnore);
+        ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
 
     /// <summary>
@@ -74,19 +74,19 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// <param name="targetPoint"> the target that the projectile is being shot to </param>
     /// <param name="layerToHit"> The layers the projectile can hit </param>
     /// <param name="layerToIgnore"> The layers the projectile passes through </param>
-    public void ShootProjectileTowardsPoint(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint, LayerMask layerToHit, LayerMask layerToIgnore)
+    public void ShootProjectileTowardsPoint(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Transform targetPoint)
     {
         // make direction vector from the starting point and end point
         Vector2 direction = (targetPoint.position - firePoint.position).normalized;
 
-        ShootProjectile(projectileScriptableObject, firePoint, direction, layerToHit, layerToIgnore);
+        ShootProjectile(projectileScriptableObject, firePoint, direction);
     }
 
-    private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction, LayerMask layerToHit, LayerMask layerToIgnore)
+    private void ShootProjectile(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 direction)
     {
         GameObject bullet = ProjectilePool.Get();
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized, layerToHit, layerToIgnore);
+        bulletScript.PopulateBulletValues(projectileScriptableObject, firePoint, direction.normalized);
     }
     #endregion
 
@@ -95,11 +95,6 @@ public class ProjectileManager : Singleton<ProjectileManager>
     /// </summary>
     public ToolProjectile ShootToolProjectile(ToolProjectileData data, Transform firePoint, Vector2 direction)
     {
-        Debug.Log("in shoot tool projectile");
-        if (data == null) Debug.Log("projectile data null");
-        if (firePoint == null) Debug.Log("fire point null");
-        if (direction == null) Debug.Log("arm rotate null");
-
         GameObject obj = Instantiate(data.prefab, firePoint.position, firePoint.rotation);
         ToolProjectile projectile = obj.GetComponent<ToolProjectile>();
         projectile.Init(data, direction.normalized);

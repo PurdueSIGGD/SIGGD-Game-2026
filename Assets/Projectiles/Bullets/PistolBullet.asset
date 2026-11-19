@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PistolBullet
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
-  HasSpline: 0
   Damage: 5
   Lifetime: 15
   Velocity: 20
@@ -23,7 +22,14 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4287401100
   ProjectileScale: {x: 0.3, y: 0.3, z: 1.22}
-  SplineGameObject: {fileID: 0}
+  CollisionExcludes:
+    serializedVersion: 2
+    m_Bits: 8705
+  BulletLayerSelector:
+    serializedVersion: 2
+    m_Bits: 8192
+  BulletLayer: 13
+  HasSpline: 0
   SplineContainer: {fileID: 0}
   Spline:
     m_EditModeType: 1
