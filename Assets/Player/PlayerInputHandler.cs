@@ -57,7 +57,7 @@ namespace PlayerSystem
             useToolAltAction = actions.FindAction("UseToolAlt", true);
             brakeAction = actions.FindAction("Brake", true);
             
-            if (NetworkManager.Singleton.LocalClientId == OwnerClientId) {
+            if (IsOwner) {
                 playerInput.enabled = true;
                 Debug.Log("input enabled");
             }
