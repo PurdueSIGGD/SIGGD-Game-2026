@@ -28,6 +28,10 @@ namespace PlayerSystem
         private InputAction brakeAction;
         private Vector2 lastAimDirection = Vector2.right;
 
+        // ONLINE MULTIPLAYER TESTING VARIABLES
+        static ulong playerCount = 0;
+        // END OF ONLINE MULITPLAYER TESTING VARIABLES
+
         /**
          * <summary>
          * Movement input, from -1 to 1 on each axis.
@@ -45,6 +49,7 @@ namespace PlayerSystem
 
         void Awake()
         {
+            
             playerInput = GetComponent<PlayerInput>();
 
             // These names match the Player map in Assets/Input/InputActions.inputactions.
@@ -57,15 +62,18 @@ namespace PlayerSystem
             useToolAltAction = actions.FindAction("UseToolAlt", true);
             brakeAction = actions.FindAction("Brake", true);
             
-            if (NetworkManager.Singleton.LocalClientId == OwnerClientId) {
+            if (NetworkManager.Singleton.LocalClientId == playerCount) {
                 playerInput.enabled = true;
                 Debug.Log("input enabled");
             }
             else {
                 playerInput.enabled = false;
                 Debug.Log("input disabled");
-                Debug.Log(OwnerClientId); // TESTING DEBUG
+                Debug.Log(NetworkManager.Singleton.LocalClientId + ", " + playerCount); // TESTING DEBUG
             }
+
+            playerCount++;
+            Debug.Log("Player Count: " + playerCount);
 
         }
 
