@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSystem.CharacterPrefabRegistry
   characterPrefabs:
   - Character: 0
-    Prefab: {fileID: 8890638956503321124, guid: b98f1abfa783643768069936ce5cf459, type: 3}
+    Prefab: {fileID: 2528207012493380121, guid: b98f1abfa783643768069936ce5cf459, type: 3}
