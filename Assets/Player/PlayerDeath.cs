@@ -147,6 +147,7 @@ namespace PlayerSystem
             isGhost = false;
             playerHealth.Revive();
             playerCollider.excludeLayers &= ~layersToIgnore;
+            playerController.PlayerRevive();
             // Change player appearance back to normal?
         }
 

@@ -152,6 +152,15 @@ namespace PlayerSystem
             storedSpeed = 0f;
             stopHeld = false;
             currentInputVector = Vector2.zero;
+            input.DisableInput();
+        }
+
+        /// <summary>
+        /// Re-enables inputs on player revive.
+        /// </summary>
+        public void PlayerRevive()
+        {
+            input.EnableInput();
         }
 
         // The instant brake system.

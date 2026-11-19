@@ -18,6 +18,7 @@ namespace PlayerSystem
         private const float MinAimSqrMagnitude = 0.0001f;
 
         private PlayerInput playerInput;
+        private InputActionMap playerActionMap;
         private InputAction moveAction;
         private InputAction aimAction;
         private InputAction pointAction;
@@ -48,6 +49,7 @@ namespace PlayerSystem
 
             // These names match the Player map in Assets/Input/InputActions.inputactions.
             InputActionMap actions = playerInput.actions.FindActionMap("Player", true);
+            playerActionMap = playerInput.actions.FindActionMap("Player", true);
             moveAction = actions.FindAction("Move", true);
             aimAction = actions.FindAction("Aim", true);
             pointAction = actions.FindAction("Point", true);
@@ -69,6 +71,22 @@ namespace PlayerSystem
             fireAction.performed -= OnFirePerformed;
             useToolAction.performed -= OnUseToolPerformed;
             useToolAltAction.performed -= OnUseToolAltPerformed;
+        }
+
+        /// <summary>
+        /// Disables the action map.
+        /// </summary>
+        public void DisableInput()
+        {
+            playerActionMap.Disable();
+        }
+
+        /// <summary>
+        /// Enables the action map.
+        /// </summary>
+        public void EnableInput()
+        {
+            playerActionMap.Enable();
         }
 
         /**
