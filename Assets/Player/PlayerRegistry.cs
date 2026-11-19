@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace PlayerSystem
 {
     public static class PlayerRegistry

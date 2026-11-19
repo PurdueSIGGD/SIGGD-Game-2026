@@ -8,7 +8,13 @@ public abstract class ProjectileTool : Tool
 
     RotateArmToAim aim;
 
-    void Awake() => aim = ArmRotatePoint.GetComponent<RotateArmToAim>();
+    void Awake()
+    {
+        if (ArmRotatePoint != null)
+        {
+            aim = ArmRotatePoint.GetComponent<RotateArmToAim>();
+        }
+    }
 
     protected ToolProjectile Fire()
     {
