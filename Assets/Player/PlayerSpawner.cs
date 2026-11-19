@@ -23,6 +23,7 @@ namespace PlayerSystem
 
             // TESTING
             SpawnPlayer(Character.Scope);
+            SpawnPlayer(Character.Scope);
         }
 
         /// <summary>
@@ -41,7 +42,6 @@ namespace PlayerSystem
             Player newPlayer = Instantiate(CharacterPrefabRegistry.Prefabs[character], spawnPositions[availablePositions[randomIndex]], Quaternion.identity);
             availablePositions.RemoveAt(randomIndex);
             // Initialize player information
-            PlayerRegistry.RegisterPlayer(newPlayer);
             newPlayer.Death.SetBoss(boss);
             // Inventory info?
         }
