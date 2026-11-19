@@ -91,6 +91,7 @@ namespace PlayerSystem
          */
         public Vector2 GetAimDirection(Vector2 origin)
         {
+
             Vector2 aim = playerInput.currentControlScheme == KeyboardMouseScheme
                 ? GetPointerWorldPosition() - origin : aimAction.ReadValue<Vector2>();
 
@@ -111,10 +112,21 @@ namespace PlayerSystem
             return camera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, depth));
         }
 
-        private void OnFirePerformed(InputAction.CallbackContext context) => FirePressed?.Invoke();
+        private void OnFirePerformed(InputAction.CallbackContext context) 
+        {
+            if (!IsOwner) {return;}
+            FirePressed?.Invoke();
+        }
+        private void OnUseToolPerformed(InputAction.CallbackContext context) 
+        {
+            if (!IsOwner) {return;}
+            UseToolPressed?.Invoke();
+        }
 
-        private void OnUseToolPerformed(InputAction.CallbackContext context) => UseToolPressed?.Invoke();
-
-        private void OnUseToolAltPerformed(InputAction.CallbackContext context) => UseToolAltPressed?.Invoke();
+        private void OnUseToolAltPerformed(InputAction.CallbackContext context) 
+        {
+            if (!IsOwner) {return;}
+            UseToolAltPressed?.Invoke();
+        }
     }
 }
