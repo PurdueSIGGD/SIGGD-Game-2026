@@ -1327,6 +1327,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8421198743664123506, guid: b98f1abfa783643768069936ce5cf459, type: 3}
+      propertyPath: m_InScenePlacedDisabledByDefault
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8421198743664123506, guid: b98f1abfa783643768069936ce5cf459, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
       value: 340291444
       objectReference: {fileID: 0}
@@ -1369,6 +1373,14 @@ PrefabInstance:
     - target: {fileID: 3751317167543729741, guid: b98f1abfa783643768069936ce5cf459, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697862634773281175, guid: b98f1abfa783643768069936ce5cf459, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697862634773281175, guid: b98f1abfa783643768069936ce5cf459, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8890638956503321124, guid: b98f1abfa783643768069936ce5cf459, type: 3}
       propertyPath: m_Name
