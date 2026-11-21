@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using Unity.Netcode;
 using Extensions.Singleton;
 
 public class ProjectileManager : Singleton<ProjectileManager>
@@ -28,6 +29,8 @@ public class ProjectileManager : Singleton<ProjectileManager>
     {
         // we dont have a way to access transform or rotation so we just 0 them for now and theyll get set when the bullet values are populated
         GameObject newBullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+        var bulletNetworkObject = newBullet.GetComponent<NetworkObject>();
+        bulletNetworkObject.Spawn();
         newBullet.SetActive(false);
         return newBullet;
     }
