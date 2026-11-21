@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.Splines;
+using Unity.Mathematics;
 
 
 public class Bullet : MonoBehaviour

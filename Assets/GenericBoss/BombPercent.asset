@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668206befc345f443a93ccb2fdf998a5, type: 3}
   m_Name: BombPercent
   m_EditorClassIdentifier: Assembly-CSharp::AttackPercents
-  <ChanceWeights>k__BackingField: 01000000
+  <ChanceWeights>k__BackingField: 00000000
   <Attack>k__BackingField: {fileID: 11400000, guid: 3de8a7d431b5cde4f8504d6f415688bd, type: 2}
