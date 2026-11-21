@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.Splines;
+using FMODUnity;
 
 
 public class Bullet : MonoBehaviour
@@ -25,12 +26,14 @@ public class Bullet : MonoBehaviour
     private Vector3 curTarget;
     private bool initialzedTarget = false;
     public bool DestroyOnHit { get; set; } = true;
+    private Camera mainCamera;
 
     private void Awake()
     {
         bulletRB = gameObject.GetComponent<Rigidbody2D>();
         bulletSR = gameObject.GetComponent<SpriteRenderer>();
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
+        mainCamera = Camera.main;
     }
 
     // The Vector3.MoveTowards will need to be changed to a Lerp or some sort of physics based movement to move more smoothly but thats for later
@@ -85,7 +88,12 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if (lifetime > 0)
+        bool isOffScreen = CheckIfOffScreen();
+        if (isOffScreen)
+        {
+            DestroyBullet();
+        }
+        else if (lifetime > 0)
         {
             lifetime -= 1f * Time.deltaTime;
 
@@ -101,7 +109,7 @@ public class Bullet : MonoBehaviour
                 // call some sort of blow up function eventually when that gets made
             }
 
-            ProjectileManager.Instance.ProjectilePool.Release(gameObject);
+            DestroyBullet();
         }
     }
 
@@ -185,8 +193,20 @@ public class Bullet : MonoBehaviour
         {
             hasHit = true;
 
-            ProjectileManager.Instance.ProjectilePool.Release(gameObject);
+            DestroyBullet();
         }
+    }
+
+    private void DestroyBullet()
+    {
+        ProjectileManager.Instance.ProjectilePool.Release(gameObject);
+    }
+
+    private bool CheckIfOffScreen()
+    {
+        Vector2 screenPosition = mainCamera.WorldToScreenPoint(transform.position);
+        return (screenPosition.x < 0 || screenPosition.x > mainCamera.pixelWidth || 
+        screenPosition.y < 0 || screenPosition.y > mainCamera.pixelHeight);
     }
 
     public bool GetIsExplosive() { return isExplosive; }
