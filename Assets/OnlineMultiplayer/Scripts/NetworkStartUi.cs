@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class NetworkStartUIi : MonoBehaviour
@@ -29,6 +30,11 @@ public class NetworkStartUIi : MonoBehaviour
     public void StartHost()
     {
         NetworkManager.Singleton.StartHost();
+        var status = NetworkManager.Singleton.SceneManager.LoadScene("MultiplayerTest", LoadSceneMode.Single);  
+        if (status != SceneEventProgressStatus.Started)
+        {
+            Debug.LogError($"Failed to start scene load: {status}");
+        }
     }
 
     public void StartClient()
