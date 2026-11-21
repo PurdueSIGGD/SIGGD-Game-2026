@@ -25,8 +25,7 @@ public class ProjectileScriptableObject : ScriptableObject
 
     // Spline stuff
     public bool HasSpline;
-    [SerializeField] private SplineContainer SplineContainer;  // This is really just a holder and used to assign the spline object
-    public Spline Spline; // the spline itself (what bullet uses to move the bullet along a pattern)
+    public SplineContainer SplineContainer;  // The holder of the spline that bullet script will use to trace the bullet pattern
 
     // everything from here downward used the sprite assigned to generate a polygoncollider so that only one collider has to be made and then the sprite and collider are just applied 
     public List<Vector2[]> PhysicsPaths = new List<Vector2[]>();
@@ -54,21 +53,24 @@ public class ProjectileScriptableObject : ScriptableObject
         }
 
         // use the stored spline object to get the spline container
-        Spline = null;
         HasSpline = false;
 
         if (SplineContainer != null)
         {
+            // check to make sure the spline container has at least one spline
             if (SplineContainer[0] != null)
             {
-                Spline = SplineContainer[0];
                 HasSpline = true;
+            }
+            else
+            {
+                Debug.LogError("Given SplineContainer doesn't contain any splines");
             }
         }
 
         if ((BulletLayerSelector.value & (BulletLayerSelector.value - 1)) != 0)
         {
-            Debug.LogWarning("Multiple layers selected for a projectiles layer. Ensure only on layer is selected in the BulletLayerSelector.");
+            Debug.LogError("Multiple layers selected for a projectiles layer. Ensure only on layer is selected in the BulletLayerSelector.");
             BulletLayer = 0; // set to default so that it does hold a value it just wont work
         } 
         else
