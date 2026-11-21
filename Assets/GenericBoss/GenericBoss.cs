@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
+using System.Linq;
+using System.Collections.Generic;
 
 
 public class GenericBoss : MonoBehaviour, IDamageable
@@ -20,6 +22,11 @@ public class GenericBoss : MonoBehaviour, IDamageable
     [ShowInInspector, ReadOnly] public float CurrentHealth { get; private set; }
     [ShowInInspector, ReadOnly] public float MaxHealth { get; private set; }
     [ShowInInspector, ReadOnly] public bool IsAlive { get; private set; } = true;
+
+    [SerializeField] private int bossSectionsCount;
+    [SerializeField] private GameObject bossSectionPrefab;
+    [SerializeField] private float yOffset = -50;
+    [SerializeField] private List<GameObject> sectionList = new();
 
     /// <summary>
     /// Applies damage done to boss and updates related parts (i.e. health, phase, death)
@@ -91,6 +98,14 @@ public class GenericBoss : MonoBehaviour, IDamageable
     }
     void Start()
     {
+        Vector3 sectionPosition = new Vector3((-(bossSectionPrefab.transform.localScale.x * bossSectionsCount) / 2) - (bossSectionPrefab.transform.localScale.x / 2), yOffset, 0);
+        for (int i = 0; i < bossSectionsCount; i++)
+        {
+            sectionPosition.x += bossSectionPrefab.transform.localScale.x;
+            GameObject section = Instantiate(bossSectionPrefab, sectionPosition, Quaternion.identity);
+            sectionList.Add(section);
+        }
+        
         Debug.Assert(bossData.PhaseHealthBoundaries.Length > 0, "Missing Full Health Phase");
         MaxHealth = bossData.PhaseHealthBoundaries[0];
         CurrentHealth = MaxHealth;
