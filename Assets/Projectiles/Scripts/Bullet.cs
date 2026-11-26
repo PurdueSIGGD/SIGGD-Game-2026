@@ -75,7 +75,7 @@ public class Bullet : MonoBehaviour
                 // if we are on first spline of 2 add offset position and set index to 1
                 if (activeSplineIndex == 0)
                 {
-                    curAnchorPosition += rotatedEndPos;
+                    //curAnchorPosition += rotatedEndPos;
                     splineProgress = 0;
                     activeSplineIndex = 1;
                 }
@@ -152,7 +152,7 @@ public class Bullet : MonoBehaviour
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
-        bulletRotation = (Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg); // may need a -90 degree offset cuz im assuming people want to design down to up since thats how the projectiles are gonna be moving in game
+        bulletRotation = (Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg) - 90; // may need a -90 degree offset cuz im assuming people want to design down to up since thats how the projectiles are gonna be moving in game
         bulletRB.rotation = bulletRotation;
 
         curAnchorPosition = transform.position;

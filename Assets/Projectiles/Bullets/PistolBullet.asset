@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScriptableObject
   IsExplosive: 0
   Damage: 5
-  Lifetime: 15
-  Velocity: 20
+  Lifetime: 1500
+  Velocity: 5
   SpriteAngleOffset: 0
   ProjectileSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   ProjectileColor:
@@ -30,4 +30,4 @@ MonoBehaviour:
     m_Bits: 8192
   BulletLayer: 13
   HasSpline: 1
-  SplineContainer: {fileID: 8484869219669740162, guid: fd283cc7bc7247e4397cf75739651129, type: 3}
+  SplineContainer: {fileID: 3378207656104747078, guid: 1136ebd8463d2924d8163fc4345bd7fc, type: 3}
