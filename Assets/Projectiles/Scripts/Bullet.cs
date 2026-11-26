@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.Splines;
+using Unity.Mathematics;
 
 
 public class Bullet : MonoBehaviour
@@ -15,15 +16,18 @@ public class Bullet : MonoBehaviour
     private SpriteRenderer bulletSR;
     private PolygonCollider2D bulletCollider;
     private float velocity;
-    private Spline spline;
-    private int currentKnotIndex = 0;
-    private int nextKnotIndex = 0;
+    private SplineContainer splineContainer;
+    private float bulletRotation;
 
     private bool hasHit = false; // track if bullet has hit something yet
 
-    private float bulletRotation;
-    private Vector3 curTarget;
-    private bool initialzedTarget = false;
+    // TODO after spline refactor fix the uncoming bug with values not getting reset when the bullet is pooled. Stuff like layers and this spline stuff will need to get reset to default when bullet re pools itself and also move the velocity cancel stuff from ProjectileManager to here
+
+    private int activeSplineIndex;
+    private float splineProgress;
+    private Vector3 curAnchorPosition;
+    private Quaternion rotationQuat;
+
     public bool DestroyOnHit { get; set; } = true;
 
     private void Awake()
@@ -32,55 +36,71 @@ public class Bullet : MonoBehaviour
         bulletSR = gameObject.GetComponent<SpriteRenderer>();
         bulletCollider = gameObject.GetComponent<PolygonCollider2D>();
     }
+    
 
-    // The Vector3.MoveTowards will need to be changed to a Lerp or some sort of physics based movement to move more smoothly but thats for later
     private void MoveAlongSpline()
     {
-        // get knot at index
-        BezierKnot curKnot = spline[currentKnotIndex];
+        Spline activeSpline = splineContainer.Splines[activeSplineIndex];
+        float splineLength = activeSpline.GetLength();
 
-        nextKnotIndex = currentKnotIndex + 1;
-
-        // if we are at end of spline reset to start
-        if (nextKnotIndex >= spline.Count)
+        // if the spline has no length then dont move the bullet
+        if (splineLength <= 0)
         {
-            currentKnotIndex = 0;
-            curKnot = spline[currentKnotIndex];
-            nextKnotIndex = currentKnotIndex + 1;
+            transform.position = curAnchorPosition;
+            return;
+        }
+        // might have to add check for length being 0 but for not now having it so that in theory a full line splie could chain into one that moves between 0,0,0 and 0,0,0 so that it stays stationary
+
+        // advance progress
+        splineProgress += (velocity * Time.deltaTime) / splineLength;
+
+        // if spline is complete
+        if (splineProgress >= 1)
+        {
+            float overflowProgress = splineProgress - 1;
+
+            Vector3 localEndPos = activeSpline.EvaluatePosition(1);
+            Vector3 rotatedEndPos = rotationQuat * localEndPos;
+
+            // if theres 1 spline
+            if (splineContainer.Splines.Count == 1)
+            {
+                // just move offset and kwwp moving along spline
+                curAnchorPosition += rotatedEndPos;
+                splineProgress = 0;
+            }
+            // if theres 2 splines
+            else if (splineContainer.Splines.Count == 2)
+            {
+                // if we are on first spline of 2 add offset position and set index to 1
+                if (activeSplineIndex == 0)
+                {
+                    //curAnchorPosition += rotatedEndPos;
+                    splineProgress = 0;
+                    activeSplineIndex = 1;
+                }
+                // if we are on the second spline it should just loop so reset progress
+                else
+                {
+                    splineProgress = 0;
+                }
+            }
+
+            // incrase active spline index was changed reset active spline
+            activeSpline = splineContainer.Splines[activeSplineIndex];
         }
 
-        BezierKnot nextKnot = spline[nextKnotIndex];
+        // moving object along spline
+        // get local position
+        Vector3 localPos = activeSpline.EvaluatePosition(splineProgress);
+        Vector3 localTan = activeSpline.EvaluateTangent(splineProgress);
 
-        // set the target at the beginning of moving one spline to another since the target wont change at all until the bullet reaches it
-        if (initialzedTarget == false)
-        {
-            float cos = Mathf.Cos(bulletRotation);
-            float sin = Mathf.Sin(bulletRotation);
+        // rotate it in the correct direction
+        Vector3 worldOffset = rotationQuat * localPos;
+        Vector3 worldTan = rotationQuat * localTan;
 
-            float changeInX = nextKnot.Position.x - curKnot.Position.x;
-            float changeInY = nextKnot.Position.y - curKnot.Position.y;
-
-            float xMoveAmount = changeInX * cos - changeInY * sin;
-            float yMoveAmount = changeInX * sin - changeInY * cos;
-
-            // move the actual bullet by the move amount
-            curTarget = new Vector3(transform.position.x + xMoveAmount, transform.position.y + yMoveAmount, 0);
-
-            initialzedTarget = true;
-        }
-        // calculate how much it should move based on velocity then move it
-        float step = velocity * Time.deltaTime;
-
-        Vector3 moveVector = Vector3.MoveTowards(transform.position, curTarget, step); // cpuld swap this for a smoothdamp/lerp to give a more smooth feeling
-
-        gameObject.transform.position = new Vector3(moveVector.x, moveVector.y, 0);
-
-        // now that the move has happened check if the current position is at the nextKnot position and increment index if so
-        if ((gameObject.transform.position - curTarget).sqrMagnitude < 0.0001f)
-        {
-            currentKnotIndex += 1;
-            initialzedTarget = false;
-        }
+        transform.position = curAnchorPosition + worldOffset;
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(worldTan.y, worldTan.x) * Mathf.Rad2Deg);
     }
 
     private void Update()
@@ -110,9 +130,6 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public void PopulateBulletValues(ProjectileScriptableObject projectileScriptableObject, Transform firePoint, Vector2 shootDirection)
     {
-        currentKnotIndex = 0;
-        initialzedTarget = false;
-
         bulletRB.angularVelocity = 0f; // reset angular velocity just incase its not 0 before firing
 
         isExplosive = projectileScriptableObject.IsExplosive;
@@ -135,13 +152,19 @@ public class Bullet : MonoBehaviour
 
         // rotate bullet
         Vector2 finalDirection = Quaternion.Euler(0, 0, projectileScriptableObject.SpriteAngleOffset) * shootDirection;
-        bulletRotation = Mathf.Atan2(finalDirection.y, finalDirection.x);
-        bulletRB.rotation = bulletRotation * Mathf.Rad2Deg;
+        bulletRotation = (Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg) - 90; // may need a -90 degree offset cuz im assuming people want to design down to up since thats how the projectiles are gonna be moving in game
+        bulletRB.rotation = bulletRotation;
+
+        curAnchorPosition = transform.position;
+
+        rotationQuat = Quaternion.Euler(0f, 0f, bulletRotation);
+        activeSplineIndex = 0;
+        splineProgress = 0f;
 
         // if have a spline thatll determine velocity and shooting stuff so set rigidbody velocity to 0 this will totally not cause unexpected issues later what are you talking about
         if (projectileScriptableObject.HasSpline)
         {
-            spline = projectileScriptableObject.Spline;
+            splineContainer = projectileScriptableObject.SplineContainer;
         }
         else
         {
